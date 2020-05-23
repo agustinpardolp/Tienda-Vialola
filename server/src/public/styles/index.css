@@ -1,0 +1,680 @@
+/* CSS RESET */
+:root {
+  --fontVar: "Sulphur-Point";
+  --mainColorFont: #faebd7;
+  --secondaryColorFont: rgb(56, 54, 53);
+  --headerBackground: (#f5f5dc);
+}
+html,
+body {
+  font-family: var(--fontVar);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+ 
+}
+
+/* #app {
+  position: relative;
+} */
+
+/* SMARTHPT */
+
+@media (min-width: 769px) and (max-width: 2400px) {
+  #mainImage {
+    background-size: cover;
+    height: 100vh;
+    /* vh permite ocupar el 100% real visual del heigth no importa el tamaño que tenga la oantalla */
+    width: 100%;
+    background: url("/assets/img/img-products/quinquela.jpg") no-repeat fixed
+      center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mainImage a {
+    color: rgba(255, 255, 255, 0.774);
+    font-size: 20px;
+    font-family: var(--fontVar);
+    border: 1px solid white;
+    border-radius: 20%;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    left: 45%;
+    bottom: 1em;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 0 2em;
+
+    position: absolute;
+    text-decoration: none;
+  }
+
+  .btn-2 {
+    letter-spacing: 0;
+  }
+  .btn-2:hover,
+  .btn-2:active {
+    letter-spacing: 2px;
+    transition: all 280ms ease-in-out;
+  }
+
+  /* CAROUSEL */
+
+  /* PAGE TRANSITION */
+  .pageTransition {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e3f2fd;
+    font-family: var(--fontVar);
+  }
+  .wrapper {
+    position: absolute;
+  }
+  #imgHomeTest {
+    position: relative;
+    background: url("/assets/img/img-products/logo.jpg");
+    /* IMP poner el background img div con  "background solo y desde assets, no desde la ruta normal. 
+    Sino webpack no lo encuentra!!!!!!!!*/
+    height: 600px;
+  }
+}
+
+/* MAIN HOME OPTIONS */
+
+#homeContainers {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+.homeOptions {
+  /* position: relative;
+  align-items: stretch;
+  text-align: center;
+  padding: 1rem;
+  flex: 1;
+  margin: 0.3rem;
+  height: 300px; */
+}
+
+.title-content {
+}
+
+.homeImg {
+  width: 350px;
+  height: 450px;
+  background: goldenrod;
+}
+.img-products {
+  width: 100%;
+  height: 100%;
+}
+.optionName:hover {
+  color: grey;
+  text-decoration: none;
+  transition: all 0.4s linear;
+}
+#products {
+  position: relative;
+}
+
+/* LOGIN */
+.login-heading {
+  font-family: var(--fontVar);
+  display: flex;
+  justify-content: center;
+  margin-left: 83px;
+  margin-bottom: 50px;
+  color: #4f4e60;
+  font-size: 20px;
+  margin-left: 55px;
+  text-align: right;
+  justify-content: flex-start;
+}
+.login {
+  display: flex;
+  margin-top: 20px;
+}
+.login div {
+  flex: 1;
+}
+.login-img {
+  /* background-color: red; */
+  background: url("/assets/img/img-products/fondo.jpg") no-repeat center
+    center/cover;
+  padding: 2px;
+  margin: 10px;
+  height: 500px;
+}
+.login-container {
+  margin: auto;
+  margin-top: 50px;
+  border: #4f6f61 solid 1px;
+  border-radius: 5px;
+  margin-bottom: 220px;
+  margin-left: 15px;
+  margin-right: 18px;
+  margin-top: 19px;
+  padding-top: 60px;
+
+  /* top:50%; */
+}
+.login-ul-form {
+  padding-left: 0px;
+  display: inline-flex;
+}
+
+.login-ul-form label {
+  padding: 0.5em 1em 0.5em 0;
+  flex: 1;
+  color: #4f4e60;
+  font-size: 12px;
+  text-align: center;
+}
+.login-li {
+  justify-content: flex-start; /*alinea los li*/
+  padding: 0.5em;
+  list-style: none;
+}
+.login-input {
+  border-radius: 5px;
+  width: 170px;
+  height: 30px;
+}
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 50px;
+  border-bottom-width: 0px;
+  margin-bottom: 19px;
+  background-color: ivory;
+}
+
+/* MODALS */
+/* ERROR MODAL */
+
+.btn-modal-error {
+  margin-left: 30px;
+  margin-top: 80px;
+  background-color: burlywood;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.h2-modal-error {
+  margin-top: 25px;
+  margin-left: 20px;
+  border-bottom: #4f4e60 solid 1px;
+  margin-bottom: 0px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+}
+
+.p-modal-error {
+  margin-left: 20px;
+  margin-top: 30px;
+  border-top-width: 1px;
+  padding-top: 0px;
+}
+
+.right-menu {
+  float: right;
+}
+
+.up-arrow {
+  width: 6vmin;
+  height: 6vmin;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: rotate(-45deg);
+}
+.down-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sidebar-btn-container {
+  margin-right: 25px;
+  margin-top: 70px;
+  position: relative;
+  z-index: 1000000000;
+  color: white;
+}
+.option-btn-container {
+  margin-right: 22px;
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.main-tittle {
+  color: var(--mainColorFont);
+  font-size: 100px;
+  /* text-decoration: none; */
+}
+.secondary-tittle {
+  color: var(--mainColorFont);
+  /* text-decoration: none; */
+  /* margin-left: 40%;
+  width: 90%; */
+}
+
+.div-main-bordered {
+  position: absolute;
+  border: ghostwhite 0.5px solid;
+  z-index: 1000000000000;
+  height: 400px;
+  right: 230px;
+  left: 200px;
+  top: 150px;
+}
+.div-main-tittle {
+  width: 100%;
+  /* position: absolute; */
+  top: 205px;
+  /* margin-left: 67px; */
+  -webkit-transition: background 0.25s ease-in-out;
+}
+
+/* nuevo estilo */
+
+#home-image {
+  background-size: cover;
+  height: 100vh;
+  /* vh permite ocupar el 100% real visual del heigth no importa el tamaño que tenga la oantalla */
+  width: 100%;
+  background: url("/assets/img/img-products/quinquela.jpg") no-repeat fixed
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+#home-image2 {
+  background-size: cover;
+  height: 100vh;
+  /* vh permite ocupar el 100% real visual del heigth no importa el tamaño que tenga la oantalla */
+  width: 100%;
+  background: url("/assets/img/img-products/vacaciones.jpg") no-repeat fixed
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+#home-image3 {
+  background-size: cover;
+  height: 100vh;
+  /* vh permite ocupar el 100% real visual del heigth no importa el tamaño que tenga la oantalla */
+  width: 100%;
+  background: url("/assets/img/img-products/todos.jpg") no-repeat fixed center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.sidebar-container {
+  position: absolute;
+  left: 1115px;
+  top: 240px;
+  font-size: 25px;
+  width: 100px;
+  color: var(--mainColorFont);
+}
+.sidebar-options-container {
+  width: 180px;
+}
+.sidebar-option {
+  margin-bottom: 10px;
+}
+.navbar-container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 85px;
+  padding-top: 30px;
+  padding-left: 41px;
+  border-bottom: 0.5px solid #efeeee;
+  box-shadow: 1px 1px 3px #e4dede;
+}
+
+.cart {
+  margin-top: 7px;
+  color: var(--mainColorFont);
+  font-size: 20px;
+}
+
+.menu-title {
+  margin-right: 45px;
+  color: var(--mainColorFont);
+}
+
+.menu-list {
+  display: none;
+}
+
+.menu-list-show {
+  display: inline-flex;
+  color: var(--mainColorFont);
+  text-decoration: solid;
+  list-style: none;
+  margin-right: 30px;
+  font-size: 22px;
+  transform: translate(100px, 0);
+  transform: translate(-100px, 0);
+  -webkit-transition: all 2s ease-in-out;
+}
+.menu-list-show li {
+  margin-left: 20px;
+}
+
+.home-option-container {
+  display: grid;
+  justify-content: left;
+}
+
+.home-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+.home-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+#home-link {
+  text-decoration: none;
+}
+
+#home-link:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*TRANSITION STYLES0*/
+
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active,
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.transition-container {
+  position: relative;
+}
+
+.route-section {
+  position: absolute;
+}
+
+/*ESTILO PRUEBA*/
+.main-container {
+  display: grid;
+  grid-template-columns: 27% 27% 27%;
+  margin-top: 4%;
+  justify-content: center;
+  margin-bottom: 7%;
+  width: 100%;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(77, 77, 77, 0.9);
+  color: white;
+  opacity: 0;
+  transition: all 0.5s;
+  font-family: "Playfair Display", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay:hover {
+  opacity: 1;
+  text-decoration: none !important;
+}
+.items {
+  display: grid;
+}
+
+.head {
+  font-size: 30px;
+  line-height: 40px;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+
+.head > hr {
+  display: block;
+  width: 0;
+  border: none;
+  border-bottom: solid 2px #fef5df;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  transition: all 0.5s;
+}
+
+.price {
+  font-size: 22px;
+  line-height: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+
+.price > .old {
+  text-decoration: line-through;
+  color: lighten(rgb(77, 77, 77), 40%);
+}
+
+.cart {
+  font-size: 12px;
+  opacity: 0;
+  letter-spacing: 1px;
+  font-family: "Lato", sans-serif;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+.cart > i {
+  font-size: 16px;
+}
+
+.cart > span {
+  margin-left: 10px;
+}
+.container:hover .overlay {
+  opacity: 1;
+}
+.container > hr {
+  width: 75px;
+  transition-delay: 0.4s;
+}
+.head {
+  transform: translateY(0px);
+}
+.price {
+  transform: translateY(0px);
+  transition-delay: 0.3s;
+  opacity: 1;
+}
+.cart {
+  transform: translateY(0px);
+  transition-delay: 0.6s;
+  opacity: 1;
+}
+.btn-cart {
+  background: #fef5df;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+/* ----------------------------------------- */
+.product-content {
+  height: 700px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 300px 350px;
+  align-items: center;
+}
+.product-content__img {
+  background: url("/assets/img/img-products/quinquela.jpg");
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
+}
+.product-content__img:hover {
+  transform: translate(20px, 10px);
+  transition-duration: 2s;
+}
+
+.product-content__info-container {
+  margin: 10%;
+  display: inline;
+  justify-content: center;
+}
+
+.product-content__button-cart {
+  border-radius: 6px;
+  box-shadow: none;
+  background: #fffffb;
+  transform: scale(1);
+  transition-duration: 2s;
+}
+
+.product-content__button-cart:hover {
+  transition-duration: 2s;
+  /* transform: rotate(-1turn); */
+  transform: scale(1.1);
+}
+
+/* --------------------- CATEGORIES --------------------------*/
+
+.products-container {
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 25% 25% 25%;
+  justify-content: center;
+}
+.products-container_card {
+  background: red;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+}
+/* .home-container_card-category {
+  transform: translateY(0px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-container_card-category > p {
+  display: block;
+  width: 100%;
+  font-size: 26px;
+  font-family: var(--fontVar);
+  color: var(--secondaryColorFont);
+} */
+
+/* ---------------------PRODUCTS----------------------------- */
+.items-head_name > p {
+  font-family: var(--fontVar);
+  color: var(--mainColorFont);
+  font-size: 24px;
+}
+
+/*--------------------- CART -------------------------------- */
+.cart-content {
+  padding-top: 4%;
+  height: 25vw;
+  display: grid;
+  /* grid-template-rows: 17%; */
+}
+
+.cart-content__item-container {
+  list-style: none;
+  display: grid;
+}
+.cart-content__item-list {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 90vw;
+  list-style: none;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  height: 100px;
+  align-items: center;
+}
+.cart-content__item-list li {
+  font-weight: 600;
+}
+.cart-content__item-list li span {
+  font-weight: 100;
+}
+.cart-content__img-div {
+  height: 90px;
+  margin: auto;
+}
+
+.cart-content__img-div img {
+  height: 100%;
+}
