@@ -43,27 +43,35 @@ Category.create({
 
 Serie.create({
   name: "Indomitos",
+  categoryId:"1"
 })
 Serie.create({
   name: "Naturaleza Salvaje",
+  categoryId:"1"
 })
 Serie.create({
   name: "La Boca",
+  categoryId:"1"
 })
 Serie.create({
   name: "Elementos",
+  categoryId:"1"
 })
 Serie.create({
-  name: "De Fiesta"
+  name: "De Fiesta",
+  categoryId:"1"
 })
 Serie.create({
-  name: "Cajas"
+  name: "Cajas",
+  categoryId:"5"
 })
 Serie.create({
-  name: "Muñecos"
+  name: "Muñecos",
+  categoryId:"5"
 })
 Serie.create({
-  name: "Varios"
+  name: "Varios",
+  categoryId:"5"
 })
 
 
@@ -118,7 +126,7 @@ Product.create({
 });
 Product.create({
   name: "Diablo y pajaro",
-  description: "Oleo sobre lienzo. 90x90",
+  description: "Oleo sobre lienzo. 90x90. ",
   price: 3000,
   stock: 1,
   img: "pintura-indomitos3.jpg",

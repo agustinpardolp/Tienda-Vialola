@@ -1,11 +1,22 @@
 const express = require("express");
 const router = express.Router();
+var Promise = require("bluebird");
 const Category = require("../../db/models/index").Category;
 const Product = require("../../db/models/index").Product;
-
+const Serie = require ("../../db/models/").Serie;
 
 router.get("/categories", function(req, res) {
-  Category.findAll().then(categoryList => res.send(categoryList));
+
+  Category.findAll({
+
+    include: [
+      {
+        model: Serie,
+        as: "series",
+        attributes: ["name"]
+      }]
+  })
+  .then(categoryList => res.send(categoryList))  
 
 });
 

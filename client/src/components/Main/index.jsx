@@ -1,6 +1,6 @@
 import React, {Component } from "react";
 import { connect} from "react-redux";
-import { Route, Switch, __RouterContext } from "react-router-dom";
+import { Route, Switch, __RouterContext, Redirect } from "react-router-dom";
 import styled from 'styled-components';
 // import { fetchloggedUser } from "../../redux/actions/user-actions";
 import NavBarContainer from "../NavBarContainer/navBar";
@@ -28,7 +28,7 @@ const StyledMain = styled.div`
   background-size: cover;
   transition: ${props =>  `${props.pageTransition}`};
   text-align: center;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
  
 `;
 const images =[
@@ -91,10 +91,10 @@ setInitialEffect = () =>{
     return (
       <>
       {/* eslint-disable-next-line no-restricted-globals */}
-        {location.pathname === "/" ? (
+        {/* {location.pathname === "/" ? (
           <Route exact path="/" component={InitialPage} />
-        ) : (
-           //eslint-disable-next-line no-restricted-globals 
+        ) : ( */}
+           {/* eslint-disable-next-line no-restricted-globals  */}
           <StyledMain  img ={this.locationSelector(location.pathname)}
           pageTransition ={this.state.initialEffect} 
           >
@@ -112,13 +112,13 @@ setInitialEffect = () =>{
                 <Route exact path="/gallery/:name" component={ProductsContainer} /> 
                 <Route exact path="/gallery" component={ProductCategories} />
                 <Route path="/gallery/:name/:id" component={ProductContainer} /> 
+            <Redirect from="/" to="/home" />
             </Switch> 
               {/* eslint-disable-next-line no-restricted-globals */}
             {/* {location.pathname == "/home" ?
             null:<Route component={Footer} />
             } */}
           </StyledMain>
-        )}
       </>
     );
   }
@@ -126,7 +126,6 @@ setInitialEffect = () =>{
 
 const mapStateToProps = (state, ownProps) => {
   const { home: { initialEffect, homeImage }} = state;
-  console.log("homeImage", homeImage)
   return {
     initialEffect, //se recive delay de transition o no, para evitar retardo en carga inicial de imagen
     homeImage  //se 

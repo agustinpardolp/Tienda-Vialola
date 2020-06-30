@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button} from "react-bootstrap";
+// import {Form, Button} from "react-bootstrap";
 import styled from 'styled-components';
 
 const StyledContactContainer= styled.div`
@@ -15,16 +15,16 @@ const StyledMainContainer = styled.div`
     display: grid;
     grid-template-rows: 25% 30%; 
 `;
-const StyledForm = styled(Form)`
-    width:100%;
-    label{
-        color: black;
-    }
-    #formBasicEmail:placeholder-shown{
-        color:white !important;
-    }
+// const StyledForm = styled(Form)`
+//     width:100%;
+//     label{
+//         color: black;
+//     }
+//     #formBasicEmail:placeholder-shown{
+//         color:white !important;
+//     }
     
-`;
+// `;
 
 const StyledDivSocial = styled.div`
     display: grid;
@@ -42,23 +42,23 @@ const StyledDivSocial = styled.div`
         color: #ffdc8d;
     }
 `;
-const StyledFormImput = styled(Form.Control)`
-background-color:rgba(255,255,255,0.5)!important;
-color:black !important;
-width:100%;
-`;
+// const StyledFormImput = styled(Form.Control)`
+// background-color:rgba(255,255,255,0.5)!important;
+// color:black !important;
+// width:100%;
+// `;
   
-const StyledButton = styled(Button)`
-background-color: #596f5d !important;
-border:none !important;
-`;
+// const StyledButton = styled(Button)`
+// background-color: #596f5d !important;
+// border:none !important;
+// `;
 
 
 export default function Contact() {
     return (
         <StyledContactContainer>
         <StyledMainContainer>  
-            <StyledDivSocial>
+            {/* <StyledDivSocial>
                 <span>Instagram: <h4> @dibujanta</h4></span>
                 <span>Twitter: <h4>@loladibujanta</h4></span>
             </StyledDivSocial>
@@ -79,7 +79,7 @@ export default function Contact() {
             Submit
             </StyledButton>
 
-        </StyledForm>
+        </StyledForm> */}
       </StyledMainContainer>  
     </StyledContactContainer>
     )

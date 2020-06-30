@@ -4,64 +4,49 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import Footer from "../FooterContainer/";
 import { fetchProductsCategories } from "../../redux/productsCategories/actions/product-categories-actions";
+import { OverlayAnimation } from "../../utils/baseStyleAnimations";
 
 const CategoriesContainer = styled.div`
   width: 100%;
-  margin-top:5%;
-  margin-bottom:3%;
-  display:flex;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const StyledCardCategory = styled.div`
-  height:60vh;
-  width:15%;
-  margin:0.5%;
-  background: ${props =>  `url("${process.env.PUBLIC_URL}/images/img-products/${props.category}/${props.img}") center;`};
-  object-fit:contain;
+  height: 60vh;
+  width: 15%;
+  margin: 0.5%;
+  background: ${(props) =>
+    `url("${process.env.PUBLIC_URL}/images/img-products/${props.category}/${props.img}") center;`};
+  object-fit: contain;
   -webkit-background-size: cover;
-    transition-duration: 2s;
-     &:hover {
-      transform: scale(1.1, 1.1);
-  } 
-`;
-
-const Overlay = styled.div`
-  width: 100%;
-  height: 100%;
-  background: white;
-  color: black;
-  opacity: 0;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:hover{
-  opacity: 0.5;
-  text-decoration: none !important;
+  transition-duration: 2s;
+  &:hover {
+    transform: scale(1.1, 1.1);
   }
 `;
+
 const MenuCart = styled.div`
   display: flex;
   justify-content: space-around;
   width: 50%;
-  
 `;
 const StyledLink = styled(Link)`
   text-decoration: none !important;
   display: block;
   width: 100%;
   font-size: 35px;
-  text-transform:capitalize;
+  text-transform: capitalize;
   font-family: var(--fontVar);
   display: flex;
-    align-items: center;
-    justify-content: center;
-    height:100%;
-
-  }
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
+
 const StyledCategoryTittle = styled.span`
   text-decoration: none !important;
   transition: all 0.5s;
@@ -80,35 +65,38 @@ export function ProductCategories(props) {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 3,
-    speed: 500
+    speed: 500,
   };
 
   useEffect(() => {
-    props.fetchProductsCategories()
-
+    props.fetchProductsCategories();
   }, []);
 
-  const handleChange = selectedCategory => {
+  const handleChange = (selectedCategory) => {
     setSelectedCategory(selectedCategory);
   };
 
   return (
     <>
-    
-     <CategoriesContainer>
-          {props.productsCategories && props.productsCategories.map((category)=>{
-            return(
-              <StyledCardCategory key = {category.id}img={category.img} category ={category.name}>
-                <StyledLink to= {`/gallery/${category.name.toLowerCase()}`}>
-                <Overlay>
-                <StyledCategoryTittle>{category.name}</StyledCategoryTittle>
-               </Overlay>
+      <CategoriesContainer>
+        {props.productsCategories &&
+          props.productsCategories.map((category) => {
+            return (
+              <StyledCardCategory
+                key={category.id}
+                img={category.img}
+                category={category.name}
+              >
+                <StyledLink to={`/gallery/${category.name.toLowerCase()}`}>
+                  <OverlayAnimation>
+                    <StyledCategoryTittle>{category.name}</StyledCategoryTittle>
+                  </OverlayAnimation>
                 </StyledLink>
               </StyledCardCategory>
-          )
+            );
           })}
       </CategoriesContainer>
-      <Footer back = "/home"/>
+      <Footer back="/home" />
     </>
   );
 }
@@ -116,12 +104,12 @@ export function ProductCategories(props) {
 const mapStateToProps = (state, ownProps) => {
   const {
     productsCategories: { data: productsCategories },
-    products: { data: products, status: status }
+    products: { data: products, status: status },
   } = state;
   return {
     productsCategories,
     products,
-    status
+    status,
   };
 };
 

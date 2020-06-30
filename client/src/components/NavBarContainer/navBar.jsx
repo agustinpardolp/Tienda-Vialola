@@ -86,7 +86,10 @@ link:hover {
   transition: all 0.4s ease 0s;
 }
 `;
+const SubMenu = styled.div`
+list-style: none;
 
+`;
 export function NavBar(props) {
   const {pathname} = props.location
   const path = pathname && pathname.split('/')[1]
