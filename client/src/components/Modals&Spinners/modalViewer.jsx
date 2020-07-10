@@ -31,7 +31,6 @@ const StyledCancelButton = styled(Icon)`
 `;
 
 const StyledModal = styled.div`
-  background: white;
   width: ${(props) => (props.width ? props.width : "100%")};
   height: ${(props) => (props.width ? props.height : "100%")};
 `;
@@ -68,7 +67,7 @@ const StyledModalFooter = styled.div``;
 
 const StyledDivImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 100%;
   padding: 2%;
   justify-content: center;
   height: 100%;
@@ -198,7 +197,7 @@ export default function ModalViewer({
                     {backButtonText}
                   </StyledCancelButton>
                 </div> */}
-                <ul>
+                {/* <ul>
                   <li>
                     {" "}
                     <h3>{name}</h3>
@@ -206,8 +205,8 @@ export default function ModalViewer({
                   <li>Technique: {description}</li>
                   <li>Category: {category.name}</li>
                   <li>Date: 2004</li>
-                </ul>
-                <Accordion panels={AccordionData.data} />
+                </ul> */}
+                {/* <Accordion panels={AccordionData.data} /> */}
               </StyledImageInfo>
             </StyledDivImageContainer>
 

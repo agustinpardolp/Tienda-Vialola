@@ -1,9 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useModal from "react-hooks-use-modal";
-import {FadeIn} from '../ImageSlider/style';
+import { FadeIn } from "../ImageSlider/style";
 import ModalViewer from "../Modals&Spinners/modalViewer";
 import { connect } from "react-redux";
+import {   } from "@fortawesome/react-fontawesome";
+import {
+  faSearchPlus
+} from "@fortawesome/free-solid-svg-icons";
 import {
   Button,
   Dropdown,
@@ -86,6 +90,7 @@ const StyledPhotoDiv = styled.div`
     `url("/images/img-products/${props.category}/${props.img}") no-repeat center;`};
   background-size: cover;
   transition-duration: 2s;
+  position: relative;
   &:hover {
     transform: scale(1.1, 1.1);
   }
@@ -163,27 +168,31 @@ const StyledButtons = styled(Dropdown)`
     transition: all 0.4s ease 0s;
   }
 `;
-
-const StylePhotoPreview = styled.div`
-  height: 700px;
-  width: 700px;
-  background: ${(props) =>
-    `url("/images/img-products/${props.category}/${props.img}") no-repeat center;`};
-  object-fit: contain;
-  background-size: contain;
+const StyledPhotoOverlay = styled.span`
+  width: 100%;
+  background: black;
+  height: 100%;
+  right: 0%;
+  position: absolute;
+  opacity: 0;
+  z-index: 10000;
+  transition: opacity 0.4s ease-in-out;
+  &:hover {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0.5;
+  }
 `;
+const StyledButton = styled(Link)`
+position:absolute;
+border:solid 1px white; 
+color:white;
+padding:1%;
+top: 80%;
+right: 5%;
+opacity:1;
+}
 
-const StyledModalContainer = styled.div`
-  display: flex;
-  align-items: center;
 `;
-
-const StyledMenu = styled(Menu)`
-  opacity: 0.8;
-`;
-
-const StyledModal = styled(Modal)``;
-
 function Products(props) {
   const {
     match: {
@@ -286,8 +295,7 @@ function Products(props) {
   //   setOpenModal(false);
   // };
   const toggleModal = (product) => {
-  
-    setCurrentImage(product)
+    setCurrentImage(product);
     setIsModalOpen(!isModalOpen);
   };
   const [activeItem, setActiveItem] = useState();
@@ -304,7 +312,8 @@ function Products(props) {
                   {option.NAME === "Series" ? (
                     <StyledButtons item text={option.NAME}>
                       <Dropdown.Menu>
-                        {props.productsCategories && props.productsCategories.length ? (
+                        {props.productsCategories &&
+                        props.productsCategories.length ? (
                           menuOptionHandler(props.productsCategories).map(
                             (menuElement) => {
                               return (
@@ -343,43 +352,25 @@ function Products(props) {
                   key={product.id}
                   img={product.img}
                   category={product.category.name}
-                  onClick={(e) => toggleModal(product)}
-                ></StyledPhotoDiv>
+                  // onClick={(e) => toggleModal(product)}
+                >
+                  <StyledPhotoOverlay>
+                    <StyledButton  to ={`/gallery/${product.category.name}/${product.id}`}>More</StyledButton>
+                  </StyledPhotoOverlay>
+                </StyledPhotoDiv>
               </>
-              //   <StyledModal size='small' trigger= {<StyledPhotoDiv
-              //   key={product.id}
-              //   img={product.img}
-              //   category={product.category.name}
-              //   onClick={(e) => openLightbox(product.img, product.category.name)}
-              //   ></StyledPhotoDiv>}>
-              //   <Modal.Header>{product.category.name}</Modal.Header>
-              //   <Modal.Content image>
-              //     <Image
-              //       wrapped
-              //       size="big"
-              //       src={`/images/img-products/${product.category.name}/${product.img}`}
-              //     />
-              //     <Modal.Description>
-              //     <Header>{product.name}</Header>
-              //       <p>
-              //         {product.description}
-              //       </p>
-              //         <p>Serie: {product.serie.name}</p>
-              //     </Modal.Description>
-              //   </Modal.Content>
-              // </StyledModal>
             );
           })}
           <FadeIn duration="2s" delay="0.5s">
-          <ModalViewer
-            width= "60%"
-            height="80%"
-            color='ligthWhite'
-            backgroundClose={true}
-            toogleFunction={toggleModal}
-            show = {isModalOpen}
-            imageData={currentImage}
-          ></ModalViewer>
+            <ModalViewer
+              width="60%"
+              height="80%"
+              color="ligthWhite"
+              backgroundClose={true}
+              toogleFunction={toggleModal}
+              show={isModalOpen}
+              imageData={currentImage}
+            ></ModalViewer>
           </FadeIn>
         </StyledPhotoGrid>
       ) : (
