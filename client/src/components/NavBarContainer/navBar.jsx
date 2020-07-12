@@ -8,7 +8,8 @@ import { NAVBAR } from "../../constants";
 
 
 const NavbarContainer = styled.nav`
-background:rgba(255,255,255,0.5);
+/* background:rgba(255,255,255,0.5); */
+background: #cec6b97a;
 padding-bottom:1%;
 display: flex;
 align-items: center;
@@ -45,7 +46,7 @@ text-decoration: none !important;
 `;
 
 const ShowMenu = styled.ul`
-color:"var(--darkGrey)";
+color:var(--darkGrey);
 padding-top: 6px;
 text-decoration: solid;
 list-style: none;
@@ -60,7 +61,7 @@ transform: translate(-100px, 0);
 
 li {
   margin-left: 40px;
-  color:"var(--darkGrey)";
+  color:var(--darkGrey);
   transition: all 0.4s ease 0s;
 }
 `;
@@ -78,7 +79,7 @@ margin-right: 2%;
 `;
 const LinkStyled = styled(Link)`
 text-decoration: none !important;
-color:  ${props => (props.format? "var(--activeColorFont)!important" : "var(--darkGrey) !important")};
+color:  ${props => (props.format? "rgb(63, 78, 82) !important" : "rgb(93, 121, 128) !important")};
 font-size:${props => (props.format? "26px" : "20px")};
 /* font-weight: ${props => (props.location? "600" : "400")}; */
 link:hover {
@@ -141,4 +142,4 @@ export function NavBar(props) {
   );
 }
 
-export default NavBar;
+export default React.memo(NavBar);

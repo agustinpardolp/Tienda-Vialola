@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import {connect} from "react-redux"
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
+// import Gallery from "react-photo-gallery";
+// import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../../../../back/src/functions/images";
 import {fetchProducts} from "../../redux/products/actions/product-actions"
 

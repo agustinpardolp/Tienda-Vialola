@@ -2,7 +2,8 @@ import { types } from "../../../constants";
 
 const productsCategories = (
   state = {
-    data: []
+    data: [],
+    status: "NOT_LOADED"
   },
   action
 ) => {
@@ -10,17 +11,17 @@ const productsCategories = (
 
   switch (action.type) {
     case types.FETCH_PRODUCTS_CATEGORIES:
-      return { ...state, status: "not loaded" };
+      return { ...state, status: "LOADING" };
 
     case types.FETCH_PRODUCTS_CATEGORIES_SUCCESS:
       return {
         
         ...state,
         data: [ ...data ],
-        status: "loaded"
+        status: "LOADED"
       };
     case types.FETCH_PRODUCTS_CATEGORIES_FAILURE:
-      return { ...state, status: "fail" };
+      return { ...state, status: "FAILED" };
 
     default:
       return state;

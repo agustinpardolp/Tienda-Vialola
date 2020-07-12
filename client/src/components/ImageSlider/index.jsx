@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-export const ImageSlider = (props) => {
-const {IMAGES} = props
+const ImageSlider = (props) => {
+  const { IMAGES } = props;
 
   const [homeImage, setHomeImage] = useState("slide14");
   const [imgsArray, setImgsArray] = useState(IMAGES);
 
   useEffect(() => {
+    props.getImageSlider(homeImage);
 
-    props.getImageSlider(homeImage)
-  
     let imgSelected = OptionSelected();
- 
+
     const timer = setTimeout(() => {
-     
-          setHomeImage(imgSelected);
-         
-        }, 4000)
-        return ()=> clearTimeout(timer);
-        
+      setHomeImage(imgSelected);
+    }, 4000);
+    return () => clearTimeout(timer);
   }, [homeImage]);
 
   const OptionSelected = () => {
@@ -29,14 +25,14 @@ const {IMAGES} = props
       setImgsArray(localImgsArray);
       return imgSelected.NAME;
     } else {
-      setHomeImage("slide14")
+      setHomeImage("slide14");
       resetArray();
-      return "slide14"
+      return "slide14";
     }
   };
 
   const removeItemFromArr = (array, item) => {
-    return array.filter(function(e) {
+    return array.filter(function (e) {
       return e !== item;
     });
   };
@@ -48,4 +44,4 @@ const {IMAGES} = props
   return <></>;
 };
 
-
+export default ImageSlider;
