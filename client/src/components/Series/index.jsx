@@ -1,15 +1,14 @@
 import React, { useState, useCallback, useEffect } from "react";
 
 import { FadeIn } from "../ImageSlider/style";
-import ModalViewer from "../Modals&Spinners/modalViewer";
+
 import { connect } from "react-redux";
-import ProductCards from "./productCards";
+import SerieCards from "./serieCards";
 import Breadcrumb from "../Breadcrumb";
 import styled from "styled-components";
 import Spinner from "../Modals&Spinners/spinner";
 import { fetchProducts } from "../../redux/products/actions/products-actions";
-import Footer from "../FooterContainer/";
-
+import Footer from "../Footer";
 
 const StyledPhotoGrid = styled.div`
   display: grid;
@@ -17,7 +16,7 @@ const StyledPhotoGrid = styled.div`
   margin-left: 3%;
   grid-gap: 0.5%;
   grid-template-columns: repeat(5, 0.5fr);
-  grid-template-rows: repeat(2,0.5fr);
+  grid-template-rows: repeat(2, 0.5fr);
   padding: 3%;
   height: inherit;
   /* display: grid;
@@ -51,54 +50,33 @@ const OptionsMenu = styled.div`
   } */
 `;
 
-
-
-
-function Products(props) {
+function Series(props) {
   const {
     match: {
       params: { name: pathName },
     },
   } = props;
 
-  const [currentImage, setCurrentImage] = useState({});
-
   useEffect(() => {
     props.fetchProducts(pathName);
   }, []);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = (product) => {
-    setCurrentImage(product);
-    setIsModalOpen(!isModalOpen);
-  };
+  console.log("products", products)
   return (
     <>
       {props.status !== "LOADED" ? (
         <Spinner></Spinner>
       ) : (
         <>
-        <Breadcrumb/>
-        <StyledPhotoGrid>
-          {props.products.length &&
-            props.products.map((product, i) => {
-              return (
-                <ProductCards product={product} toggleModal={toggleModal}/>
-              );
-            })}
-          <FadeIn duration="2s" delay="0.5s">
-            <ModalViewer
-              width="60%"
-              height="80%"
-              color="ligthWhite"
-              backgroundClose={true}
-              toogleFunction={toggleModal}
-              show={isModalOpen}
-              imageData={currentImage}
-            ></ModalViewer>
-          </FadeIn>
-        </StyledPhotoGrid>
+          <Breadcrumb />
+          <StyledPhotoGrid>
+            {props.products.length &&
+              props.products.map((product, i) => {
+                return (
+                  <SerieCards product={product}  />
+                );
+              })}
+            <FadeIn duration="2s" delay="0.5s"></FadeIn>
+          </StyledPhotoGrid>
         </>
       )}
     </>
@@ -120,4 +98,4 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
   fetchProducts,
-})(Products);
+})(Series);

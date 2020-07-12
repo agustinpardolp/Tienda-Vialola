@@ -21,7 +21,7 @@ router.get("/categories", function(req, res) {
 });
 
 router.get("/:category/all/", function(req, res) {
-  console.log("params",req.params.category )
+
   Category.findOne({
     where: {
       name: req.params.category

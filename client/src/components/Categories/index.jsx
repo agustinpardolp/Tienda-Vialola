@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Footer from "../FooterContainer/";
+import Footer from "../Footer";
 import { fetchProductsCategories } from "../../redux/productsCategories/actions/product-categories-actions";
 import Spinner from "../Modals&Spinners/spinner";
 import CategoryCard from "./CategoryCard";
@@ -10,7 +10,7 @@ export function ProductCategories(props) {
   useEffect(() => {
     props.fetchProductsCategories();
   }, []);
-console.log("HOLA NEGRA CABUSO", props)
+
   return (
     <>
       {props.status !== "LOADED" ? (

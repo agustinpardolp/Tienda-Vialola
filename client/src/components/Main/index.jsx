@@ -4,11 +4,11 @@ import { Route, Switch, __RouterContext, Redirect } from "react-router-dom";
 
 // import { fetchloggedUser } from "../../redux/actions/user-actions";
 import { BACKGROUND_IMAGES } from "../../constants";
-import NavBarContainer from "../NavBarContainer/navBar";
+import NavBarContainer from "../NavBar/navBar";
 import ImageSlider from "../ImageSlider";
-import Login from "../LoginContainer";
-import ProductCategories from "../ProductCategories";
-import ProductContainer from "../ProductContainer";
+import Login from "../Login";
+import ProductCategories from "../Categories";
+import ProductContainer from "../Product";
 import Cart from "../CartContainer";
 import About from "../AboutContainer";
 import Contact from "../ContactContainer";
@@ -16,7 +16,7 @@ import Spinner from "../Modals&Spinners/spinner";
 import {StyledMain} from "./styledComponents";
 
 // import Footer from "../FooterContainer"
-const ProductsContainer = React.lazy(() => import("../ProductsContainer/"));
+const ProductsContainer = React.lazy(() => import("../Series"));
 
 const images = [
   { NAME: "slide8" },

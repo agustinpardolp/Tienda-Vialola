@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Breadcrumb from "../Breadcrumb";
-import ProductCards from "../ProductsContainer/productCards";
+import ModalViewer from "../Modals&Spinners/modalViewer";
+import ProductCards from "../Series/serieCards";
 import { fetchProductsById } from "../../redux/product/actions/product-actions";
 
 const StyleDiv = styled.div`
@@ -74,7 +75,7 @@ function Product(props) {
     props.fetchProductsById(params.id);
   }, []);
   const productsSerieList = () => {
-    console.log("LALALQL", props.products, props.data);
+
     return (
       props.products &&
       props.data &&
@@ -83,23 +84,12 @@ function Product(props) {
       )
     );
   };
-
-  const settings = {
-    customPaging: function (i) {
-      return (
-        <span>
-          <img src={`${baseUrl}/${i + 1}.jpg`} />
-        </span>
-      );
-    },
-    dots: true,
-    dotsClass: "slick-dots slick-thumb",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState({});
+  const toggleModal = (product) => {
+    setCurrentImage(product);
+    setIsModalOpen(!isModalOpen);
   };
-  console.log("prodseries", productsSerieList());
   return (
     <>
       {/* <Breadcrumb /> */}
@@ -125,6 +115,15 @@ function Product(props) {
         </StyledImageContainer>
       </StyledProductContainer>
       <StyledPhotoGrid>
+      <ModalViewer
+              width="60%"
+              height="80%"
+              color="ligthWhite"
+              backgroundClose={true}
+              toogleFunction={toggleModal}
+              show={isModalOpen}
+              imageData={currentImage}
+            ></ModalViewer>
       {productsSerieList().map((product) => {
         return <ProductCards product={product} />;
       })}

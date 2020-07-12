@@ -43,34 +43,42 @@ Category.create({
 
 Serie.create({
   name: "Indomitos",
+  img: "pintura-indomitos3.jpg",
   categoryId:"1"
 })
 Serie.create({
   name: "Naturaleza Salvaje",
+  img:"pintura-naturaleza1.jpg",
   categoryId:"1"
 })
 Serie.create({
   name: "La Boca",
+  img: "pinturas-boca-1.jpg",
   categoryId:"1"
 })
 Serie.create({
   name: "Elementos",
+  img:"pintura-elementos3.jpg",
   categoryId:"1"
 })
 Serie.create({
   name: "De Fiesta",
+  img:"pintura-festejo1.jpg",
   categoryId:"1"
 })
 Serie.create({
   name: "Cajas",
+  img:"cajaPrincesa.jpg",
   categoryId:"5"
 })
 Serie.create({
   name: "Muñecos",
+  img:"pecesCartapesta.jpg",
   categoryId:"5"
 })
 Serie.create({
   name: "Varios",
+  img:"lapiz7.jpg",
   categoryId:"5"
 })
 
