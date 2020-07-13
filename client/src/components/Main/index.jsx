@@ -59,7 +59,8 @@ const Main = (props) => {
       case "/contact":
         return BACKGROUND_IMAGES.CONTACT;
       default:
-        return BACKGROUND_IMAGES.DEFAULT;
+        // return BACKGROUND_IMAGES.DEFAULT;
+        return
     }
   };
 
@@ -86,9 +87,9 @@ const Main = (props) => {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/gallery" component={ProductCategories} />
-          <Route path="/gallery/:name/:id" component={ProductContainer} />
+          <Route path="/gallery/:name/:serie" component={ProductContainer} />
           <Suspense fallback={<Spinner active></Spinner>}>
-            <Route exact path="/gallery/:name" component={ProductsContainer} />
+            <Route path="/gallery/:name" component={ProductsContainer} />
           </Suspense>
         </Switch>
           <Redirect from="/" to="/home" />

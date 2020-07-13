@@ -5,18 +5,30 @@ import { Link, withRouter } from "react-router-dom";
 
 const StyledBreadcrumb = styled.div`
   width: 100%;
-  height: 5%;
+  height: 4.5%;
   display: flex;
   padding: 1%;
   padding-left: 3.5%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   padding-right: 10%;
-  padding-left: 10%;
-  background: #e2dcd059;
+  padding-left: 6%;
+  background: #e2dcd047;
   a {
-    font-size: 1.2rem !important;
-    color: #67666f !important;
+    font-size: 1.4rem !important;
+    color: #8e8b85!important;
+  }
+  h3 {
+    color: ${(props) =>
+      props.format
+        ? "var(--activeColorFont)!important"
+        : "rgb(115, 112, 110) !important"};
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    margin: 0 !important;
   }
 `;
 const SubMenuContainer = styled.div`
@@ -33,7 +45,7 @@ const SubMenuContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
-    margin:0;
+    margin: 0 !important;
   }
 `;
 
@@ -54,28 +66,15 @@ const Breadcrumb = (props) => {
 
   return (
     <StyledBreadcrumb>
-      <h3>Paintings</h3>
-
       <BreadcrumbContainer>
-        {pathArray.length &&
-          pathArray.map((path) => {
-            return (
-              <>
-                <BreadcrumbContainer.Section link>
-                  <Link to={`/${path}`}>{path}</Link>
-                  {console.log(props, path)}
-                </BreadcrumbContainer.Section>
-                <BreadcrumbContainer.Divider />
-              </>
-            );
-          })}
-        {/* <BreadcrumbContainer.Section link>Home</BreadcrumbContainer.Section>
+       
+        <BreadcrumbContainer.Section link>paintings</BreadcrumbContainer.Section>
         <BreadcrumbContainer.Divider />
-        <BreadcrumbContainer.Section link>Store</BreadcrumbContainer.Section>
-        <BreadcrumbContainer.Divider />
+        <BreadcrumbContainer.Section link>series</BreadcrumbContainer.Section>
+        {/* <BreadcrumbContainer.Divider />
         <BreadcrumbContainer.Section active>
           T-Shirt
-        </BreadcrumbContainer.Section>*/}
+        </BreadcrumbContainer.Section> */}
       </BreadcrumbContainer>
     </StyledBreadcrumb>
   );

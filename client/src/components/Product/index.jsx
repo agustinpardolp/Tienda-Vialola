@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Breadcrumb from "../Breadcrumb";
 import ModalViewer from "../Modals&Spinners/modalViewer";
-import ProductCards from "../Series/serieCards";
-import { fetchProductsById } from "../../redux/product/actions/product-actions";
+import SerieCards from "../Series/serieCards";
+import { fetchProductsBySerie } from "../../redux/product/actions/product-actions";
+import Spinner from "../Modals&Spinners/spinner";
 
 const StyleDiv = styled.div`
   padding: 100px;
@@ -39,9 +40,13 @@ const StyledInfo = styled.div`
   li {
     list-style: none;
     margin-bottom: 5%;
+    text-transform:capitalize;
   }
   figcaption {
     text-align: initial;
+  }
+  h4{
+    text-transform:capitalize;
   }
 `;
 
@@ -59,75 +64,117 @@ const StyledPhotoGrid = styled.div`
   margin-left: 3%;
   grid-gap: 0.5%;
   grid-template-columns: repeat(5, 0.5fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 0.5fr);
   padding: 3%;
   height: inherit;
 `;
 
+const StyledBackButton = styled.span`
+background:blue;
 
-const baseUrl = "/images/img-products/paints";
+`;
 
 function Product(props) {
   let {
     match: { params },
   } = props;
-  useEffect(() => {
-    props.fetchProductsById(params.id);
-  }, []);
-  const productsSerieList = () => {
-
-    return (
-      props.products &&
-      props.data &&
-      props.products.filter(
-        (productsBySerie) => productsBySerie.serieId === props.data.serieId
-      )
-    );
-  };
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState({});
-  const toggleModal = (product) => {
-    setCurrentImage(product);
-    setIsModalOpen(!isModalOpen);
+  const [selectedImage, setSelectedImage] = useState();
+  const [imgInfo, setImgInfo] = useState({
+    description: "",
+    serie: "",
+    category: "",
+    stock: 0,
+  });
+  useEffect(() => {
+    props.fetchProductsBySerie(params.serie);
+    return () => {
+      setSelectedImage({});
+    };
+  }, []);
+
+  // const toggleModal = (product) => {
+  //   setCurrentImage(product);
+  //   setIsModalOpen(!isModalOpen);
+  // };
+
+  const handleChangeImage = (selectedProduct) => {
+    console.log(selectedProduct);
+    setSelectedImage(selectedProduct.img);
+    setImgInfo({
+      ...imgInfo,
+      name: selectedProduct.name,
+      description: selectedProduct.description,
+      serie: selectedProduct.serie.name,
+      category: selectedProduct.category.name,
+      stock: selectedProduct.stock,
+    });
   };
+  const baseUrl = "/images/img-products/paints";
   return (
     <>
-      {/* <Breadcrumb /> */}
-      <StyledProductContainer>
-        <StyledImageContainer>
-          <StyledImg src={`${baseUrl}/${props.data.img}`} />
-          <StyledInfo>
-            <figcaption>
-              <ul>
-                <li>
-                  <h4>Paintings: </h4>Lorem ipsum dolor sit amet consectetur
-                </li>
-                <li>
-                  <h4>Serie: </h4>Lorem ipsum dolor sit amet consectetur
-                </li>
-                <li>
-                  <h4>Title: </h4>Acrilyc on canvas / 60x80cm / 2016
-                </li>
-              </ul>
-              <p>Prints available, please send a coment</p>
-            </figcaption>
-          </StyledInfo>
-        </StyledImageContainer>
-      </StyledProductContainer>
-      <StyledPhotoGrid>
-      <ModalViewer
-              width="60%"
-              height="80%"
-              color="ligthWhite"
-              backgroundClose={true}
-              toogleFunction={toggleModal}
-              show={isModalOpen}
-              imageData={currentImage}
-            ></ModalViewer>
-      {productsSerieList().map((product) => {
-        return <ProductCards product={product} />;
-      })}
-      </StyledPhotoGrid>
+      {!props.data.length ? (
+        <Spinner></Spinner>
+      ) : (
+        <>
+          <StyledProductContainer>
+            <StyledImageContainer>
+              {console.log(props.data[0])}
+              <StyledImg
+                src={`/images/img-products/${props.data[0].category.name}/${
+                  selectedImage || props.data[0].img
+                }`}
+              />
+              <StyledInfo>
+                <figcaption>
+                  <ul>
+                  <li>
+                      <h4>Title: </h4>
+                      {`${imgInfo.name || props.data[0].name}`}
+                    </li>
+                    <li>
+                      <h4>Category: </h4>
+                      {`${imgInfo.category || props.data[0].category.name}`}
+                    </li>
+                    <li>
+                      <h4>Serie: </h4>
+                      {`${imgInfo.serie || props.data[0].serie.name}`}<br></br>
+                      Private Colletion
+                    </li>
+                    <li>
+                      <h4>Description: </h4>
+                      {`${imgInfo.description || props.data[0].description}`}
+                    </li>
+                  </ul>
+                  <p>Prints available, please send a coment</p>
+                </figcaption>
+                {/* <StyledBackButton>Back</StyledBackButton> */}
+              </StyledInfo>
+            </StyledImageContainer>
+          </StyledProductContainer>
+          <StyledPhotoGrid>
+            {/* <ModalViewer
+          width="60%"
+          height="80%"
+          color="ligthWhite"
+          backgroundClose={true}
+          toogleFunction={toggleModal}
+          show={isModalOpen}
+          imageData={currentImage}
+        ></ModalViewer> */}
+            {props.data.length &&
+              props.data.map((product) => {
+                return (
+                  <SerieCards
+                    serie={product}
+                    handleChangeImage={handleChangeImage}
+                    key={product.id}
+                  />
+                );
+              })}
+          </StyledPhotoGrid>
+        </>
+      )}
     </>
   );
 }
@@ -137,7 +184,7 @@ const mapStateToProps = (state, ownProps) => {
     product: { data },
     products: { data: products, status },
   } = state;
-  // console.log("data component", products);
+
   return {
     data,
     products,
@@ -145,4 +192,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchProductsById })(Product);
+export default connect(mapStateToProps, { fetchProductsBySerie })(Product);

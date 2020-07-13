@@ -8,6 +8,7 @@ import Breadcrumb from "../Breadcrumb";
 import styled from "styled-components";
 import Spinner from "../Modals&Spinners/spinner";
 import { fetchProducts } from "../../redux/products/actions/products-actions";
+import { fetchSeries } from "../../redux/series/actions/serie-actions";
 import Footer from "../Footer";
 
 const StyledPhotoGrid = styled.div`
@@ -16,7 +17,7 @@ const StyledPhotoGrid = styled.div`
   margin-left: 3%;
   grid-gap: 0.5%;
   grid-template-columns: repeat(5, 0.5fr);
-  grid-template-rows: repeat(2, 0.5fr);
+  grid-template-rows: repeat(5, 50%);
   padding: 3%;
   height: inherit;
   /* display: grid;
@@ -50,6 +51,10 @@ const OptionsMenu = styled.div`
   } */
 `;
 
+const StyledTittle = styled.h3`
+  color: rgb(115, 112, 110);
+`;
+
 function Series(props) {
   const {
     match: {
@@ -59,8 +64,9 @@ function Series(props) {
 
   useEffect(() => {
     props.fetchProducts(pathName);
+    props.fetchSeries(pathName);
   }, []);
-  console.log("products", products)
+
   return (
     <>
       {props.status !== "LOADED" ? (
@@ -69,11 +75,9 @@ function Series(props) {
         <>
           <Breadcrumb />
           <StyledPhotoGrid>
-            {props.products.length &&
-              props.products.map((product, i) => {
-                return (
-                  <SerieCards product={product}  />
-                );
+            {props.series.length &&
+              props.series.map((serie, i) => {
+                return <SerieCards serie={serie} key ={serie.id} />;
               })}
             <FadeIn duration="2s" delay="0.5s"></FadeIn>
           </StyledPhotoGrid>
@@ -87,15 +91,18 @@ const mapStateToProps = (state, ownProps) => {
   const {
     products: { data: products, status },
     productsCategories: { data: productsCategories },
+    series: { data: series },
   } = state;
-  // console.log(productsCategories, "products");
+
   return {
     products,
     productsCategories,
     status,
+    series,
   };
 };
 
 export default connect(mapStateToProps, {
   fetchProducts,
+  fetchSeries,
 })(Series);

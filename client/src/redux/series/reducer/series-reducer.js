@@ -1,25 +1,24 @@
 import { types } from "../../../constants";
 
-const product = (
+const series = (
   state = { 
     data: [],
-    status: "NOT_LOADED"
+    status:"NOT_LOADED"
    }, 
    action) => {
   const { payload: { data } = {} } = action;
 
   switch (action.type) {
-    case types.FETCH_PRODUCT_BY_SERIE:
+    case types.FETCH_SERIES:
       return { ...state, status: "LOADING" };
-
-    case types.FETCH_PRODUCT_BY_SERIE_SUCCESS:
-
+    case types.FETCH_SERIES_SUCCESS:
       return {
         ...state,
         data: [...data],
         status: "LOADED"
+        
       };
-    case types.FETCH_PRODUCT_BY_SERIE_FAILURE:
+    case types.FETCH_SERIES_FAILURE:
       return { ...state, status: "FAILED" };
 
     default:
@@ -27,4 +26,4 @@ const product = (
   }
 };
 
-export default product;
+export default series;

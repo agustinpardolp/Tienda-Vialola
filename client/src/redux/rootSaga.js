@@ -4,6 +4,7 @@ import menuOptionsWatcher from "./sidebar/sagas/index";
 import productCategoriesWatcher from "./productsCategories/sagas/index";
 import cartWatcher from "./cart/sagas/index";
 import productWatcher from "./product/sagas/index";
+import seriesWatcher from "./series/sagas/index";
 export default function* rootSaga() {
 
     yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
       fork(menuOptionsWatcher),
       fork(productCategoriesWatcher),
       fork(cartWatcher),
-      fork(productWatcher)
+      fork(productWatcher),
+      fork(seriesWatcher)
       ])
   }
