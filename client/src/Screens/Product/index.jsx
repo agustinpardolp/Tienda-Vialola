@@ -1,12 +1,9 @@
 import React, { useState, useCallback, useEffect } from "react";
-import Slider from "../Slider";
+import Slider from "../../components/Slider";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import Breadcrumb from "../Breadcrumb";
-import ModalViewer from "../Modals&Spinners/modalViewer";
-import SerieCards from "../Series/serieCards";
 import { fetchProductsBySerie } from "../../redux/product/actions/product-actions";
-import Spinner from "../Modals&Spinners/spinner";
+import Spinner from "../../components/Modals&Spinners/spinner";
 
 const StyleDiv = styled.div`
   padding: 100px;

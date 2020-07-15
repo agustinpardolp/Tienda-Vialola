@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Transition } from "react-transition-group";
-import SerieCard from "../Series/serieCards";
 
 const ProductSlider = styled.div`
   display: flex;

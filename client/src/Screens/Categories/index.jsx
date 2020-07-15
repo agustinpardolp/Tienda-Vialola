@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Footer from "../Footer";
+import Footer from "../../components/Footer";
 import { fetchProductsCategories } from "../../redux/productsCategories/actions/product-categories-actions";
-import Spinner from "../Modals&Spinners/spinner";
+import Spinner from "../../components/Modals&Spinners/spinner";
 import CategoryCard from "./CategoryCard";
 import { CategoriesContainer } from "./styledComponents";
 

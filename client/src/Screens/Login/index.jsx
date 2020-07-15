@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Login from "../Login/login";
-import ModalError from "../Modals&Spinners/modalError";
+import ModalError from "../../components/Modals&Spinners/modalError";
 // import {loginUser} from "../../redux/home/actions/user-actions"
 
 class LoginContainer extends Component {

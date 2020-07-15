@@ -1,15 +1,15 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 
-import { FadeIn } from "../ImageSlider/style";
+import { FadeIn } from "../../components/ImageSlider/style";
 
 import { connect } from "react-redux";
 import SerieCards from "./serieCards";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb";
 import styled from "styled-components";
-import Spinner from "../Modals&Spinners/spinner";
+import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchProducts } from "../../redux/products/actions/products-actions";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
-import Footer from "../Footer";
+
 
 const StyledPhotoGrid = styled.div`
   display: grid;
