@@ -2,24 +2,25 @@ import { types } from "../../../constants";
 
 const product = (
   state = { 
-    data: {}
+    data: [],
+    status: "NOT_LOADED"
    }, 
    action) => {
   const { payload: { data } = {} } = action;
 
   switch (action.type) {
-    case types.FETCH_PRODUCT_BY_ID:
-      return { ...state, status: "not loaded" };
+    case types.FETCH_PRODUCT_BY_SERIE:
+      return { ...state, status: "LOADING" };
 
-    case types.FETCH_PRODUCT_BY_ID_SUCCESS:
+    case types.FETCH_PRODUCT_BY_SERIE_SUCCESS:
 
       return {
         ...state,
-        data: {...data},
-        status: "loaded"
+        data: [...data],
+        status: "LOADED"
       };
-    case types.FETCH_PRODUCT_BY_ID_FAILURE:
-      return { ...state, status: "fail" };
+    case types.FETCH_PRODUCT_BY_SERIE_FAILURE:
+      return { ...state, status: "FAILED" };
 
     default:
       return state;

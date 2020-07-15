@@ -3,13 +3,13 @@
   --fontVar: "Sulphur-Point";
   --mainColorFont: #faebd7;
   --darkGrey: rgb(56, 54, 53);
-  --lightGrey:rgb(181, 176, 173);
+  --lightGrey: rgb(181, 176, 173);
   --activeColorFont: rgb(29, 28, 27);
   --headerBackground: (#f5f5dc);
 }
 html,
 body {
-  font-family: var(--fontVar);
+  font-family: var(--fontVar)!important;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,9 +21,9 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
- 
 }
-ul, li{
+ul,
+li {
   margin: 0;
   padding: 0;
 }
@@ -602,7 +602,7 @@ ul, li{
 /* --------------------- CATEGORIES --------------------------*/
 
 .products-container {
-  overflow: hidden;
+  overflow: scroll;
   max-width: 100%;
   min-width: 0;
   margin: 0;
@@ -676,4 +676,20 @@ ul, li{
 
 .cart-content__img-div img {
   height: 100%;
+}
+.ui.dimmer{
+  
+  background-color: rgba(255, 255, 255, 0.9)!important;
+
+}
+
+.ui.modal>.image.content {
+  display: grid !important;
+  justify-content: center !important;
+
+}
+
+.ui.modal>.image.content .description{
+  margin-top:2%;
+  padding: 0;
 }

@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowCircleUp,
-  faArrowCircleDown
+  faArrowCircleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 

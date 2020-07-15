@@ -6,6 +6,10 @@ const Serie = db.define("serie", {
       type: sequelize.STRING,
       defaultValue: "Varios"
     },
+    img:{
+      type:sequelize.STRING,
+      allowNull: false
+    }
   });
   
   module.exports = Serie;

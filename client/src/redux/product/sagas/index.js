@@ -1,7 +1,7 @@
 import { takeLatest } from "redux-saga/effects";
-import fetchProductsByIdSaga from "./fetchProductById";
+import fetchProductsBySerieSaga from "./fetchProductById";
 import { types } from "../../../constants";
 
-export default function* productsByIdWatcher() {
-  yield takeLatest(types.FETCH_PRODUCT_BY_ID, fetchProductsByIdSaga);
+export default function* productsBySerieWatcher() {
+  yield takeLatest(types.FETCH_PRODUCT_BY_SERIE, fetchProductsBySerieSaga);
 }

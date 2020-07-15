@@ -8,8 +8,12 @@ const Order = require ("./order");
 
 Product.belongsTo(Category)
 Category.hasMany(Product)
+
 Product.belongsTo(Serie)
 Serie.hasMany(Product)
+
+Serie.belongsTo(Category)
+Category.hasMany(Serie)
 
 Order.belongsTo(User, {as:"user"})
 User.hasMany(Order, {as:"order"})

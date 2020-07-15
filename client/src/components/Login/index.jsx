@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Login from "../LoginContainer/login";
+import Login from "../Login/login";
 import ModalError from "../Modals&Spinners/modalError";
 // import {loginUser} from "../../redux/home/actions/user-actions"
 
