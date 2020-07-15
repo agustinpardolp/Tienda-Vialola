@@ -22,19 +22,7 @@ const StyledPhotoDiv = styled.div`
     transition: transform 0.3s ease-in-out;
     backface-visibility: hidden;
   }
-  /*transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
-  &:hover {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    background: rgba(0, 0, 0, 0.6);
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    transform: scale(1);
-  } */
+
 `;
 
 const StyledPhotoOverlay = styled.span`
@@ -44,7 +32,6 @@ const StyledPhotoOverlay = styled.span`
   right: 0%;
   position: absolute;
   z-index: 10000;
-  /* transition: 0.4s ease-in-out; */
   &:hover {
   }
   div {

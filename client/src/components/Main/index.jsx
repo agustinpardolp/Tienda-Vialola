@@ -59,8 +59,8 @@ const Main = (props) => {
       case "/contact":
         return BACKGROUND_IMAGES.CONTACT;
       default:
-        // return BACKGROUND_IMAGES.DEFAULT;
-        return
+        return BACKGROUND_IMAGES.DEFAULT;
+        // return
     }
   };
 

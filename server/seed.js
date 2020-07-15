@@ -142,11 +142,29 @@ Product.create({
   serieId:"1"
 });
 Product.create({
+  name: "Diablo y pajaro - Blanco y Negro",
+  description: "Blanco y negro - Oleo sobre lienzo. 90x90. ",
+  price: 3000,
+  stock: 1,
+  img: "pintura-indomitos3b&n.jpg",
+  categoryId:"1",
+  serieId:"1"
+});
+Product.create({
   name: "La charla",
-  description: "Oleo sobre lienzo. 90x90",
+  description: " Oleo sobre lienzo. 90x90",
   price: 3000,
   stock: 1,
   img: "pintura-indomitos7.jpg",
+  categoryId:"1",
+  serieId:"1"
+});
+Product.create({
+  name: "La charla - Blanco y Negro",
+  description: "Blanco y negro - Oleo sobre lienzo. 90x90",
+  price: 3000,
+  stock: 1,
+  img: "pintura-indomitos7b&n.jpg",
   categoryId:"1",
   serieId:"1"
 });
@@ -169,11 +187,29 @@ Product.create({
   serieId:"1"
 });
 Product.create({
+  name: "Mil brazos - Blanco y Negro",
+  description: "Oleo sobre tela. 80 x 100",
+  price: 6000,
+  stock: 1,
+  img: "pintura-indomitos10b&n.jpg",
+  categoryId:"1",
+  serieId:"1"
+});
+Product.create({
   name: "Soy una perra",
   description: "Oleo sobre tela. 80 x 100",
   price: 6000,
   stock: 1,
   img: "pintura-indomitos6.jpg",
+  categoryId:"1",
+  serieId:"1"
+});
+Product.create({
+  name: "Soy una perra - Blanco y Negro",
+  description: "Oleo sobre tela. 80 x 100",
+  price: 6000,
+  stock: 1,
+  img: "pintura-indomitos6b&n.jpg",
   categoryId:"1",
   serieId:"1"
 });

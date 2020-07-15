@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import Slider from "react-slick";
+import Slider from "../Slider";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Breadcrumb from "../Breadcrumb";
@@ -40,13 +40,13 @@ const StyledInfo = styled.div`
   li {
     list-style: none;
     margin-bottom: 5%;
-    text-transform:capitalize;
+    text-transform: capitalize;
   }
   figcaption {
     text-align: initial;
   }
-  h4{
-    text-transform:capitalize;
+  h4 {
+    text-transform: capitalize;
   }
 `;
 
@@ -70,8 +70,7 @@ const StyledPhotoGrid = styled.div`
 `;
 
 const StyledBackButton = styled.span`
-background:blue;
-
+  background: blue;
 `;
 
 function Product(props) {
@@ -119,7 +118,6 @@ function Product(props) {
         <>
           <StyledProductContainer>
             <StyledImageContainer>
-              {console.log(props.data[0])}
               <StyledImg
                 src={`/images/img-products/${props.data[0].category.name}/${
                   selectedImage || props.data[0].img
@@ -128,7 +126,7 @@ function Product(props) {
               <StyledInfo>
                 <figcaption>
                   <ul>
-                  <li>
+                    <li>
                       <h4>Title: </h4>
                       {`${imgInfo.name || props.data[0].name}`}
                     </li>
@@ -138,7 +136,8 @@ function Product(props) {
                     </li>
                     <li>
                       <h4>Serie: </h4>
-                      {`${imgInfo.serie || props.data[0].serie.name}`}<br></br>
+                      {`${imgInfo.serie || props.data[0].serie.name}`}
+                      <br></br>
                       Private Colletion
                     </li>
                     <li>
@@ -152,16 +151,10 @@ function Product(props) {
               </StyledInfo>
             </StyledImageContainer>
           </StyledProductContainer>
-          <StyledPhotoGrid>
-            {/* <ModalViewer
-          width="60%"
-          height="80%"
-          color="ligthWhite"
-          backgroundClose={true}
-          toogleFunction={toggleModal}
-          show={isModalOpen}
-          imageData={currentImage}
-        ></ModalViewer> */}
+
+          <Slider products={props.data} handleChangeImage={handleChangeImage} />
+
+          {/* <StyledPhotoGrid>
             {props.data.length &&
               props.data.map((product) => {
                 return (
@@ -172,7 +165,7 @@ function Product(props) {
                   />
                 );
               })}
-          </StyledPhotoGrid>
+          </StyledPhotoGrid> */}
         </>
       )}
     </>

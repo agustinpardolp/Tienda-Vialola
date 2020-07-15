@@ -40,3 +40,35 @@ export const OverlayAnimation = styled.div`
     text-decoration: none !important;
   }
 `;
+const FadeInAnimation = keyframes`
+
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const upperBaseAnimation = keyframes`
+
+from { transform:translateY(-200px) }
+to { transform:translateY(10px) }
+`;
+
+const sideBaseAnimation = keyframes`
+
+from { transform:translateX(250px) }
+to { transform:translateX(-10px) }
+`;
+
+export const FadeIn = styled(BaseAnimation)`
+  /* regulo la transicion, mas rapido, opaco o no etc */
+  transition: 2s;
+  animation-duration: 0.3s;
+  animation-name: ${FadeInAnimation}; /* seteo sobre el efecto seleccionado el nombre
+  de la animacion */
+`;
+
+export const UpperAnimation = styled(BaseAnimation)`
+  animation-name: ${upperBaseAnimation}; /*animacion de arriba abajo */
+`;
+export const SideAnimation = styled(BaseAnimation)`
+  animation-name: ${sideBaseAnimation}, ${FadeInAnimation}; /*animacion lateral para el toast */
+`;

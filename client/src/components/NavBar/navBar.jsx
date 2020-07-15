@@ -116,12 +116,12 @@ export function NavBar(props) {
         <Home>
           {props.location.pathname === "/home" ? (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="images/logo/FIRMA2.png" alt=""/>
+              <img src="/images/logo/FIRMA2.png" alt=""/>
               {/* {NAVBAR.ARTIST.NAME} */}
             </HomeLink>
           ) : (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="images/logo/FIRMA2.png" alt=""/>
+              <img src="/images/logo/FIRMA2.png" alt=""/>
             </HomeLink>
           )}
         </Home>
