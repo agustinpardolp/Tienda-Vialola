@@ -54,5 +54,5 @@ export const CategoriesContainer = styled.div`
     grid-column-gap: 1%;
     margin: 5%;
     height: 65vh;
-}
+
 `;
