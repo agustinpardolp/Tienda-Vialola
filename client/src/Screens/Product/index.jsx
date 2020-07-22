@@ -1,29 +1,25 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Slider from "../../components/Slider";
+import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import Magnifier from "react-magnifier";
 import { fetchProductsBySerie } from "../../redux/product/actions/product-actions";
 import Spinner from "../../components/Modals&Spinners/spinner";
 
-const StyleDiv = styled.div`
-  padding: 100px;
-  img {
-    margin: auto;
-    width: 50%;
-  }
-`;
-
-const StyledImg = styled.img`
+const StyledImg = styled(Magnifier)`
   display: inline-block !important;
-  /* max-width: 80%; */
-  /* max-height: 70%; */
   width: auto;
-  height: auto;
+  height: 100%;
   justify-self: end;
-  margin-right: 8%;
+  margin-right: 4%;
   object-fit: contain;
   height: 100%;
   align-self: center;
+  img {
+    height: 100%;
+    width: auto;
+  }
 `;
 
 const StyledProductContainer = styled.div`
@@ -34,14 +30,28 @@ const StyledProductContainer = styled.div`
 `;
 
 const StyledInfo = styled.div`
+  display: grid;
+  grid-template-rows: 10% 90%;
+  height: 100%;
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a{
+    color:
+  }
+  figcaption {
+    display: grid;
+    align-items: center;
+    text-align: justify;
+  }
   li {
     list-style: none;
     margin-bottom: 5%;
     text-transform: capitalize;
   }
-  figcaption {
-    text-align: initial;
-  }
+
   h4 {
     text-transform: capitalize;
   }
@@ -53,17 +63,6 @@ const StyledImageContainer = styled.div`
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 75vh;
   align-items: center;
-`;
-
-const StyledPhotoGrid = styled.div`
-  display: grid;
-  margin-right: 3%;
-  margin-left: 3%;
-  grid-gap: 0.5%;
-  grid-template-columns: repeat(5, 0.5fr);
-  grid-template-rows: repeat(3, 0.5fr);
-  padding: 3%;
-  height: inherit;
 `;
 
 const StyledBackButton = styled.span`
@@ -88,11 +87,6 @@ function Product(props) {
       setSelectedImage({});
     };
   }, []);
-
-  // const toggleModal = (product) => {
-  //   setCurrentImage(product);
-  //   setIsModalOpen(!isModalOpen);
-  // };
 
   const handleChangeImage = (selectedProduct) => {
     console.log(selectedProduct);
@@ -119,8 +113,15 @@ function Product(props) {
                 src={`/images/img-products/${props.data[0].category.name}/${
                   selectedImage || props.data[0].img
                 }`}
+                width={"auto"}
+                height={"100%"}
+                mgWidth={150}
+                mgHeight={150}
               />
               <StyledInfo>
+                <div>
+                  <Link to={`/gallery/${props.data[0].category.name}`}>back</Link>
+                </div>
                 <figcaption>
                   <ul>
                     <li>
@@ -148,21 +149,7 @@ function Product(props) {
               </StyledInfo>
             </StyledImageContainer>
           </StyledProductContainer>
-
-          <Slider products={props.data} handleChangeImage={handleChangeImage} />
-
-          {/* <StyledPhotoGrid>
-            {props.data.length &&
-              props.data.map((product) => {
-                return (
-                  <SerieCards
-                    serie={product}
-                    handleChangeImage={handleChangeImage}
-                    key={product.id}
-                  />
-                );
-              })}
-          </StyledPhotoGrid> */}
+          <Slider products={props.data} handleChangeImage={handleChangeImage} fontSize={"0.8rem"} />
         </>
       )}
     </>

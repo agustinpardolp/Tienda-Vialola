@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 import { OverlayAnimation } from "../../utils/baseStyleAnimations";
 import {
   StyledCardCategory,
@@ -7,8 +7,15 @@ import {
   StyledCategoryTittle,
 } from "./styledComponents";
 
+const StyledContainer = styled.span`
+  position: relative;
+  display: block;
+  overflow: hidden;
+`;
+
 const CategoryCard = ({ category }) => {
   return (
+    <StyledContainer>
     <StyledCardCategory
       key={category.id}
       img={category.img}
@@ -20,6 +27,7 @@ const CategoryCard = ({ category }) => {
         </OverlayAnimation>
       </StyledLink>
     </StyledCardCategory>
+    </StyledContainer>
   );
 };
 export default React.memo(CategoryCard, (prevProps, nextProps) => {

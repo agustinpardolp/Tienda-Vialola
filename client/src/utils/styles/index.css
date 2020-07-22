@@ -9,7 +9,7 @@
 }
 html,
 body {
-  font-family: var(--fontVar)!important;
+  font-family: var(--fontVar) !important;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,6 +26,13 @@ ul,
 li {
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: var(--darkGrey);
+}
+a:hover {
+  color: var(--darkGrey);
 }
 
 /* #app {
@@ -677,19 +684,16 @@ li {
 .cart-content__img-div img {
   height: 100%;
 }
-.ui.dimmer{
-  
-  background-color: rgba(255, 255, 255, 0.9)!important;
-
+.ui.dimmer {
+  background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
-.ui.modal>.image.content {
+.ui.modal > .image.content {
   display: grid !important;
   justify-content: center !important;
-
 }
 
-.ui.modal>.image.content .description{
-  margin-top:2%;
+.ui.modal > .image.content .description {
+  margin-top: 2%;
   padding: 0;
 }

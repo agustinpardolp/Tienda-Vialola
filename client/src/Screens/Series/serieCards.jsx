@@ -27,8 +27,9 @@ const StyledPhotoDiv = styled.div`
 
 const StyledPhotoOverlay = styled.span`
   width: 100%;
-  background: rgba(0, 0, 0, 0);
   height: 100%;
+  
+  background: rgba(0, 0, 0, 0);
   right: 0%;
   position: absolute;
   z-index: 10000;

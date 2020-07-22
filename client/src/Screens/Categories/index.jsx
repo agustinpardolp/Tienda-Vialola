@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Footer from "../../components/Footer";
 import { fetchProductsCategories } from "../../redux/productsCategories/actions/product-categories-actions";
 import Spinner from "../../components/Modals&Spinners/spinner";
-import CategoryCard from "./CategoryCard";
+import Card from "../../components/Card";
 import { CategoriesContainer } from "./styledComponents";
 
 export function ProductCategories(props) {
@@ -20,7 +20,14 @@ export function ProductCategories(props) {
           <CategoriesContainer>
             {props.productsCategories &&
               props.productsCategories.map((category) => {
-                return <CategoryCard key={category.id} category={category} />;
+                return (
+                  <Card
+                    key={category.id}
+                    element={category}
+                    category={category.name}
+                    path={`/gallery/${category.name}/`}
+                  />
+                );
               })}
           </CategoriesContainer>
           <Footer back="/home" />
