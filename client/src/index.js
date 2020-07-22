@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import Main from "./components/Main/index";
+import Main from "./Screens/Main";
 // import "bootstrap/dist/css/bootstrap.css";
 
 import "bootstrap/dist/js/bootstrap.bundle.min";

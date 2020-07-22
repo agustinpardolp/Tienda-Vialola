@@ -10,13 +10,17 @@ const StyledBreadcrumb = styled.div`
   padding: 1%;
   padding-left: 3.5%;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   padding-right: 10%;
   padding-left: 6%;
-  background: #e2dcd047;
+  margin-top: 3%;
+  /* background: #e2dcd047; */
   a {
-    font-size: 1.4rem !important;
-    color: #8e8b85!important;
+    font-size: 1.6rem !important;
+    color: ${(props) =>
+      props.format
+        ? "var(--activeColorFont)!important"
+        : "var(--darkGrey) !important"};
   }
   h3 {
     color: ${(props) =>
@@ -49,6 +53,16 @@ const SubMenuContainer = styled.div`
   }
 `;
 
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width:100%
+  span {
+    margin-right: 2%;
+    font-size: 1.6rem;
+  }
+`;
+
 const Breadcrumb = (props) => {
   // let titleInfo = ()=> {
 
@@ -66,16 +80,26 @@ const Breadcrumb = (props) => {
 
   return (
     <StyledBreadcrumb>
-      <BreadcrumbContainer>
-       
-        <BreadcrumbContainer.Section link>paintings</BreadcrumbContainer.Section>
-        <BreadcrumbContainer.Divider />
-        <BreadcrumbContainer.Section link>series</BreadcrumbContainer.Section>
-        {/* <BreadcrumbContainer.Divider />
-        <BreadcrumbContainer.Section active>
-          T-Shirt
-        </BreadcrumbContainer.Section> */}
-      </BreadcrumbContainer>
+      {pathname === "/shop" ? (
+        <BreadcrumbContainer>
+          <>
+            <BreadcrumbContainer.Section link>
+              Paintings
+            </BreadcrumbContainer.Section>
+            <BreadcrumbContainer.Divider />
+            <BreadcrumbContainer.Section link>
+              Series
+            </BreadcrumbContainer.Section>
+          </>
+        </BreadcrumbContainer>
+      ) : (
+        <StyledContainer>
+          <span link>prints</span>
+          <span link>small art</span>
+          <span link>objets</span>
+          <span link>miscellaneous</span>
+        </StyledContainer>
+      )}
     </StyledBreadcrumb>
   );
 };
