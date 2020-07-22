@@ -1,18 +1,18 @@
 import {  all,  fork } from "redux-saga/effects";
-import productsWatcher  from './products/sagas/index'; //a modo de ejemplo se importan todos los componentes
+import artworksBySerieWatcher  from './artworks/sagas/fetchArtworksBySerieSaga'; //a modo de ejemplo se importan todos los componentes
 import menuOptionsWatcher from "./sidebar/sagas/index";
-import productCategoriesWatcher from "./productsCategories/sagas/index";
+import artworkCategoriesWatcher from "./artworkCategories/sagas/";
 import cartWatcher from "./cart/sagas/index";
-import productWatcher from "./product/sagas/index";
+import artworksWatcher from "./artworks/sagas/fetchArtworksSaga";
 import seriesWatcher from "./series/sagas/index";
 export default function* rootSaga() {
 
     yield all([
-      fork(productsWatcher),
+      fork(artworksWatcher),
       fork(menuOptionsWatcher),
-      fork(productCategoriesWatcher),
+      fork(artworkCategoriesWatcher),
       fork(cartWatcher),
-      fork(productWatcher),
+      fork(artworksBySerieWatcher),
       fork(seriesWatcher)
       ])
   }

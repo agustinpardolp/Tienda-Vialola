@@ -7,14 +7,13 @@ import { BACKGROUND_IMAGES } from "../../constants";
 import NavBar from "../../components/NavBar";
 import ImageSlider from "../../components/ImageSlider";
 import Login from "../Login";
-import Categories from "../Categories";
-import Product from "../Product";
+import Gallery from "../Gallery";
+import Product from "../Artwork";
 import Cart from "../Cart";
 import About from "../About";
 import Contact from "../Contact";
 import Spinner from "../../components/Modals&Spinners/spinner";
-import {StyledMain} from "./styledComponents";
-
+import { StyledMain } from "./styledComponents";
 // import Footer from "../FooterContainer"
 const Products = React.lazy(() => import("../Series"));
 
@@ -44,7 +43,7 @@ const Main = (props) => {
 
   useEffect(() => {
     setImageData({
-      homeImage: "slide14",
+      homeImage: "slide12",
       heigth: 0,
       initialEffect: "all 1.8s",
     });
@@ -60,7 +59,7 @@ const Main = (props) => {
         return BACKGROUND_IMAGES.CONTACT;
       default:
         return BACKGROUND_IMAGES.DEFAULT;
-        // return
+      // return
     }
   };
 
@@ -81,18 +80,19 @@ const Main = (props) => {
           <ImageSlider getImageSlider={getImageSlider} IMAGES={images} />
         ) : null}
         <Route component={NavBar} />
+
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/gallery" component={Categories} />
+          <Route exact path="/gallery" component={Gallery} />
           <Route path="/gallery/:name/:serie" component={Product} />
           <Suspense fallback={<Spinner active></Spinner>}>
             <Route path="/gallery/:name" component={Products} />
           </Suspense>
         </Switch>
-          <Redirect from="/" to="/home" />
+        <Redirect from="/" to="/home" />
       </StyledMain>
     </>
   );
@@ -104,7 +104,7 @@ const mapStateToProps = (state, ownProps) => {
   } = state;
   return {
     initialEffect, //se recive delay de transition o no, para evitar retardo en carga inicial de imagen
-    homeImage, 
+    homeImage,
   };
 };
 const mapDispatchToProps = (dispatch) => {

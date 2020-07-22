@@ -72,6 +72,7 @@ export const StyledCategoryTittle = styled.div`
   }
 `;
 export default function Card({ element, handleChangeImage, fontSize, category, path }) {
+  console.log(element)
   return (
     <StyledContainer>
       <StyledPhotoDiv

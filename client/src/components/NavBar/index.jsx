@@ -12,8 +12,7 @@ import { UpperTranslate } from "../ImageSlider/style";
 import { NAVBAR } from "../../constants";
 
 const NavbarContainer = styled.nav`
-  /* background:rgba(255,255,255,0.5); */
-  background: #cec6b9a8;
+  background: #ffffff7a;
   padding-bottom: 1%;
   display: flex;
   align-items: center;
@@ -38,13 +37,13 @@ const HomeLink = styled(Link)`
   font-family: var(--fontVar);
   transition: all 0.9s ease 0s;
   display: flex;
-    justify-content: flex-end;
+  justify-content: flex-end;
   :hover {
     letter-spacing: 1px;
     transition: all 0.9s ease 0s;
     color: "var(--lightGrey)" !important;
   }
-  img{
+  img {
     width: 64%;
     filter: invert(0.3);
     /* filter:brightness(0.25) */
@@ -85,15 +84,15 @@ const MenuCart = styled.div`
   margin-right: 2%;
 `;
 const LinkStyled = styled(Link)`
-text-decoration: none !important;
-color:  ${(props) =>
-  props.format ? "var(--darkGrey)" : "var(--darkGrey) !important"};
-font-size:${(props) => (props.format ? "22px" : "17px")};
+  text-decoration: none !important;
+  color: ${(props) =>
+    props.format ? "var(--darkGrey)" : "var(--darkGrey) !important"};
+  font-size: ${(props) => (props.format ? "22px" : "17px")};
 
-link:hover {
-  color: grey !important;
-  transition: all 0.4s ease 0s;
-}
+  link:hover {
+    color: grey !important;
+    transition: all 0.4s ease 0s;
+  }
 `;
 const StyleMedia = styled.div`
   display: flex;
@@ -101,7 +100,6 @@ const StyleMedia = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 `;
 
 const SubMenu = styled.div`
@@ -116,32 +114,52 @@ export function NavBar(props) {
         <Home>
           {props.location.pathname === "/home" ? (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="/images/logo/FIRMA2.png" alt=""/>
+              <img src="/images/logo/FIRMA2.png" alt="" />
               {/* {NAVBAR.ARTIST.NAME} */}
             </HomeLink>
           ) : (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="/images/logo/FIRMA2.png" alt=""/>
+              <img src="/images/logo/FIRMA2.png" alt="" />
             </HomeLink>
           )}
         </Home>
         <MenuCart>
           <ShowMenu location={props.location.pathname}>
-            {NAVBAR.OPTIONS &&
-              NAVBAR.OPTIONS.map((option) => {
-                return (
-                  <li key={option.id}>
-                    <LinkStyled
-                      to={`/${option.NAME.toLowerCase()}`}
-                      format={
-                        option.NAME.toLowerCase() === path ? "true" : undefined
-                      }
-                    >
-                      {option.NAME}
-                    </LinkStyled>
-                  </li>
-                );
-              })}
+            {/* {props.location.pathname === "/shop"
+              ?  */}
+              {/* NAVBAR.SHOPOPTIONS.map((option) => {
+                  return (
+                    <li key={option.id}>
+                      <LinkStyled
+                        to={`/${option.NAME.toLowerCase()}`}
+                        format={
+                          option.NAME.toLowerCase() === path
+                            ? "true"
+                            : undefined
+                        }
+                      >
+                        {option.NAME}
+                      </LinkStyled>
+                    </li>
+                  );
+                })
+              :  */}
+                {NAVBAR.OPTIONS.map((option) => {
+                  return (
+                    <li key={option.id}>
+                      <LinkStyled
+                        to={`/${option.NAME.toLowerCase()}`}
+                        format={
+                          option.NAME.toLowerCase() === path
+                            ? "true"
+                            : undefined
+                        }
+                      >
+                        {option.NAME}
+                      </LinkStyled>
+                    </li>
+                  );
+                })}
             <li>
               <Link to="/cart">
                 <FontAwesomeIcon

@@ -1,63 +1,55 @@
-import React, { useState, useCallback, useEffect } from "react";
-import {connect} from "react-redux"
-// import Gallery from "react-photo-gallery";
-// import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "../../../../back/src/functions/images";
-import {fetchProducts} from "../../redux/products/actions/product-actions"
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import Footer from "../../components/Footer";
+import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
+import Spinner from "../../components/Modals&Spinners/spinner";
+import Card from "../../components/Card";
+import { CategoriesContainer } from "./styledComponents";
 
-function gallery(props) {
-
+export function Gallery(props) {
   useEffect(() => {
-    let productType = props.match.params.name
-
-    props.fetchProducts()  //Siempre la funcion se llama por props!!! sino no la ejecuta corectamente,
-    // y nunca llama a la saga
-
-  }, [])
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
+    props.fetchArtworkCategories();
   }, []);
 
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
-
   return (
-    <div>
-      <Gallery photos={photos} onClick={openLightbox} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photos.map(x => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <>
+      {props.status !== "LOADED" ? (
+        <Spinner active></Spinner>
+      ) : (
+        <>
+          <CategoriesContainer>
+            {props.artworkCategories &&
+              props.artworkCategories.map((category) => {
+               
+                return (
+                  <Card
+                    key={category.id}
+                    element={category}
+                    category={category.name}
+                    path={`/gallery/${category.name}/`}
+                  />
+                );
+              })}
+          </CategoriesContainer>
+          <Footer back="/home" />
+        </>
+      )}
+    </>
   );
 }
-// const mapStateToProps = (state, ownProps) => {
-  
-//  const {productsR:{
-//    productList: {data:productList}
-//  }} = state
 
-//   return{
-//     productList
-//   }
-// }
+const mapStateToProps = (state, ownProps) => {
+  const {
+    artworkCategories: { data: artworkCategories, status: status },
+  } = state;
+  console.log(status)
+  return {
+    artworkCategories,
+    status,
+  };
+};
 
-
-export default connect(null, {fetchProducts })(gallery)
+export default connect(mapStateToProps, {
+  fetchArtworkCategories,
+})(Gallery);
 

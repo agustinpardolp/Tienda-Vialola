@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const ImageSlider = (props) => {
   const { IMAGES } = props;
 
-  const [homeImage, setHomeImage] = useState("slide14");
+  const [homeImage, setHomeImage] = useState("slide12");
   const [imgsArray, setImgsArray] = useState(IMAGES);
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const ImageSlider = (props) => {
       setImgsArray(localImgsArray);
       return imgSelected.NAME;
     } else {
-      setHomeImage("slide14");
+      setHomeImage("slide12");
       resetArray();
-      return "slide14";
+      return "slide12";
     }
   };
 

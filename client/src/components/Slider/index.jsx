@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Card from "../../components/Card";
 
-const ProductSlider = styled.div`
+const ElementSlider = styled.div`
   display: grid;
   grid-template-columns: ${(props) =>
     `repeat(${props.col.length}, ${(12 * 8) / props.col.length}%)`};
@@ -54,51 +54,51 @@ const StyledCarContainer = styled.div`
   width: 150px;
 `;
 
-function Slider({ products, handleChangeImage, fontSize }) {
-  const [productIndex, setProductIndex] = useState(0);
+function Slider({ elements, handleChangeImage, fontSize }) {
+  const [elementIndex, setElementIndex] = useState(0);
 
-  let firstSevenProducts =
-    products.length > 7
-      ? products.slice(productIndex, productIndex + 8)
-      : products;
+  let firstSevenElements =
+    elements.length > 7
+      ? elements.slice(elementIndex, elementIndex + 8)
+      : elements;
 
-  const nextProduct = () => {
-    const lastProdIndex = products.length - 8;
-    const resetProductIndex = productIndex === lastProdIndex;
-    const index = resetProductIndex ? 0 : productIndex + 1;
-    setProductIndex(index);
+  const nextElement = () => {
+    const lastElementIndex = elements.length - 8;
+    const resetElementIndex = elementIndex === lastElementIndex;
+    const index = resetElementIndex ? 0 : elementIndex + 1;
+    setElementIndex(index);
   };
 
-  const prevProduct = () => {
-    const lastProdIndex = products.length - 8;
-    const resetProductIndex = productIndex === 0;
-    const index = resetProductIndex ? lastProdIndex : productIndex - 1;
-    setProductIndex(index);
+  const prevElement = () => {
+    const lastElementIndex = elements.length - 8;
+    const resetElementIndex = elementIndex === 0;
+    const index = resetElementIndex ? lastElementIndex : elementIndex - 1;
+    setElementIndex(index);
   };
 
   return (
     <>
       <StyledSlideContainer>
-        <StyledDiv col={firstSevenProducts}>
+        <StyledDiv col={firstSevenElements}>
           <StyledButtonContainer>
-            <span onClick={prevProduct}>Back</span>
+            <span onClick={prevElement}>Back</span>
           </StyledButtonContainer>
-          {console.log("LENGTH", firstSevenProducts)}
-          <ProductSlider col={firstSevenProducts}>
-            {firstSevenProducts.length &&
-              firstSevenProducts.map((product) => {
+          {console.log("LENGTH", firstSevenElements)}
+          <ElementSlider col={firstSevenElements}>
+            {firstSevenElements.length &&
+              firstSevenElements.map((element) => {
                 return (
                   <Card
-                    element={product}
+                    element={element}
                     handleChangeImage={handleChangeImage}
-                    category={product.category.name}
+                    category={element.category.name}
                     fontSize={fontSize}
                   ></Card>
                 );
               })}
-          </ProductSlider>
+          </ElementSlider>
           <StyledButtonContainer>
-            <span onClick={nextProduct}>Next</span>
+            <span onClick={nextElement}>Next</span>
           </StyledButtonContainer>
         </StyledDiv>
       </StyledSlideContainer>

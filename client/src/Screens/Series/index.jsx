@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 
 import { FadeIn } from "../../components/ImageSlider/style";
-
 import { connect } from "react-redux";
-import SerieCards from "./serieCards";
 import Breadcrumb from "../../components/Breadcrumb";
 import Card from "../../components/Card";
 import styled from "styled-components";
 import Spinner from "../../components/Modals&Spinners/spinner";
-import { fetchProducts } from "../../redux/products/actions/products-actions";
+import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
 
 const StyledPhotoGrid = styled.div`
@@ -42,7 +40,7 @@ function Series(props) {
   } = props;
 
   useEffect(() => {
-    props.fetchProducts(pathName);
+    props.fetchArtworks(pathName);
     props.fetchSeries(pathName);
   }, []);
 
@@ -74,20 +72,20 @@ function Series(props) {
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    products: { data: products, status },
-    productsCategories: { data: productsCategories },
+    artworks: { data: artworks, status },
+    artworkCategories: { data: artworkCategories },
     series: { data: series },
   } = state;
 
   return {
-    products,
-    productsCategories,
+    artworks,
+    artworkCategories,
     status,
     series,
   };
 };
 
 export default connect(mapStateToProps, {
-  fetchProducts,
+  fetchArtworks,
   fetchSeries,
 })(Series);
