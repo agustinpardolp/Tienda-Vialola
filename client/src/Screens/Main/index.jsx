@@ -9,6 +9,7 @@ import ImageSlider from "../../components/ImageSlider";
 import Login from "../Login";
 import Gallery from "../Gallery";
 import Product from "../Artwork";
+import Shop from "../Shop";
 import Cart from "../Cart";
 import About from "../About";
 import Contact from "../Contact";
@@ -87,6 +88,7 @@ const Main = (props) => {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/gallery" component={Gallery} />
+          <Route exact path="/shop/:set?" component={Shop} />
           <Route path="/gallery/:name/:serie" component={Product} />
           <Suspense fallback={<Spinner active></Spinner>}>
             <Route path="/gallery/:name" component={Products} />

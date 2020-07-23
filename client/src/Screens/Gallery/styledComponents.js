@@ -52,7 +52,7 @@ export const CategoriesContainer = styled.div`
    display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 1%;
-    margin: 5%;
+    margin: 3%;
     height: 65vh;
 
 `;

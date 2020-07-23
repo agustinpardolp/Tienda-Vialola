@@ -1,13 +1,29 @@
-import React from 'react'
-import {Carousel} from 'bootstrap'
+import React from 'react';
+import styled from "styled-components";
+import {Carousel} from "react-bootstrap";
+
+const StyledCarouseleContainer = styled.div`
+display:grid;
+.carousel-inner img {
+    width: 100%;
+    max-height: 70vh;
+}
+
+.carousel-inner{
+ height: 70vh;
+}
+
+
+`;
 
 export default function CarouselSlider() {
     return (
+      <StyledCarouseleContainer>
         <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
+            src={"/images/img-products/paints/milPiernas.jpg"}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -18,7 +34,7 @@ export default function CarouselSlider() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
+            src={"/images/img-products/paints/pintura-elementos1.jpg"}
             alt="Third slide"
           />
       
@@ -30,7 +46,7 @@ export default function CarouselSlider() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src={"/images/img-products/paints/pintura-elementos2.jpg"}
             alt="Third slide"
           />
       
@@ -40,5 +56,6 @@ export default function CarouselSlider() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </StyledCarouseleContainer>
     )
 }

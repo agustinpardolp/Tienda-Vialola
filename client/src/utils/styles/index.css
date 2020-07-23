@@ -34,8 +34,12 @@ a {
 }
 a:hover {
   color: var(--darkGrey);
-}
 
+}
+span{
+  font-family: var(--fontVar) !important;
+  color: var(--darkGrey);
+}
 /* #app {
   position: relative;
 } */

@@ -125,30 +125,11 @@ export function NavBar(props) {
         </Home>
         <MenuCart>
           <ShowMenu location={props.location.pathname}>
-            {/* {props.location.pathname === "/shop"
-              ?  */}
-              {/* NAVBAR.SHOPOPTIONS.map((option) => {
-                  return (
-                    <li key={option.id}>
-                      <LinkStyled
-                        to={`/${option.NAME.toLowerCase()}`}
-                        format={
-                          option.NAME.toLowerCase() === path
-                            ? "true"
-                            : undefined
-                        }
-                      >
-                        {option.NAME}
-                      </LinkStyled>
-                    </li>
-                  );
-                })
-              :  */}
                 {NAVBAR.OPTIONS.map((option) => {
                   return (
                     <li key={option.id}>
                       <LinkStyled
-                        to={`/${option.NAME.toLowerCase()}`}
+                        to={ option.path}
                         format={
                           option.NAME.toLowerCase() === path
                             ? "true"
