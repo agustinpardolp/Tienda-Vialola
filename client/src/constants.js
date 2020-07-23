@@ -41,24 +41,26 @@ export const types = {
 // FETCH_PRODUCT_BY_SERIE_FAILURE: "FETCH_PRODUCT_BY_SERIE_FAILURE",
 export const NAVBAR = {
   OPTIONS: [
-    { NAME: "Home", id: 1 },
-    { NAME: "About", id: 2 },
-    { NAME: "Gallery", id: 3 },
-    { NAME: "Shop", id: 4 },
-    { NAME: "Contact", id: 5 },
-    { NAME: "News", id: 6 },
+    { NAME: "Home", id: 1, path: "/home" },
+    { NAME: "About", id: 2, path: "/about" },
+    { NAME: "Gallery", id: 3, path: "/gallery" },
+    { NAME: "Shop", id: 4, path: "/shop/home" },
+    { NAME: "Contact", id: 5, path: "/contact" },
+    { NAME: "News", id: 6, path: "/news" },
   ],
   SHOPOPTIONS: [
-    { NAME: "Dolores Pardo", id: 1 },
-    { NAME: "prints", id: 2 },
-    { NAME: "small art", id: 3 },
-    { NAME: "objets", id: 4 },
-    { NAME: "miscellaneous", id: 5 },
+    // { NAME: "Dolores Pardo", id: 1, path: "/home" },
+    { NAME: "prints -", id: 2, path: "products/prints" },
+    { NAME: "small art -", id: 3, path: "products/small-art"},
+    { NAME: "objets -", id: 4, path: "products/objets" },
+    { NAME: "miscellaneous", id: 5, path: "products/miscellaneous" },
   ],
   ARTIST: {
     NAME: "Dolores Pardo",
   },
 };
+
+
 export const IMAGES = [
   { NAME: "slide8" },
   { NAME: "slide5" },

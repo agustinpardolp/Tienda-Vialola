@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { FadeIn } from "../../components/ImageSlider/style";
 import { connect } from "react-redux";
-import Breadcrumb from "../../components/Breadcrumb";
+import Dividers from "../../components/Divider";
 import Card from "../../components/Card";
 import styled from "styled-components";
 import Spinner from "../../components/Modals&Spinners/spinner";
@@ -50,7 +50,7 @@ function Series(props) {
         <Spinner></Spinner>
       ) : (
         <>
-          <Breadcrumb />
+         <Dividers titleElements={[`${props.series.length && props.series[0].category.name}`, "series"] }/>
           <StyledPhotoGrid>
             {props.series.length &&
               props.series.map((serie, i) => {

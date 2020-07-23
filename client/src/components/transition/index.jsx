@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Button, Divider, Image, Transition } from 'semantic-ui-react'
 
 const TransitionWrapper =({children}) => {

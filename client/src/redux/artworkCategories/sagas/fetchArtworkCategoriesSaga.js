@@ -3,7 +3,6 @@ import { getArtworkCategories } from "../../../api/artworkCategories";
 import * as actions from "../actions/artwork-categories-actions";
 
 export default function* fetchArtworkCategoriesSaga() {
-  debugger
   try {
     const { data } = yield call(getArtworkCategories); //getDetails, de la api
 

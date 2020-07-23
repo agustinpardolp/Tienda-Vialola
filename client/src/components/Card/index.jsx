@@ -71,8 +71,8 @@ export const StyledCategoryTittle = styled.div`
     transition: all 0.4s ease 0s;
   }
 `;
-export default function Card({ element, handleChangeImage, fontSize, category, path }) {
-  console.log(element)
+export default function StyledCard({ element, handleChangeImage, fontSize, category, path }) {
+
   return (
     <StyledContainer>
       <StyledPhotoDiv
@@ -105,3 +105,6 @@ export default function Card({ element, handleChangeImage, fontSize, category, p
     </StyledContainer>
   );
 }
+
+
+

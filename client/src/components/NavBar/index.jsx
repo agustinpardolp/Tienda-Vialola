@@ -37,7 +37,7 @@ const HomeLink = styled(Link)`
   font-family: var(--fontVar);
   transition: all 0.9s ease 0s;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   :hover {
     letter-spacing: 1px;
     transition: all 0.9s ease 0s;
@@ -114,41 +114,22 @@ export function NavBar(props) {
         <Home>
           {props.location.pathname === "/home" ? (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="/images/logo/FIRMA2.png" alt="" />
+              <img src="/images/logo/FIRMA1.png" alt="" />
               {/* {NAVBAR.ARTIST.NAME} */}
             </HomeLink>
           ) : (
             <HomeLink to="/home" location={props.location.pathname}>
-              <img src="/images/logo/FIRMA2.png" alt="" />
+              <img src="/images/logo/FIRMA1.png" alt="" />
             </HomeLink>
           )}
         </Home>
         <MenuCart>
           <ShowMenu location={props.location.pathname}>
-            {/* {props.location.pathname === "/shop"
-              ?  */}
-              {/* NAVBAR.SHOPOPTIONS.map((option) => {
-                  return (
-                    <li key={option.id}>
-                      <LinkStyled
-                        to={`/${option.NAME.toLowerCase()}`}
-                        format={
-                          option.NAME.toLowerCase() === path
-                            ? "true"
-                            : undefined
-                        }
-                      >
-                        {option.NAME}
-                      </LinkStyled>
-                    </li>
-                  );
-                })
-              :  */}
                 {NAVBAR.OPTIONS.map((option) => {
                   return (
                     <li key={option.id}>
                       <LinkStyled
-                        to={`/${option.NAME.toLowerCase()}`}
+                        to={ option.path}
                         format={
                           option.NAME.toLowerCase() === path
                             ? "true"

@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import Card from "../../components/Card";
+import Dividers from "../../components/Divider";
 import { CategoriesContainer } from "./styledComponents";
 
 export function Gallery(props) {
@@ -17,6 +18,7 @@ export function Gallery(props) {
         <Spinner active></Spinner>
       ) : (
         <>
+        <Dividers titleElements={["Artwork"]}/>
           <CategoriesContainer>
             {props.artworkCategories &&
               props.artworkCategories.map((category) => {
