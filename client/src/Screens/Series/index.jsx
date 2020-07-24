@@ -4,21 +4,11 @@ import { FadeIn } from "../../components/ImageSlider/style";
 import { connect } from "react-redux";
 import Dividers from "../../components/Divider";
 import Card from "../../components/Card";
+import CardGrid from "../../components/CardGrid";
 import styled from "styled-components";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
-
-const StyledPhotoGrid = styled.div`
-  display: grid;
-  margin-right: 3%;
-  margin-left: 3%;
-  grid-gap: 0.5%;
-  grid-template-columns: repeat(5, 0.5fr);
-  grid-template-rows: repeat(5, 50%);
-  padding: 3%;
-  height: inherit;
-`;
 
 const OptionsMenu = styled.div`
   list-style: none;
@@ -50,8 +40,17 @@ function Series(props) {
         <Spinner></Spinner>
       ) : (
         <>
-         <Dividers titleElements={[`${props.series.length && props.series[0].category.name}`, "series"] }/>
-          <StyledPhotoGrid>
+          <Dividers
+            titleElements={[
+              {
+                name: `${
+                  props.series.length && props.series[0].category.name
+                } / series`,
+                id: 1,
+              },
+            ]}
+          />
+          <CardGrid>
             {props.series.length &&
               props.series.map((serie, i) => {
                 return (
@@ -63,7 +62,7 @@ function Series(props) {
                   />
                 );
               })}
-          </StyledPhotoGrid>
+          </CardGrid>
         </>
       )}
     </>

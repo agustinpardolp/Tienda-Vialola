@@ -70,7 +70,6 @@ const StyledContainer = styled.span`
 `;
 
 export default function SerieCards({ serie, handleChangeImage }) {
-  // debugger
 
   return (
     <StyledContainer >

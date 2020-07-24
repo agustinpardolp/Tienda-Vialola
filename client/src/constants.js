@@ -50,10 +50,10 @@ export const NAVBAR = {
   ],
   SHOPOPTIONS: [
     // { NAME: "Dolores Pardo", id: 1, path: "/home" },
-    { NAME: "prints -", id: 2, path: "products/prints" },
-    { NAME: "small art -", id: 3, path: "products/small-art"},
-    { NAME: "objets -", id: 4, path: "products/objets" },
-    { NAME: "miscellaneous", id: 5, path: "products/miscellaneous" },
+    { NAME: "prints  ", id: 2, path: "prints" },
+    { NAME: "small art  ", id: 3, path: "small-art"},
+    { NAME: "objets  ", id: 4, path: "objets" },
+    { NAME: "miscellaneous", id: 5, path: "miscellaneous" },
   ],
   ARTIST: {
     NAME: "Dolores Pardo",

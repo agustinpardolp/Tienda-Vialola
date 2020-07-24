@@ -12,7 +12,6 @@ export const fetchProducts = (prodNameUrl) => dispatch => {
       .get(`/api/products/${prodNameUrl}`,)
       .then(res => res.data)
       .then(productList => {
-          // console.log(productList, "productList")
         dispatch(receiveProducts(productList));
       });
   };

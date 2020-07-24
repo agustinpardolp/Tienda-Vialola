@@ -10,32 +10,31 @@ function Cart(props) {
   const [cart, setCart] = useState(0);
 
   // useEffect(() => {
-  //   console.log(totalAmount(props))
 
   // }, []);
 
   // const totalAmount = (props)=>{
-  //   console.log("entre", props)
+
   //   if(props.data.length){
 
   //     const products = props.data
   //     return products.reduce((obj1, obj2)=>{
-       
+
   //        obj1.totalPrice + obj2.totalPrice
-       
+
   //     })
 
   //     } else return 0
   // }
 
-  const handleQntChange = e => {
+  const handleQntChange = (e) => {
     console.log(e.target);
   };
 
   return (
     <div className="cart-content">
       {props.data.length ? (
-        props.data.map(productCart => {
+        props.data.map((productCart) => {
           return (
             <ul className="cart-content__item-container">
               <li>
@@ -55,10 +54,7 @@ function Cart(props) {
                     cantidad: {productCart.quantity}
                     <span>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faArrowCircleUp}
-                        size="xs"
-                      />{" "}
+                      <FontAwesomeIcon icon={faArrowCircleUp} size="xs" />{" "}
                       <FontAwesomeIcon
                         icon={faArrowCircleDown}
                         size="xs"
@@ -85,20 +81,18 @@ function Cart(props) {
           </li>
         </ul>
       )}
-      <div>
-      {/* <span>TOTAL: {totalAmount(props)}</span> */}
-      </div>
+      <div>{/* <span>TOTAL: {totalAmount(props)}</span> */}</div>
     </div>
   );
 }
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    cart: { data }
+    cart: { data },
   } = state;
-  console.log("cart", data);
+
   return {
-    data
+    data,
   };
 };
 

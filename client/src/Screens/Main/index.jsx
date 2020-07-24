@@ -83,13 +83,13 @@ const Main = (props) => {
         <Route component={NavBar} />
 
         <Switch>
+          <Route path="/gallery/:name/:serie" component={Product} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/gallery" component={Gallery} />
-          <Route exact path="/shop/:set?" component={Shop} />
-          <Route path="/gallery/:name/:serie" component={Product} />
+          <Route path="/shop/" component={Shop} />
           <Suspense fallback={<Spinner active></Spinner>}>
             <Route path="/gallery/:name" component={Products} />
           </Suspense>

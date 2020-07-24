@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from "styled-components";
 import {Carousel} from "react-bootstrap";
+import TransitionWrapper from "../../components/transition";
 
 const StyledCarouseleContainer = styled.div`
 display:grid;
 .carousel-inner img {
     width: 100%;
-    max-height: 70vh;
+    max-height: 60vh;
+    height: 60vh;
 }
 
 .carousel-inner{
- height: 70vh;
+ height: 60vh;
 }
 
 
@@ -18,44 +20,46 @@ display:grid;
 
 export default function CarouselSlider() {
     return (
+      <TransitionWrapper>
       <StyledCarouseleContainer>
         <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={"/images/img-products/paints/milPiernas.jpg"}
+            src={"/images/img-carousel/11.jpg"}
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h2>Macetas super coloridas</h2>
+            <p>Encontrá toda la variedad que buscas para darle color jardin</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={"/images/img-products/paints/pintura-elementos1.jpg"}
+            src={"/images/img-carousel/9.jpg"}
             alt="Third slide"
           />
       
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2>¿Lo tenes a este loquillo?</h2>
+            <p>Este y muchos mas te esperan; Hechos en madera y pintados a mano.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={"/images/img-products/paints/pintura-elementos2.jpg"}
+            src={"/images/img-carousel/1.jpg"}
             alt="Third slide"
           />
       
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h2>La banda</h2>
+            <p>Colgantes, llaveros, </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       </StyledCarouseleContainer>
+      </TransitionWrapper>
     )
 }
