@@ -4,7 +4,7 @@ import { Divider, Header } from "semantic-ui-react";
 import styled from "styled-components";
 
 const StyledDividerContainer = styled.div`
-  margin-top: 3%;
+  margin-top: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,10 +12,12 @@ const StyledDividerContainer = styled.div`
     display: flex;
     width: 80%;
   }
-  .header {
-    align-self: center;
-    width: fit-content !important;
-
+  
+`;
+const StyledSubtitleContainer = styled.div`
+    ${props=>props.isLinked && "width: 25vw"};
+    display: flex;
+    justify-content: space-between;
     & span {
       font-size: 1.6rem;
       font-weight: 500;
@@ -23,28 +25,33 @@ const StyledDividerContainer = styled.div`
     & a {
       font-size: 1.6rem;
       font-weight: 500;
+      margin-right:1%;
+      text-transform: lowercase;
     }
-  }
 `;
+
 
 export default function Dividers({ titleElements = "" }) {
   return (
     <StyledDividerContainer>
       <Divider horizontal className="divider">
-        <Header as="h4" className="header">
+        <StyledSubtitleContainer isLinked={titleElements[0].NAME}>
+        {/* <Header as="h4" className="header"> */}
           {titleElements &&
             titleElements.map((title) => {
+              console.log(title.id)
               return (
                 <>
-                  {title.NAME ? (
-                    <Link to={title.path}>{` ${title.NAME} `}</Link>
+                  {title.path ? (
+                    <Link key= {title.id}to={title.path}>{` ${title.NAME.toLowerCase()} `}</Link>
                   ) : (
-                    <span>{title} </span>
+                    <span  key={title.id}>{title.name} </span>
                   )}
                 </>
               );
             })}
-        </Header>
+        {/* </Header> */}
+        </StyledSubtitleContainer>
       </Divider>
     </StyledDividerContainer>
   );

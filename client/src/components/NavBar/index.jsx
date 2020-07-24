@@ -12,12 +12,12 @@ import { UpperTranslate } from "../ImageSlider/style";
 import { NAVBAR } from "../../constants";
 
 const NavbarContainer = styled.nav`
-  background: #ffffff7a;
+  background: ${props=>props.shop?"#37bfac52":"#ffffff7a"};
   padding-bottom: 1%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 12%;
+  height: 16%;
   width: 100%;
   padding-right: 0%;
 `;
@@ -129,7 +129,7 @@ export function NavBar(props) {
                   return (
                     <li key={option.id}>
                       <LinkStyled
-                        to={ option.path}
+                        to={option.path}
                         format={
                           option.NAME.toLowerCase() === path
                             ? "true"
@@ -155,7 +155,7 @@ export function NavBar(props) {
 
           {/* <MenuTitle location={props.location.pathname}> */}
           <StyleMedia>
-            <Link>
+            <Link to={"/"}>
               <FontAwesomeIcon
                 icon={faFacebook}
                 size="1x"
@@ -163,7 +163,7 @@ export function NavBar(props) {
                 style={{ fontSize: "20px", color: "var(--darkGrey)" }}
               />
             </Link>
-            <Link>
+            <Link to={"/"}>
               <FontAwesomeIcon
                 icon={faTwitter}
                 size="1x"
@@ -171,7 +171,7 @@ export function NavBar(props) {
                 style={{ fontSize: "20px", color: "var(--darkGrey)" }}
               />
             </Link>
-            <Link>
+            <Link to={"/"}>
               <FontAwesomeIcon
                 icon={faInstagram}
                 size="1x"

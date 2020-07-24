@@ -5,28 +5,38 @@ import HomeProducts from "../home/HomeProducts";
 
 const StyledMainHomeProducts = styled.div`
   margin-top: 2%;
+  margin-right: 5%;
+    margin-left: 5%;
 `;
 
 export default function ShopHome() {
   const shopProducts = [
     {
       id: 6,
-      name: "Diablo y pajaro",
-      description: "Oleo sobre lienzo. 90x90. ",
+      name: "Piezas de arte unicas",
+      description: "Piezas de arte unicas",
       img: "pintura-indomitos3.jpg",
       category: { name: "paints" },
     },
     {
       id: 7,
-      name: "Diablo y pajaro - Blanco y Negro",
-      img: "pintura-indomitos7.jpg",
-      category: { name: "paints" },
+      name: "Bandejas para el mate!",
+      description: "Todo para el desayuno",
+      img: "bandeja.jpg",
+      category: { name: "objets" },
     },
     {
       id: 8,
-      name: "La charla",
+      name: "Personajes en madera, pintados!",
+      description: "Personajes en madera, pintados!",
+      img: "lostres.jpg",
+      category: { name: "objets" },
+    },
+    {
+      id: 9,
+      name: "Poupurri!",
       description: " Oleo sobre lienzo. 90x90",
-      img: "pintura-indomitos8.jpg",
+      img: "pintura-indomitos10.jpg",
       category: { name: "paints" },
     },
   ];

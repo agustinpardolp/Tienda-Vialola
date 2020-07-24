@@ -54,7 +54,7 @@ const StyledCarContainer = styled.div`
   width: 150px;
 `;
 
-function Slider({ elements, handleChangeImage, fontSize }) {
+function Slider({ elements, handleChangeImage, fontSize, noTitle }) {
   const [elementIndex, setElementIndex] = useState(0);
 
   let firstSevenElements =
@@ -83,16 +83,17 @@ function Slider({ elements, handleChangeImage, fontSize }) {
           <StyledButtonContainer>
             <span onClick={prevElement}>Back</span>
           </StyledButtonContainer>
-          {console.log("LENGTH", firstSevenElements)}
           <ElementSlider col={firstSevenElements}>
             {firstSevenElements.length &&
               firstSevenElements.map((element) => {
+                console.log("noTitle", noTitle)
                 return (
                   <Card
                     element={element}
                     handleChangeImage={handleChangeImage}
                     category={element.category.name}
                     fontSize={fontSize}
+                    noTitle={noTitle}
                   ></Card>
                 );
               })}

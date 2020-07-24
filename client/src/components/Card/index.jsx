@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayAnimation } from "../../utils/baseStyleAnimations";
+import TransitionWrapper from "../../components/transition";
 
 const StyledPhotoDiv = styled.div`
   margin: 1%;
@@ -71,40 +72,46 @@ export const StyledCategoryTittle = styled.div`
     transition: all 0.4s ease 0s;
   }
 `;
-export default function StyledCard({ element, handleChangeImage, fontSize, category, path }) {
-
+export default function StyledCard({
+  element,
+  handleChangeImage,
+  fontSize,
+  category,
+  path,
+  noTitle
+}) {
   return (
     <StyledContainer>
-      <StyledPhotoDiv
-        key={element.id}
-        img={element.img}
-        category={category}
-        onClick={
-          handleChangeImage
-            ? () => {
-                handleChangeImage(element);
-              }
-            : null
-        }
-      >
-        {handleChangeImage?
-        <OverlayAnimation>
-          <StyledCategoryTittle fontSize={fontSize}>
-            {element.name}
-          </StyledCategoryTittle>
-        </OverlayAnimation>:
-        <StyledLink to={path}>
-          <OverlayAnimation>
-            <StyledCategoryTittle fontSize={fontSize}>
-              {element.name}
-            </StyledCategoryTittle>
-          </OverlayAnimation>
-        </StyledLink>
-      }
-      </StyledPhotoDiv>
+      <TransitionWrapper>
+        <StyledPhotoDiv
+          key={element.id}
+          img={element.img}
+          category={category ? category : element.category.name}
+          onClick={
+            handleChangeImage
+              ? () => {
+                  handleChangeImage(element);
+                }
+              : null
+          }
+        >
+          {handleChangeImage ? (
+            <OverlayAnimation>
+              <StyledCategoryTittle fontSize={fontSize}>
+              {!noTitle?element.name:null}
+              </StyledCategoryTittle>
+            </OverlayAnimation>
+          ) : (
+            <StyledLink to={path}>
+              <OverlayAnimation>
+                <StyledCategoryTittle fontSize={fontSize}>
+                  {!noTitle?element.name:null}
+                </StyledCategoryTittle>
+              </OverlayAnimation>
+            </StyledLink>
+          )}
+        </StyledPhotoDiv>
+      </TransitionWrapper>
     </StyledContainer>
   );
 }
-
-
-

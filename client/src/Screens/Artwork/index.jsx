@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Magnifier from "react-magnifier";
 import Slider from "../../components/Slider";
-import TransitionWrapper from "../../components/Transition";
+import TransitionWrapper from "../../components/transition";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -70,7 +70,7 @@ const StyledImageContainer = styled.div`
 const StyledZoomIcon = styled(FontAwesomeIcon)`
   position: absolute;
   right: 40%;
-  top: 20%;
+  top: 25%;
   font-size: 2rem;
   color: var(--darkGrey);
 `;
@@ -197,6 +197,7 @@ function Artwork(props) {
             elements={props.data}
             handleChangeImage={handleChangeImage}
             fontSize={"0.8rem"}
+            noTitle={true}
           />
         </>
       )}

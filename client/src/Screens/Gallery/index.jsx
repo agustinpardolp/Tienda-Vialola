@@ -18,7 +18,7 @@ export function Gallery(props) {
         <Spinner active></Spinner>
       ) : (
         <>
-        <Dividers titleElements={["Artwork"]}/>
+        <Dividers titleElements={[{name:"Artwork", id:1}]}/>
           <CategoriesContainer>
             {props.artworkCategories &&
               props.artworkCategories.map((category) => {
@@ -44,7 +44,6 @@ const mapStateToProps = (state, ownProps) => {
   const {
     artworkCategories: { data: artworkCategories, status: status },
   } = state;
-  console.log(status)
   return {
     artworkCategories,
     status,
