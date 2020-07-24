@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Magnifier from "react-magnifier";
 import Slider from "../../components/Slider";
-import TransitionWrapper from "../../components/transition";
+import TransitionWrapper from "../../components/Transition";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 
