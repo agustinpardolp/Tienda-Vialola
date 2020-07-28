@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const getArtworkCategories = () => {
-  console.log("entre API")
   return axios
     .get("api/products/categories")
     .then(res => res)

@@ -28,7 +28,6 @@ function Cart(props) {
   // }
 
   const handleQntChange = (e) => {
-    console.log(e.target);
   };
 
   return (

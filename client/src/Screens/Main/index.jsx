@@ -15,7 +15,9 @@ import About from "../About";
 import Contact from "../Contact";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { StyledMain } from "./styledComponents";
-// import Footer from "../FooterContainer"
+import Home from "../Home/index";
+import Welcome from "../Welcome";
+import Footer from "../../components/Footer";
 const Products = React.lazy(() => import("../Series"));
 
 const images = [
@@ -36,24 +38,12 @@ const Main = (props) => {
     location: { pathname },
   } = props;
 
-  const [imageData, setImageData] = useState({
-    homeImage: "",
-    heigth: 0,
-    initialEffect: "all 1.8s",
-  });
-
-  useEffect(() => {
-    setImageData({
-      homeImage: "slide12",
-      heigth: 0,
-      initialEffect: "all 1.8s",
-    });
-  }, []);
-
   const locationSelector = (location) => {
     switch (location) {
+      // case "/":
+      //   return imageData.homeImage;
       case "/home":
-        return imageData.homeImage;
+        return BACKGROUND_IMAGES.DEFAULT;
       case "/about":
         return BACKGROUND_IMAGES.ABOUT;
       case "/contact":
@@ -63,26 +53,13 @@ const Main = (props) => {
       // return
     }
   };
-
-  const getImageSlider = (image) => {
-    setImageData({
-      ...imageData,
-      homeImage: image,
-    });
-  };
-
   return (
     <>
-      <StyledMain
-        img={locationSelector(pathname)}
-        pageTransition={imageData.initialEffect}
-      >
-        {pathname === "/home" ? (
-          <ImageSlider getImageSlider={getImageSlider} IMAGES={images} />
-        ) : null}
-        <Route component={NavBar} />
-
+      <StyledMain img={locationSelector(pathname)} pageTransition={"all 1.8s"}>
+        {pathname !== "/" ? <NavBar /> : null}
+        <Route exact path="/" component={Welcome} />
         <Switch>
+          <Route exact path="/home" component={Home} />
           <Route path="/gallery/:name/:serie" component={Product} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/cart" component={Cart} />
@@ -93,22 +70,15 @@ const Main = (props) => {
           <Suspense fallback={<Spinner active></Spinner>}>
             <Route path="/gallery/:name" component={Products} />
           </Suspense>
+          <Redirect to="/home" />
         </Switch>
-        <Redirect from="/" to="/home" />
+        <Footer/>
       </StyledMain>
     </>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const {
-    home: { initialEffect, homeImage },
-  } = state;
-  return {
-    initialEffect, //se recive delay de transition o no, para evitar retardo en carga inicial de imagen
-    homeImage,
-  };
-};
+const mapStateToProps = (state, ownProps) => {};
 const mapDispatchToProps = (dispatch) => {
   return {
     // fetchloggedUser: () => dispatch(fetchloggedUser())
@@ -116,3 +86,23 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+
+{/* <div className={`row ${styles.sector}`}>
+<h2 className="col-md-12">Documentos adicionales</h2>
+<div className={`col-md-12 ${styles.contactInfo}`}>
+  <div className="col-md-3">
+    <label className={styles.label}>DNI</label>
+      <img src="/images/temp-DNIThumbnail.jpg" alt="..." className="img-thumbnail"/>
+      <img src="/images/temp-DNIThumbnail.jpg" alt="..." className="img-thumbnail"/>
+  </div>
+  <div className="col-md-3">
+          <label className={styles.label}>PVP</label>
+          <img src="/images/temp-Thumbnail.png" alt="..." className="img-thumbnail"/>
+      </div>
+      <div className="col-md-3">
+          <label className={styles.label}>Escrituras</label>
+          <img src="/images/temp-Thumbnail.png" alt="..." className="img-thumbnail"/>
+      </div>
+</div>
+</div> */}

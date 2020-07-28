@@ -1,4 +1,4 @@
-  // console.log(props, "peops")
+  
   //   useEffect(() => {
   //     let productType = props.match.params.name
 

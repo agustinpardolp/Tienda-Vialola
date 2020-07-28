@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Carousele from "../../../components/Carousel";
-import HomeProducts from "../home/HomeProducts";
+import Carousele from "../../components/Carousel";
+import HomeProducts from "./HomeProducts"
 
 const StyledMainHomeProducts = styled.div`
   margin-top: 2%;
@@ -9,7 +9,7 @@ const StyledMainHomeProducts = styled.div`
     margin-left: 5%;
 `;
 
-export default function ShopHome() {
+export default function Home() {
   const shopProducts = [
     {
       id: 6,

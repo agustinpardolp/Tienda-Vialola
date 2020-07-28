@@ -36,7 +36,6 @@ class LoginContainer extends Component {
     this.props
       .loginUser(this.state)
       .then(user => {
-          console.log(user, "soy user del index")
         this.props.history.push("/home");
       })
       .catch(() => {

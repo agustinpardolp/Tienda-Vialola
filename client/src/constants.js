@@ -44,7 +44,7 @@ export const NAVBAR = {
     { NAME: "Home", id: 1, path: "/home" },
     { NAME: "About", id: 2, path: "/about" },
     { NAME: "Gallery", id: 3, path: "/gallery" },
-    { NAME: "Shop", id: 4, path: "/shop/home" },
+    { NAME: "Shop", id: 4, path: "/shop/prints" },
     { NAME: "Contact", id: 5, path: "/contact" },
     { NAME: "News", id: 6, path: "/news" },
   ],

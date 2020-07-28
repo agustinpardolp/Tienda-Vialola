@@ -171,6 +171,7 @@ export default function ModalViewer({
     ligthWhite: "rgb(255, 255, 255, 0.66)",
   };
   const { img, name, category, description } = imageData;
+  console.log("SHOW MODAL", show)
   return (
     <>
       {show && (

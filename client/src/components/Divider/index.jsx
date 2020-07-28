@@ -39,7 +39,6 @@ export default function Dividers({ titleElements = "" }) {
         {/* <Header as="h4" className="header"> */}
           {titleElements &&
             titleElements.map((title) => {
-              console.log(title.id)
               return (
                 <>
                   {title.path ? (

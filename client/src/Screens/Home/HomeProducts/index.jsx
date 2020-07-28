@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import StyledCard from "../../../../components/Card";
+import StyledCard from "../../../components/Card";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 const StyledHomeProducts = styled.div`
