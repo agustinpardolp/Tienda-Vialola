@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Divider, Header } from "semantic-ui-react";
+import { Divider } from "semantic-ui-react";
 import styled from "styled-components";
 
 const StyledDividerContainer = styled.div`
@@ -30,8 +30,8 @@ const StyledSubtitleContainer = styled.div`
     }
 `;
 
+const Dividers = ({ titleElements = "" })=> {
 
-export default function Dividers({ titleElements = "" }) {
   return (
     <StyledDividerContainer>
       <Divider horizontal className="divider">
@@ -39,11 +39,10 @@ export default function Dividers({ titleElements = "" }) {
         {/* <Header as="h4" className="header"> */}
           {titleElements &&
             titleElements.map((title) => {
-              console.log(title.id)
               return (
                 <>
                   {title.path ? (
-                    <Link key= {title.id}to={title.path}>{` ${title.NAME.toLowerCase()} `}</Link>
+                    <Link key= {title.id}to={`/shop/${title.path}`}>{` ${title.NAME.toLowerCase()} `}</Link>
                   ) : (
                     <span  key={title.id}>{title.name} </span>
                   )}
@@ -56,3 +55,4 @@ export default function Dividers({ titleElements = "" }) {
     </StyledDividerContainer>
   );
 }
+export default Dividers

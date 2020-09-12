@@ -1,9 +1,8 @@
 import axios from "axios";
 
 export const getArtworkCategories = () => {
-  console.log("entre API")
   return axios
-    .get("api/products/categories")
+    .get("api/artworks/categories")
     .then(res => res)
 };
 

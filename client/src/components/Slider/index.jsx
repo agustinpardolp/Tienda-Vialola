@@ -86,7 +86,6 @@ function Slider({ elements, handleChangeImage, fontSize, noTitle }) {
           <ElementSlider col={firstSevenElements}>
             {firstSevenElements.length &&
               firstSevenElements.map((element) => {
-                console.log("noTitle", noTitle)
                 return (
                   <Card
                     element={element}

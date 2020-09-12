@@ -1,20 +1,20 @@
 import { types } from "../../../constants";
 
-export const fetchProductsBySerie = serieName => {
+export const fetchProductById = (productId) => {
   return {
-    type: types.FETCH_PRODUCT_BY_SERIE,
-    serieName
+    type: types.FETCH_PRODUCT_BY_ID,
+    productId,
   };
 };
 
-export const fetchProductsBySerieSuccess = data => {
+export const fetchProductByIdSuccess = (data) => {
   return {
-    type: types.FETCH_PRODUCT_BY_SERIE_SUCCESS,
+    type: types.FETCH_PRODUCT_BY_ID_SUCCESS,
     payload: {
-      data
-    }
+      data,
+    },
   };
 };
-export const fetchProductsBySerieFailure = () => ({
-  type: types.FETCH_PRODUCT_BY_SERIE_FAILURE
+export const fetchProductByIdFailure = () => ({
+  type: types.FETCH_PRODUCT_BY_ID_FAILURE,
 });

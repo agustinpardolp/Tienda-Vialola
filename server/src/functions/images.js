@@ -1,46 +1,46 @@
 export const photos = [
     {
-      src: "/assets/img/img-products/corazon.jpg",
+      src: "/assets/img/img-artwork/corazon.jpg",
       width: 4,
       height: 3
     }, 
     {
-      src: "/assets/img/img-products/vacaciones.jpg",
+      src: "/assets/img/img-artwork/vacaciones.jpg",
       width: 1,
       height: 1
     },
     {
-      src: "/assets/img/img-products/ciervo.jpg",
+      src: "/assets/img/img-artwork/ciervo.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "/assets/img/img-products/tela 60x80cm.jpg",
+      src: "/assets/img/img-artwork/tela 60x80cm.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "/assets/img/img-products/diablo.jpg",
+      src: "/assets/img/img-artwork/diablo.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "/assets/img/img-products/milOjos.jpg",
+      src: "/assets/img/img-artwork/milOjos.jpg",
       width: 4,
       height: 3
     },
     {
-      src: "/assets/img/img-products/mujerT.jpg",
+      src: "/assets/img/img-artwork/mujerT.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "/assets/img/img-products/diablos.jpg",
+      src: "/assets/img/img-artwork/diablos.jpg",
       width: 4,
       height: 3
     },
     {
-      src: "/assets/img/img-products/tintaHomMuj.jpg",
+      src: "/assets/img/img-artwork/tintaHomMuj.jpg",
       width: 4,
       height: 3
     }

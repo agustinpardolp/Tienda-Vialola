@@ -52,7 +52,7 @@ export default ({ handleSubmit, handleChange }) => {
     //         <div className="row">
     //             <div className="col-md-9 banner-sec">
     //                         <div >
-    //                             <img className="d-block img-fluid" src="assets/img/img-products/fondo.jpg" alt="First slide" width="500px" height="300px"/>
+    //                             <img className="d-block img-fluid" src="assets/img/img-artwork/fondo.jpg" alt="First slide" width="500px" height="300px"/>
     //                             <div className="carousel-caption d-none d-md-block">
     //                                 {/* <div className="banner-text">
     //                                     <h2>Empeza a sumar puntos</h2>

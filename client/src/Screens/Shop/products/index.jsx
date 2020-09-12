@@ -1,58 +1,86 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 import CardGrid from "../../../components/CardGrid";
+import styled from "styled-components";
+import { useCart } from "../../../hooks/index";
 import StyledCard from "../../../components/Card";
 import { Card, Icon, Image } from "semantic-ui-react";
-import { fetchArtworks } from "../../../redux/artworks/actions/artworks-actions";
+import { fetchProductsBySection } from "../../../redux/products/actions";
+import { receiveCreatedCart } from "../../../redux/cart/actions/cart-actions";
+import ModalViewer from "../../../components/Modals&Spinners/modalViewer";
 
-const Products = ({ fetchArtworks, artworks, match }) => {
+const StyledProductContainer = styled.div`
+  height: 100vh;
+`;
+
+const Products = ({
+  fetchProductsBySection,
+  receiveCreatedCart,
+  products,
+  match,
+  history,
+  productsToCart,
+}) => {
   const {
     params: { section: pathName },
+    url,
   } = match;
-  console.log(pathName)
+
+  let [showProductModal, setShowProductModal] = useState(false);
+  let { setToCart } = useCart(productsToCart, receiveCreatedCart);
+
   useEffect(() => {
-      
-    fetchArtworks(pathName);
-  }, []);
-  console.log("ARTWRKS", artworks)
+    fetchProductsBySection(pathName);
+  }, [pathName]);
+  const hadleShowProductModal = () => {
+    setShowProductModal(!showProductModal);
+  };
+  const handleRedirect = (url, product) => {
+    history.push(`${url}/${product.id}`);
+  };
+
   return (
-    <CardGrid>
-      {artworks.length &&
-        artworks.map((artwork, i) => {
-          return (
-            <Card>
-            <StyledCard element={artwork}/>
-            <Card.Content>
-              <Card.Header>{artwork.name}</Card.Header>
-              <Card.Meta>
-                <span className="date">Nueva coleccion</span>
-              </Card.Meta>
-              <Card.Description>
-                Conoce mas clickeando aca!
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                More...
-              </a>
-            </Card.Content>
-          </Card>
-          );
-        })}
-    </CardGrid>
+    <StyledProductContainer>
+      <Card.Group itemsPerRow={6} centered style={{ marginTop: "2%" }}>
+        {products.length &&
+          products.map((product, i) => {
+            return (
+              <>
+                <Card to={`${url}/${product.id}`} raised fluid>
+                  <StyledCard
+                    element={product}
+                    img={product.img1}
+                    filePath={`/images/img-products/${product.section.name}/`}
+                    callBack={() => handleRedirect(url, product)}
+                    height={"30vh"}
+                  />
+                  <Button onClick={() => setToCart(product)}>
+                    Add to cart
+                  </Button>
+                </Card>
+              </>
+            );
+          })}
+      </Card.Group>
+    </StyledProductContainer>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    artworks: { data: artworks, status },
+    products: { data: products, status },
+    cart: { data: productsToCart },
   } = state;
 
   return {
-    artworks,
+    products,
+    productsToCart,
   };
 };
 
 export default connect(mapStateToProps, {
-  fetchArtworks,
+  fetchProductsBySection,
+  receiveCreatedCart,
 })(Products);

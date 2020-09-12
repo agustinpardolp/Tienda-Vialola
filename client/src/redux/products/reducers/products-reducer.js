@@ -9,16 +9,16 @@ const products = (
   const { payload: { data } = {} } = action;
 
   switch (action.type) {
-    case types.FETCH_PRODUCTS:
+    case types.FETCH_PRODUCTS_BY_SECTION:
       return { ...state, status: "LOADING" };
-    case types.FETCH_PRODUCTS_SUCCESS:
+    case types.FETCH_PRODUCTS_BY_SECTION_SUCCESS:
       return {
         ...state,
         data: [...data],
         status: "LOADED"
         
       };
-    case types.FETCH_PRODUCTS_FAILURE:
+    case types.FETCH_PRODUCTS_BY_SECTION_FAILURE:
       return { ...state, status: "FAILED" };
 
     default:

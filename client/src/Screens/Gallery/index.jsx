@@ -33,7 +33,7 @@ export function Gallery(props) {
                 );
               })}
           </CategoriesContainer>
-          <Footer back="/home" />
+          {/* <Footer back="/home" /> */}
         </>
       )}
     </>

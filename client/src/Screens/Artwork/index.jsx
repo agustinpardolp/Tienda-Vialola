@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Magnifier from "react-magnifier";
 import Slider from "../../components/Slider";
-import TransitionWrapper from "../../components/Transition";
+import TransitionWrapper from "../../components/transition";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,7 +27,7 @@ const StyledImg = styled.img`
 `;
 
 const StyledArtworkContainer = styled.div`
-  margin-top: 3%;
+  margin-top: 2%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -112,7 +112,7 @@ function Artwork(props) {
   const handleZoom = () => {
     setZoom(!zoom);
   };
-  const baseUrl = "/images/img-products/paints";
+  const baseUrl = "/images/img-artwork/paints";
   return (
     <>
       {!props.data.length ? (
@@ -131,7 +131,7 @@ function Artwork(props) {
                       mgWidth={150}
                       mgHeight={150}
                       mgShape={"square"}
-                      src={`/images/img-products/${
+                      src={`/images/img-artwork/${
                         props.data[0].category.name
                       }/${selectedImage || props.data[0].img}`}
                     />
@@ -146,7 +146,7 @@ function Artwork(props) {
                 <>
                   <TransitionWrapper>
                     <StyledImg
-                      src={`/images/img-products/${
+                      src={`/images/img-artwork/${
                         props.data[0].category.name
                       }/${selectedImage || props.data[0].img}`}
                     />

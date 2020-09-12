@@ -28,7 +28,6 @@ function About() {
                no fuese lo bastante enigmatica!"
            </p>
         </StyledAboutContainer>
-        <Footer back = "/home"/>
         </>
     )
 }

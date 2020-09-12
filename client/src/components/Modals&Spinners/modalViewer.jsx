@@ -37,18 +37,16 @@ const StyledModal = styled.div`
 
 const StyledImage = styled.div`
   /* background: ${(props) =>
-    `url("/images/img-products/${props.category}/${props.img}") no-repeat center;`}; */
+    `url("/images/img-artwork/${props.category}/${props.img}") no-repeat center;`}; */
   background-size: contain;
- 
+
   height: 100%;
   width: 100%;
-  img{
+  img {
     object-fit: scale-down;
     max-width: 100%;
-  max-height:100%;
+    max-height: 100%;
   }
-
-}
 `;
 
 const StyledButtonContainer = styled.div`
@@ -79,7 +77,7 @@ const StyledDivImageContainer = styled.div`
 `;
 const StyledImageInfo = styled.div`
   display: grid;
-  grid-template-rows:  50% 40%;
+  grid-template-rows: 50% 40%;
   grid-template-columns: 80%;
   justify-content: center;
   align-items: center;
@@ -184,7 +182,7 @@ export default function ModalViewer({
               <div>
                 <StyledImage>
                   <img
-                    src={`/images/img-products/${category.name}/${img}`}
+                    src={`/images/img-artwork/${category.name}/${img}`}
                   ></img>
                 </StyledImage>
               </div>

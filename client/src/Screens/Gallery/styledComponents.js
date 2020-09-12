@@ -6,7 +6,7 @@ export const StyledCardCategory = styled.div`
   width: 100%;
   margin: 0.5%;
   background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-products/${props.category}/${props.img}") center;`};
+    `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") center;`};
    position: relative;
   -webkit-transform: scale(1);
   transform: scale(1);

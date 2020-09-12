@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faCircle } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
@@ -12,7 +13,7 @@ import { UpperTranslate } from "../ImageSlider/style";
 import { NAVBAR } from "../../constants";
 
 const NavbarContainer = styled.nav`
-  background: ${props=>props.shop?"#37bfac52":"#ffffff7a"};
+  background: ${(props) => (props.shop ? "#37bfac52" : "#ffffff7a")};
   padding-bottom: 1%;
   display: flex;
   align-items: center;
@@ -105,55 +106,75 @@ const StyleMedia = styled.div`
 const SubMenu = styled.div`
   list-style: none;
 `;
-export function NavBar(props) {
-  const { pathname } = props.location;
+
+const StyledCartContainer = styled.div`
+  .cart {
+    position: relative;
+  }
+  .circle {
+    position: absolute;
+    font-size: 0.7rem;
+    color: red;
+  }
+  span {
+    position: absolute;
+    bottom: 4rem;
+    right: -1rem;
+  }
+`;
+export function NavBar({ location, productsToCart }) {
+  const { pathname } = location;
   const path = pathname && pathname.split("/")[1];
   return (
-    <NavbarContainer location={props ? props.location.pathname : null}>
+    <NavbarContainer location={location ? location.pathname : null}>
       <UpperTranslate duration="2s" delay="0.5s">
         <Home>
-          {props.location.pathname === "/home" ? (
-            <HomeLink to="/home" location={props.location.pathname}>
+          {location.pathname === "/home" ? (
+            <HomeLink to="/home" location={location.pathname}>
               <img src="/images/logo/FIRMA1.png" alt="" />
               {/* {NAVBAR.ARTIST.NAME} */}
             </HomeLink>
           ) : (
-            <HomeLink to="/home" location={props.location.pathname}>
+            <HomeLink to="/home" location={location.pathname}>
               <img src="/images/logo/FIRMA1.png" alt="" />
             </HomeLink>
           )}
         </Home>
         <MenuCart>
-          <ShowMenu location={props.location.pathname}>
-                {NAVBAR.OPTIONS.map((option) => {
-                  return (
-                    <li key={option.id}>
-                      <LinkStyled
-                        to={option.path}
-                        format={
-                          option.NAME.toLowerCase() === path
-                            ? "true"
-                            : undefined
-                        }
-                      >
-                        {option.NAME}
-                      </LinkStyled>
-                    </li>
-                  );
-                })}
+          <ShowMenu location={location.pathname}>
+            {NAVBAR.OPTIONS.map((option) => {
+              return (
+                <li key={option.id}>
+                  <LinkStyled
+                    to={option.path}
+                    format={
+                      option.NAME.toLowerCase() === path ? "true" : undefined
+                    }
+                  >
+                    {option.NAME}
+                  </LinkStyled>
+                </li>
+              );
+            })}
             <li>
-              <Link to="/cart">
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  size="1x"
-                  className="cart"
-                  style={{ fontSize: "20px", color: "var(--darkGrey)" }}
-                />
-              </Link>
+              <StyledCartContainer>
+                <Link to="/cart">
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    size="1x"
+                    className="cart"
+                    style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+                  />
+                  {productsToCart.length ? (
+                    <FontAwesomeIcon icon={faCircle} className="circle" />
+                  ) : null}
+                </Link>
+                <span>
+                  {productsToCart.length ? productsToCart.length : null}
+                </span>
+              </StyledCartContainer>
             </li>
           </ShowMenu>
-
-          {/* <MenuTitle location={props.location.pathname}> */}
           <StyleMedia>
             <Link to={"/"}>
               <FontAwesomeIcon
@@ -187,5 +208,14 @@ export function NavBar(props) {
     //  </FadeIn>
   );
 }
+const mapStateToProps = (state, ownProps) => {
+  const {
+    cart: { data: productsToCart },
+  } = state;
 
-export default React.memo(NavBar);
+  return {
+    productsToCart,
+  };
+};
+
+export default connect(mapStateToProps, null)(React.memo(withRouter(NavBar)));

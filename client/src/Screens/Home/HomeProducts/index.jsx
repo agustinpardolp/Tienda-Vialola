@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import StyledCard from "../../../../components/Card";
+import StyledCard from "../../../components/Card";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 const StyledHomeProducts = styled.div`
@@ -10,7 +10,7 @@ const StyledHomeProducts = styled.div`
   margin-left: 10%;
   margin-right: 10%;
   margin-top:3%;
-  height: 60vh;
+  /* height: 60vh; */
   .card {
     justify-self: center;
     margin:14px 14px;
