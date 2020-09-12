@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.div`
+export const StyledMain = styled.div `
 background-size: cover;
-height: 100vh;
+height: 100%;
 width: 100%;
 background: ${(props) =>
   `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat fixed center;`};

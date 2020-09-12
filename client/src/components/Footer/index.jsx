@@ -6,10 +6,15 @@ import {FOOTER} from "../../constants";
 
 const StyledFooter = styled.div`
 height: 7vh;
+bottom:0;
+width:100%;
+/* position:fixed; */
 background-color: transparent; 
+overflow: hidden;
 display: grid;
     grid-template-columns: 54% 46%;
     align-items: center;
+    
 `;
 
 const StyledSpan = styled.span`

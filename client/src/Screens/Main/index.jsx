@@ -72,7 +72,7 @@ const Main = (props) => {
           </Suspense>
           <Redirect to="/home" />
         </Switch>
-        <Footer/>
+      <Footer />
       </StyledMain>
     </>
   );
@@ -87,8 +87,8 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
-
-{/* <div className={`row ${styles.sector}`}>
+{
+  /* <div className={`row ${styles.sector}`}>
 <h2 className="col-md-12">Documentos adicionales</h2>
 <div className={`col-md-12 ${styles.contactInfo}`}>
   <div className="col-md-3">
@@ -105,4 +105,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main);
           <img src="/images/temp-Thumbnail.png" alt="..." className="img-thumbnail"/>
       </div>
 </div>
-</div> */}
+</div> */
+}

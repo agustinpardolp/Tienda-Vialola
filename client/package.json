@@ -40,7 +40,8 @@
     "slick-carousel": "^1.8.1",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.2.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "uuidv4": "^6.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

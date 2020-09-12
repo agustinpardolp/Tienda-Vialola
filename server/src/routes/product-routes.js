@@ -1,78 +1,42 @@
 const express = require("express");
 const router = express.Router();
-const Category = require("../../db/models/index").Category;
-const Product = require("../../db/models/index").Product;
-const Serie = require("../../db/models/").Serie;
+const Product = require("../../db/models/").Product;
+const Section = require("../../db/models/").Section;
 
-router.get("/categories", function (req, res) {
-  Category.findAll({
-    include: [
-      {
-        model: Serie,
-        as: "series",
-        attributes: ["name"],
-      },
-    ],
-  }).then((categoryList) => res.send(categoryList));
-});
-
-router.get("/:category/all/", function (req, res) {
-  Category.findOne({
-    where: {
-      name: req.params.category,
-    },
-  }).then((selectedCategory) => {
-    Product.findAll({
-      where: {
-        categoryId: selectedCategory.id,
-      },
-      include: [
-        {
-          model: Category,
-          as: "category",
-          attributes: ["name"],
+router.get("/:id", function(req, res) {
+    Product.findOne({
+        where: {
+            id: req.params.id,
         },
-        {
-          model: Serie,
-          as: "serie",
-          attributes: ["name"],
-        },
-      ],
-    }).then((productList) => {
-      res.send(productList);
+        include: [{
+            model: Section,
+            as: "section",
+            attributes: ["name"],
+        }, ],
+    }).then((product) => {
+        return res.send(product);
     });
-  });
 });
 
-router.get("/:serieName", function (req, res) {
-  Serie.findOne({
-    where: {
-      name: req.params.serieName,
-    },
-  }).then((serie) => {
-    Product.findAll({
-      where: {
-        serieId: serie.id,
-      },
-      include: [
-        {
-          model: Category,
-          as: "category",
-          attributes: ["name"],
+router.get("/:section/all", function(req, res) {
+    Section.findOne({
+        where: {
+            name: req.params.section,
         },
-        {
-          model: Serie,
-          as: "serie",
-          attributes: ["name"],
-        },
-      ]
-    }).then((productList)=> res.send(productList))
-  });
+    }).then((section) => {
+        Product.findAll({
+            where: {
+                sectionId: section.id,
+            },
+            include: [{
+                model: Section,
+                as: "section",
+                attributes: ["name"],
+            }, ],
+        }).then((productList) => {
+            return res.send(productList);
+        });
+    });
 });
 
-router.get("/:id", function (req, res) {
-  Product.findByPk(req.params.id).then((product) => {
-    res.send(product);
-  });
-});
 module.exports = router;

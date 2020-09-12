@@ -8,8 +8,9 @@ const StyledPhotoDiv = styled.div`
   margin: 1%;
   width: 100%;
   height: 100%;
-  background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-products/${props.category}/${props.img}") no-repeat center;`};
+  background: ${(props) => !props.filePath?
+    `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") no-repeat center;`:
+    `url("${process.env.PUBLIC_URL}${props.filePath}${props.img}") no-repeat center;`};
   background-size: cover;
   position: relative;
   -webkit-transform: scale(1);
@@ -40,8 +41,8 @@ const StyledContainer = styled.span`
   position: relative;
   display: block;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: ${(props) => (props.height?props.height: "100%")};
+  width: ${(props) => (props.width?props.width: "100%")};
 `;
 
 export const StyledLink = styled(Link)`
@@ -78,21 +79,28 @@ export default function StyledCard({
   fontSize,
   category,
   path,
-  noTitle
+  noTitle,
+  filePath,
+  img,
+  callBack,
+  height,
+  width
 }) {
+  console.log(`${process.env.PUBLIC_URL}/images/img-artwork/${category}/${element.img}`)
   return (
-    <StyledContainer>
+    <StyledContainer height={height} width={width}> 
       <TransitionWrapper>
         <StyledPhotoDiv
           key={element.id}
-          img={element.img}
-          category={category ? category : element.category.name}
+          filePath = {filePath}
+          img={img?img:element.img}
+          category={category ? category : element.category?element.category.name:null}
           onClick={
             handleChangeImage
               ? () => {
                   handleChangeImage(element);
                 }
-              : null
+              : callBack
           }
         >
           {handleChangeImage ? (

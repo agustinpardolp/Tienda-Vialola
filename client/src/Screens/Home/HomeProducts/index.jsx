@@ -10,7 +10,7 @@ const StyledHomeProducts = styled.div`
   margin-left: 10%;
   margin-right: 10%;
   margin-top:3%;
-  height: 60vh;
+  /* height: 60vh; */
   .card {
     justify-self: center;
     margin:14px 14px;

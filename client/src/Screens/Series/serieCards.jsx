@@ -9,7 +9,7 @@ const StyledPhotoDiv = styled.div`
   width: 100%;
   height: 100%;
   background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-products/${props.category}/${props.img}") no-repeat center;`};
+    `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") no-repeat center;`};
   background-size: cover;
   position: relative;
   -webkit-transform: scale(1);

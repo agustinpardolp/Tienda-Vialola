@@ -3,7 +3,7 @@ import axios from "axios";
 export const getArtworkBySerie = data => {
   let { serieName } = data;
 
-  return axios.get(`/api/products/${serieName}`).then(res => res);
+  return axios.get(`/api/artworks/${serieName}`).then(res => res);
 };
 
 

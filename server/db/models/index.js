@@ -1,34 +1,40 @@
-const db = require("../index")
+const db = require("../index");
 const User = require("./user");
-const Category = require ("./category");
-const Serie = require ('./serie');
+const Category = require("./category");
+const Section = require("./section");
+const Serie = require("./serie");
 const Product = require("./product");
-const Purchase = require ("./purchase");
-const Order = require ("./order");
+const Purchase = require("./purchase");
+const Order = require("./order");
+const Artwork = require("./artwork");
 
-Product.belongsTo(Category)
-Category.hasMany(Product)
+Product.belongsTo(Section);
+Section.hasMany(Product);
 
-Product.belongsTo(Serie)
-Serie.hasMany(Product)
+Artwork.belongsTo(Category);
+Category.hasMany(Artwork);
 
-Serie.belongsTo(Category)
-Category.hasMany(Serie)
+Artwork.belongsTo(Serie);
+Serie.hasMany(Artwork);
 
-Order.belongsTo(User, {as:"user"})
-User.hasMany(Order, {as:"order"})
+Serie.belongsTo(Category);
+Category.hasMany(Serie);
 
-Purchase.belongsTo(Order, {as:"order"})
-Purchase.belongsTo(Product, {as:"product"})
-Order.hasMany(Purchase, {as:"purchase"})
+Order.belongsTo(User, { as: "user" });
+User.hasMany(Order, { as: "order" });
 
+Purchase.belongsTo(Order, { as: "order" });
+Purchase.belongsTo(Product, { as: "product" });
+Order.hasMany(Purchase, { as: "purchase" });
 
-module.exports={
-    Category,
-    Product,
-    Serie,
-    Order,
-    User,
-    Purchase,
-    db
-}
+module.exports = {
+  Category,
+  Product,
+  Serie,
+  Order,
+  User,
+  Purchase,
+  Section,
+  Artwork,
+  db,
+};
