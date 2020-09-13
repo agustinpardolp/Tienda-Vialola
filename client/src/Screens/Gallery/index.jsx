@@ -6,6 +6,7 @@ import Spinner from "../../components/Modals&Spinners/spinner";
 import Card from "../../components/Card";
 import Dividers from "../../components/Divider";
 import { CategoriesContainer } from "./styledComponents";
+import CardGrid from "../../components/CardGrid";
 
 export function Gallery(props) {
   useEffect(() => {
@@ -18,11 +19,15 @@ export function Gallery(props) {
         <Spinner active></Spinner>
       ) : (
         <>
-        <Dividers titleElements={[{name:"Artwork", id:1}]}/>
-          <CategoriesContainer>
+          <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
+          <CardGrid
+            row={"1"}
+            elementsLength={
+              props.artworkCategories && props.artworkCategories.length
+            }
+          >
             {props.artworkCategories &&
               props.artworkCategories.map((category) => {
-               
                 return (
                   <Card
                     key={category.id}
@@ -32,8 +37,7 @@ export function Gallery(props) {
                   />
                 );
               })}
-          </CategoriesContainer>
-          {/* <Footer back="/home" /> */}
+          </CardGrid>
         </>
       )}
     </>
@@ -53,4 +57,3 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps, {
   fetchArtworkCategories,
 })(Gallery);
-

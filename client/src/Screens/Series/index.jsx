@@ -50,7 +50,7 @@ function Series(props) {
               },
             ]}
           />
-          <CardGrid>
+          <CardGrid row={3}>
             {props.series.length &&
               props.series.map((serie, i) => {
                 return (
