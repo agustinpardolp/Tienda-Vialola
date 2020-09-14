@@ -6,18 +6,13 @@ import Product from "./product";
 import Products from "./products";
 import Divider from "../../components/Divider";
 
-export default function Shop(props) {
-  let {
-    location: { pathname },
-    match
-  } = props;
-  let path = pathname.split("/")[2];
+export default function Shop({ match }) {
   return (
     <>
       <Divider titleElements={NAVBAR.SHOPOPTIONS} />
       <Switch>
         <Route exact path={`${match.path}:section`} component={Products} />
-        <Route path={`${props.match.path}:section/:productId`} component={Product} />
+        <Route path={`${match.path}:section/:productId`} component={Product} />
       </Switch>
     </>
   );

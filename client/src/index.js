@@ -11,15 +11,11 @@ import "semantic-ui-css/semantic.min.css";
 import "./utils/styles/fonts.css";
 import "./utils/styles/index.css";
 
-ReactDOM.render( <
-    Provider store = { store } >
-    <
-    BrowserRouter >
-    <
-    Route path = "/"
-    component = { Main }
-    />{" "} <
-    /BrowserRouter>{" "} <
-    /Provider>,
-    document.getElementById("root")
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <Route path="/" component={Main} />{" "}
+    </BrowserRouter>{" "}
+  </Provider>,
+  document.getElementById("root")
 );

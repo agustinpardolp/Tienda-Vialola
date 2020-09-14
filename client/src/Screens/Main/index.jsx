@@ -1,11 +1,9 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useCallback, Suspense } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, __RouterContext, Redirect } from "react-router-dom";
 
-// import { fetchloggedUser } from "../../redux/actions/user-actions";
 import { BACKGROUND_IMAGES } from "../../constants";
 import NavBar from "../../components/NavBar";
-import ImageSlider from "../../components/ImageSlider";
 import Login from "../Login";
 import Gallery from "../Gallery";
 import Product from "../Artwork";
@@ -20,28 +18,11 @@ import Welcome from "../Welcome";
 import Footer from "../../components/Footer";
 const Products = React.lazy(() => import("../Series"));
 
-const images = [
-  { NAME: "slide8" },
-  { NAME: "slide5" },
-  { NAME: "slide15" },
-  { NAME: "slide6" },
-  { NAME: "slide3" },
-  { NAME: "slide10" },
-  { NAME: "slide13" },
-  { NAME: "slide11" },
-  { NAME: "slide12" },
-  { NAME: "slide4" },
-];
-
-const Main = (props) => {
-  let {
-    location: { pathname },
-  } = props;
+const Main = ({ location }) => {
+  let { pathname } = location;
 
   const locationSelector = (location) => {
     switch (location) {
-      // case "/":
-      //   return imageData.homeImage;
       case "/home":
         return BACKGROUND_IMAGES.DEFAULT;
       case "/about":
@@ -50,7 +31,6 @@ const Main = (props) => {
         return BACKGROUND_IMAGES.CONTACT;
       default:
         return BACKGROUND_IMAGES.DEFAULT;
-      // return
     }
   };
   return (
@@ -72,7 +52,7 @@ const Main = (props) => {
           </Suspense>
           <Redirect to="/home" />
         </Switch>
-      <Footer />
+        <Footer />
       </StyledMain>
     </>
   );
@@ -88,22 +68,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
 {
-  /* <div className={`row ${styles.sector}`}>
-<h2 className="col-md-12">Documentos adicionales</h2>
-<div className={`col-md-12 ${styles.contactInfo}`}>
-  <div className="col-md-3">
-    <label className={styles.label}>DNI</label>
-      <img src="/images/temp-DNIThumbnail.jpg" alt="..." className="img-thumbnail"/>
-      <img src="/images/temp-DNIThumbnail.jpg" alt="..." className="img-thumbnail"/>
-  </div>
-  <div className="col-md-3">
-          <label className={styles.label}>PVP</label>
-          <img src="/images/temp-Thumbnail.png" alt="..." className="img-thumbnail"/>
-      </div>
-      <div className="col-md-3">
-          <label className={styles.label}>Escrituras</label>
-          <img src="/images/temp-Thumbnail.png" alt="..." className="img-thumbnail"/>
-      </div>
-</div>
-</div> */
 }
