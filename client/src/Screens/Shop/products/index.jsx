@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
@@ -28,15 +28,12 @@ const Products = ({
     url,
   } = match;
 
-  let [showProductModal, setShowProductModal] = useState(false);
   let { setToCart } = useCart(productsToCart, receiveCreatedCart);
 
   useEffect(() => {
     fetchProductsBySection(pathName);
   }, [pathName]);
-  const hadleShowProductModal = () => {
-    setShowProductModal(!showProductModal);
-  };
+
   const handleRedirect = (url, product) => {
     history.push(`${url}/${product.id}`);
   };

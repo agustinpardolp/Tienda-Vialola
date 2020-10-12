@@ -1,18 +1,15 @@
-import {RECEIVE_PRODUCTS} from "../../constants";
+import { RECEIVE_PRODUCTS } from "../../constants";
 
 const initialState = {
-    productList:[],
-    // productCategory=[]
-}
+  productList: [],
+};
 
-export default (state=initialState, action)=>{
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      return { ...state, productList: [...action.productList] };
 
-    switch (action.type) {
-        case RECEIVE_PRODUCTS:
-            return {...state, productList:[...action.productList]}
-    
-        default:
-            return state
-    }
-
-}
+    default:
+      return state;
+  }
+};
