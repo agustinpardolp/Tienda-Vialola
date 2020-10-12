@@ -1,18 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
-
-const StyledButtonGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-  .btn-groups {
-    width: 25%;
-  }
-  & button:first-child {
-    margin-right: 2%;
-  }
-`;
+import { StyledButtonGroup } from "./styled-components";
 
 const ButtonsGroup = ({ path }) => {
   return (

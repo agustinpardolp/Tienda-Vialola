@@ -1,21 +1,21 @@
 import { types } from "../../../constants";
 
 const optionSidebar = (
-  state = { 
+  state = {
     data: {},
-    status: "not loaded"
-   }, 
-   action) => {
+    status: "NOT_LOADED",
+  },
+  action
+) => {
   const { payload: { data } = {} } = action;
 
   switch (action.type) {
     case types.RECEIVE_MENU_OPTION:
-
-        return {
-            ...state,
-            data: data,
-            status: "loaded"
-          };
+      return {
+        ...state,
+        data: data,
+        status: "LOADED",
+      };
 
     default:
       return state;

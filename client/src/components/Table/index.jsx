@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TableBody from "./TableBody/TableBody";
 import TableHeader from "./TableHeader/TableHeader";
-import {StyledTable} from "./styledComponents";
- 
+import { StyledTable } from "./styledComponents";
+
 const Table = ({ columns, data, onDelete, onIncrease, onDecrease }) => {
   const DATATYPE = {
     PRODUCT: "name",
@@ -36,7 +36,6 @@ const Table = ({ columns, data, onDelete, onIncrease, onDecrease }) => {
   };
 
   const renderBody = (data, disableLink) => {
-    console.log("dataBody", data)
     if (data && data.length > 0) {
       return data.map((row) => {
         return (

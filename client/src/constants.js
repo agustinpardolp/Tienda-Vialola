@@ -1,15 +1,15 @@
 //ARTWORKS CONSTANTS
 
 export const types = {
-   //PRODUCTS
-FETCH_PRODUCTS: "FETCH_PRODUCTS",
-FETCH_PRODUCTS_FAILURE:"FETCH_PRODUCTS_FAILURE",
-FETCH_PRODUCTS_CATEGORIES: "FETCH_PRODUCTS_CATEGORIES",
-FETCH_PRODUCTS_CATEGORIES_SUCCESS: "FETCH_PRODUCTS_CATEGORIES_SUCCESS",
-FETCH_PRODUCTS_CATEGORIES_FAILURE: "FETCH_PRODUCTS_CATEGORIESS_FAILURE",
-FETCH_PRODUCTS_BY_SECTION: "FETCH_PRODUCTS_BY_SECTION",
-FETCH_PRODUCTS_BY_SECTION_SUCCESS: "FETCH_PRODUCTS_BY_SECTION_SUCCESS",
-FETCH_PRODUCTS_BY_SECTION_FAILURE: "FETCH_PRODUCTS_BY_SECTION_FAILURE",
+  //PRODUCTS
+  FETCH_PRODUCTS: "FETCH_PRODUCTS",
+  FETCH_PRODUCTS_FAILURE: "FETCH_PRODUCTS_FAILURE",
+  FETCH_PRODUCTS_CATEGORIES: "FETCH_PRODUCTS_CATEGORIES",
+  FETCH_PRODUCTS_CATEGORIES_SUCCESS: "FETCH_PRODUCTS_CATEGORIES_SUCCESS",
+  FETCH_PRODUCTS_CATEGORIES_FAILURE: "FETCH_PRODUCTS_CATEGORIESS_FAILURE",
+  FETCH_PRODUCTS_BY_SECTION: "FETCH_PRODUCTS_BY_SECTION",
+  FETCH_PRODUCTS_BY_SECTION_SUCCESS: "FETCH_PRODUCTS_BY_SECTION_SUCCESS",
+  FETCH_PRODUCTS_BY_SECTION_FAILURE: "FETCH_PRODUCTS_BY_SECTION_FAILURE",
   //ARTWORK
   FETCH_ARTWORKS: "FETCH_ARTWORKS",
   FETCH_ARTWORKS_SUCCESS: "FETCH_ARTWORKS_SUCCESS",
@@ -36,12 +36,10 @@ FETCH_PRODUCTS_BY_SECTION_FAILURE: "FETCH_PRODUCTS_BY_SECTION_FAILURE",
   FETCH_SERIES_SUCCESS: "FETCH_SERIES:_SUCCESS",
   FETCH_SERIES_FAILURE: "FETCH_SERIES:_FAILURE",
   //PRODUCT
-  FETCH_PRODUCT_BY_ID:"FETCH_PRODUCT_BY_ID",
-  FETCH_PRODUCT_BY_ID_SUCCESS:"FETCH_PRODUCT_BY_ID_SUCCESS",
-  FETCH_PRODUCT_BY_ID_FAILURE:"FETCH_PRODUCT_BY_ID_FAILURE",
+  FETCH_PRODUCT_BY_ID: "FETCH_PRODUCT_BY_ID",
+  FETCH_PRODUCT_BY_ID_SUCCESS: "FETCH_PRODUCT_BY_ID_SUCCESS",
+  FETCH_PRODUCT_BY_ID_FAILURE: "FETCH_PRODUCT_BY_ID_FAILURE",
 };
-
-
 
 export const NAVBAR = {
   OPTIONS: [
@@ -53,9 +51,8 @@ export const NAVBAR = {
     { NAME: "News", id: 6, path: "/news" },
   ],
   SHOPOPTIONS: [
-    // { NAME: "Dolores Pardo", id: 1, path: "/home" },
     { NAME: "prints  ", id: 2, path: "prints" },
-    { NAME: "small art  ", id: 3, path: "small-art"},
+    { NAME: "small art  ", id: 3, path: "small-art" },
     { NAME: "objects  ", id: 4, path: "objects" },
     { NAME: "miscellaneous", id: 5, path: "miscellaneous" },
   ],
@@ -63,7 +60,6 @@ export const NAVBAR = {
     NAME: "Dolores Pardo",
   },
 };
-
 
 export const IMAGES = [
   { NAME: "slide8" },
@@ -93,5 +89,59 @@ export const PRODUCTS = {
   DESCRIPTION: "Description",
   CATEGORY: "Category",
   DATE: "Date",
-  
+};
+
+export const MEDIA_SIZES = {
+  mobileS: "320px",
+  mobileM: "375px",
+  mobileL: "425px",
+  tablet: "768px",
+  laptop: "1024px",
+  laptopL: "1440px",
+  desktop: "2560px",
+};
+
+export const DEVICES_MAX_WIDTH = {
+  mobileS: `(max-width: ${MEDIA_SIZES.mobileS})`,
+  mobileM: `(max-width: ${MEDIA_SIZES.mobileM})`,
+  mobileL: `(max-width: ${MEDIA_SIZES.mobileL})`,
+  tablet: `(max-width: ${MEDIA_SIZES.tablet})`,
+  laptop: `(max-width: ${MEDIA_SIZES.laptop})`,
+  laptopL: `(max-width: ${MEDIA_SIZES.laptopL})`,
+  desktop: `(max-width: ${MEDIA_SIZES.desktop})`,
+  desktopL: `(max-width: ${MEDIA_SIZES.desktop})`,
+};
+
+export const DEVICES_MIN_WIDTH = {
+  mobileS: `(min-width: ${MEDIA_SIZES.mobileS})`,
+  mobileM: `(min-width: ${MEDIA_SIZES.mobileM})`,
+  mobileL: `(min-width: ${MEDIA_SIZES.mobileL})`,
+  tablet: `(min-width: ${MEDIA_SIZES.tablet})`,
+  laptop: `(min-width: ${MEDIA_SIZES.laptop})`,
+  laptopL: `(min-width: ${MEDIA_SIZES.laptopL})`,
+  desktop: `(min-width: ${MEDIA_SIZES.desktop})`,
+  desktopL: `(min-width: ${MEDIA_SIZES.desktop})`,
+};
+
+export const REQUEST_STATUS = {
+  NOT_LOADED: "NOT_LOADED",
+  LOADING: "LOADING",
+  LOADED: "LOADED",
+  FAILED: "FAILED",
+};
+export const SCREENS_LABELS = {
+  artwork: {
+    labels: {
+      title: "Title",
+      category: "Category:",
+      serie: "Serie:",
+      description: "Description:",
+      printsAvailable: "Prints available, please send a coment",
+    },
+  },
+  welcome: {
+    labels: {
+      enter: "Enter",
+    },
+  },
 };

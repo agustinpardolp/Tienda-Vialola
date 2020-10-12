@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Carousele from "../../components/Carousel";
-import HomeProducts from "./HomeProducts"
-import Footer from "../../components/Footer";
+import HomeProducts from "./HomeProducts";
 const StyledMainHomeProducts = styled.div`
   margin-top: 2%;
   margin-right: 5%;
-    margin-left: 5%;
+  margin-left: 5%;
 `;
 
 export default function Home() {
@@ -46,7 +45,6 @@ export default function Home() {
         <Carousele />
         <HomeProducts shopProducts={shopProducts} />
       </StyledMainHomeProducts>
-      {/* <Footer/> */}
     </>
   );
 }

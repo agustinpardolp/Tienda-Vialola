@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-
-import { FadeIn } from "../../components/ImageSlider/style";
 import { connect } from "react-redux";
+import { REQUEST_STATUS } from "../../constants";
 import Dividers from "../../components/Divider";
 import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
@@ -10,49 +9,33 @@ import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
 
-const OptionsMenu = styled.div`
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: 0.5px solid #efeeee;
-`;
-
-const StyledTittle = styled.h3`
-  color: rgb(115, 112, 110);
-`;
-
-function Series(props) {
+const Series = ({ match, fetchArtworks, fetchSeries, status, series }) => {
   const {
-    match: {
-      params: { name: pathName },
-    },
-  } = props;
+    params: { name: pathName },
+  } = match;
 
   useEffect(() => {
-    props.fetchArtworks(pathName);
-    props.fetchSeries(pathName);
+    fetchArtworks(pathName);
+    fetchSeries(pathName);
   }, []);
 
   return (
     <>
-      {props.status !== "LOADED" ? (
+      {status !== REQUEST_STATUS.LOADED ? (
         <Spinner></Spinner>
       ) : (
         <>
           <Dividers
             titleElements={[
               {
-                name: `${
-                  props.series.length && props.series[0].category.name
-                } / series`,
+                name: `${series.length && series[0].category.name} / series`,
                 id: 1,
               },
             ]}
           />
-          <CardGrid>
-            {props.series.length &&
-              props.series.map((serie, i) => {
+          <CardGrid row={3}>
+            {series.length &&
+              series.map((serie, i) => {
                 return (
                   <Card
                     element={serie}
@@ -67,7 +50,7 @@ function Series(props) {
       )}
     </>
   );
-}
+};
 
 const mapStateToProps = (state, ownProps) => {
   const {

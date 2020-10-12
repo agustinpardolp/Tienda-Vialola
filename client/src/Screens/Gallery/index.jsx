@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Footer from "../../components/Footer";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
+import { REQUEST_STATUS } from "../../constants";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import Card from "../../components/Card";
 import Dividers from "../../components/Divider";
-import { CategoriesContainer } from "./styledComponents";
+import CardGrid from "../../components/CardGrid";
 
 export function Gallery(props) {
   useEffect(() => {
@@ -14,15 +14,19 @@ export function Gallery(props) {
 
   return (
     <>
-      {props.status !== "LOADED" ? (
+      {props.status !== REQUEST_STATUS.LOADED ? (
         <Spinner active></Spinner>
       ) : (
         <>
-        <Dividers titleElements={[{name:"Artwork", id:1}]}/>
-          <CategoriesContainer>
+          <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
+          <CardGrid
+            row={"1"}
+            elementsLength={
+              props.artworkCategories && props.artworkCategories.length
+            }
+          >
             {props.artworkCategories &&
               props.artworkCategories.map((category) => {
-               
                 return (
                   <Card
                     key={category.id}
@@ -32,8 +36,7 @@ export function Gallery(props) {
                   />
                 );
               })}
-          </CategoriesContainer>
-          {/* <Footer back="/home" /> */}
+          </CardGrid>
         </>
       )}
     </>
@@ -53,4 +56,3 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps, {
   fetchArtworkCategories,
 })(Gallery);
-

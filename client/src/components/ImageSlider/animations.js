@@ -1,6 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import {BaseAnimation} from "../../utils/baseStyleAnimations"
-
+import styled, { keyframes } from "styled-components";
+import { BaseAnimation } from "../../utils/baseStyleAnimations";
 
 const FadeInAnimation = keyframes`
 
@@ -13,10 +12,6 @@ const TwisterAnimation = keyframes`
   from { transform:rotate(0deg) }
   to { transform:rotate(360deg); }
 `;
-// const FadeOutAnimation = keyframes`
-// from { opacity: 1; }
-// to { opacity: 0; }
-// `;
 
 const TranslateAnimation = keyframes`
 
@@ -26,22 +21,21 @@ to { transform:translateY(10px) }
 
 export const FadeIn = styled(BaseAnimation)`
   /* regulo la transicion, mas rapido, opaco o no etc */
-  transition:2s;
-  animation-duration: .3s;
+  transition: 2s;
+  animation-duration: 0.3s;
   animation-name: ${FadeInAnimation}; /* seteo sobre el efecto seleccionado el nombre
   de la animacion */
-  
-  `;
+`;
 
 export const UpperTranslate = styled(BaseAnimation)`
   animation-name: ${TranslateAnimation};
   width: 100%;
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
 `;
 
 export const Twister = styled(BaseAnimation)`
-  transition:2s;
-  animation-name: ${TwisterAnimation}
+  transition: 2s;
+  animation-name: ${TwisterAnimation};
 `;
