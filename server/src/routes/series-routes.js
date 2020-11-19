@@ -21,7 +21,9 @@ router.get("/:category/", function (req, res) {
             as: "category",
             attributes: ["name"]
           }]
-      }).then((seriesList) => res.send(seriesList));
+      }).then((seriesList) => {
+        console.log(seriesList)
+        return res.send(seriesList)});
     })
     
 });

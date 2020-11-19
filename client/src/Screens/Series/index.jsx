@@ -36,6 +36,7 @@ const Series = ({ match, fetchArtworks, fetchSeries, status, series }) => {
           <CardGrid row={3}>
             {series.length &&
               series.map((serie, i) => {
+                console.log("ELEMENTO", serie)
                 return (
                   <Card
                     element={serie}

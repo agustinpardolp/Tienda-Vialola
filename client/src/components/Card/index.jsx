@@ -22,6 +22,7 @@ export default function StyledCard({
   height,
   width,
 }) {
+
   return (
     <StyledContainer height={height} width={width}>
       <TransitionWrapper>
