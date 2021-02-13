@@ -1,25 +1,23 @@
-
 import { types } from "../../../constants";
 
-export const fetchArtworkCategories = () => {
-  
+export const fetchArtworkCategories = (query) => {
   return {
     type: types.FETCH_ARTWORK_CATEGORIES,
-    payload: {}
+    query,
   };
 };
 
-export const fetchArtworkCategoriesSuccess = data => {
+export const fetchArtworkCategoriesSuccess = (data) => {
   return {
     type: types.FETCH_ARTWORK_CATEGORIES_SUCCESS,
     payload: {
-      data
-    }
+      data,
+    },
   };
 };
-export const fetchArtworkCategoriesFailure = error => ({
+export const fetchArtworkCategoriesFailure = (error) => ({
   type: types.FETCH_ARTWORK_CATEGORIES_FAILURE,
   payload: {
-    error
-  }
+    error,
+  },
 });

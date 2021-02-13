@@ -1,79 +1,47 @@
-import React, { Component } from "react";
+import { withFormik } from "formik";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Login from "../Login/login";
-import ModalError from "../../components/Modals&Spinners/modalError";
-// import {loginUser} from "../../redux/home/actions/user-actions"
+import * as yup from "yup";
+import { REGEX, types } from "../../constants";
+import { loginUser } from "../../redux/login/actions/user-actions";
+import LoginForm from "./LoginForm";
 
-class LoginContainer extends Component {
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .trim()
+    .matches(REGEX.EMAIL_REGEX_SCHEMA, "Datos faltantes o incorrectos")
+    .max(30)
+    .required(" "),
+  password: yup
+    .string()
+    .trim()
+    .matches(REGEX.ALPHANUMERIC, "Tipo de dato incorrecto")
+    .min(4, "Password debe contener al menos 8 caracteres")
+    .max(4, "Password debe contener al menos 8 caracteres")
+    .required(" "),
+  rememberUser: yup.bool(),
+});
+//formik validations
+const Login = withFormik({
+  validateOnChange: true,
+  enableReinitialize: false,
+  validationSchema,
+  mapPropsToValues: ({ email, password, rememberUser }) => ({
+    email: email || "",
+    password: password || "",
+    rememberUser: rememberUser || false,
+  }),
+  handleSubmit: (
+    value,
+    { props: {loginUser, history }, setErrors }
+  ) => {
+    let pathname = "/admin/edit-artwork";
+    loginUser(value, history, pathname);
+  },
+})(LoginForm);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      modalStatus: false,
-      modalMsj: "",
-    };
-
-    this.onHandleChange = this.onHandleChange.bind(this);
-    this.onHandleSubmit = this.onHandleSubmit.bind(this);
-    this.toggle = this.toggle.bind(this);
-  }
-
-  componentDidMount() {}
-  onHandleChange(e) {
-
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-
-  }
-
-  onHandleSubmit(e) {
-    e.preventDefault();
-  
-    this.props
-      .loginUser(this.state)
-      .then(user => {
-        this.props.history.push("/home");
-      })
-      .catch(() => {
-        this.setState({
-            modalStatus:true,
-            modalMsj: "Ups!...Please verify your username or password.."
-        })
-      });
-  }
-  toggle() {
-    this.setState({
-      modalStatus: !this.state.modalStatus
-    });
-  }
-
-  render() {
-    return (
-      <>
-        <Login
-          handleChange={this.onHandleChange}
-          handleSubmit={this.onHandleSubmit}
-        />
-        <ModalError modalStatus={this.state.modalStatus} toggle = {this.toggle} modalMsj = {this.state.modalMsj}/>
-      </>
-    );
-  }
-}
-
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
-const mapDispatchToProps = dispatch => {
-  return {
-      // loginUser: (user) => dispatch(loginUser(user))
-  };
+const mapDispatchToProps = {
+  loginUser,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginContainer);
+export default connect(null, mapDispatchToProps)(Login);

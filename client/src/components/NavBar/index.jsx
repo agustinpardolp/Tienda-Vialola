@@ -10,12 +10,13 @@ import {
   NavbarContainer,
   StyledCartMenu,
   StyledIcon,
+  StyledAdminMenu,
 } from "./styled-components";
 
 export function NavBar({ location }) {
   const { pathname } = location;
   const path = pathname && pathname.split("/")[1];
-
+  const isAdmin = path.includes("admin");
   const [visible, setVisible] = React.useState(false);
 
   const toogleSubMenu = () => {
@@ -23,7 +24,7 @@ export function NavBar({ location }) {
   };
   return (
     <>
-      <NavbarContainer location={pathname.includes("about")}>
+      <NavbarContainer location={pathname.includes("about")} isAdmin={isAdmin}>
         <UpperTranslate duration="2s" delay="0.5s">
           <BrandInfo location={location} />
           <StyledIcon
@@ -33,12 +34,20 @@ export function NavBar({ location }) {
             visible={false}
           />
           <StyledCartMenu>
-            <MenuOptions location={location} path={path} />
-            <MediaInfo />
+            {isAdmin ? (
+              <StyledAdminMenu>
+                <h2>Panel Administrador</h2>
+              </StyledAdminMenu>
+            ) : (
+              <>
+                <MenuOptions location={location} path={path} />
+                <MediaInfo />
+              </>
+            )}
           </StyledCartMenu>
         </UpperTranslate>
       </NavbarContainer>
-      <SubMenu visible={visible} path={path} />
+      <SubMenu visible={visible} path={path} isAdmin={isAdmin} />
     </>
   );
 }

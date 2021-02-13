@@ -9,7 +9,7 @@ import CardGrid from "../../components/CardGrid";
 
 export function Gallery(props) {
   useEffect(() => {
-    props.fetchArtworkCategories();
+    props.fetchArtworkCategories('');
   }, []);
 
   return (

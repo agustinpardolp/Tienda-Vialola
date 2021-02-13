@@ -1,21 +1,20 @@
 import { types } from "../../../constants";
 
-export const fetchSeries= pathName => {
+export const fetchSeries = (query) => {
   return {
     type: types.FETCH_SERIES,
-    pathName
-    
+    query,
   };
 };
 
-export const fetchSeriesSuccess = data => {
+export const fetchSeriesSuccess = (data) => {
   return {
     type: types.FETCH_SERIES_SUCCESS,
     payload: {
-      data
-    }
+      data,
+    },
   };
 };
 export const fetchSeriesFailure = () => ({
-  type: types.FETCH_SERIES_FAILURE
+  type: types.FETCH_SERIES_FAILURE,
 });

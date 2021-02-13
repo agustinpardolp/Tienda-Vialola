@@ -7,7 +7,7 @@ import {
 } from "./styled-components";
 import { UpperTranslate } from "../ImageSlider/animations";
 
-const BrandInfo = ({ location }) => {
+const BrandInfo = ({ location, isAdmin }) => {
   return (
     <StyledBrandContainer location={location ? location.pathname : null}>
       <UpperTranslate duration="2s" delay="0.5s">

@@ -1,58 +1,11 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
 import Card from "../../components/Card";
-
-const ElementSlider = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) =>
-    `repeat(${props.col.length}, ${(12 * 8) / props.col.length}%)`};
-  grid-gap: ${(props) => `${(10 * 7) / props.col.length}px`};
-  width: 100%;
-  height: 150px;
-  justify-content: center;
-  width: ${(props) => props.col && (props.col.length * 90) / 8};
-`;
-
-const ImgSlider = styled.img`
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  transition: all 1.8s;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
-  backface-visibility: hidden;
-  &:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-    backface-visibility: hidden;
-  }
-`;
-const StyledDiv = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) =>
-    `${10}% ${(80 * props.col.length) / 8}% ${10}%`};
-  justify-content: center;
-  margin-top: 2%;
-  margin-right: 4%;
-  margin-left: 4%;
-  width: 80%;
-`;
-
-const StyledSlideContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledButtonContainer = styled.div`
-  align-self: center;
-`;
-
-const StyledCarContainer = styled.div`
-  width: 150px;
-`;
+import {
+  ElementSlider,
+  StyledDiv,
+  StyledSlideContainer,
+  StyledButtonContainer,
+} from "./styled-components";
 
 function Slider({ elements, handleChangeImage, fontSize, noTitle }) {
   const [elementIndex, setElementIndex] = useState(0);

@@ -1,9 +1,9 @@
 import { types } from "../../../constants";
 
-export const fetchArtworks = (pathName) => {
+export const fetchArtworks = (query) => {
   return {
     type: types.FETCH_ARTWORKS,
-    pathName,
+    query,
   };
 };
 
@@ -36,4 +36,43 @@ export const fetchArtworksBySerieSuccess = (data) => {
 };
 export const fetchArtworksBySerieFailure = () => ({
   type: types.FETCH_ARTWORKS_BY_SERIE_FAILURE,
+});
+
+export const editArtwork = (artworkData) => {
+  return {
+    type: types.EDIT_ARTWORK,
+    artworkData,
+  };
+};
+
+export const editArtworkSuccess = (data) => {
+  return {
+    type: types.EDIT_ARTWORK_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+export const editArtworkFailure = () => ({
+  type: types.EDIT_ARTWORK_FAILURE,
+});
+
+export const deleteArtwork = (artworkId) => {
+  return {
+    type: types.DELETE_ARTWORK,
+    artworkId,
+  };
+};
+
+export const deleteArtworkSuccess = (data) => {
+  debugger;
+  return {
+    type: types.DELETE_ARTWORK_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+export const deleteArtworkFailure = () => ({
+  type: types.DELETE_ARTWORK_FAILURE,
 });

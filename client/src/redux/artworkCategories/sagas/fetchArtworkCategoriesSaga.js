@@ -1,10 +1,10 @@
 import { call, put } from "redux-saga/effects";
-import { getArtworkCategories } from "../../../api/artworkCategories";
+import { getArtworkCategories } from "../../../services/categories";
 import * as actions from "../actions/artwork-categories-actions";
 
-export default function* fetchArtworkCategoriesSaga() {
+export default function* fetchArtworkCategoriesSaga(queryParam) {
   try {
-    const { data } = yield call(getArtworkCategories); //getDetails, de la api
+    const { data } = yield call(getArtworkCategories, queryParam); //getDetails, de la api
 
     yield put(actions.fetchArtworkCategoriesSuccess(data)); //si esta la data ok, envio a reducer con "data"
   } catch (error) {

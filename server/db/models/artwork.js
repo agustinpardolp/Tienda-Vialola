@@ -20,6 +20,21 @@ const Artwork = db.define("artwork", {
     defaultValue:
       "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png",
   },
+  priceReproduction: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
+  allowReproduction: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
+  },
+  allowOriginal: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
+  },
 });
 
 module.exports = Artwork;
