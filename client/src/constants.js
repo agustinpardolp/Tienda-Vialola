@@ -1,3 +1,13 @@
+export const API_DOMAIN = "/vialola-api";
+
+export const API_LOGIN = `${API_DOMAIN}/users/accounts/login/`;
+export const API_LOGOUT = `${API_DOMAIN}/users/accounts/logout/`;
+export const API_CATEGORIES = `${API_DOMAIN}/categories/`;
+export const API_ARTWORKS = `${API_DOMAIN}/artworks/`;
+export const API_SERIES = `${API_DOMAIN}/series/`;
+export const API_PRODUCTS = `${API_DOMAIN}/products/`;
+export const API_PROFILE = `${API_DOMAIN}/profile/`;
+
 //ARTWORKS CONSTANTS
 
 export const types = {
@@ -20,12 +30,20 @@ export const types = {
   FETCH_ARTWORKS_BY_SERIE: "FETCH_ARTWORKS_BY_SERIE",
   FETCH_ARTWORKS_BY_SERIE_SUCCESS: "FETCH_ARTWORKS_BY_SERIE_SUCCESS",
   FETCH_ARTWORKS_BY_SERIE_FAILURE: "FETCH_ARTWORKS_BY_SERIE_FAILURE",
+  EDIT_ARTWORK: "EDIT_ARTWORK",
+  EDIT_ARTWORK_SUCCESS: "EDIT_ARTWORK_SUCCESS",
+  EDIT_ARTWORK_FAILURE: "EDIT_ARTWORK_FAILURE",
+  DELETE_ARTWORK:"DELETE_ARTWORK",
+  DELETE_ARTWORK_SUCCESS:"DELETE_ARTWORK_SUCCESS",
+  DELETE_ARTWORK_FAILURE:"DELETE_ARTWORK_FAILURE",
   //HOME
   UPDATE_HOME_IMAGE: "UPDATE_HOME_IMAGE",
   SET_INITIAL_EFFECT: "SET_INITIAL_EFFECT",
   //USER CONSTANT
   RECEIVE_LOGGED_USER: "RECEIVE_LOGGED_USER",
-
+  RECEIVE_LOGGED_USER_FAILURE: "RECEIVE_LOGGED_USER_FAILURE",
+  RECEIVE_LOGGED_USER_SUCCESS: "RECEIVE_LOGGED_USER_SUCCESS",
+  RECEIVE_LOGGED_USER_FAILURE: "RECEIVE_LOGGED_USER_FAILURE",
   //SIDEBAR
   RECEIVE_MENU_OPTION: "RECEIVE_MENU_OPTION",
   //CART
@@ -41,6 +59,17 @@ export const types = {
   FETCH_PRODUCT_BY_ID_FAILURE: "FETCH_PRODUCT_BY_ID_FAILURE",
 };
 
+export const QUERY_PARAMS = {
+  SERIES:"?serie=",
+  CATEGORIES: "?category=",
+  ARTWORK: "?artwork="
+}
+
+export const REGEX = {
+  ALPHANUMERIC: /^[a-zA-Z0-9]+$/,
+  EMAIL_REGEX_SCHEMA: /^(?=.{1,254}$)((?=.{1,64}@)[ñÑa-zA-Z0-9-`~!@#$%^&*?/()_|+\-=;:'"´¨,.<>\{\}\[\]\\\/]+\.[A-Za-z]{2,4},?)$/,
+};
+
 export const NAVBAR = {
   OPTIONS: [
     { NAME: "Home", id: 1, path: "/home" },
@@ -48,7 +77,7 @@ export const NAVBAR = {
     { NAME: "Gallery", id: 3, path: "/gallery" },
     { NAME: "Shop", id: 4, path: "/shop/prints" },
     { NAME: "Contact", id: 5, path: "/contact" },
-    { NAME: "News", id: 6, path: "/news" },
+    // { NAME: "News", id: 6, path: "/news" },
   ],
   SHOPOPTIONS: [
     { NAME: "prints  ", id: 2, path: "prints" },
@@ -59,6 +88,12 @@ export const NAVBAR = {
   ARTIST: {
     NAME: "Dolores Pardo",
   },
+  ADMIN: [
+    { NAME: "Artwork", id: 1, path: "/admin/edit-artwork" },
+    { NAME: "Series", id: 2, path: "/admin/edit-serie" },
+    { NAME: "Slider", id: 3, path: "/admin/edit-gallery" },
+    { NAME: "About", id: 3, path: "/admin/edit-about" },
+  ],
 };
 
 export const IMAGES = [
@@ -73,6 +108,12 @@ export const IMAGES = [
   { NAME: "slide12" },
   { NAME: "slide4" },
 ];
+
+export const FILTER_LABELS ={
+  series: "Series",
+  categories: "Categorias",
+  artwork: "Artwork"
+}
 
 export const BACKGROUND_IMAGES = {
   ABOUT: "about",
@@ -89,6 +130,29 @@ export const PRODUCTS = {
   DESCRIPTION: "Description",
   CATEGORY: "Category",
   DATE: "Date",
+};
+
+export const FILTER_KEYS = {
+  ARTWORK: [
+    {
+      key: "&artwork",
+      text: "Jenny Hess",
+      value: "Jenny Hess",
+      image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
+    },
+    {
+      key: "Elliot Fu",
+      text: "Elliot Fu",
+      value: "Elliot Fu",
+      image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
+    },
+    {
+      key: "Stevie Feliciano",
+      text: "Stevie Feliciano",
+      value: "Stevie Feliciano",
+      image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
+    },
+  ],
 };
 
 export const MEDIA_SIZES = {

@@ -1,6 +1,6 @@
 
 import { call, put } from "redux-saga/effects";
-import { getProductsBySection } from "../../../api/product";
+import { getProductsBySection } from "../../../services/product";
 import * as actions from "../actions/";
 
 export default function* productsBySectionSaga(sectionName) {

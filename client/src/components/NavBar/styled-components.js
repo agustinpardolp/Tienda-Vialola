@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
 const NavbarContainer = styled.nav`
   background: ${(props) => props.location && "#ffffff7a"};
   padding-bottom: 1%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,6 +95,15 @@ const StyledBrandLink = styled(Link)`
   }
   text-decoration: none;
 `;
+const StyledAdminMenu= styled.div`
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  h2{
+    color:dimgrey;
+  }
+
+`;
 
 const StyledBrand = styled.div`
   width: 37%;
@@ -127,4 +136,5 @@ export {
   StyledCartMenu,
   StyledIcon,
   StyledBrandContainer,
+  StyledAdminMenu
 };

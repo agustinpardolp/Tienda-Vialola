@@ -1,28 +1,22 @@
-import { RECEIVE_LOGGED_USER, USER_LOGOUT } from "../../constants";
-import axios from "axios";
+import { types } from "../../../constants";
 
-export const receiveLoggedUser = function(user) {
-
+export const loginUser = (userData, history, pathname) => {
   return {
-    type: RECEIVE_LOGGED_USER,
-    user
+    type: types.RECEIVE_LOGGED_USER,
+    userData,
+    history,
+    pathname,
   };
 };
-export const loginUser = user => dispatch => {
-  return axios
-    .post("api/users/login", user)
-    .then(res => res.data)
-    .then(user => {
-      dispatch(receiveLoggedUser(user));
-      return user;
-    });
-};
 
-export const fetchloggedUser = () => dispatch => {
-  axios
-    .get("api/users/logged")
-    .then(res =>  res.data)
-    .then(user => {
-      dispatch(receiveLoggedUser(user));
-    });
+export const loginUserSuccess = (data) => {
+  return {
+    type: types.RECEIVE_LOGGED_USER_SUCCESS,
+    payload: {
+      data,
+    },
+  };
 };
+export const loginUserFailure = () => ({
+  type: types.RECEIVE_LOGGED_USER_FAILURE,
+});

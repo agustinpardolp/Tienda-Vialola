@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { getProductById } from "../../../api/product/index";
+import { getProductById } from "../../../services/product/index";
 import * as actions from "../actions/product-actions";
 
 export default function* fetchProductByIdSaga(productId) {

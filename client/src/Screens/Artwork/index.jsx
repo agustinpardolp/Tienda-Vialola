@@ -30,11 +30,11 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie }) {
   const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
-    fetchArtworksBySerie(params.serie);
+    fetchArtworksBySerie(params.serie, params.categoryName);
     return () => {
       setSelectedImage({});
     };
-  }, [fetchArtworksBySerie, params.serie]);
+  }, [fetchArtworksBySerie, params.serie, params.category]);
 
   const handleChangeImage = useCallback((selectedArtwork) => {
     setSelectedImage(selectedArtwork.img);

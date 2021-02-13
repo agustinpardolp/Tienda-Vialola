@@ -8,6 +8,7 @@ import cart from './cart/reducer/cart-reducer.js';
 import series from "./series/reducer/series-reducer";
 import products from "./products/reducers/products-reducer";
 import product from "./product/reducers/product-reducer";
+import user from "./login/reducers/user-reducer";
 
 export default combineReducers({ // combino los reducers de cada reducer para exportarlos
   artworks,
@@ -18,6 +19,7 @@ export default combineReducers({ // combino los reducers de cada reducer para ex
   artworksBySerie,
   series,
   products,
-  product
+  product,
+  user
 });
 

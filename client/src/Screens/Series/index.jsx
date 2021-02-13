@@ -6,18 +6,17 @@ import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
 import styled from "styled-components";
 import Spinner from "../../components/Modals&Spinners/spinner";
-import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
 
-const Series = ({ match, fetchArtworks, fetchSeries, status, series }) => {
+const Series = ({ match, fetchSeries, status, series }) => {
   const {
-    params: { name: pathName },
+    params: { category },
   } = match;
 
   useEffect(() => {
-    fetchArtworks(pathName);
-    fetchSeries(pathName);
-  }, []);
+    let query = `?category=${category}`
+    fetchSeries(query);
+  }, [category]);
 
   return (
     <>
@@ -36,7 +35,6 @@ const Series = ({ match, fetchArtworks, fetchSeries, status, series }) => {
           <CardGrid row={3}>
             {series.length &&
               series.map((serie, i) => {
-                console.log("ELEMENTO", serie)
                 return (
                   <Card
                     element={serie}
@@ -55,9 +53,9 @@ const Series = ({ match, fetchArtworks, fetchSeries, status, series }) => {
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    artworks: { data: artworks, status },
+    artworks: { data: artworks },
     artworkCategories: { data: artworkCategories },
-    series: { data: series },
+    series: { data: series, status },
   } = state;
 
   return {
@@ -69,6 +67,5 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchArtworks,
   fetchSeries,
 })(Series);

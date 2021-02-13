@@ -1,15 +1,31 @@
-import { RECEIVE_LOGGED_USER } from "../../constants";
+import { types, REQUEST_STATUS } from "../../../constants";
 
-const initialState = {
-  user: {}
-};
+const user = (
+  state = {
+    data: {},
+    status: REQUEST_STATUS.NOT_LOADED,
+  },
+  action
+) => {
+  const { payload: { data } = {} } = action;
 
-export default (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVE_LOGGED_USER:
-      return { ...state, user: action.user };
+    case types.RECEIVE_LOGGED_USER:
+      return { ...state, status: REQUEST_STATUS.LOADING };
+
+    case types.RECEIVE_LOGGED_USER_SUCCESS:
+      return {
+        ...state,
+        data: data,
+        status: REQUEST_STATUS.LOADING,
+      };
+    case types.RECEIVE_LOGGED_USER_FAILURE:
+      return { ...state, status: REQUEST_STATUS.FAILED };
 
     default:
-      return state
+      return state;
   }
 };
+
+export default user;
+

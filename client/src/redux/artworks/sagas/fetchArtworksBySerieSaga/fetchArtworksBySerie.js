@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { getArtworkBySerie } from "../../../../api/artwork/index";
+import { getArtworkBySerie } from "../../../../services/artwork/index";
 import * as actions from "../../actions/artworks-actions";
 
 export default function* fetchArtworksBySerieSaga(serieName) {

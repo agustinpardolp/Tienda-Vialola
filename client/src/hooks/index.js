@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 
 export const useCart = (productsToCart, receiveCreatedCart) => {
   const setToCart = (product) => {
@@ -62,7 +62,15 @@ export const useCart = (productsToCart, receiveCreatedCart) => {
 };
 
 export const useModal = (state, trigger, path, history) => {
+
+  // const [state, dispatch] = useReducer(exampleReducer, {
+  //   open: false,
+  //   size: undefined,
+  // })
+  // const { open, size } = state
   let [showModal, setShowModal] = useState(state);
+  let [showRegularModal, setShowRegularModal] = useState(state);
+  let [modalContent, setModalContent] = useState("");
 
   useEffect(() => {
     trigger && setShowModal(true);
@@ -81,6 +89,13 @@ export const useModal = (state, trigger, path, history) => {
     setShowModal(!showModal);
   };
 
+  let handleModal = (content = false) => {
+    setShowModal(!showModal);
+    if (content) {
+      setModalContent(content);
+    }
+  };
+
   return {
     showModal,
     setShowModal,
@@ -88,5 +103,9 @@ export const useModal = (state, trigger, path, history) => {
     onConfirmRedirect,
     openModal,
     toggleModal,
+    showRegularModal,
+    setShowRegularModal,
+    handleModal,
+    modalContent,
   };
 };
