@@ -17,10 +17,11 @@ app.use(cookieParser());
 app.use(cors())
 
 //Passport middleware
+app.use('/images', express.static(path.join(__dirname, '/client/fileuploads')));
 app.use(session({ secret: "vialola", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/api", routes);
+app.use("/vialola-api", routes);
 
 //levanto y sincronizo la base, luego si todo ok, levanto servidor
 db.sync({ force: false}).then(() => {
