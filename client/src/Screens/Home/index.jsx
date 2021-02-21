@@ -1,14 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import Carousele from "../../components/Carousel";
-import HomeProducts from "./HomeProducts";
-const StyledMainHomeProducts = styled.div`
-  margin-top: 2%;
-  margin-right: 5%;
-  margin-left: 5%;
-`;
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-export default function Home() {
+import Carousele from "../../components/Carousel";
+import { fetchSlider } from "../../redux/slider/actions";
+
+import HomeProducts from "./HomeProducts";
+import { StyledMainHomeProducts } from "./styled-components";
+
+function Home({ fetchSlider, sliders }) {
+  useEffect(() => {
+    fetchSlider();
+  }, []);
   const shopProducts = [
     {
       id: 6,
@@ -42,9 +44,24 @@ export default function Home() {
   return (
     <>
       <StyledMainHomeProducts>
-        <Carousele />
+        <Carousele sliders= { sliders } />
         <HomeProducts shopProducts={shopProducts} />
       </StyledMainHomeProducts>
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  const {
+    slider: { data: sliders, status },
+  } = state;
+
+  return {
+    status,
+    sliders,
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchSlider,
+})(Home);

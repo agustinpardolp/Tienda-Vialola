@@ -1,37 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 import ImageSlider from "../../components/ImageSlider";
 import Spinner from "../../components/Modals&Spinners/spinner";
 
-const StyledWelcomeContainer = styled.div`
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat fixed center;`};
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  transition: ${(props) => `${props.pageTransition}`};
-  text-align: center;
-  transition-delay: 300ms;
-`;
-const StyledWelcomeButton = styled(Link)`
-  position: absolute;
-  color: var(--mainColorFont);
-  font-size: 1.5rem;
-  bottom: 15%;
-  justify-self: center;
-`;
-const initialImage = "slide11";
+import { StyledWelcomeButton, StyledWelcomeContainer } from "./styled-components";
 
-const Welcome = (props) => {
-  let {
-    location: { pathname },
-  } = props;
+const Welcome = () => {
+
+
+  const initialImage = "slide11";
 
   const images = [
     { NAME: "slide8" },
@@ -83,19 +61,14 @@ const Welcome = (props) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {
     home: { initialEffect, homeImage },
   } = state;
   return {
-    initialEffect, //se recive delay de transition o no, para evitar retardo en carga inicial de imagen
+    initialEffect, 
     homeImage,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // fetchloggedUser: () => dispatch(fetchloggedUser())
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export default connect(mapStateToProps, null)(Welcome);

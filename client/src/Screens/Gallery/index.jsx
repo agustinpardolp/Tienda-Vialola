@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
-import { REQUEST_STATUS } from "../../constants";
-import Spinner from "../../components/Modals&Spinners/spinner";
+
 import Card from "../../components/Card";
-import Dividers from "../../components/Divider";
 import CardGrid from "../../components/CardGrid";
+import Dividers from "../../components/Divider";
+import Spinner from "../../components/Modals&Spinners/spinner";
+import { REQUEST_STATUS } from "../../constants";
+import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
 
 export function Gallery(props) {
   useEffect(() => {
@@ -43,7 +44,7 @@ export function Gallery(props) {
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {
     artworkCategories: { data: artworkCategories, status: status },
   } = state;

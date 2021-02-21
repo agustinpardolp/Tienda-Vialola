@@ -1,65 +1,41 @@
-import React from 'react';
-import styled from "styled-components";
-import {Carousel} from "react-bootstrap";
+import React from "react";
+import { Carousel } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+
 import TransitionWrapper from "../../components/transition";
 
-const StyledCarouseleContainer = styled.div`
-display:grid;
-.carousel-inner img {
-    width: 100%;
-    max-height: 60vh;
-    height: 60vh;
-}
+import { StyledCarouseleContainer } from "./styled-components";
 
-.carousel-inner{
- height: 60vh;
-}
-
-
-`;
-
-export default function CarouselSlider() {
-    return (
-      <TransitionWrapper>
+export default function CarouselSlider({ sliders }) {
+  const { history } = useHistory;
+  const handleClick = (pathname) => {
+    history.push(pathname);
+  };
+  return (
+    <TransitionWrapper>
       <StyledCarouseleContainer>
         <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={"/images/img-carousel/11.jpg"}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h2>Macetas super coloridas</h2>
-            <p>Encontrá toda la variedad que buscas para darle color jardin</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={"/images/img-carousel/9.jpg"}
-            alt="Third slide"
-          />
-      
-          <Carousel.Caption>
-            <h2>¿Lo tenes a este loquillo?</h2>
-            <p>Este y muchos mas te esperan; Hechos en madera y pintados a mano.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={"/images/img-carousel/1.jpg"}
-            alt="Third slide"
-          />
-      
-          <Carousel.Caption>
-            <h2>La banda</h2>
-            <p>Colgantes, llaveros, </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+          {sliders &&
+            sliders.map((slide) => {
+              return (
+                <Carousel.Item key={slide.id}>
+                  <img
+                    className="d-block w-100"
+                    src={`/images/img-carousel/${slide.img}`}
+                    alt="First slide"
+                    onClick={() =>
+                      slide.pathname ? handleClick(slide.pathname) : null
+                    }
+                  />
+                  <Carousel.Caption>
+                    <h2>{slide.title}</h2>
+                    <p>{slide.description}</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              );
+            })}
+        </Carousel>
       </StyledCarouseleContainer>
-      </TransitionWrapper>
-    )
+    </TransitionWrapper>
+  );
 }

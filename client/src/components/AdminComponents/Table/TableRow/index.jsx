@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React from "react";
-import { Checkbox, Table, Header, Image, Icon } from "semantic-ui-react";
+import { Table, Header, Image, Icon } from "semantic-ui-react";
 
 const TableRow = ({
   dataRow,
@@ -22,7 +23,11 @@ const TableRow = ({
         img = `${process.env.PUBLIC_URL}/images/img-artwork/${row.category.name}/${row.img}`;
         subFieldValue = row.serie ? row.serie.name : row.category.name;
         break;
-
+        case DATATYPE.TITLE:
+          fieldValue = row[format.dataField];
+          img = `${process.env.PUBLIC_URL}/images/img-carousel/${row.img}`;
+          subFieldValue = row.title;
+          break;
       case DATATYPE.ALLOW_ORIGINAL:
         fieldValue = row[format.dataField] ? "Si" : "No";
         break;
@@ -41,7 +46,9 @@ const TableRow = ({
         fieldValue = row[format.dataField];
         editable = true;
         break;
-
+      case DATATYPE.CATEGORY:
+        fieldValue = row[format.dataField].name;
+        break;
       default:
         fieldValue = row[format.dataField];
     }
@@ -53,7 +60,7 @@ const TableRow = ({
             {" "}
             <Header as="h4" image>
               <Image
-                src={`${process.env.PUBLIC_URL}/images/img-artwork/${row.category.name}/${row.img}`}
+                src={img}
                 rounded
                 size="mini"
               />
@@ -64,7 +71,7 @@ const TableRow = ({
             </Header>
           </Table.Cell>
         ) : (
-          <Table.Cell>{fieldValue}</Table.Cell>
+          <Table.Cell key={index}>{fieldValue}</Table.Cell>
         )}
       </>
     );
@@ -72,9 +79,6 @@ const TableRow = ({
 
   return (
     <Table.Row key={dataRow.id}>
-      {/* <Table.Cell collapsing>
-        <Checkbox slider />
-      </Table.Cell> */}
       {formats &&
         formats.map((format, index) => cellDataHandler(format, dataRow, index))}
 

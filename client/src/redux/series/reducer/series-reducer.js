@@ -20,7 +20,17 @@ const series = (
       };
     case types.FETCH_SERIES_FAILURE:
       return { ...state, status: REQUEST_STATUS.FAILED };
-
+      case types.FETCH_SERIES_BY_CATEGORY:
+        return { ...state, status: REQUEST_STATUS.LOADING };
+      case types.FETCH_SERIES_BY_CATEGORY_SUCCESS:
+        return {
+          ...state,
+          data: [...data],
+          status: REQUEST_STATUS.LOADED,
+        };
+      case types.FETCH_SERIES_BY_CATEGORY_FAILURE:
+        return { ...state, status: REQUEST_STATUS.FAILED };
+  
     default:
       return state;
   }

@@ -1,28 +1,37 @@
 import {  all,  fork } from "redux-saga/effects";
-import artworksBySerieWatcher  from './artworks/sagas/fetchArtworksBySerieSaga'; //a modo de ejemplo se importan todos los componentes
+
+import artworksBySerieWatcher  from './artworks/sagas/fetchArtworksBySerieSaga';
 import menuOptionsWatcher from "./sidebar/sagas/index";
 import artworkCategoriesWatcher from "./artworkCategories/sagas/";
-import cartWatcher from "./cart/sagas/index";
-import producstWatcher from "./products/sagas";
 import artworksWatcher from "./artworks/sagas/fetchArtworksSaga";
 import seriesWatcher from "./series/sagas/";
-import productByIdWatcher from "./product/sagas";
 import loginUserWatcher from "./login/sagas"
 import editArtworkWatcher from "./artworks/sagas/editArtworkSaga";
-import deleteArtworkSaga from "./artworks/sagas/deleteArtworkSaga";
+import deleteArtworkSagaWatcher from "./artworks/sagas/deleteArtworkSaga";
+import createArtworkSagaWatcher from "./artworks/sagas/createArtworkSaga";
+import deleteSerieWatcher from "./series/sagas/deleteSerieSaga";
+import createSerieWatcher from "./series/sagas/createSerieSaga";
+import editSerieWatcher from "./series/sagas/editSerieSaga";
+import sliderWatcher from "./slider/sagas";
+import deleteSliderWatcher from "./slider/sagas/deleteSliderSaga"
+import aboutsWatcher from "./about/sagas/fetchAboutSaga"
 export default function* rootSaga() {
 
     yield all([
       fork(artworksWatcher),
       fork(menuOptionsWatcher),
       fork(artworkCategoriesWatcher),
-      fork(cartWatcher),
       fork(artworksBySerieWatcher),
       fork(seriesWatcher),
-      fork(producstWatcher),
-      fork(productByIdWatcher),
       fork(loginUserWatcher),
       fork(editArtworkWatcher),
-      fork(deleteArtworkSaga)
+      fork(deleteArtworkSagaWatcher),
+      fork(createArtworkSagaWatcher),
+      fork(deleteSerieWatcher),
+      fork(createSerieWatcher),
+      fork(editSerieWatcher),
+      fork(sliderWatcher),
+      fork(deleteSliderWatcher),
+      fork(aboutsWatcher),
       ])
   }

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+
 import { REQUEST_STATUS } from "../../constants";
 import Dividers from "../../components/Divider";
 import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
-import styled from "styled-components";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
 
@@ -34,7 +34,7 @@ const Series = ({ match, fetchSeries, status, series }) => {
           />
           <CardGrid row={3}>
             {series.length &&
-              series.map((serie, i) => {
+              series.map((serie) => {
                 return (
                   <Card
                     element={serie}
@@ -51,7 +51,7 @@ const Series = ({ match, fetchSeries, status, series }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {
     artworks: { data: artworks },
     artworkCategories: { data: artworkCategories },

@@ -2,7 +2,7 @@ const sequelize = require("sequelize");
 const db = require("../index");
 
 const Slider = db.define("slider", {
-    tittle: {
+    title: {
       type: sequelize.STRING,
       defaultValue: "Varios"
     },

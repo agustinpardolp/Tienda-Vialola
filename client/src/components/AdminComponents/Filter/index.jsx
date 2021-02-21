@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image, Search, Dropdown } from "semantic-ui-react";
+import { Grid, Dropdown } from "semantic-ui-react";
+
 import SubTittle from "../../../components/AdminComponents/SubTittle";
 import Button from "../../../components/Button";
-import { NAVBAR, FILTER_KEYS } from "../../../constants";
-import {
-  StyledFilterContainer,
-  StyledEditButtonContainer,
-} from "./styled-components";
+import { NAVBAR } from "../../../constants";
 
-const Filter = ({ pathname, handleFilter, dropdowns }) => {
+import { StyledEditButtonContainer } from "./styled-components";
+
+const Filter = ({ pathname, handleNewOption, dropdowns, noFilter }) => {
   const tittle = NAVBAR.ADMIN.find((elem) => elem.path === pathname);
-  const [dropdownOptions, setDropdownOptions] = useState([]);
 
   const handleChange = (value, data) => {
-    data.fetch(value)
+    data.fetch(value);
   };
 
   const handleOptions = (data) => {
@@ -37,33 +35,37 @@ const Filter = ({ pathname, handleFilter, dropdowns }) => {
       <SubTittle>
         <h2>{tittle.NAME}</h2>
       </SubTittle>
-      <StyledEditButtonContainer>
-        <Button
-          variant="confirm"
-          label={`Agregar nuevo ${tittle.NAME}`}
-        ></Button>
-        {dropdowns &&
-          dropdowns.map((dropdown) => {
-            return (
-              <Dropdown
-                disabled={dropdown.disabled}
-                placeholder={dropdown.name}
-                search
-                selection
-                onChange={(e, value)=>handleChange(value, dropdown)}
-                options={handleOptions(dropdown.data)}
-                clearable
-              />
-            );
-          })}
-      </StyledEditButtonContainer>
+      {noFilter ? null : (
+        <StyledEditButtonContainer>
+          <Button
+            variant="confirm"
+            label={`Agregar nuevo ${tittle.NAME}`}
+            onClick={handleNewOption}
+          ></Button>
+          {dropdowns &&
+            dropdowns.map((dropdown) => {
+              return (
+                <Dropdown
+                  key={dropdown.name}
+                  disabled={dropdown.disabled}
+                  placeholder={dropdown.name}
+                  search
+                  selection
+                  onChange={(e, value) => handleChange(value, dropdown)}
+                  options={handleOptions(dropdown.data)}
+                  clearable
+                />
+              );
+            })}
+        </StyledEditButtonContainer>
+      )}
     </Grid.Row>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {
-    series: { data: series, status },
+    series: { data: series },
   } = state;
 
   return {

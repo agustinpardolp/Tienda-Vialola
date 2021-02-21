@@ -2,7 +2,7 @@ const sequelize = require("sequelize");
 const db = require("../index");
 
 const News = db.define("news", {
-  tittle: {
+  title: {
     type: sequelize.STRING,
     defaultValue: "Varios",
   },

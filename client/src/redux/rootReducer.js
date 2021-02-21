@@ -1,25 +1,27 @@
-import { combineReducers } from 'redux';
-import optionSidebar  from './sidebar/reducer/index';
+import { combineReducers } from "redux";
+
+import optionSidebar from "./sidebar/reducer/index";
 import artworkCategories from "./artworkCategories/reducers/artwork-categories-reducer";
 import artworksBySerie from "./artworks/reducers/artworksBySerie-reducer";
 import artworks from "./artworks/reducers/artworks-reducer";
-import home from './home/reducers/home-reducers.js';
-import cart from './cart/reducer/cart-reducer.js';
+import home from "./home/reducers/home-reducers.js";
 import series from "./series/reducer/series-reducer";
-import products from "./products/reducers/products-reducer";
-import product from "./product/reducers/product-reducer";
 import user from "./login/reducers/user-reducer";
+import deleteSeries from "./series/reducer/delete-serie-reducer";
+import notification from "./notification/reducer/notifications-reducer";
+import slider from "./slider/reducer/slider-reducer";
+import about from "./about/reducers/about-reducer";
 
-export default combineReducers({ // combino los reducers de cada reducer para exportarlos
+export default combineReducers({
   artworks,
   optionSidebar,
   home,
-  cart,
   artworkCategories,
   artworksBySerie,
   series,
-  products,
-  product,
-  user
+  user,
+  deleteSeries,
+  notification,
+  slider,
+  about,
 });
-

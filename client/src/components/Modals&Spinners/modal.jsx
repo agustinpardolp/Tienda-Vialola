@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Link from "react-router-dom";
 
-const styledButton = styled(Link)``;
 const StyledModalContainer = styled.div`
   width: 100%;
   height: 100%;
   background: red;
 `;
 
-const StyledBackButton = styled(span)``;
+
 
 export default function modalViewer(
   children,

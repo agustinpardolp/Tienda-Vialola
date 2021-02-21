@@ -1,12 +1,11 @@
-import React, { useCallback, Suspense } from "react";
-import { connect } from "react-redux";
-import { Route, Switch, __RouterContext, Redirect } from "react-router-dom";
+import React from "react";
+
 import Routes from "../../routes";
 import { BACKGROUND_IMAGES } from "../../constants";
 import NavBar from "../../components/NavBar";
-import { StyledMain } from "./styledComponents";
 import {ModalProvider} from "../../context/ModalContext";
-const Products = React.lazy(() => import("../Series"));
+
+import { StyledMain } from "./styledComponents";
 
 const Main = ({ location }) => {
   let { pathname } = location;
@@ -35,14 +34,6 @@ const Main = ({ location }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // fetchloggedUser: () => dispatch(fetchloggedUser())
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default Main;
 
-{
-}
