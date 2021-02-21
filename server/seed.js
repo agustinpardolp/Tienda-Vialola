@@ -3,16 +3,26 @@ const Category = require("../server/db/models/index").Category;
 const Artwork = require("../server/db/models/index").Artwork;
 const Serie = require("../server/db/models/index").Serie;
 const Slider = require("../server/db/models/index").Slider;
-const New = require("../server/db/models/index").News;
+const News = require("../server/db/models/index").News;
+const About = require("../server/db/models/index").About;
 // const Product = require("../server/db/models/index").Product;
 // const Section = require("../server/db/models/index").Section;
+
+About.create({
+  info: `A veces me parece que todos estamos poseidos por un impulso que nos
+  lleva a buscar lo imposible. La realidad que tenemos ante nosotros, el
+  mundo tridimensional que nos redea es demasiado común, demasiado
+  deslucido, demaciado ordinario para nosotros. Anhelamos lo anormal o
+  sobrenatural, lo que no existe, un milagro: ¡Como si la realidad de
+  cada dia no fuese lo bastante enigmatica!`,
+});
 
 User.create({
   name: "Dolores",
   surname: "Pardo",
   adress: "472 esq 19",
   cuit: 20315965854,
-  email: "agus@hotmail.com",
+  email: "lola",
   isAdmin: true,
   avatar: "",
   password: "1234",
@@ -1339,27 +1349,27 @@ Artwork.create({
 });
 
 Slider.create({
-  tittle: "Macetas super coloridas",
+  title: "Macetas super coloridas",
   description: "Encontrá toda la variedad que buscas para darle color jardin",
   img: "11.jpg",
   pathname: "/gallery/paints/",
 });
 Slider.create({
-  tittle: "¿Lo tenes a este loquillo?",
+  title: "¿Lo tenes a este loquillo?",
   description:
     "Este y muchos mas te esperan; Hechos en madera y pintados a mano.",
   img: "9.jpg",
   pathname: "/gallery/paints/",
 });
 Slider.create({
-  tittle: "La banda",
+  title: "La banda",
   description: "Colgantes, llaveros",
   img: "1.jpg",
   pathname: "/gallery/objets/",
 });
 
-New.create({
-  tittle: "Nueva muestra en el Malvinas",
+News.create({
+  title: "Nueva muestra en el Malvinas",
   description: `El Museo Malvinas e Islas del Atlántico Sur inaugurará hoy una muestra sobre 
     la nueva plataforma continental argentina y de las Islas Malvinas, elaborada por la Comisión Nacional 
     del Limite Exterior de la Plataforma Continental (COPLA) de la Cancillería.

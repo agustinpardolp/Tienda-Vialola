@@ -1,8 +1,8 @@
 import axios from "axios";
-import { API_LOGIN, API_LOGOUT } from "../../constants";
+
+import { API_ABOUT, API_LOGIN, API_LOGOUT } from "../../constants";
 
 export const loginUser = async (userData) => {
-  debugger;
   let { email, password } = userData;
   let response = await axios.post(API_LOGIN, {
     email: email,
@@ -21,4 +21,11 @@ export const logoutUser = async () => {
   localStorage.removeItem("profileSettings");
   let response = await axios.post(API_LOGOUT);
   return response;
+};
+
+export const getAbout = () => axios.get(`${API_ABOUT}`).then((res) => res);
+
+export const editAbout = (data) => {
+  let { aboutData } = data;
+  return axios.put(API_ABOUT, aboutData).then((res) => res);
 };

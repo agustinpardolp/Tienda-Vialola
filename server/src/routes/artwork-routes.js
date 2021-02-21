@@ -136,13 +136,13 @@ router.get("/", function (req, res) {
   }
 });
 
-router.post("/", MulterFn.single("img"), function (req, res) {
+router.put("/", MulterFn.single("img"), function (req, res) {
   Artwork.update(
     {
       name: req.body.name,
       description: req.body.description,
       price: req.body.file,
-      img: req.file.filename,
+      img: req.file?req.file.filename:req.body.img,
       priceReproduction: req.body.priceReproduction,
       allowReproduction: req.body.allowReproduction,
       allowOriginal: req.body.allowOriginal,
@@ -155,17 +155,37 @@ router.post("/", MulterFn.single("img"), function (req, res) {
       },
     }
   ).then((resp) => {
+    console.log("responsè", resp)
     res.sendStatus(201);
   });
 });
+
+router.post("/", MulterFn.single("img"), function (req, res) {
+  Artwork.create(
+    {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.file,
+      img: req.file.filename,
+      priceReproduction: req.body.priceReproduction,
+      allowReproduction: req.body.allowReproduction,
+      allowOriginal: req.body.allowOriginal,
+      categoryId: req.body.categoryId,
+      serieId: req.body.serieId,
+    }
+  ).then((resp) => {
+    res.sendStatus(201);
+  }).catch(err=>{
+    console.log(err)
+    res.sendStatus(404)
+  });
+});
 router.delete("/:id", function (req, res) {
-  console.log("ID TO DELETE", req.params)
   Artwork.destroy({
     where: {
       id: req.params.id
     }
   }).then((resp) => {
-    console.log("RESPUESTA", resp);
     res.sendStatus(201);
   }).catch(err => res.send(err));
 });

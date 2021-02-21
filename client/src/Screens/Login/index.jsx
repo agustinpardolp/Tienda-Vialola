@@ -1,15 +1,17 @@
 import { withFormik } from "formik";
 import { connect } from "react-redux";
 import * as yup from "yup";
-import { REGEX, types } from "../../constants";
+
+import { REGEX } from "../../constants";
 import { loginUser } from "../../redux/login/actions/user-actions";
+
 import LoginForm from "./LoginForm";
 
 const validationSchema = yup.object().shape({
   email: yup
     .string()
     .trim()
-    .matches(REGEX.EMAIL_REGEX_SCHEMA, "Datos faltantes o incorrectos")
+    // .matches(REGEX.EMAIL_REGEX_SCHEMA, "Datos faltantes o incorrectos")
     .max(30)
     .required(" "),
   password: yup
@@ -21,7 +23,6 @@ const validationSchema = yup.object().shape({
     .required(" "),
   rememberUser: yup.bool(),
 });
-//formik validations
 const Login = withFormik({
   validateOnChange: true,
   enableReinitialize: false,
@@ -33,7 +34,7 @@ const Login = withFormik({
   }),
   handleSubmit: (
     value,
-    { props: {loginUser, history }, setErrors }
+    { props: {loginUser, history } }
   ) => {
     let pathname = "/admin/edit-artwork";
     loginUser(value, history, pathname);

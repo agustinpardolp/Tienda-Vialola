@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { SCREENS_LABELS } from "../../constants";
+
 import { StyledInfo } from "./styled-components";
 
 const ArtworkInfo = ({ imgInfo, artworksBySerie }) => {

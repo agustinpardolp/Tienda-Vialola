@@ -1,40 +1,38 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Grid, Image, Search, Dropdown } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
+
+import Sidebar from "../../components/AdminComponents/Sidebar";
+import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
+import ToastNotification from "../../components/ToastNotification";
+
 import EditAbout from "./About";
-import EditGallery from "./Gallery";
 import EditSeries from "./Series";
 import EditArtwork from "./Artwork";
-import Dashboard from "./Dashboard";
-import Sidebar from "../../components/AdminComponents/Sidebar";
-import SubTittle from "../../components/AdminComponents/SubTittle";
-import Button from "../../components/Button";
-import { NAVBAR, FILTER_KEYS } from "../../constants";
 import {
   StyledAdminContainer,
-  StyledEditButtonContainer,
 } from "./Styled-components";
-import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
+import EditSlider from "./Slider";
 
 function Admin({ match }) {
   return (
     <StyledAdminContainer columns={2}>
+      <ToastNotification/>
       <Grid.Row>
         <Grid.Column width={2} className="sidebarContainer">
           <Sidebar />
         </Grid.Column>
         <Grid.Column width={14}>
           <Switch>
-            <Route path={`${match.path}`} component={EditArtwork} />
+            <Route path={`${match.path}edit-artwork`} component={EditArtwork} />
             <Route
               exact
-              path={`${match.path}edit-gallery`}
-              component={EditGallery}
+              path={`${match.path}edit-slider`}
+              component={EditSlider}
             />
-            <Route path={`${match.path}edit-series`} component={EditSeries} />
-            <Route path={`${match.path}edit-about`} component={EditAbout} />
-            <Route exact path="/admin/dashboard" component={Dashboard} />
+            <Route exact path={`${match.path}edit-series`} component={EditSeries} />
+            <Route exact path={`${match.path}edit-about`} component={EditAbout} />
           </Switch>
         </Grid.Column>
       </Grid.Row>

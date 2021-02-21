@@ -1,13 +1,15 @@
 import React from "react";
+
+
+import { OverlayAnimation } from "../../utils/baseStyleAnimations";
+import TransitionWrapper from "../../components/transition";
+
 import {
   StyledCategoryTittle,
   StyledLink,
   StyledContainer,
   StyledPhotoDiv,
 } from "./styled-components";
-
-import { OverlayAnimation } from "../../utils/baseStyleAnimations";
-import TransitionWrapper from "../../components/transition";
 
 export default function StyledCard({
   element,

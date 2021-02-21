@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
-// import { FormattedMessage } from "react-intl";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
-import { StyledLogin } from "./styled-components";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
+
+import { StyledLogin } from "./styled-components";
 
 const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
   const errorsFormHandler = useCallback(() => {
@@ -26,7 +26,6 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
         <div className="login-container">
           <h2>
             <span>Admin</span>
-            {/* <FormattedMessage id="login.loginTitle" /> */}
           </h2>
           <Input
             name={"email"}
@@ -53,7 +52,6 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
           />
           <div className="login_checkbox-container">
             <p>
-              {/* <FormattedMessage id="login.session" /> */}
             </p>
             <input
               name={"rememberUser"}

@@ -46,9 +46,8 @@ const User = db.define("user",{
     email:{
         type:sequelize.STRING,
         validate:{
-            isEmail:true
-
-        }
+          isAlpha:true
+      }
     },
     avatar:{
         type: sequelize.STRING,

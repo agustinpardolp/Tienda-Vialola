@@ -1,20 +1,20 @@
 import React, { useState, useCallback, useEffect } from "react";
-
 import { connect } from "react-redux";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import Magnifier from "react-magnifier";
+
+import Slider from "../../components/Slider";
+import Spinner from "../../components/Modals&Spinners/spinner";
+import TransitionWrapper from "../../components/transition";
+import { fetchArtworksBySerie } from "../../redux/artworks/actions/artworks-actions";
+
+import ArtworkInfo from "./ArtworkInfo";
 import {
   StyledImageContainer,
   StyledZoomIcon,
   StyledArtworkContainer,
   StyledImg,
 } from "./styled-components";
-import ArtworkInfo from "./ArtworkInfo";
-import Slider from "../../components/Slider";
-import Spinner from "../../components/Modals&Spinners/spinner";
-import TransitionWrapper from "../../components/transition";
-
-import { fetchArtworksBySerie } from "../../redux/artworks/actions/artworks-actions";
 
 function Artwork({ artworksBySerie, match, fetchArtworksBySerie }) {
   let { params } = match;
@@ -116,7 +116,7 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie }) {
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {
     artworksBySerie: { data: artworksBySerie },
     artworks: { data: artworks, status },

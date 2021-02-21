@@ -1,11 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+
 import { UpperTranslate } from "../ImageSlider/animations";
+import SubMenu from "../SubMenu";
+
 import BrandInfo from "./BrandInfo";
 import MenuOptions from "./MenuOptions";
 import MediaInfo from "./MediaInfo";
-import SubMenu from "../SubMenu";
 import {
   NavbarContainer,
   StyledCartMenu,
@@ -51,14 +52,5 @@ export function NavBar({ location }) {
     </>
   );
 }
-const mapStateToProps = (state, ownProps) => {
-  const {
-    cart: { data: productsToCart },
-  } = state;
 
-  return {
-    productsToCart,
-  };
-};
-
-export default connect(mapStateToProps, null)(React.memo(withRouter(NavBar)));
+export default React.memo(withRouter(NavBar));

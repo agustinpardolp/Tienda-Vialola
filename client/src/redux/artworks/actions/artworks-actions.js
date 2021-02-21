@@ -65,7 +65,6 @@ export const deleteArtwork = (artworkId) => {
 };
 
 export const deleteArtworkSuccess = (data) => {
-  debugger;
   return {
     type: types.DELETE_ARTWORK_SUCCESS,
     payload: {
@@ -73,6 +72,30 @@ export const deleteArtworkSuccess = (data) => {
     },
   };
 };
-export const deleteArtworkFailure = () => ({
-  type: types.DELETE_ARTWORK_FAILURE,
+
+export const deleteArtworkFailure = () => {
+  return {
+    type: types.DELETE_ARTWORK_FAILURE
+  };
+ 
+};
+
+export const createArtwork= (artworkData) => {
+  return {
+    type: types.CREATE_ARTWORK,
+    artworkData,
+  };
+};
+
+export const createArtworkSuccess = (data) => {
+  return {
+    type: types.CREATE_ARTWORK_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+export const createArtworkFailure = () => ({
+  type: types.CREATE_ARTWORK_FAILURE,
 });
+
