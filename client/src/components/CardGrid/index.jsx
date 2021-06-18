@@ -1,4 +1,5 @@
 import React from "react";
+
 import { StyledPhotoGrid } from "./styled-components";
 
 export const rowHandler = (screenWidth, columns, elementsLength) => {

@@ -1,14 +1,17 @@
+/* eslint-disable no-debugger */
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
 
 const PublicRoute = ({ token, component: Component, ...rest }) => {
   const checkAuth = () => {
     // let tokenData = JSON.parse(localStorage.getItem("token_data"));
+    // console.log(tokenData, token);
+    // if (tokenData || token) {
+    //   debugger
+      return false;
+    // }
+    // else return true;
 
-    // if (tokenData || token) return true;
-    // else return false;
-    return false
   };
 
   return (
@@ -24,13 +27,6 @@ const PublicRoute = ({ token, component: Component, ...rest }) => {
     />
   );
 };
-export const mapStateToProps = (state) => {
-  // const {
-  //   user: { token },
-  // } = state;
-  // return {
-  //   token: !!Object.keys(token).length,
-  // };
-};
 
-export default connect(mapStateToProps, null)(PublicRoute);
+
+export default PublicRoute;

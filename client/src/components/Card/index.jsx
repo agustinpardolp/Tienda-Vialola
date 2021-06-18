@@ -24,7 +24,7 @@ export default function StyledCard({
   height,
   width,
 }) {
-
+console.log(element, img)
   return (
     <StyledContainer height={height} width={width}>
       <TransitionWrapper>
