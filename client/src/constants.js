@@ -102,11 +102,11 @@ export const REGEX = {
 
 export const NAVBAR = {
   OPTIONS: [
-    { NAME: "Home", id: 1, path: "/home" },
-    { NAME: "About", id: 2, path: "/about" },
-    { NAME: "Gallery", id: 3, path: "/gallery" },
-    { NAME: "Shop", id: 4, path: "/shop/prints" },
-    { NAME: "Contact", id: 5, path: "/contact" },
+    { NAME: "navbar.home", id: 1, path: "/home" },
+    { NAME: "navbar.about", id: 2, path: "/about" },
+    { NAME: "navbar.gallery", id: 3, path: "/gallery" },
+    { NAME: "navbar.shop", id: 4, path: "/shop" },
+    { NAME: "navbar.contact", id: 5, path: "/contact" },
     // { NAME: "News", id: 6, path: "/news" },
   ],
   SHOPOPTIONS: [

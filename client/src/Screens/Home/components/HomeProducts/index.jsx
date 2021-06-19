@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-import CardGrid from "../../../components/CardGrid";
-import Card from "../../../components/Card";
+import CardGrid from "../../../../components/CardGrid";
+import Card from "../../../../components/Card";
 
-const StyledHomeProducts = styled.div``;
+const StyledHomeProducts = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function HomeProducts({ shopProducts }) {
   return (
     <StyledHomeProducts>
-      <CardGrid row={1} col={4}>
+      <CardGrid row={1} col={4} width='70vw' heigth='50vh' gap='1%'>
         {shopProducts &&
           shopProducts.map((productShop) => {
             return (

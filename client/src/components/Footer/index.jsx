@@ -1,13 +1,27 @@
 import React from "react";
-import { FOOTER } from "../../constants";
-import { StyledFooter, StyledSpan, StyledLink } from "./styled-components";
+import {
+  StyledFooter,
+  StyledFooterContainer,
+  StyledInfo,
+} from "./styled-components";
+import InfoList from "./components/InfoList";
+import { myArt, followMe, writeToMe } from "./constants";
 
-function Footer({ back }) {
+function Footer() {
   return (
-    <StyledFooter>
-      <StyledSpan>{FOOTER.RIGHTS}</StyledSpan>
-      {back && <StyledLink to={`${back}`}>{FOOTER.BACK}</StyledLink>}
-    </StyledFooter>
+    <StyledFooterContainer>
+      <StyledInfo>
+        <p>
+          Copyrigth 2021 | Dolores Pardo | Please don't reproduce my work
+          elsewhere without prior consent / Todos los derechos reservados
+        </p>
+      </StyledInfo>
+      <StyledFooter>
+        <InfoList list={myArt} label={"MY ART"} />
+        <InfoList list={followMe} label={"FOLLOW ME"} />
+        <InfoList list={writeToMe} label={"WRITE TO ME"} />
+      </StyledFooter>
+    </StyledFooterContainer>
   );
 }
 

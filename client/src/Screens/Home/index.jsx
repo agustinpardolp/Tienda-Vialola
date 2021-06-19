@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import Carousele from "../../components/Carousel";
 import { fetchSlider } from "../../redux/slider/actions";
-
-import HomeProducts from "./HomeProducts";
-import { StyledMainHomeProducts } from "./styled-components";
+import ImageSlider from "../../components/ImageSlider";
+import HomeProducts from "./components/HomeProducts";
+import HomeText from "./components/HomeText";
+import {
+  StyledMainHomeProducts,
+  StyledHomeContainer,
+} from "./styled-components";
+import HomeContact from "./components/HomeContact";
 
 function Home({ fetchSlider, sliders }) {
   useEffect(() => {
@@ -41,13 +46,54 @@ function Home({ fetchSlider, sliders }) {
       category: { name: "paints" },
     },
   ];
+  const initialImage = "slide11";
+
+  const images = [
+    { NAME: "slide8" },
+    { NAME: "slide5" },
+    { NAME: "slide15" },
+    { NAME: "slide6" },
+    { NAME: "slide3" },
+    { NAME: "slide10" },
+    { NAME: "slide13" },
+    { NAME: "slide11" },
+    { NAME: "slide12" },
+    { NAME: "slide4" },
+  ];
+
+  const [imageData, setImageData] = useState({
+    homeImage: initialImage,
+    heigth: 0,
+    initialEffect: "all 1.8s",
+  });
+  useEffect(() => {
+    setImageData({
+      homeImage: "slide12",
+      heigth: 0,
+      initialEffect: "all 1.8s",
+    });
+  }, []);
+
+  const getImageSlider = (image) => {
+    setImageData({
+      ...imageData,
+      homeImage: image,
+    });
+  };
   return (
-    <>
-      <StyledMainHomeProducts>
-        <Carousele sliders= { sliders } />
-        <HomeProducts shopProducts={shopProducts} />
-      </StyledMainHomeProducts>
-    </>
+    <StyledMainHomeProducts>
+      <Carousele>
+        <StyledHomeContainer
+          img={imageData.homeImage}
+          pageTransition={imageData.initialEffect}
+        >
+          <ImageSlider getImageSlider={getImageSlider} IMAGES={images} />
+        </StyledHomeContainer>
+      </Carousele>
+      <HomeText />
+      <HomeProducts shopProducts={shopProducts} />
+      <HomeContact />
+    </StyledMainHomeProducts>
   );
 }
 

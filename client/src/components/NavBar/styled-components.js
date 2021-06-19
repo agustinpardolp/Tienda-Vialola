@@ -17,14 +17,17 @@ const StyledLink = styled(Link)`
 
 const NavbarContainer = styled.nav`
   background: ${(props) => props.location && "#ffffff7a"};
-  padding-bottom: 1%;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 6fr 5fr 10fr 1fr;
+  grid-template-rows: 1fr;
   height: 16%;
+  margin-bottom: 2rem;
+  padding-bottom: 1%;
   width: 100%;
-  padding-right: 0%;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    display: flex;
+    align-items: center;
+  }
 `;
 const StyledBrandContainer = styled.div`
   display: flex;
@@ -38,7 +41,6 @@ const StyledBrandContainer = styled.div`
 const StyledCartMenu = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 70%;
   margin-right: 2%;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: none;
@@ -64,6 +66,16 @@ const StyledMenuOptions = styled.ul`
     color: var(--darkGrey);
     transition: all 0.4s ease 0s;
   }
+
+  .navbar-button_translation-container {
+    display: flex;
+    list-style: none;
+    li {
+      color: var(--primaryFontReverse);
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  } 
 `;
 
 const StyleMedia = styled.div`
@@ -95,18 +107,17 @@ const StyledBrandLink = styled(Link)`
   }
   text-decoration: none;
 `;
-const StyledAdminMenu= styled.div`
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  h2{
-    color:dimgrey;
+const StyledAdminMenu = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  h2 {
+    color: dimgrey;
   }
-
 `;
 
 const StyledBrand = styled.div`
-  width: 37%;
+  width: 100%;
   display: flex;
   height: ${(props) => (props.location == "/home" ? "25%" : "5%")};
 `;
@@ -136,5 +147,5 @@ export {
   StyledCartMenu,
   StyledIcon,
   StyledBrandContainer,
-  StyledAdminMenu
+  StyledAdminMenu,
 };
