@@ -20,8 +20,7 @@ const NavbarContainer = styled.nav`
   display: grid;
   grid-template-columns: 6fr 5fr 10fr 1fr;
   grid-template-rows: 1fr;
-  height: 16%;
-  margin-bottom: 2rem;
+  height: 15vh;
   padding-bottom: 1%;
   width: 100%;
   @media ${DEVICES_MAX_WIDTH.laptop} {
@@ -57,9 +56,9 @@ const StyledMenuOptions = styled.ul`
   align-items: center;
   font-size: 20px;
   margin: 0;
-  transform: translate(100px, 0);
+  /* transform: translate(100px, 0);
   transform: translate(-100px, 0);
-  -webkit-transition: all 2s ease-in-out;
+  -webkit-transition: all 2s ease-in-out; */
 
   li {
     margin-left: 40px;
@@ -119,7 +118,9 @@ const StyledAdminMenu = styled.div`
 const StyledBrand = styled.div`
   width: 100%;
   display: flex;
-  height: ${(props) => (props.location == "/home" ? "25%" : "5%")};
+`;
+const Container = styled.div`
+
 `;
 const StyledIcon = styled(Icon)`
   margin-right: 2rem !important;
@@ -148,4 +149,5 @@ export {
   StyledIcon,
   StyledBrandContainer,
   StyledAdminMenu,
+  Container
 };

@@ -15,6 +15,7 @@ import {
   StyledCartMenu,
   StyledIcon,
   StyledAdminMenu,
+  Container,
 } from "./styled-components";
 
 export function NavBar({ location }) {
@@ -29,38 +30,40 @@ export function NavBar({ location }) {
   };
   return (
     <>
-      <UpperTranslate duration="2s" delay="0.5s">
-        <NavbarContainer
-          location={pathname.includes("about")}
-          isAdmin={isAdmin}
-        >
-          <BrandInfo location={location} />
-          <StyledIcon
-            name="bars"
-            size="large"
-            onClick={toogleSubMenu}
-            visible={false}
-          />
-          <StyledCartMenu>
-            {isAdmin ? (
-              <StyledAdminMenu>
-                <h2>Panel Administrador</h2>
-              </StyledAdminMenu>
-            ) : (
-              <>
-                <MenuOptions location={location} path={path} />
-                <MediaInfo />
-              </>
-            )}
-          </StyledCartMenu>
-          <FontAwesomeIcon
-            icon={faLanguage}
-            size="2x"
-            className="cart"
-            style={{ fontSize: "20px", color: "var(--darkGrey)" }}
-            onClick={context.changeLanguage}
-          />
-        </NavbarContainer>
+      <UpperTranslate duration="2s" delay="0.5s" >
+        <Container>
+          <NavbarContainer
+            location={pathname.includes("about")}
+            isAdmin={isAdmin}
+          >
+            <BrandInfo location={location} />
+            <StyledIcon
+              name="bars"
+              size="large"
+              onClick={toogleSubMenu}
+              visible={false}
+            />
+            <StyledCartMenu>
+              {isAdmin ? (
+                <StyledAdminMenu>
+                  <h2>Panel Administrador</h2>
+                </StyledAdminMenu>
+              ) : (
+                <>
+                  <MenuOptions location={location} path={path} />
+                  <MediaInfo />
+                </>
+              )}
+            </StyledCartMenu>
+            <FontAwesomeIcon
+              icon={faLanguage}
+              size="2x"
+              className="cart"
+              style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+              onClick={context.changeLanguage}
+            />
+          </NavbarContainer>
+        </Container>
       </UpperTranslate>
       <SubMenu visible={visible} path={path} isAdmin={isAdmin} />
     </>

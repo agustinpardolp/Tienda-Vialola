@@ -16,7 +16,7 @@ const TwisterAnimation = keyframes`
 const TranslateAnimation = keyframes`
 
 from { transform:translateY(-200px) }
-to { transform:translateY(10px) }
+to { transform:translateY(0px) }
 `;
 
 export const FadeIn = styled(BaseAnimation)`
@@ -38,4 +38,42 @@ export const UpperTranslate = styled(BaseAnimation)`
 export const Twister = styled(BaseAnimation)`
   transition: 2s;
   animation-name: ${TwisterAnimation};
+`;
+
+export const OverlayAnimation = styled.div`
+  width: 100%;
+  height: 100%;
+  
+  background: rgba(0, 0, 0, 0);
+  right: 0%;
+  position: relative;
+  z-index: 10000;
+  &:hover {
+  }
+  div {
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 4%;
+    &:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+`;
+
+
+const sideBaseAnimation = keyframes`
+
+from { transform:translateX(250px) }
+to { transform:translateX(-10px) }
+`;
+
+export const SideAnimation = styled(BaseAnimation)`
+  animation-name: ${sideBaseAnimation}, ${FadeInAnimation}; /*animacion lateral para el toast */
 `;

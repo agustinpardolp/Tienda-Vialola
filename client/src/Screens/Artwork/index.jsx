@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import Magnifier from "react-magnifier";
-import { OverlayAnimation } from "../../utils/baseStyleAnimations";
+import { OverlayAnimation } from "../../utils/baseStyleAnimations.js";
 
 import Slider from "../../components/Slider";
 import Spinner from "../../components/Modals&Spinners/spinner";

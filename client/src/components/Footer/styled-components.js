@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const StyledFooter = styled.div`
-  height: 30vh;
+  height: 20vh;
   bottom: 0;
   width: 100%;
   background-color: var(--footerBackground);
@@ -37,7 +37,7 @@ const StyledInfo = styled.div`
 `;
 
 const StyledLi = styled.li`
-  color: var(--darkGrey);
+  color: var(--lightGrey);
   font-size: 1.2rem;
   list-style: none;
   padding: 5% 0 5% 0;
@@ -46,12 +46,12 @@ const StyledLi = styled.li`
 const StyledLiContainer = styled.div`
   height: 100%;
   margin: auto;
-  padding-top: 10%;
+  padding-top: 4%;
   text-align: justify;
 `;
 
 const StyledLabel = styled.label`
-  color: var(--backgroundModal);
+  color: var(--lightGrey);
   font-size: 1.1rem;
   font-weight: 500;
 `;

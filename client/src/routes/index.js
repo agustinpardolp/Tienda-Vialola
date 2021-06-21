@@ -28,10 +28,10 @@ const Routes = () => {
         <PublicRoute exact path="/gallery" component={Gallery} />
         <PublicRoute path="/shop/" component={Shop} />
         <PublicRoute path="/admin/login" component={Login} />
-        <Redirect from="/*" to="/home" />
         <Suspense fallback={<Spinner active></Spinner>}>
           <PublicRoute path="/gallery/:category" component={Series} />
         </Suspense>
+        <Redirect from="/*" to="/home" />
       </Switch>
       <PrivateRoute exact path="/admin/:option" component={Admin} />
     </>

@@ -7,7 +7,7 @@ export const StyledCardCategory = styled.div`
   margin: 0.5%;
   background: ${(props) =>
     `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") center;`};
-   position: relative;
+  position: relative;
   -webkit-transform: scale(1);
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
@@ -18,7 +18,6 @@ export const StyledCardCategory = styled.div`
     transition: transform 0.3s ease-in-out;
     backface-visibility: hidden;
   }
-
 `;
 
 export const StyledLink = styled(Link)`
@@ -33,7 +32,7 @@ export const StyledLink = styled(Link)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  &:hover{
+  &:hover {
     color: var(--mainColorFont) !important;
   }
 `;
@@ -41,7 +40,7 @@ export const StyledLink = styled(Link)`
 export const StyledCategoryTittle = styled.div`
   text-decoration: none !important;
   transition: all 0.5s;
-  position:absolute;
+  position: absolute;
   :hover {
     color: "var(--mainColorFont)";
     transition: all 0.4s ease 0s;
@@ -49,10 +48,13 @@ export const StyledCategoryTittle = styled.div`
 `;
 
 export const CategoriesContainer = styled.div`
-   display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 1%;
-    margin: 3%;
-    height: 65vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1%;
+  margin: 3%;
+  height: 65vh;
+`;
 
+export const StyledMain = styled.div`
+  height: 70vh;
 `;

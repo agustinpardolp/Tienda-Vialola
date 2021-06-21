@@ -4,15 +4,13 @@ import { DEVICES_MAX_WIDTH, MEDIA_SIZES } from "../../constants";
 
 const StyledPhotoGrid = styled.div`
   display: grid;
-  margin-right: 3%;
-  margin-left: 3%;
   grid-gap: ${(props) => (props.gap ? props.gap : "0.5%")};
   grid-template-columns: ${(props) =>
     props.col ? `repeat(${props.col}, 1fr)}` : "repeat(5, 0.5fr)"};
-  grid-template-rows: ${(props) =>
-    props.row ? `repeat(${props.row}, 100%)` : "repeat(1, 100%)"};
+  /* grid-template-rows: ${(props) =>
+    props.row ? `repeat(${props.row}, 100%)` : "repeat(1, 100%)"}; */
   padding: 3%;
-  height: ${(props) => (props.heigth ? `${props.heigth}` : "60vh")};
+  height: ${(props) => (props.heigth ? `${props.heigth}` : "100%")};
   width: ${(props) => (props.width ? `${props.width}` : "100%")};
 
   @media ${DEVICES_MAX_WIDTH.tablet} {

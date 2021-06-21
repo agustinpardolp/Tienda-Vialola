@@ -7,19 +7,20 @@ import Dividers from "../../components/Divider";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { REQUEST_STATUS } from "../../constants";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
+import { StyledMain } from "./styledComponents";
 
 export function Gallery(props) {
   useEffect(() => {
-    props.fetchArtworkCategories('');
+    props.fetchArtworkCategories("");
   }, []);
-
+  console.log(props.artworkCategories);
   return (
     <>
-      {props.status !== REQUEST_STATUS.LOADED ? (
-        <Spinner active></Spinner>
-      ) : (
-        <>
-          <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
+      <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
+      <StyledMain>
+        {props.status !== REQUEST_STATUS.LOADED ? (
+          <Spinner active></Spinner>
+        ) : (
           <CardGrid
             row={"1"}
             elementsLength={
@@ -34,12 +35,13 @@ export function Gallery(props) {
                     element={category}
                     category={category.name}
                     path={`/gallery/${category.name}/`}
+                    height="45vh"
                   />
                 );
               })}
           </CardGrid>
-        </>
-      )}
+        )}
+      </StyledMain>
     </>
   );
 }

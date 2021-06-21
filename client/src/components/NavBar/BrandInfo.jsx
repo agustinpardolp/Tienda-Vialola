@@ -10,7 +10,7 @@ import { UpperTranslate } from "../ImageSlider/animations";
 const BrandInfo = ({ location, isAdmin }) => {
   return (
     <StyledBrandContainer location={location ? location.pathname : null}>
-      <UpperTranslate duration="2s" delay="0.5s">
+      {/* <UpperTranslate duration="2s" delay="0.5s"> */}
         <StyledBrand>
           {location.pathname === "/home" ? (
             <StyledBrandLink to="/home" location={location.pathname}>
@@ -22,7 +22,7 @@ const BrandInfo = ({ location, isAdmin }) => {
             </StyledBrandLink>
           )}
         </StyledBrand>
-      </UpperTranslate>
+      {/* </UpperTranslate> */}
     </StyledBrandContainer>
   );
 };
