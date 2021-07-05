@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 export const StyledCardCategory = styled.div`
   height: 100%;
@@ -7,7 +8,7 @@ export const StyledCardCategory = styled.div`
   margin: 0.5%;
   background: ${(props) =>
     `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") center;`};
-   position: relative;
+  position: relative;
   -webkit-transform: scale(1);
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
@@ -18,12 +19,11 @@ export const StyledCardCategory = styled.div`
     transition: transform 0.3s ease-in-out;
     backface-visibility: hidden;
   }
-
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none !important;
-  color: var(--mainColorFont) !important;
+  color: var(--wildSand) !important;
   display: block;
   width: 100%;
   font-size: 35px;
@@ -33,26 +33,32 @@ export const StyledLink = styled(Link)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  &:hover{
-    color: var(--mainColorFont) !important;
+  &:hover {
+    color: var(--wildSand) !important;
   }
 `;
 
 export const StyledCategoryTittle = styled.div`
   text-decoration: none !important;
   transition: all 0.5s;
-  position:absolute;
+  position: absolute;
   :hover {
-    color: "var(--mainColorFont)";
+    color: "var(--wildSand)";
     transition: all 0.4s ease 0s;
   }
 `;
 
 export const CategoriesContainer = styled.div`
-   display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 1%;
-    margin: 3%;
-    height: 65vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1%;
+  margin: 3%;
+  height: 65vh;
+`;
 
+export const StyledMain = styled.div`
+  height: 70vh;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    height: 100%;
+  }
 `;

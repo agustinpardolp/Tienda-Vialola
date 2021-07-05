@@ -15,6 +15,8 @@ import editSerieWatcher from "./series/sagas/editSerieSaga";
 import sliderWatcher from "./slider/sagas";
 import deleteSliderWatcher from "./slider/sagas/deleteSliderSaga"
 import aboutsWatcher from "./about/sagas/fetchAboutSaga"
+import createClientConsultSagaWatcher from "./artworks/sagas/createClientConsultSaga";
+
 export default function* rootSaga() {
 
     yield all([
@@ -33,5 +35,6 @@ export default function* rootSaga() {
       fork(sliderWatcher),
       fork(deleteSliderWatcher),
       fork(aboutsWatcher),
+      fork(createClientConsultSagaWatcher)
       ])
   }

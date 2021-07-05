@@ -19,20 +19,12 @@ const StyledSidebar = styled.div`
     font-size: 1.5rem;
     color: white;
     text-align: justify;
-    /* li {
-      transition: ease-in-out 1s;
-
-      &:hover {
-        color: lightblue;
-        transition: ease-in-out 1s;
-      }
-    } */
   }
 `;
 
 const StyledLink = styled.li`
   color: ${(props) =>
-  props.format ? "var(--darkGrey)" : "var(--darkGrey) !important"};
+  props.format ? "var(--mineShaft)" : "var(--mineShaft) !important"};
   font-size: ${(props) => (props.format ? "22px" : "17px")};
   cursor: pointer;
   link:hover {

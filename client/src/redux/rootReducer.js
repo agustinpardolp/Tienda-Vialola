@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import optionSidebar from "./sidebar/reducer/index";
 import artworkCategories from "./artworkCategories/reducers/artwork-categories-reducer";
 import artworksBySerie from "./artworks/reducers/artworksBySerie-reducer";
+import clientConsult from "./artworks/reducers/artwork-client-consult-reducer";
 import artworks from "./artworks/reducers/artworks-reducer";
 import home from "./home/reducers/home-reducers.js";
 import series from "./series/reducer/series-reducer";
@@ -24,4 +25,5 @@ export default combineReducers({
   notification,
   slider,
   about,
+  clientConsult
 });

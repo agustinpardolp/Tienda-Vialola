@@ -2,12 +2,6 @@ import { withFormik } from "formik";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as yup from "yup";
-import { REGEX } from "../../../constants";
-import FormModal from "../../../screens/AdminViews/Artwork/ArtworkModalForm/FormModal";
-// import {
-//   saveNewArtwork,
-//   editArtwork,
-// } from "../../../../../store/actions/clientsActions";
 
 const validationSchema = yup.object().shape({
   name: yup

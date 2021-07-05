@@ -1,0 +1,91 @@
+{
+  "navbar.home": "Inicio",
+  "navbar.about": "Sobre mi",
+  "navbar.gallery": "Galeria",
+  "navbar.shop": "Tienda",
+  "navbar.contact": "Contacto",
+
+  "contact.title": "Por consultas sobre trabajos de ilustración, exposiciones, comprar originales o reproducciones, te invito a ponerte en contacto completando el siguiente formulario. Responderé a la brevedad. Gracias!",
+  "contact.inputName": "Nombre*",
+  "contact.inputEmail": "Correo electrònico*",
+  "contact.inputCountry": "Pais*",
+  "contact.inputCity": "Ciudad*",
+  "contact.inputSubject": "Asunto*",
+  "contact.inputMessage": "Mensaje*",
+  "contact.send": "Enviar",
+  "contact.inputArtData": "Informaciòn de la obra*",
+  "contact.selectIlustration": "Servicios de ilustración",
+  "contact.selectExpositions": "Exposiciones",
+  "contact.selectBuyArtwork": "Compra de originales / reproducciones",
+  "contact.selectOther": "Otros",
+
+  "contact.inputRequired": "Campo es requerido*",
+
+  "form.requiredFields": "Existen errores o faltantes",
+
+  "home.askMe":  "Si deseas realizar una consulta sobre una obra en particular o un encargo especial",
+  "home.contactMe":  "podes contactarme",
+  
+  "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Por favor, no reproducir mi trabajo sin previo consentimiento / Todos los derechos reservados",
+  "footer.developed": "developed by Agustín Pardo",
+
+  "button.logout": "Cerrar sesión",
+  "button.enter": "Ingresar",
+  "button.confirm": "Confirmar",
+  "button.cancel": "Cancelar",
+  "modal.message": "¿Esta seguro que desea salir?",
+  "header.home": "Inicio",
+  "header.english": "IN",
+  "header.spanish": "ES",
+  "login.loginTitle": "Login",
+  "login.user": "Correo electrónico",
+  "login.password": "Contraseña",
+  "login.session": "Mantener mi sesión conectada",
+  "users.search": "Buscar",
+  "users.order": "Ordenar de a-z",
+  "users.created": "Creado en {year} por {author}",
+  "users.licence": "Licencia de {licence}",
+  "users.category": "Categoria:",
+
+  "userFilter.title": "Filtrar por",
+  "userFilter.select": "Seleccionar...",
+
+  "userModalEdit.title": "Editar usuario",
+  "userModalEdit.subtitle": "Edite desde aqui toda la informacion del usuario",
+
+  "userModalDelete.title": "Eliminar usuario",
+  "userModalDelete.subtitle": "¿Estás seguro que deseas eliminar el usuario?",
+
+  "barChartSystemUsage.weekAgo": "Una semana atrás",
+  "barChartSystemUsage.yesterday": "Ayer",
+  "barChartSystemUsage.today": "Hoy",
+  "barChartSystemUsage.hourAgo": "Ultima hora",
+  "barChartSystemUsage.now": "Ahora",
+  "barChartCpuUsage.title": "Uso de CPU ",
+  "barChartMemoryUsage.title": "Uso de memoria/disco ",
+  "barChartDiskUsage.title": "Uso de disco ",
+  "barChartMemoryUsage.label": "Uso de memoria",
+  "barChartDatatUsage.title": "Consumo de internet",
+
+  "userListSubmenu.tab": "Listado de usuarios",
+  "userSystemSubmenu.tab": "Informacion del sistema",
+
+  "userLogout.title": "Cerrar sesión",
+  "userLogout.message": "¿Está seguro que desea salir?",
+
+  "userEdition.nameError": "Caracter inválido, ingresar letras",
+  "userEdition.surnameError": "Caracter inválido, ingresar letras",
+  "userEdition.emailError": "Formato de email incorrecto",
+  "userEdition.addressError": "Caracter inválido",
+  "userEdition.dniError": "Caracter inválido, ingresar números",
+  "userEdition.dniErrorlength": "Maximo 8 caracteres",
+  "userEdition.dniErrorMinlength": "Mìnimo 7 caracteres",
+
+  "userEdition.nameRequired": "Campo nombre es requerido",
+  "userEdition.surnameRequired": "Campo apellido es requerido",
+  "userEdition.emailRequired": "Campo email es requerido",
+  "userEdition.addressRequired": "Campo direcciòn es requerido",
+  "userEdition.dniRequired": "Campo dni es requerido"
+
+ 
+}

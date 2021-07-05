@@ -3,7 +3,7 @@ const router = express.Router();
 const Category = require("../../db/models/index").Category;
 const Serie = require("../../db/models/").Serie;
 const Artwork = require("../../db/models/index").Artwork;
-const MulterFn = require("../utils");
+const MulterFn = require("../utils").multerFn;
 
 router.get("/", function (req, res) {
   if (req.query.category) {

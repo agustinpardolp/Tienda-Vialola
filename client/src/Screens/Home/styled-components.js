@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
 const StyledMainHomeProducts = styled.div`
-  margin-top: 2%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin: 0 0 5% 0;
 `;
 
-export {
-  StyledMainHomeProducts
-};
+const StyledHomeContainer = styled.div`
+  background-size: cover;
+  background: ${(props) =>
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat center;`};
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100%;
+  text-align: center;
+  transition: ${(props) => `${props.pageTransition}`};
+  transition-delay: 300ms;
+  width: 100%;
+`;
+
+export { StyledMainHomeProducts, StyledHomeContainer };

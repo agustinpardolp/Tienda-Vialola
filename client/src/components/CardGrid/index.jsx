@@ -7,9 +7,9 @@ export const rowHandler = (screenWidth, columns, elementsLength) => {
   return Math.ceil(((width / columns) * elementsLength) / width);
 };
 
-export default function CardGrid({ children, row, col, elementsLength }) {
+export default function CardGrid({ children, row, col, elementsLength, heigth, width, gap }) {
   return (
-    <StyledPhotoGrid row={row} col={col} elementsLength={elementsLength}>
+    <StyledPhotoGrid row={row} col={col} elementsLength={elementsLength} heigth={heigth} width={width} gap={gap}>
       {children}
     </StyledPhotoGrid>
   );

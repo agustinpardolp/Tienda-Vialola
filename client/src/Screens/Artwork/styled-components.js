@@ -64,7 +64,7 @@ const StyledZoomIcon = styled(FontAwesomeIcon)`
   right: 40%;
   top: 25%;
   font-size: 2rem;
-  color: var(--darkGrey);
+  color: var(--mineShaft);
 `;
 const StyledSeriesGrid = styled.div`
   display: grid;
@@ -77,10 +77,10 @@ const StyledCategoryTittle = styled.div`
   text-decoration: none !important;
   transition: all 0.5s;
   position: absolute;
-  color: var(--mainColorFont) !important;
+  color: var(--wildSand) !important;
   font-size: ${(props) => (props.fontSize ? props.fontSize : "1.2rem")};
   :hover {
-    color: var(--mainColorFont);
+    color: var(--wildSand);
     transition: all 0.4s ease 0s;
   }
 `;
@@ -158,7 +158,7 @@ export {
 //   right: 40%;
 //   top: 25%;
 //   font-size: 2rem;
-//   color: var(--darkGrey);
+//   color: var(--mineShaft);
 // `;
 // export {
 //   StyledImageContainer,

@@ -27,7 +27,7 @@ const StyledLogin = styled.section`
     height: 30rem;
     width: 25rem;
     border-radius: 5px;
-    box-shadow: 0 0 25px 0 var(--primaryInputBorder);
+    box-shadow: 0 0 25px 0 var(--gray);
     top:10rem;
   }
 
@@ -35,7 +35,7 @@ const StyledLogin = styled.section`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    color: var(--primaryInputBorder);
+    color: var(--gray);
   }
   .login-container {
   

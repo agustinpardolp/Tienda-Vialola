@@ -7,6 +7,7 @@ import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
+import { StyledMain } from "./styledComponents";
 
 const Series = ({ match, fetchSeries, status, series }) => {
   const {
@@ -24,14 +25,15 @@ const Series = ({ match, fetchSeries, status, series }) => {
         <Spinner></Spinner>
       ) : (
         <>
-          <Dividers
-            titleElements={[
-              {
-                name: `${series.length && series[0].category.name} / series`,
-                id: 1,
-              },
+        <Dividers
+        titleElements={[
+          {
+            name: `${series.length && series[0].category.name} / series`,
+            id: 1,
+          },
             ]}
-          />
+            />
+            <StyledMain>
           <CardGrid row={3}>
             {series.length &&
               series.map((serie) => {
@@ -41,10 +43,12 @@ const Series = ({ match, fetchSeries, status, series }) => {
                     key={serie.id}
                     category={serie.category.name}
                     path={`/gallery/${serie.category.name}/${serie.name}`}
+                    height="45vh"
                   />
                 );
               })}
           </CardGrid>
+        </StyledMain>
         </>
       )}
     </>

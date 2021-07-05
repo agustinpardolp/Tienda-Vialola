@@ -16,7 +16,7 @@ const MediaInfo = () => {
           icon={faFacebook}
           size="1x"
           className="cart"
-          style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
         />
       </Link>
       <Link to={"/"}>
@@ -24,7 +24,7 @@ const MediaInfo = () => {
           icon={faTwitter}
           size="1x"
           className="cart"
-          style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
         />
       </Link>
       <Link to={"/"}>
@@ -32,7 +32,7 @@ const MediaInfo = () => {
           icon={faInstagram}
           size="1x"
           className="cart"
-          style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
         />
       </Link>
     </StyleMedia>

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Slider = require("../../db/models/index").Slider;
-const MulterFn = require("../utils");
+const MulterFn = require("../utils").multerFn;
 
 router.get("/", function (req, res) {
   Slider.findAll().then((sliderList) => {

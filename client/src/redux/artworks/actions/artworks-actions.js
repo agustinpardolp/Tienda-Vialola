@@ -75,12 +75,11 @@ export const deleteArtworkSuccess = (data) => {
 
 export const deleteArtworkFailure = () => {
   return {
-    type: types.DELETE_ARTWORK_FAILURE
+    type: types.DELETE_ARTWORK_FAILURE,
   };
- 
 };
 
-export const createArtwork= (artworkData) => {
+export const createArtwork = (artworkData) => {
   return {
     type: types.CREATE_ARTWORK,
     artworkData,
@@ -99,3 +98,22 @@ export const createArtworkFailure = () => ({
   type: types.CREATE_ARTWORK_FAILURE,
 });
 
+export const createClientConsult = (dataConsult) => {
+
+  return {
+    type: types.CREATE_CLIENT_CONSULT,
+    dataConsult,
+  };
+};
+
+export const createClientConsultSuccess = (data) => {
+  return {
+    type: types.CREATE_CLIENT_CONSULT_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+export const createClientConsultFailure = () => ({
+  type: types.CREATE_CLIENT_CONSULT_FAILURE,
+});

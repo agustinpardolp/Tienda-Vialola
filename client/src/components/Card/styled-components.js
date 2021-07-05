@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 const StyledPhotoDiv = styled.div`
   margin: 1%;
@@ -9,7 +10,7 @@ const StyledPhotoDiv = styled.div`
     !props.filePath
       ? `url("${process.env.PUBLIC_URL}/images/img-artwork/${props.category}/${props.img}") no-repeat center;`
       : `url("${process.env.PUBLIC_URL}${props.filePath}${props.img}") no-repeat center;`};
-  background-size: cover;
+  background-size: ${(props) => (props.backgroundSize ? props.backgroundSize : "cover")};;
   position: relative;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -21,6 +22,7 @@ const StyledPhotoDiv = styled.div`
     transition: transform 0.3s ease-in-out;
     backface-visibility: hidden;
   }
+
 `;
 
 const StyledContainer = styled.span`
@@ -29,22 +31,24 @@ const StyledContainer = styled.span`
   overflow: hidden;
   height: ${(props) => (props.height ? props.height : "100%")};
   width: ${(props) => (props.width ? props.width : "100%")};
+  @media ${DEVICES_MAX_WIDTH.tablet} {
+    height: 50vh;
+  }
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none !important;
-  color: var(--mainColorFont) !important;
+  color: var(--wildSand) !important;
   display: block;
   width: 100%;
   font-size: 35px;
   text-transform: capitalize;
-  font-family: var(--fontVar);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   &:hover {
-    color: var(--mainColorFont) !important;
+    color: var(--wildSand) !important;
   }
 `;
 
@@ -52,10 +56,10 @@ const StyledCategoryTittle = styled.div`
   text-decoration: none !important;
   transition: all 0.5s;
   position: absolute;
-  color: var(--mainColorFont) !important;
+  color: var(--wildSand) !important;
   font-size: ${(props) => (props.fontSize ? props.fontSize : "1.2rem")};
   :hover {
-    color: var(--mainColorFont);
+    color: var(--wildSand);
     transition: all 0.4s ease 0s;
   }
 `;

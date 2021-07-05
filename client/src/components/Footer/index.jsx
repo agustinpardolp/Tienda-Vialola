@@ -1,13 +1,21 @@
 import React from "react";
-import { FOOTER } from "../../constants";
-import { StyledFooter, StyledSpan, StyledLink } from "./styled-components";
+import { FormattedMessage } from "react-intl";
+import Media from "./components/Media";
+import { StyledFooter, StyledFooterContainer } from "./styled-components";
 
-function Footer({ back }) {
+function Footer() {
   return (
-    <StyledFooter>
-      <StyledSpan>{FOOTER.RIGHTS}</StyledSpan>
-      {back && <StyledLink to={`${back}`}>{FOOTER.BACK}</StyledLink>}
-    </StyledFooter>
+    <StyledFooterContainer>
+      <StyledFooter>
+        <Media />
+        <p className="footer_copyrigth">
+          <FormattedMessage id="footer.copyrigth" />
+        </p>
+        <p className="footer_developed">
+          <FormattedMessage id="footer.developed" />
+        </p>
+      </StyledFooter>
+    </StyledFooterContainer>
   );
 }
 

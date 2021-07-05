@@ -71,7 +71,7 @@ const TableBody = ({
           <FontAwesomeIcon
             icon={faTrash}
             size="0.7x"
-            style={{ fontSize: "14px", color: "var(--darkGrey)" }}
+            style={{ fontSize: "14px", color: "var(--mineShaft)" }}
             onClick={() => onDelete(row)}
           />
         ) : (

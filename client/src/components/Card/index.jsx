@@ -23,8 +23,8 @@ export default function StyledCard({
   callBack,
   height,
   width,
+  backgroundSize
 }) {
-console.log(element, img)
   return (
     <StyledContainer height={height} width={width}>
       <TransitionWrapper>
@@ -46,6 +46,7 @@ console.log(element, img)
                 }
               : callBack
           }
+          backgroundSize={backgroundSize}
         >
           {handleChangeImage ? (
             <OverlayAnimation>

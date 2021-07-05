@@ -2,14 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import { StyledButton } from "./styled-components";
-const Button =  ({ label, onClick, variant, type }) => {
+const Button = ({ label, onClick, variant, type }) => {
   const handleVariant = (variant) => {
     let settings = {
-      borderColor: "var(--primary)",
-      fontColor: "white",
-      backgroundColor: "var(--primary)",
+      borderColor: "none",
+      fontColor: "var(--gray)",
+      backgroundColor: "none",
       disabled: false,
     };
+    console.log(variant)
     switch (variant) {
       case "confirm":
         settings = {
@@ -29,18 +30,27 @@ const Button =  ({ label, onClick, variant, type }) => {
         break;
       case "neutral":
         settings = {
-          borderColor: "var(--primary)",
-          fontColor: "white",
+          borderColor: "none",
+          fontColor: "var(--primaryConfirm)",
           backgroundColor: "none",
           disabled: false,
         };
         break;
+      case "neutralDisabled":
+        settings = {
+          borderColor: "none",
+          fontColor: "var(--gray)",
+          backgroundColor: "none",
+          disabled: true,
+          cursor:"not-allowed"
+        };
+        break;
       case "disabled":
         settings = {
-          borderColor: "var(--primaryInputBorder)",
+          borderColor: "var(--gray)",
           fontColor: "white",
           disabled: true,
-          backgroundColor: "var(--primaryInputBorder)",
+          backgroundColor: "var(--gray)",
         };
         break;
       case "login":
@@ -53,8 +63,8 @@ const Button =  ({ label, onClick, variant, type }) => {
         break;
       case "logout":
         settings = {
-          borderColor: "var(--primaryInputBorder)",
-          fontColor: "var(--primaryInputBorder)",
+          borderColor: "var(--gray)",
+          fontColor: "var(--gray)",
           backgroundColor: "white",
           disabled: false,
         };
@@ -66,7 +76,6 @@ const Button =  ({ label, onClick, variant, type }) => {
     return settings;
   };
   let buttonSetup = handleVariant(variant);
-
   return (
     <StyledButton
       onClick={onClick}
@@ -75,9 +84,11 @@ const Button =  ({ label, onClick, variant, type }) => {
       backgroundColor={buttonSetup.backgroundColor}
       type={type}
       disabled={buttonSetup.disabled}
+      cursor={buttonSetup.cursor}
     >
-      <span>{label}</span>
-      {/* <FormattedMessage id={label} /> */}
+      <span>
+        <FormattedMessage id={label} />
+      </span>
     </StyledButton>
   );
 };

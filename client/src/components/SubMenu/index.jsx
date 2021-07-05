@@ -1,9 +1,10 @@
 import React from "react";
-import { DEVICES_MIN_WIDTH, NAVBAR } from "../../constants";
+import { FormattedMessage, useIntl } from "react-intl";
+import { NAVBAR } from "../../constants";
 import TransitionWrapper from "../transition";
 import { StyledLink, StyledSubMenu } from "./styled-components";
 
-const SubMenu = ({ visible, toogleSidebar, path, isAdmin }) => {
+const SubMenu = ({ visible, path, isAdmin }) => {
   return (
     <TransitionWrapper>
       {visible ? (
@@ -24,12 +25,12 @@ const SubMenu = ({ visible, toogleSidebar, path, isAdmin }) => {
                 return (
                   <li key={option.id}>
                     <StyledLink
-                      to={`/${option.NAME.toLowerCase()}`}
+                      to={option.path}
                       format={
-                        option.NAME.toLowerCase() === path ? "true" : undefined
+                        option.name.toLowerCase() === path ? "true" : undefined
                       }
                     >
-                      {option.NAME}
+                      <FormattedMessage id={option.name} />
                     </StyledLink>
                   </li>
                 );

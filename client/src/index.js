@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
+import LanguageWrapper from "../src/components/LenguageWrapper";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Main from "./screens/Main";
@@ -12,10 +13,12 @@ import "./utils/styles/fonts.css";
 import "./utils/styles/index.css";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Route path="/" component={Main} />{" "}
-    </BrowserRouter>{" "}
-  </Provider>,
+  <LanguageWrapper>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Route path="/" component={Main} />
+      </BrowserRouter>
+    </Provider>
+  </LanguageWrapper>,
   document.getElementById("root")
 );

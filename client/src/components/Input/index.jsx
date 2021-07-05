@@ -1,44 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { FormattedMessage } from "react-intl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useIntl } from "react-intl";
 import ErrorMessage from "../../components/ErrorMessage";
-import { StyledInputContainer } from "./styled-components";
+import { StyledInput } from "./styled-components";
 
 const Input = ({
   values,
   errors,
   label,
-  disableLabel,
   handleChange,
   handleClick,
   handleBlur,
   touched,
   type,
-  className,
   id,
   placeholder,
   name,
   tabIndex,
   disableErrors,
-  iconType,
   style,
   checked,
+  width,
 }) => {
+  const intl = useIntl();
+  console.log(errors);
   return (
-    <StyledInputContainer>
-      {disableLabel ? null : (
-        <div className="label">
-          <label htmlFor="">
-            {/* <FormattedMessage id={label} /> */}
-          </label>
-          {/* <FontAwesomeIcon icon={iconType} /> */}
-        </div>
-      )}
-      <input
+    <>
+      <StyledInput
         type={type}
-        className={className}
-        placeholder={placeholder}
+        className="input"
+        label={label}
+        placeholder={intl.formatMessage({ id: placeholder })}
+        width={width}
         id={id}
         value={values}
         name={name}
@@ -47,11 +40,10 @@ const Input = ({
         onBlur={handleBlur}
         onClick={handleClick}
         tabIndex={tabIndex}
-        error={touched && errors}
+        error={!!errors}
         checked={checked}
       />
-      {disableErrors ? null : <ErrorMessage errorMessage={errors} />}
-    </StyledInputContainer>
+    </>
   );
 };
 Input.propTypes = {
