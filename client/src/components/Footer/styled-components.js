@@ -11,6 +11,7 @@ const StyledFooter = styled.div`
   overflow: hidden;
   padding: 20px 30% 20px 30%;
   width: 100%;
+  
   @media ${DEVICES_MAX_WIDTH.laptop} {
     padding: 20px 20% 20px 20%;
   }
