@@ -15,13 +15,13 @@ const StyledBreadcrumb = styled.div`
     font-size: 1.6rem !important;
     color: ${(props) =>
       props.format
-        ? "var(--activeColorFont)!important"
-        : "var(--darkGrey) !important"};
+        ? "var(--codGray)!important"
+        : "var(--mineShaft) !important"};
   }
   h3 {
     color: ${(props) =>
       props.format
-        ? "var(--activeColorFont)!important"
+        ? "var(--codGray)!important"
         : "rgb(115, 112, 110) !important"};
     font-size: 1.3rem;
     display: flex;

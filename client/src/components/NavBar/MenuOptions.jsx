@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+
 import { StyledMenuOptions, StyledLink } from "./styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-import { FormattedMessage } from "react-intl";
-import { Context } from "../LenguageWrapper";
 import { NAVBAR } from "../../constants";
 
 const MenuOptions = ({ location, path }) => {
-  const context = useContext(Context);
+  const intl = useIntl();
   return (
     <StyledMenuOptions location={location.pathname}>
       {NAVBAR.OPTIONS.map((option) => {
@@ -15,9 +15,13 @@ const MenuOptions = ({ location, path }) => {
           <li key={option.id}>
             <StyledLink
               to={option.path}
-              format={option.NAME.toLowerCase() === path ? "true" : undefined}
+              format={
+                intl.formatMessage({ id: option.name }) === path
+                  ? "true"
+                  : undefined
+              }
             >
-              <FormattedMessage id={option.NAME} />
+              <FormattedMessage id={option.name} />
             </StyledLink>
           </li>
         );
@@ -27,7 +31,7 @@ const MenuOptions = ({ location, path }) => {
           icon={faLanguage}
           size="2x"
           className="cart"
-          style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
         />
       </li> */}
     </StyledMenuOptions>

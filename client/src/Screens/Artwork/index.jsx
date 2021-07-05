@@ -87,7 +87,7 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie }) {
   const handleZoom = useCallback(() => {
     setZoom(!zoom);
   }, [zoom]);
-
+  console.log(artworksBySerie);
   return (
     <>
       {!artworksBySerie.length ? (
@@ -116,17 +116,14 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie }) {
                       artworksBySerie[0].category.name
                     }/${selectedImage || artworksBySerie[0].img}`}
                   />
-                    <StyledCategoryTittle>
-                      "example"
-                    </StyledCategoryTittle>
-                  <OverlayAnimation>
-                  </OverlayAnimation>
+                  <StyledCategoryTittle>"example"</StyledCategoryTittle>
+                  <OverlayAnimation></OverlayAnimation>
                 </OverlayAnimation>
               </TransitionWrapper>
               {/* <StyledZoomIcon
                     icon={faSearchPlus}
                     size="1x"
-                    style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+                    style={{ fontSize: "20px", color: "var(--mineShaft)" }}
                     onClick={handleZoom}
                   /> */}
               {/* <ArtworkInfo
@@ -251,7 +248,7 @@ export default connect(mapStateToProps, { fetchArtworksBySerie })(Artwork);
 //                   <StyledZoomIcon
 //                     icon={faSearchPlus}
 //                     size="1x"
-//                     style={{ fontSize: "20px", color: "var(--darkGrey)" }}
+//                     style={{ fontSize: "20px", color: "var(--mineShaft)" }}
 //                     onClick={handleZoom}
 //                   />
 //                 </>

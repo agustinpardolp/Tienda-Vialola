@@ -5,6 +5,30 @@
   "navbar.shop": "Shop",
   "navbar.contact": "Contact",
 
+  "contact.title": "For inquires about ilustration services, art commissions, buy original artwork or prints, I invite you to complete the following form, I will be contacting you shortly. Thanks! ",
+  "contact.inputName": "Name*",
+  "contact.inputEmail": "Email*",
+  "contact.inputCountry": "Country*",
+  "contact.inputCity": "City*",
+  "contact.inputSubject": "Subject*",
+  "contact.inputMessage": "Message*",
+  "contact.send": "Send",
+  "contact.inputArtData": "Artwork info*",
+  "contact.selectIlustration": "Ilustration services",
+  "contact.selectExpositions": "Expositions",
+  "contact.selectBuyArtwork": "Buy original or reproductions",
+  "contact.selectOther": "Others",
+
+  "contact.inputRequired": "Field is required",
+
+  "form.requiredFields": "There is an error or missing field",
+
+  "home.askMe":  "If you have any questions or need further information about my work,  ",
+  "home.contactMe": "please feel free to contact me.",
+  
+  "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Please don't reproduce my work elsewhere without prior consent / All rigth reserved",
+  "footer.developed": "developed by Agustín Pardo",
+
   "button.login": "Login",
   "button.logout": "Logout",
   "button.enter": "Enter",
@@ -24,18 +48,6 @@
   "users.licence": "Licenced by {licence}",
   "users.category": "Category:",
 
-  "userTable.title": "User List",
-  "usersTable.noData": "No results found",
-  "userTable.name": "Name",
-  "userTable.surname": "Surname",
-  "userTable.address": "Address",
-  "userTable.email": "Email",
-  "userTable.creationDate": "Creation Date",
-  "userTable.dni": " User ID",
-  "userTable.reset": "Clean filters",
-  "userTable.edit": "Edit",
-  "userTable.delete": "Delete",
-  "userTable.map": "Map",
 
   "userFilter.title": "Filter by",
   "userFilter.select": "Select...",
@@ -46,16 +58,6 @@
   "userModalDelete.title": "Delete user",
   "userModalDelete.subtitle": "Are you sure you want to permanently remove this user?",
 
-  "barChart.title": "User access per week",
-  "barChart.subtitle": "Number of times user access to the platform",
-  "barChart.label": "User access per week",
-  "barChart.monday":"Monday",
-  "barChart.tuesday":"Tuesday",
-  "barChart.Wednesday":"Wednesday",
-  "barChart.Thursday":"Thurday",
-  "barChart.Friday":"Friday",
-  "barChart.Saturday":"Saturday",
-  "barChart.Sunday": "Sunday",
 
   "barChartSystemUsage.weekAgo":"Week ago", 
   "barChartSystemUsage.yesterday":"Yesterday", 
@@ -86,8 +88,9 @@
   "userEdition.surnameRequired": "Surname is required",
   "userEdition.emailRequired": "Email is required",
   "userEdition.addressRequired": "Address is required",
-  "userEdition.dniRequired": "Dni is required",
+  "userEdition.dniRequired": "Dni is required"  
 
-  "userGeolocalization.tooltip": "Your location"
+
+
 }
 

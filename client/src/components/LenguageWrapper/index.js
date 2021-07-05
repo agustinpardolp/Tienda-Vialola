@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { IntlProvider } from "react-intl";
 import PropTypes from "prop-types";
 import Spanish from "../../translations/en-es/index.json";
 import English from "../../translations/en-us/index.json";
+import { lenguageReducer, initialState } from "./reducer";
 
 export const Context = React.createContext();
-
 const LanguageWrapper = (props) => {
-  //HOC with context to provide traslations over components
-  const [locale, setLocale] = useState("en-es");
-  const [messages, setMessages] = useState(Spanish);
+  let { Provider } = Context;
+  const [state, dispatch] = useReducer(lenguageReducer, initialState);
 
-  //function to translate
   const changeLanguage = (e) => {
-    const newLocale = locale === "en-us" ? "en-es" : "en-us";
-    setLocale(newLocale);
-    newLocale === "en-us" ? setMessages(English) : setMessages(Spanish);
+    state.locale === "en-us"
+      ? dispatch({ type: "en-es" })
+      : dispatch({ type: "en-us" });
   };
   return (
-    <Context.Provider value={{ changeLanguage }}>
-      <IntlProvider messages={messages} locale={locale}>
+    <Provider value={{ changeLanguage, locale: state.locale }}>
+      <IntlProvider messages={state.messages} locale={state.locale}>
         {props.children}
       </IntlProvider>
-    </Context.Provider>
+    </Provider>
   );
 };
 

@@ -1,68 +1,31 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 const StyledFooter = styled.div`
-  height: 20vh;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--footerBackground);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-`;
-
-const StyledSpan = styled.span`
-  text-align: end;
-  color: var(--darkGrey);
-`;
-
-const StyledLink = styled(Link)`
-  color: var(--darkGrey);
-  text-decoration: none;
-  font-size: 20px;
-  text-align: end;
-  margin-right: 22%;
-`;
-const StyledFooterContainer = styled.div`
+  bottom: 0;
+  background-color: var(--wildSand);
   display: grid;
-  grid-template-rows: 1fr 8fr;
-`;
-
-const StyledInfo = styled.div`
-  p {
-    color: var(--footerText);
-    font-size: 1.1rem;
+  grid-row-gap: 1rem;
+  overflow: hidden;
+  padding: 20px 30% 20px 30%;
+  width: 100%;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    padding: 20px 20% 20px 20%;
+  }
+  @media ${DEVICES_MAX_WIDTH.tablet} {
+    padding: 20px 5% 20px 5%;
   }
 `;
 
-const StyledLi = styled.li`
-  color: var(--lightGrey);
-  font-size: 1.2rem;
-  list-style: none;
-  padding: 5% 0 5% 0;
+const StyledFooterContainer = styled.div`
+  margin-top: 20px;
+  .footer_copyrigth {
+  }
+  .footer_developed {
+    font-style: italic;
+  }
 `;
 
-const StyledLiContainer = styled.div`
-  height: 100%;
-  margin: auto;
-  padding-top: 4%;
-  text-align: justify;
-`;
-
-const StyledLabel = styled.label`
-  color: var(--lightGrey);
-  font-size: 1.1rem;
-  font-weight: 500;
-`;
-
-export {
-  StyledFooter,
-  StyledSpan,
-  StyledLink,
-  StyledFooterContainer,
-  StyledInfo,
-  StyledLi,
-  StyledLiContainer,
-  StyledLabel,
-};
+export { StyledFooter, StyledFooterContainer };

@@ -3,7 +3,9 @@ const router = express.Router();
 const Category = require("../../db/models/index").Category;
 const Artwork = require("../../db/models/index").Artwork;
 const Serie = require("../../db/models/").Serie;
-const MulterFn = require("../utils");
+const MulterFn = require("../utils").multerFn;
+const transporter = require("../utils").transporter;
+const createEmailOptions = require("../utils").createEmailOptions;
 
 router.get("/:category", function (req, res) {
   Category.findOne({
@@ -189,4 +191,28 @@ router.delete("/:id", function (req, res) {
     res.sendStatus(201);
   }).catch(err => res.send(err));
 });
+router.delete("/:id", function (req, res) {
+  Artwork.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then((resp) => {
+    res.sendStatus(201);
+  }).catch(err => res.send(err));
+});
+
+router.post("/client/consult", function(req, res) {
+  console.log("REQQQQQ", req.body)
+  transporter.sendMail(createEmailOptions(req.body), function(error, info) {
+    console.log("senMail returned!");
+    debugger
+    if (error) {
+      //ATAJA POSIBLES ERRORES
+      console.log("ERROR!!!!!!", error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+});
+
 module.exports = router;

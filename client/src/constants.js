@@ -40,6 +40,9 @@ export const types = {
   CREATE_ARTWORK: "CREATE_ARTWORK",
   CREATE_ARTWORK_SUCCESS: "CREATE_ARTWORK_SUCCESS",
   CREATE_ARTWORK_FAILURE: "CREATE_ARTWORK_FAILURE",
+  CREATE_CLIENT_CONSULT: "CREATE_CLIENT_CONSULT",
+  CREATE_CLIENT_CONSULT_FAILURE: "CREATE_CLIENT_CONSULT_FAILURE",
+  CREATE_CLIENT_CONSULT_SUCCESS: "CREATE_CLIENT_CONSULT_SUCCESS",
   //HOME
   UPDATE_HOME_IMAGE: "UPDATE_HOME_IMAGE",
   SET_INITIAL_EFFECT: "SET_INITIAL_EFFECT",
@@ -102,12 +105,12 @@ export const REGEX = {
 
 export const NAVBAR = {
   OPTIONS: [
-    { NAME: "navbar.home", id: 1, path: "/home" },
-    { NAME: "navbar.about", id: 2, path: "/about" },
-    { NAME: "navbar.gallery", id: 3, path: "/gallery" },
-    { NAME: "navbar.shop", id: 4, path: "/shop" },
-    { NAME: "navbar.contact", id: 5, path: "/contact" },
-    // { NAME: "News", id: 6, path: "/news" },
+    { name: "navbar.home", id: 1, path: "/home" },
+    { name: "navbar.about", id: 2, path: "/about" },
+    { name: "navbar.gallery", id: 3, path: "/gallery" },
+    { name: "navbar.shop", id: 4, path: "/shop" },
+    { name: "navbar.contact", id: 5, path: "/contact" },
+    // { name: "News", id: 6, path: "/news" },
   ],
   SHOPOPTIONS: [
     { NAME: "prints  ", id: 2, path: "prints" },
@@ -143,12 +146,6 @@ export const FILTER_LABELS = {
   series: "Series",
   categories: "Categorias",
   artwork: "Artwork",
-};
-
-export const BACKGROUND_IMAGES = {
-  ABOUT: "about",
-  CONTACT: "contact2",
-  DEFAULT: "fondo4Bis",
 };
 
 export const FOOTER = {

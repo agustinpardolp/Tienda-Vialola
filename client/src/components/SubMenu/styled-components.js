@@ -4,11 +4,15 @@ import { DEVICES_MIN_WIDTH } from "../../constants";
 
 const StyledSubMenu = styled.div`
   display: ${(props) => (props.visible ? "flex" : "none !important")};
-
   display: block;
+  margin-top: 8px;
   width: 100%;
   ul {
     list-style: none;
+    padding: 15px;
+    li {
+      margin: 5px;
+    }
   }
 
   @media ${DEVICES_MIN_WIDTH.laptop} {
@@ -18,7 +22,7 @@ const StyledSubMenu = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${(props) =>
-    props.format ? "var(--darkGrey)" : "var(--darkGrey) !important"};
+    props.format ? "var(--mineShaft)" : "var(--mineShaft) !important"};
   font-size: ${(props) => (props.format ? "22px" : "17px")};
 
   link:hover {

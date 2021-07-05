@@ -1,38 +1,55 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
-const StyledContactContainer= styled.div`
-display:flex;
-justify-content:flex-end;
-align-items:center;
-height:75vh;
-margin-right: 10%;
-`;
 const StyledMainContainer = styled.div`
-    width: 25%;
-    height: 60%;
-    display: grid;
-    grid-template-rows: 25% 30%; 
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const StyledDivSocial = styled.div`
-    display: grid;
-    grid-template-rows:  50% 22%;
-    color: white;
-    align-items: center;
-    justify-content:flex-start;
-    text-align: justify;
-    font-size: 20px;
-    span{
-        display:flex;
+const StyledForm = styled.div`
+  margin: 10% 10% 0 15%;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    &:nth-of-type(1) {
+      order: 2;
+      margin: 5%;
     }
-    h4{
-        margin-left:8%;
-        color: #ffdc8d;
+  }
+`;
+
+const StyledImageContainer = styled.div`
+  background-size: cover;
+  background: ${(props) =>
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat center`};
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100vh;
+  text-align: center;
+  width: 100%;
+  z-index: -1;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    &:nth-of-type(2) {
+      order: 1;
     }
+  }
+`;
+
+const StyledTitle = styled.p`
+  color: var(--gray);
+  padding: 0 10%;
+`;
+const StyledButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export {
-  StyledContactContainer,
-  StyledDivSocial,
-  StyledMainContainer
+  StyledImageContainer,
+  StyledMainContainer,
+  StyledForm,
+  StyledTitle,
+  StyledButtonContainer,
 };

@@ -22,7 +22,7 @@ to { transform:translateY(0px) }
 export const FadeIn = styled(BaseAnimation)`
   /* regulo la transicion, mas rapido, opaco o no etc */
   transition: 2s;
-  animation-duration: 0.3s;
+  animation-duration: ${(props) => (props.duration ? props.duration : "0.3s")};
   animation-name: ${FadeInAnimation}; /* seteo sobre el efecto seleccionado el nombre
   de la animacion */
 `;
@@ -43,7 +43,7 @@ export const Twister = styled(BaseAnimation)`
 export const OverlayAnimation = styled.div`
   width: 100%;
   height: 100%;
-  
+
   background: rgba(0, 0, 0, 0);
   right: 0%;
   position: relative;
@@ -66,7 +66,6 @@ export const OverlayAnimation = styled.div`
     }
   }
 `;
-
 
 const sideBaseAnimation = keyframes`
 

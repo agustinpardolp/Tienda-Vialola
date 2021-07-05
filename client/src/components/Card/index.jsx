@@ -23,6 +23,7 @@ export default function StyledCard({
   callBack,
   height,
   width,
+  backgroundSize
 }) {
   return (
     <StyledContainer height={height} width={width}>
@@ -45,6 +46,7 @@ export default function StyledCard({
                 }
               : callBack
           }
+          backgroundSize={backgroundSize}
         >
           {handleChangeImage ? (
             <OverlayAnimation>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 export const StyledCardCategory = styled.div`
   height: 100%;
@@ -22,7 +23,7 @@ export const StyledCardCategory = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none !important;
-  color: var(--mainColorFont) !important;
+  color: var(--wildSand) !important;
   display: block;
   width: 100%;
   font-size: 35px;
@@ -33,7 +34,7 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   height: 100%;
   &:hover {
-    color: var(--mainColorFont) !important;
+    color: var(--wildSand) !important;
   }
 `;
 
@@ -42,7 +43,7 @@ export const StyledCategoryTittle = styled.div`
   transition: all 0.5s;
   position: absolute;
   :hover {
-    color: "var(--mainColorFont)";
+    color: "var(--wildSand)";
     transition: all 0.4s ease 0s;
   }
 `;
@@ -57,4 +58,7 @@ export const CategoriesContainer = styled.div`
 
 export const StyledMain = styled.div`
   height: 70vh;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    height: 100%;
+  }
 `;

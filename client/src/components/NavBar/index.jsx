@@ -20,14 +20,18 @@ import {
 
 export function NavBar({ location }) {
   const context = useContext(Context);
+  const [visible, setVisible] = React.useState(false);
   const { pathname } = location;
   const path = pathname && pathname.split("/")[1];
   const isAdmin = path.includes("admin");
-  const [visible, setVisible] = React.useState(false);
 
   const toogleSubMenu = () => {
     setVisible(!visible);
   };
+
+  const handleChangeLanguage = (e)=>{
+    context.changeLanguage(e)
+  }
   return (
     <>
       <UpperTranslate duration="2s" delay="0.5s" >
@@ -59,8 +63,8 @@ export function NavBar({ location }) {
               icon={faLanguage}
               size="2x"
               className="cart"
-              style={{ fontSize: "20px", color: "var(--darkGrey)" }}
-              onClick={context.changeLanguage}
+              style={{ fontSize: "20px", color: "var(--mineShaft)" }}
+              onClick={handleChangeLanguage}
             />
           </NavbarContainer>
         </Container>

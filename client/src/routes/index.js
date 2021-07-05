@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Switch, Redirect} from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 
 import Login from "../screens/Login";
 import Gallery from "../screens/Gallery";
@@ -20,18 +20,18 @@ const Routes = () => {
   return (
     <>
       <Switch>
-        <PublicRoute exact path="/home" component={Home} />
-        <PublicRoute path="/gallery/:category/:serie" component={Artwork} />
-        <PublicRoute exact path="/login" component={Login} />
-        <PublicRoute exact path="/contact" component={Contact} />
-        <PublicRoute exact path="/about" component={About} />
-        <PublicRoute exact path="/gallery" component={Gallery} />
-        <PublicRoute path="/shop/" component={Shop} />
-        <PublicRoute path="/admin/login" component={Login} />
         <Suspense fallback={<Spinner active></Spinner>}>
+          <PublicRoute path="/gallery/:category/:serie" component={Artwork} />
+          <PublicRoute exact path="/home" component={Home} />
+          <PublicRoute exact path="/login" component={Login} />
+          <PublicRoute exact path="/contact" component={Contact} />
+          <PublicRoute exact path="/about" component={About} />
+          <PublicRoute exact path="/gallery" component={Gallery} />
+          <PublicRoute path="/shop/" component={Shop} />
+          <PublicRoute path="/admin/login" component={Login} />
           <PublicRoute path="/gallery/:category" component={Series} />
+          <Redirect from="/*" to="/home" />
         </Suspense>
-        <Redirect from="/*" to="/home" />
       </Switch>
       <PrivateRoute exact path="/admin/:option" component={Admin} />
     </>

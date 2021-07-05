@@ -6,7 +6,7 @@ const StyledAdminContainer = styled(Grid)`
     background: #17c3b2;
   }
   .tittleContainer {
-    background: #227c9d;
+    background: var(--primary);
   }
 `;
 

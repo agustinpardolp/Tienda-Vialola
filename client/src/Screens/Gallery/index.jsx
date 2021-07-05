@@ -13,7 +13,7 @@ export function Gallery(props) {
   useEffect(() => {
     props.fetchArtworkCategories("");
   }, []);
-  console.log(props.artworkCategories);
+
   return (
     <>
       <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledMainHomeProducts = styled.div`
-  margin: 2% 0 5% 0;
+  margin: 0 0 5% 0;
 `;
 
 const StyledHomeContainer = styled.div`

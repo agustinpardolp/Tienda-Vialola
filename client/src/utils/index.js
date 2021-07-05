@@ -22,3 +22,7 @@ export const transformResponse = (data) => {
     });
   return dropdownList;
 };
+
+export const errorsFormHandler = (errors) => {
+  return Object.entries(errors).length > 0;
+};

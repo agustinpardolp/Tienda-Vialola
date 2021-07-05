@@ -5,6 +5,30 @@
   "navbar.shop": "Tienda",
   "navbar.contact": "Contacto",
 
+  "contact.title": "Por consultas sobre trabajos de ilustración, exposiciones, comprar originales o reproducciones, te invito a ponerte en contacto completando el siguiente formulario. Responderé a la brevedad. Gracias!",
+  "contact.inputName": "Nombre*",
+  "contact.inputEmail": "Correo electrònico*",
+  "contact.inputCountry": "Pais*",
+  "contact.inputCity": "Ciudad*",
+  "contact.inputSubject": "Asunto*",
+  "contact.inputMessage": "Mensaje*",
+  "contact.send": "Enviar",
+  "contact.inputArtData": "Informaciòn de la obra*",
+  "contact.selectIlustration": "Servicios de ilustración",
+  "contact.selectExpositions": "Exposiciones",
+  "contact.selectBuyArtwork": "Compra de originales / reproducciones",
+  "contact.selectOther": "Otros",
+
+  "contact.inputRequired": "Campo es requerido*",
+
+  "form.requiredFields": "Existen errores o faltantes",
+
+  "home.askMe":  "Si deseas realizar una consulta sobre una obra en particular o un encargo especial",
+  "home.contactMe":  "podes contactarme",
+  
+  "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Por favor, no reproducir mi trabajo sin previo consentimiento / Todos los derechos reservados",
+  "footer.developed": "developed by Agustín Pardo",
+
   "button.logout": "Cerrar sesión",
   "button.enter": "Ingresar",
   "button.confirm": "Confirmar",
@@ -23,19 +47,6 @@
   "users.licence": "Licencia de {licence}",
   "users.category": "Categoria:",
 
-  "userTable.title": "Listado de usuarios",
-  "usersTable.noData": "No se encontraron datos",
-  "userTable.name": "Nombre",
-  "userTable.surname": "Apellido",
-  "userTable.address": "Dirección",
-  "userTable.email": "Email",
-  "userTable.creationDate": "Fecha de alta",
-  "userTable.dni": "Dni",
-  "userTable.reset": "Limpiar filtros",
-  "userTable.edit": "Editar",
-  "userTable.delete": "Eliminar",
-  "userTable.map": "Mapa",
-
   "userFilter.title": "Filtrar por",
   "userFilter.select": "Seleccionar...",
 
@@ -44,17 +55,6 @@
 
   "userModalDelete.title": "Eliminar usuario",
   "userModalDelete.subtitle": "¿Estás seguro que deseas eliminar el usuario?",
-
-  "barChart.title": "Cantidad de ingresos ultima semana",
-  "barChart.subtitle": "Informacion sobre ingresos a la plataforma por usuario",
-  "barChart.label": "Cantidad de ingresos diarios",
-  "barChart.monday": "Lunes",
-  "barChart.tuesday": "Martes",
-  "barChart.Wednesday": "Miercoles",
-  "barChart.Thursday": "Jueves",
-  "barChart.Friday": "Viernes",
-  "barChart.Saturday": "Sabado",
-  "barChart.Sunday": "Domingo",
 
   "barChartSystemUsage.weekAgo": "Una semana atrás",
   "barChartSystemUsage.yesterday": "Ayer",
@@ -85,7 +85,7 @@
   "userEdition.surnameRequired": "Campo apellido es requerido",
   "userEdition.emailRequired": "Campo email es requerido",
   "userEdition.addressRequired": "Campo direcciòn es requerido",
-  "userEdition.dniRequired": "Campo dni es requerido",
+  "userEdition.dniRequired": "Campo dni es requerido"
 
-  "userGeolocalization.tooltip": "Tu ubicacíon"
+ 
 }

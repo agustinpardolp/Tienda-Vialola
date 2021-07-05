@@ -1,25 +1,19 @@
 import React from "react";
-import {
-  StyledFooter,
-  StyledFooterContainer,
-  StyledInfo,
-} from "./styled-components";
-import InfoList from "./components/InfoList";
-import { myArt, followMe, writeToMe } from "./constants";
+import { FormattedMessage } from "react-intl";
+import Media from "./components/Media";
+import { StyledFooter, StyledFooterContainer } from "./styled-components";
 
 function Footer() {
   return (
     <StyledFooterContainer>
-      <StyledInfo>
-        <p>
-          Copyrigth 2021 | Dolores Pardo | Please don't reproduce my work
-          elsewhere without prior consent / Todos los derechos reservados
-        </p>
-      </StyledInfo>
       <StyledFooter>
-        <InfoList list={myArt} label={"MY ART"} />
-        <InfoList list={followMe} label={"FOLLOW ME"} />
-        <InfoList list={writeToMe} label={"WRITE TO ME"} />
+        <Media />
+        <p className="footer_copyrigth">
+          <FormattedMessage id="footer.copyrigth" />
+        </p>
+        <p className="footer_developed">
+          <FormattedMessage id="footer.developed" />
+        </p>
       </StyledFooter>
     </StyledFooterContainer>
   );
