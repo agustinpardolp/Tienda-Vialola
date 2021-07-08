@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
-import Magnifier from "react-magnifier";
-
+import ModalImage from "react-modal-image";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchArtworksBySerie } from "../../redux/artworks/actions/artworks-actions";
 import Card from "../../components/Card";
@@ -40,7 +39,7 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
   }, [fetchArtworksBySerie, params.serie, params.category]);
 
   const handleChangeImage = useCallback((selectedArtwork) => {
-    console.log(selectedArtwork)
+    console.log(selectedArtwork);
     setSelectedImage(selectedArtwork.img);
     setImgInfo({
       ...imgInfo,
@@ -86,29 +85,32 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
                         category={element.category.name}
                         height="7rem"
                         fontSize="0.7rem"
-                      ></Card>
+                      />
                     );
                   })}
               </StyledSeriesGrid>
+            </StyledImageSelectorContainer>
+            <StyledImageContainer>
+              {/* <StyledImg
+                src={`/images/img-artwork/${artworksBySerie[0].category.name}/${
+                  selectedImage || artworksBySerie[0].img
+                }`}
+              />
+              {zoom && ( */}
+              <StyledImg
+                small={`/images/img-artwork/${
+                  artworksBySerie[0].category.name
+                }/${selectedImage || artworksBySerie[0].img}`}
+                large={`/images/img-artwork/${
+                  artworksBySerie[0].category.name
+                }/${selectedImage || artworksBySerie[0].img}`}
+                hideDownload
+              />
               <ArtworkInfo
                 imgInfo={imgInfo}
                 artworksBySerie={artworksBySerie}
                 history={history}
               />
-            </StyledImageSelectorContainer>
-            <StyledImageContainer>
-              <StyledImg
-                src={`/images/img-artwork/${artworksBySerie[0].category.name}/${
-                  selectedImage || artworksBySerie[0].img
-                }`}
-              />
-
-              {/* <StyledZoomIcon
-                    icon={faSearchPlus}
-                    size="1x"
-                    style={{ fontSize: "20px", color: "var(--mineShaft)" }}
-                    onClick={handleZoom}
-                  /> */}
             </StyledImageContainer>
           </StyledArtworkContainer>
         </>
@@ -131,4 +133,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { fetchArtworksBySerie })(Artwork);
-

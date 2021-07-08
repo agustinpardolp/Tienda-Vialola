@@ -10,7 +10,7 @@ import series from "./series/reducer/series-reducer";
 import user from "./login/reducers/user-reducer";
 import deleteSeries from "./series/reducer/delete-serie-reducer";
 import notification from "./notification/reducer/notifications-reducer";
-import slider from "./slider/reducer/slider-reducer";
+import homeOptions from "./homeOptions/reducer/home-options-reducer";
 import news from "./news/reducers/news-reducer";
 
 export default combineReducers({
@@ -23,7 +23,7 @@ export default combineReducers({
   user,
   deleteSeries,
   notification,
-  slider,
+  homeOptions,
   news,
   clientConsult
 });

@@ -4,12 +4,12 @@ import {
   StyledBreadcrumb,
   StyledBreadcrumbSection,
 } from "../../styled-components";
-const ArtworkBreadcrum = ({ items, history }) => {
+const ArtworkBreadcrum = ({ items, history, position }) => {
   const handleClick = (path) => {
     path && history.push(path);
   };
   return (
-    <StyledBreadcrumb>
+    <StyledBreadcrumb position={position}>
       {items.map((item) => (
         <>
           <StyledBreadcrumbSection

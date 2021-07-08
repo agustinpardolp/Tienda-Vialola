@@ -4,13 +4,13 @@ import { Route, Redirect } from "react-router-dom";
 
 const PublicRoute = ({ token, component: Component, ...rest }) => {
   const checkAuth = () => {
-    // let tokenData = JSON.parse(localStorage.getItem("token_data"));
-    // console.log(tokenData, token);
-    // if (tokenData || token) {
-    //   debugger
+    let tokenData = JSON.parse(localStorage.getItem("token_data"));
+    console.log(tokenData, token);
+    if (tokenData || token) {
+      debugger
       return false;
-    // }
-    // else return true;
+    }
+    else return true;
 
   };
 

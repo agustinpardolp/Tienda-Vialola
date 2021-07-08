@@ -33,13 +33,13 @@ const Filter = ({ pathname, handleNewOption, dropdowns, noFilter }) => {
   return (
     <Grid.Row className="filter_row-title-container">
       <SubTittle>
-        <h2>{tittle.NAME}</h2>
+        <h2>{tittle?.NAME}</h2>
       </SubTittle>
       {noFilter ? null : (
         <StyledEditButtonContainer>
           <Button
             variant="confirm"
-            label={`Agregar nuevo ${tittle.NAME}`}
+            label="Agregar"
             onClick={handleNewOption}
           ></Button>
           {dropdowns &&

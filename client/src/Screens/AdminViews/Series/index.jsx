@@ -15,6 +15,8 @@ import {
   editSerie,
 } from "../../../redux/series/actions/serie-actions";
 import { transformResponse } from "../../../utils";
+import { MODAL_TYPE } from "../Artwork/constants";
+import { headerColumns } from "./constants";
 
 const EditSeries = ({
   location: { pathname },
@@ -42,23 +44,11 @@ const EditSeries = ({
       setFilter("");
     }
   };
-  const headerColumns = [
-    {
-      id: "1",
-      name: "Nombre",
-      dataField: "name",
-    },
-    {
-      id: "3",
-      name: "category",
-      dataField: "category",
-    },
-  ];
 
   const handleDelete = (data) => {
     dispatch({
       type: "show",
-      modalType: "DELETE",
+      modalType: MODAL_TYPE.DELETE,
       modalProps: {
         open: true,
         handleConfirm: deleteSerie,
@@ -72,7 +62,7 @@ const EditSeries = ({
   const handleEdit = (data) => {
     dispatch({
       type: "show",
-      modalType: "FORM_SERIE",
+      modalType: MODAL_TYPE.FORM_SERIE,
       modalProps: {
         open: true,
         handleConfirm: editSerie,
@@ -85,7 +75,7 @@ const EditSeries = ({
   const handleCreate = () => {
     dispatch({
       type: "show",
-      modalType: "FORM_SERIE",
+      modalType: MODAL_TYPE.FORM_SERIE,
       modalProps: {
         open: true,
         handleConfirm: createSerie,

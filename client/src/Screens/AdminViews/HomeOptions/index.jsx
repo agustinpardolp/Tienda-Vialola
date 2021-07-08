@@ -7,42 +7,27 @@ import Filter from "../../../components/AdminComponents/Filter";
 import Table from "../../../components/AdminComponents/Table";
 import { ModalContext } from "../../../context/ModalContext";
 import {
-  deleteSlider,
-  fetchSlider,
-  editSlider,
-} from "../../../redux/slider/actions/index";
+  deleteHomeOptions,
+  fetchHomeOptions,
+  editHomeOptions,
+} from "../../../redux/homeOptions/actions/index";
 import { transformResponse } from "../../../utils";
+import { headerColumns } from "./constants";
 
-const EditSlider = ({
+const EditHomeOptions = ({
   location: { pathname },
-  fetchSlider,
-  sliders,
+  fetchHomeOptions,
+  HomeOptionss,
   artworkCategories,
-  deleteSlider,
+  deleteHomeOptions,
 }) => {
   let { dispatch } = useContext(ModalContext);
 
   useEffect(() => {
-    fetchSlider();
-  }, [fetchSlider]);
+    fetchHomeOptions();
+  }, [fetchHomeOptions]);
 
-  const headerColumns = [
-    {
-      id: "2",
-      name: "Titulo",
-      dataField: "title",
-    },
-    {
-      id: "3",
-      name: "Descripcion",
-      dataField: "description",
-    },
-    {
-      id: "4",
-      name: "Ruta de destino",
-      dataField: "pathname",
-    },
-  ];
+
 
   const handleDelete = (data) => {
     dispatch({
@@ -50,8 +35,8 @@ const EditSlider = ({
       modalType: "DELETE",
       modalProps: {
         open: true,
-        handleConfirm: deleteSlider,
-        posResponse: fetchSlider,
+        handleConfirm: deleteHomeOptions,
+        posResponse: fetchHomeOptions,
         data: data.id,
         title: "¿Esta seguro que desea borrar la fila?",
         message: "La informacion se borrara de forma permantente",
@@ -61,11 +46,11 @@ const EditSlider = ({
   const handleEdit = (data) => {
     dispatch({
       type: "show",
-      modalType: "FORM_SLIDER",
+      modalType: "FORM_HomeOptions",
       modalProps: {
         open: true,
-        handleConfirm: editSlider,
-        posResponse: fetchSlider,
+        handleConfirm: editHomeOptions,
+        posResponse: fetchHomeOptions,
         data: data,
         categories: transformResponse(artworkCategories),
       },
@@ -78,7 +63,7 @@ const EditSlider = ({
       <Grid.Row>
         <Table
           headerColumns={headerColumns}
-          dataRows={sliders}
+          dataRows={HomeOptionss}
           handleSelectedRow={handleEdit}
           handleDeleteRow={handleDelete}
         />
@@ -88,17 +73,17 @@ const EditSlider = ({
 };
 const mapStateToProps = (state) => {
   const {
-    slider: { data: sliders, status },
+    homeOptions: { data: homeOptionss, status },
   } = state;
 
   return {
     status,
-    sliders,
+    homeOptionss,
   };
 };
 
 export default connect(mapStateToProps, {
-  fetchSlider,
-  deleteSlider,
-  editSlider,
-})(EditSlider);
+  fetchHomeOptions,
+  deleteHomeOptions,
+  editHomeOptions,
+})(EditHomeOptions);

@@ -39,6 +39,7 @@ const ArtworkInfo = ({ imgInfo, artworksBySerie, history }) => {
             { name: "artwork.originalOnSale", path: "" },
           ]}
           history={history}
+          position="center"
         />
         <StyledLink onClick={handleClick}>
           <FormattedMessage id="artwork.here" />

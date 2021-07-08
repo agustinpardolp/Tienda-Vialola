@@ -13,7 +13,7 @@ import EditArtwork from "./Artwork";
 import {
   StyledAdminContainer,
 } from "./Styled-components";
-import EditSlider from "./Slider";
+import EditSlider from "./HomeOptions";
 
 function Admin({ match }) {
   return (
@@ -28,7 +28,7 @@ function Admin({ match }) {
             <Route path={`${match.path}edit-artwork`} component={EditArtwork} />
             <Route
               exact
-              path={`${match.path}edit-slider`}
+              path={`${match.path}edit-home-options`}
               component={EditSlider}
             />
             <Route exact path={`${match.path}edit-series`} component={EditSeries} />

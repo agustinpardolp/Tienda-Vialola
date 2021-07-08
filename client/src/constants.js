@@ -1,3 +1,5 @@
+import { PATHS } from "./routes/constants";
+
 export const API_DOMAIN = "/vialola-api";
 
 export const API_LOGIN = `${API_DOMAIN}/users/accounts/login/`;
@@ -7,7 +9,7 @@ export const API_ARTWORKS = `${API_DOMAIN}/artworks/`;
 export const API_SERIES = `${API_DOMAIN}/series/`;
 export const API_PRODUCTS = `${API_DOMAIN}/products/`;
 export const API_PROFILE = `${API_DOMAIN}/profile/`;
-export const API_SLIDER = `${API_DOMAIN}/slider/`;
+export const API_HOME_OPTIONS = `${API_DOMAIN}/home-options/`;
 export const API_NEWS = `${API_DOMAIN}/news`;
 //ARTWORKS CONSTANTS
 
@@ -82,15 +84,15 @@ export const types = {
   FETCH_PRODUCT_BY_ID_FAILURE: "FETCH_PRODUCT_BY_ID_FAILURE",
 
   //SLIDER
-  EDIT_SLIDER: "EDIT_SLIDER",
-  EDIT_SLIDER_SUCCESS: "EDIT_SLIDER_SUCCESS",
-  EDIT_SLIDER_FAILURE: "EDIT_SLIDER_FAILURE",
-  FETCH_SLIDER: "FETCH_SLIDER",
-  FETCH_SLIDER_SUCCESS: "FETCH_SLIDER_SUCCESS",
-  FETCH_SLIDER_FAILURE: "FETCH_SLIDER_FAILURE",
-  DELETE_SLIDER: "DELETE_SLIDER",
-  DELETE_SLIDER_SUCCESS: "DELETE_SLIDER_SUCCESS",
-  DELETE_SLIDER_FAILURE: "DELETE_SLIDER_FAILURE",
+  EDIT_HOME_OPTIONS: "EDIT_HOME_OPTIONS",
+  EDIT_HOME_OPTIONS_SUCCESS: "EDIT_HOME_OPTIONS_SUCCESS",
+  EDIT_HOME_OPTIONS_FAILURE: "EDIT_HOME_OPTIONS_FAILURE",
+  FETCH_HOME_OPTIONS: "FETCH_HOME_OPTIONS",
+  FETCH_HOME_OPTIONS_SUCCESS: "FETCH_HOME_OPTIONS_SUCCESS",
+  FETCH_HOME_OPTIONS_FAILURE: "FETCH_HOME_OPTIONS_FAILURE",
+  DELETE_HOME_OPTIONS: "DELETE_HOME_OPTIONS",
+  DELETE_HOME_OPTIONS_SUCCESS: "DELETE_HOME_OPTIONS_SUCCESS",
+  DELETE_HOME_OPTIONS_FAILURE: "DELETE_HOME_OPTIONS_FAILURE",
 };
 
 export const QUERY_PARAMS = {
@@ -106,12 +108,12 @@ export const REGEX = {
 
 export const NAVBAR = {
   OPTIONS: [
-    { name: "navbar.home", id: 1, path: "/home" },
-    { name: "navbar.about", id: 2, path: "/about" },
-    { name: "navbar.gallery", id: 3, path: "/gallery" },
-    { name: "navbar.shop", id: 4, path: "/shop" },
-    { name: "navbar.contact", id: 5, path: "/contact" },
-    // { name: "News", id: 6, path: "/news" },
+    { name: "navbar.home", id: 1, path: PATHS.home },
+    { name: "navbar.about", id: 2, path: PATHS.about},
+    { name: "navbar.gallery", id: 3, path: PATHS.gallery },
+    { name: "navbar.shop", id: 4, path: PATHS.shop },
+    { name: "navbar.contact", id: 5, path: PATHS.contact },
+    { name: "navbar.news", id: 6, path: PATHS.news },
   ],
   SHOPOPTIONS: [
     { NAME: "prints  ", id: 2, path: "prints" },
@@ -123,10 +125,10 @@ export const NAVBAR = {
     NAME: "Dolores Pardo",
   },
   ADMIN: [
-    { NAME: "Artwork", id: 1, path: "/admin/edit-artwork" },
-    { NAME: "Series", id: 2, path: "/admin/edit-series" },
-    { NAME: "Slider", id: 3, path: "/admin/edit-slider" },
-    { NAME: "About", id: 4, path: "/admin/edit-about" },
+    { NAME: "Artwork", id: 1, path: PATHS.adminEditArtwork },
+    { NAME: "Series", id: 2, path: PATHS.adminEditSeries },
+    { NAME: "Home", id: 3, path: PATHS.adminEditHomeOptions },
+    { NAME: "News", id: 4, path: PATHS.adminEditNews },
   ],
 };
 

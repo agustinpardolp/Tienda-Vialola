@@ -5,7 +5,12 @@ export const PATHS = {
   contact: "/contact",
   about: "/about",
   shop: "/shop",
+  news: "news",
   category: "/gallery/:category",
   serie: "/gallery/:category/:serie",
-  adminOptions: "/admin/:option"
+  adminOptions: "/admin/:option",
+  adminEditArtwork: "/admin/edit-artwork",
+  adminEditSeries: "/admin/edit-series",
+  adminEditHomeOptions: "/admin/edit-home-options",
+  adminEditNews: "/admin/edit-news",
 };

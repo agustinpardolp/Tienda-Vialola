@@ -62,12 +62,6 @@ export const useCart = (productsToCart, receiveCreatedCart) => {
 };
 
 export const useModal = (state, trigger, path, history) => {
-
-  // const [state, dispatch] = useReducer(exampleReducer, {
-  //   open: false,
-  //   size: undefined,
-  // })
-  // const { open, size } = state
   let [showModal, setShowModal] = useState(state);
   let [showRegularModal, setShowRegularModal] = useState(state);
   let [modalContent, setModalContent] = useState("");
@@ -109,3 +103,79 @@ export const useModal = (state, trigger, path, history) => {
     modalContent,
   };
 };
+
+export const useSlider = (images) => {
+  const [imgsArray, setImgsArray] = useState(images);
+  const [imageData, setImageData] = useState("slide12");
+
+  const OptionSelected = () => {
+    var localImgsArray = imgsArray;
+    if (imgsArray.length) {
+      let imgSelected = localImgsArray[0];
+      localImgsArray = removeItemFromArr(imgsArray, imgSelected);
+      setImgsArray(localImgsArray);
+      return imgSelected.NAME;
+    } else {
+      resetArray();
+      return "slide12";
+    }
+  };
+  useEffect(() => {
+    let imgSelected = OptionSelected();
+    const timer = setTimeout(() => {
+      setImageData(imgSelected);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [imageData]);
+
+  const removeItemFromArr = (array, item) => {
+    return array.filter(function (e) {
+      return e !== item;
+    });
+  };
+  const resetArray = () => {
+    const array = images;
+    setImgsArray(array);
+  };
+
+  return { imageData };
+};
+
+// export const useSlider = (images) => {
+//   const [imgsArray, setImgsArray] = useState(images);
+//   const [imageData, setImageData] = useState("slide12");
+//   const [count, setCount] = useState(0);
+//   const OptionSelected = () => {
+//     // var localImgsArray = imgsArray;
+//     if (imgsArray.length) {
+//       setCount(count + 1);
+//       return imgsArray[count].NAME;
+//       //   let imgSelected = localImgsArray[0];
+//       //   localImgsArray = removeItemFromArr(imgsArray, imgSelected);
+//       //   setImgsArray(localImgsArray);
+//       //   return imgSelected.NAME;
+//       // } else {
+//       //   resetArray();
+//       //   return "slide12";
+//     }
+//   };
+//   useEffect(() => {
+//     let imgSelected = OptionSelected();
+//     const timer = setTimeout(() => {
+//       setImageData(imgSelected);
+//     }, 4000);
+//     return () => clearTimeout(timer);
+//   }, [imageData]);
+
+//   const removeItemFromArr = (array, item) => {
+//     return array.filter(function (e) {
+//       return e !== item;
+//     });
+//   };
+//   const resetArray = () => {
+//     const array = images;
+//     setImgsArray(array);
+//   };
+
+//   return { imageData };
+// };

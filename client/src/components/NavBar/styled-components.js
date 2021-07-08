@@ -119,6 +119,9 @@ const StyledBrand = styled.div`
 const Container = styled.div`
   margin-bottom: 20px;
   width: 100%;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    margin-bottom: 0;
+  }
 `;
 const StyledIcon = styled(Icon)`
   margin-right: 2rem !important;

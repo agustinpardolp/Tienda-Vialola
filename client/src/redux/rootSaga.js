@@ -12,8 +12,8 @@ import createArtworkSagaWatcher from "./artworks/sagas/createArtworkSaga";
 import deleteSerieWatcher from "./series/sagas/deleteSerieSaga";
 import createSerieWatcher from "./series/sagas/createSerieSaga";
 import editSerieWatcher from "./series/sagas/editSerieSaga";
-import sliderWatcher from "./slider/sagas";
-import deleteSliderWatcher from "./slider/sagas/deleteSliderSaga"
+import homeOptionsWatcher from "./homeOptions/sagas";
+import deleteHomeOptionsWatcher from "./homeOptions/sagas/deleteHomeOptionsSaga"
 import newsWatcher from "./news/sagas/fetchNewsSaga"
 import createClientConsultSagaWatcher from "./artworks/sagas/createClientConsultSaga";
 
@@ -32,8 +32,8 @@ export default function* rootSaga() {
       fork(deleteSerieWatcher),
       fork(createSerieWatcher),
       fork(editSerieWatcher),
-      fork(sliderWatcher),
-      fork(deleteSliderWatcher),
+      fork(homeOptionsWatcher),
+      fork(deleteHomeOptionsWatcher),
       fork(newsWatcher),
       fork(createClientConsultSagaWatcher)
       ])

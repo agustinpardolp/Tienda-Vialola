@@ -30,7 +30,6 @@ const Routes = () => {
           <PublicRoute path={PATHS.login} component={Login} />
           <PublicRoute exact path={PATHS.category} component={Series} />
           <PublicRoute path={PATHS.serie} component={Artwork} />
-          <Redirect from="/*" to={PATHS.home} />
         </Suspense>
       </Switch>
       <PrivateRoute exact path={PATHS.adminOptions} component={Admin} />

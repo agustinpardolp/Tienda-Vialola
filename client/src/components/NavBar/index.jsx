@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 
 import SubMenu from "./components/SubMenu";
 import { UpperTranslate } from "../ImageSlider/animations";
@@ -20,7 +17,6 @@ import {
   StyledTranslateContainer,
 } from "./styled-components";
 import { lenguageTypes } from "../LenguageWrapper/constants";
-// import { SpainFlag } from "../../../public/images/logo/spain.png";
 
 export function NavBar({ location }) {
   const context = useContext(Context);
@@ -32,11 +28,13 @@ export function NavBar({ location }) {
   const toogleSubMenu = () => {
     setVisible(!visible);
   };
+  useEffect(() => {
+    setVisible(false);
+  }, [pathname]);
 
   const handleChangeLanguage = (e) => {
     context.changeLanguage(e);
   };
-  console.log(context.locale);
   return (
     <>
       <UpperTranslate duration="2s" delay="0.5s">

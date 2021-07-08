@@ -7,7 +7,7 @@ const StyledHomeText = styled.p`
   font-weight: 200;
   letter-spacing: 1px;
   @media ${DEVICES_MAX_WIDTH.tablet} {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 10% 5%;
     font-weight: 200;
   }

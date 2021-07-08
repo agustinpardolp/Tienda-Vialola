@@ -48,3 +48,17 @@ export const images = [
   { NAME: "slide12" },
   { NAME: "slide4" },
 ];
+
+export const IMAGES = [
+  { NAME: "slide8" },
+  { NAME: "slide5" },
+  { NAME: "slide15" },
+  { NAME: "slide6" },
+  { NAME: "slide3" },
+  { NAME: "slide10" },
+  { NAME: "slide13" },
+  { NAME: "slide11" },
+  { NAME: "slide12" },
+  { NAME: "slide4" },
+];
+

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import Carousele from "../../components/Carousel";
-import { fetchSlider } from "../../redux/slider/actions";
-import ImageSlider from "../../components/ImageSlider";
+import CrossfadeImage from "react-crossfade-image";
 import HomeProducts from "./components/HomeProducts";
 import HomeText from "./components/HomeText";
 import HomeContact from "./components/HomeContact";
@@ -11,41 +10,20 @@ import {
   StyledMainHomeProducts,
   StyledHomeContainer,
 } from "./styled-components";
-import { initialImage, images, shopProducts } from "./constants";
+import { initialImage, shopProducts, IMAGES } from "./constants";
+import { useSlider } from "../../hooks";
 
-function Home({ fetchSlider }) {
-  useEffect(() => {
-    fetchSlider();
-  }, []);
+function Home() {
+  const { imageData, visible } = useSlider(IMAGES);
 
-  const [imageData, setImageData] = useState({
-    homeImage: initialImage,
-    heigth: 0,
-    initialEffect: "all 1.8s",
-  });
-  useEffect(() => {
-    setImageData({
-      homeImage: "slide12",
-      heigth: 0,
-      initialEffect: "all 1.8s",
-    });
-  }, []);
-
-  const getImageSlider = (image) => {
-    setImageData({
-      ...imageData,
-      homeImage: image,
-    });
-  };
+  const url = `/images/img-background/${imageData}.jpg`;
   return (
     <StyledMainHomeProducts>
-      <Carousele>
+      <Carousele img={imageData}>
         <StyledHomeContainer
-          img={imageData.homeImage}
-          pageTransition={imageData.initialEffect}
-        >
-          <ImageSlider getImageSlider={getImageSlider} IMAGES={images} />
-        </StyledHomeContainer>
+          img={imageData ? imageData : initialImage}
+          pageTransition="all 1.8s"
+        ></StyledHomeContainer>
       </Carousele>
       <HomeText />
       <HomeProducts shopProducts={shopProducts} />
@@ -54,17 +32,4 @@ function Home({ fetchSlider }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  const {
-    slider: { data: sliders, status },
-  } = state;
-
-  return {
-    status,
-    sliders,
-  };
-};
-
-export default connect(mapStateToProps, {
-  fetchSlider,
-})(Home);
+export default Home;

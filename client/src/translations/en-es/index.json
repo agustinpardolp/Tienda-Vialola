@@ -1,5 +1,5 @@
 {
-  "about.info": "Soy un artista visual e ilustradora argentina dedicado al diseño y creación de piezas de arte únicas. Primero obtuve un título de diseñador de comunicación visual. Posteriormente me convertí en artista plástico en la Universidad Nacional de La Plata. En mis primeros años como profesional trabajé en diseño gráfico, abrí el camino a la producción artística y luego a la ilustración editorial. Domino las herramientas dentro de este campo y me encanta aplicarlas en busca de resultados innovadores, he tenido la oportunidad de trabajar codo a codo con grandes artistas, lo que me permitió crecer profesionalmente cada vez. Motivado por la naturaleza, la poesía, la música, la palabra y la creatividad, me apasionan los colores, las líneas y las formas y anhelo lo sobrenatural o lo desconocido. Siempre combino todo esto y lo aplico a nuevos proyectos. Siempre he querido compartir mi magia. Sé que encontré cómo hacerlo.",
+  "about.info": "Hola! {html} {html}  Soy un artista visual e ilustradora argentina dedicado al diseño y creación de piezas de arte únicas. {html} {html} Primero obtuve un título de diseñador de comunicación visual. Posteriormente me convertí en artista plástico en la Universidad Nacional de La Plata. {html} En mis primeros años como profesional trabajé en diseño gráfico, abrí el camino a la producción artística y luego a la ilustración editorial. Domino las herramientas dentro de este campo y me encanta aplicarlas en busca de resultados innovadores. {html} He tenido la oportunidad de trabajar codo a codo con grandes artistas, lo que me permitió crecer profesionalmente. {html} {html} Me motiva la naturaleza, la poesía, la música, y la creatividad; me apasionan los colores, las líneas y las formas y anhelo lo sobrenatural o lo desconocido. {html} {html} Siempre he querido compartir mi magia. Sé que encontré cómo hacerlo.",
 
   "artwork.infoTitle": "Titulo:",
   "artowork.printsAvailable": "COPIAS DISPONIBLES",
@@ -11,6 +11,7 @@
   "navbar.gallery": "Galeria",
   "navbar.shop": "Tienda",
   "navbar.contact": "Contacto",
+  "navbar.news": "Novedades",
 
   "contact.title": "Por consultas sobre trabajos de ilustración, exposiciones, comprar originales o reproducciones, te invito a ponerte en contacto completando el siguiente formulario. Responderé a la brevedad. Gracias!",
   "contact.inputName": "Nombre*",

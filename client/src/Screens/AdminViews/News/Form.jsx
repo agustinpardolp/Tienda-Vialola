@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Grid, TextArea, Form, Header } from "semantic-ui-react";
 
 import Filter from "../../../components/AdminComponents/Filter";
-import { editSlider } from "../../../redux/slider/actions/index";
+import { editNews } from "../../../redux/news/actions/news-actions";
 
 import { StyledForm } from "./Styled-components";
 
@@ -44,15 +44,15 @@ const EditNewsForm = ({ location: { pathname } }) => {
 };
 const mapStateToProps = (state) => {
   const {
-    slider: { data: sliders, status },
+    news: { data: news, status },
   } = state;
 
   return {
     status,
-    sliders,
+    news,
   };
 };
 
 export default connect(mapStateToProps, {
-  editSlider,
+  editNews,
 })(EditNewsForm);

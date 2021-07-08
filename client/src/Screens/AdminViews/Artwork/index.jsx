@@ -15,6 +15,7 @@ import {
 } from "../../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../../redux/series/actions/serie-actions";
 import { transformResponse } from "../../../utils";
+import { headerColumns, MODAL_TYPE } from "./constants";
 
 const EditArtwork = ({
   location: { pathname },
@@ -37,34 +38,7 @@ const EditArtwork = ({
     fetchArtworkCategories("");
   }, [fetchArtworkCategories, fetchArtworks, fetchSeries, filter]);
 
-  const headerColumns = [
-    {
-      id: "1",
-      name: "Nombre",
-      dataField: "name",
-    },
-    {
-      id: "2",
-      name: "Descripcion",
-      dataField: "description",
-    },
-    {
-      id: "3",
-      name: "Precio",
-      dataField: "price",
-    },
-    {
-      id: "4",
-      name: "Precio reproduccion",
-      dataField: "priceReproduction",
-    },
-    {
-      id: "5",
-      name: "Original en venta",
-      dataField: "allowOriginal",
-    },
-    { id: 6, name: "Reproduccion en venta", dataField: "allowReproduction" },
-  ];
+  
   const handleSeries = (data) => {
     let queryParams = "";
     if (data.placeholder === FILTER_LABELS.series && data.value) {
@@ -74,10 +48,11 @@ const EditArtwork = ({
       setFilter("");
     }
   };
+  
   const handleDelete = (data) => {
     dispatch({
       type: "show",
-      modalType: "DELETE",
+      modalType: MODAL_TYPE.DELETE,
       modalProps: {
         open: true,
         handleConfirm: deleteArtwork,
@@ -92,7 +67,7 @@ const EditArtwork = ({
   const handleEdit = (data) => {
     dispatch({
       type: "show",
-      modalType: "FORM_ARTWORK",
+      modalType: MODAL_TYPE.FORM_ARTWORK,
       modalProps: {
         open: true,
         handleConfirm: editArtwork,
@@ -106,7 +81,7 @@ const EditArtwork = ({
   const handleCreate = () => {
     dispatch({
       type: "show",
-      modalType: "FORM_ARTWORK",
+      modalType: MODAL_TYPE.FORM_ARTWORK,
       modalProps: {
         open: true,
         handleConfirm: createArtwork,

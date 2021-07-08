@@ -1,6 +1,6 @@
 import { types, REQUEST_STATUS } from "../../../constants";
 
-const slider = (
+const homeOptions = (
   state = {
     data: [],
     status: REQUEST_STATUS.NOT_LOADED,
@@ -10,17 +10,17 @@ const slider = (
   const { payload: { data } = {} } = action;
 
   switch (action.type) {
-    case types.FETCH_SLIDER:
+    case types.FETCH_HOME_OPTIONS:
       return { ...state, status: REQUEST_STATUS.LOADING };
       
-    case types.FETCH_SLIDER_SUCCESS:
+    case types.FETCH_HOME_OPTIONS_SUCCESS:
       return {
         ...state,
         data: [...data],
         status: REQUEST_STATUS.LOADED,
       };
 
-    case types.FETCH_SLIDER_FAILURE:
+    case types.FETCH_HOME_OPTIONS_FAILURE:
       return { ...state, status: REQUEST_STATUS.FAILED };
 
     default:
@@ -28,4 +28,4 @@ const slider = (
   }
 };
 
-export default slider;
+export default homeOptions;

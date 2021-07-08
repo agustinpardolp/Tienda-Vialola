@@ -20,6 +20,7 @@ const StyledSubMenu = styled.div`
 
   @media ${DEVICES_MIN_WIDTH.laptop} {
     display: none;
+    margin-top: 0;
   }
 `;
 const StyledLink = styled(Link)`

@@ -1,26 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { DEVICES_MAX_WIDTH } from "../../constants";
+import ModalImage from "react-modal-image";
 
-const StyledImg = styled.img`
+const StyledImg = styled(ModalImage)`
   display: inline-block !important;
   width: auto;
-  height: 100%;
+  height: 75vh;
   justify-self: flex-start;
   object-fit: contain;
-  height: 100%;
   align-self: center;
   position: relative;
-
-  img {
+  /* pointer-events: none; */
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    width: 100%;
     height: 100%;
-    width: auto;
   }
 
-  @media ${DEVICES_MAX_WIDTH.laptopL} {
-    justify-self: center;
-    height: 100%;
-    width: 100%;
+  @media ${DEVICES_MAX_WIDTH.mobileL} {
+    padding: 1rem 1rem 0 1rem;
   }
 `;
 
@@ -37,20 +35,15 @@ const StyledArtworkContainer = styled.div`
   }
 `;
 
-const StyledInfo = styled.div`
-  text-align: right;
-`;
-
 const StyledImageContainer = styled.div`
   align-items: center;
   display: grid;
   grid-column-gap: 30px;
-  grid-template-rows: 75vh;
-  height: 100%;
   justify-content: flex-start;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(2) {
       grid-row-start: 1;
+      justify-content: center;
     }
   }
 `;
@@ -84,6 +77,10 @@ const StyledImageSelectorContainer = styled.div`
 
 const StyledBreadcrumb = styled.div`
   text-align: initial;
+
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    text-align: ${(props) => (props.position ? props.position : "initial")};
+  }
 `;
 const StyledBreadcrumbSection = styled.span`
   color: var(--mineShaft);
@@ -100,6 +97,13 @@ const StyledBreadcrumbSection = styled.span`
     }
   }
 `;
+const StyledInfo = styled.div`
+  margin: 10px;
+  text-align: right;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    text-align: center;
+  }
+`;
 
 const StyledList = styled.div`
   font-weight: 700;
@@ -113,13 +117,15 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   text-align: center;
-  @media ${DEVICES_MAX_WIDTH.mobileL} {
+  @media ${DEVICES_MAX_WIDTH.laptop} {
     display: block;
+    justify-content: center;
   }
 `;
 
 const StyledLink = styled.span`
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 export {

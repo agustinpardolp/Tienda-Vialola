@@ -19,14 +19,14 @@ const StyledAboutContainer = styled.div`
   }
   p {
     display: inline-block;
-    width: 20%;
     font-size: 1.05rem;
     margin-left: 10%;
     text-align: initial;
     line-height: 29px;
+    width: 20%;
   }
 
-  @media ${DEVICES_MAX_WIDTH.tablet} {
+  @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(2) {
       order: 1;
     }
@@ -41,34 +41,41 @@ const StyledMainContainer = styled.div`
   grid-template-columns: 1fr 1.2fr;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     grid-template-columns: 1fr;
+    
   }
 `;
 
 const StyledInfoContainer = styled.div`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: center;
 
   p {
-    margin: 0 100px 0 100px;
-    font-size: 1.1rem;
-    text-align: start;
-    font-weight: lighter;
-    letter-spacing: 1px;
-  }
-
-  @media ${DEVICES_MAX_WIDTH.tablet} {
-  &:nth-of-type(1) {
-      order: 2;
-      margin: 5%;
-    }
-    p {
-    margin: 0;
+    padding: 120px;
     font-size: 1rem;
     text-align: start;
     font-weight: lighter;
     letter-spacing: 1px;
   }
+  @media ${DEVICES_MAX_WIDTH.laptopL} {
+
+    p {
+      padding: 50px;
+    }
+  }
+
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    &:nth-of-type(1) {
+      order: 2;
+      margin: 5%;
+    }
+    p {
+      padding: 5px;
+      font-size: 1rem;
+      text-align: start;
+      font-weight: lighter;
+      letter-spacing: 1px;
+    }
   }
 `;
 
