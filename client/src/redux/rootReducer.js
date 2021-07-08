@@ -11,7 +11,7 @@ import user from "./login/reducers/user-reducer";
 import deleteSeries from "./series/reducer/delete-serie-reducer";
 import notification from "./notification/reducer/notifications-reducer";
 import slider from "./slider/reducer/slider-reducer";
-import about from "./about/reducers/about-reducer";
+import news from "./news/reducers/news-reducer";
 
 export default combineReducers({
   artworks,
@@ -24,6 +24,6 @@ export default combineReducers({
   deleteSeries,
   notification,
   slider,
-  about,
+  news,
   clientConsult
 });

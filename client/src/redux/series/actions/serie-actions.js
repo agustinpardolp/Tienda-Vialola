@@ -20,7 +20,6 @@ export const fetchSeriesFailure = () => ({
 });
 
 export const editSerie = (serieData) => {
-  debugger;
   return {
     type: types.EDIT_SERIE,
     serieData,
@@ -61,7 +60,6 @@ export const deleteSerieFailure = () => ({
 });
 
 export const createSerie= (serieData) => {
-  debugger;
   return {
     type: types.CREATE_SERIE,
     serieData,

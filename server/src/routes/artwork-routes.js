@@ -202,10 +202,7 @@ router.delete("/:id", function (req, res) {
 });
 
 router.post("/client/consult", function(req, res) {
-  console.log("REQQQQQ", req.body)
   transporter.sendMail(createEmailOptions(req.body), function(error, info) {
-    console.log("senMail returned!");
-    debugger
     if (error) {
       //ATAJA POSIBLES ERRORES
       console.log("ERROR!!!!!!", error);

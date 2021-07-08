@@ -27,6 +27,9 @@ const StyledAboutContainer = styled.div`
   }
 
   @media ${DEVICES_MAX_WIDTH.tablet} {
+    &:nth-of-type(2) {
+      order: 1;
+    }
     p {
       display: contents;
     }
@@ -48,7 +51,24 @@ const StyledInfoContainer = styled.div`
 
   p {
     margin: 0 100px 0 100px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    text-align: start;
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
+
+  @media ${DEVICES_MAX_WIDTH.tablet} {
+  &:nth-of-type(1) {
+      order: 2;
+      margin: 5%;
+    }
+    p {
+    margin: 0;
+    font-size: 1rem;
+    text-align: start;
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
   }
 `;
 

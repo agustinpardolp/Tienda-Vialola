@@ -8,7 +8,7 @@ export const API_SERIES = `${API_DOMAIN}/series/`;
 export const API_PRODUCTS = `${API_DOMAIN}/products/`;
 export const API_PROFILE = `${API_DOMAIN}/profile/`;
 export const API_SLIDER = `${API_DOMAIN}/slider/`;
-export const API_ABOUT = `${API_DOMAIN}/users/about/`;
+export const API_NEWS = `${API_DOMAIN}/news`;
 //ARTWORKS CONSTANTS
 
 export const types = {
@@ -50,12 +50,13 @@ export const types = {
   RECEIVE_LOGGED_USER: "RECEIVE_LOGGED_USER",
   RECEIVE_LOGGED_USER_FAILURE: "RECEIVE_LOGGED_USER_FAILURE",
   RECEIVE_LOGGED_USER_SUCCESS: "RECEIVE_LOGGED_USER_SUCCESS",
-  FETCH_ABOUT: "FETCH_ABOUT",
-  FETCH_ABOUT_SUCCESS: "FETCH_ABOUT_SUCCESS",
-  FETCH_ABOUT_FAILURE: "FETCH_ABOUT_FAILURE",
-  EDIT_ABOUT: "EDIT_ABOUT",
-  EDIT_ABOUT_SUCCESS: "EDIT_ABOUT_SUCCESS",
-  EDIT_ABOUT_FAILURE: "EDIT_ABOUT_FAILURE",
+  //NEWS
+  FETCH_NEWS: "FETCH_NEWS",
+  FETCH_NEWS_SUCCESS: "FETCH_NEWS_SUCCESS",
+  FETCH_NEWS_FAILURE: "FETCH_NEWS_FAILURE",
+  EDIT_NEWS: "EDIT_NEWS",
+  EDIT_NEWS_SUCCESS: "EDIT_NEWS_SUCCESS",
+  EDIT_NEWS_FAILURE: "EDIT_NEWS_FAILURE",
   //SIDEBAR
   RECEIVE_MENU_OPTION: "RECEIVE_MENU_OPTION",
   //CART
@@ -219,20 +220,4 @@ export const REQUEST_STATUS = {
   LOADING: "LOADING",
   LOADED: "LOADED",
   FAILED: "FAILED",
-};
-export const SCREENS_LABELS = {
-  artwork: {
-    labels: {
-      title: "Title",
-      category: "Category:",
-      serie: "Serie:",
-      description: "Description:",
-      printsAvailable: "Prints available, please send a coment",
-    },
-  },
-  welcome: {
-    labels: {
-      enter: "Enter",
-    },
-  },
 };

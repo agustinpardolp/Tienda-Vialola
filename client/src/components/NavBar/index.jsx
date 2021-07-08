@@ -4,19 +4,23 @@ import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 
-import SubMenu from "../SubMenu";
+import SubMenu from "./components/SubMenu";
 import { UpperTranslate } from "../ImageSlider/animations";
 import { Context } from "../LenguageWrapper";
-import BrandInfo from "./BrandInfo";
-import MenuOptions from "./MenuOptions";
-import MediaInfo from "./MediaInfo";
+import BrandInfo from "./components/BrandInfo";
+import MenuOptions from "./components/MenuOptions";
+import MediaInfo from "./components/MediaInfo";
 import {
   NavbarContainer,
   StyledCartMenu,
   StyledIcon,
   StyledAdminMenu,
   Container,
+  StyledBarContainer,
+  StyledTranslateContainer,
 } from "./styled-components";
+import { lenguageTypes } from "../LenguageWrapper/constants";
+// import { SpainFlag } from "../../../public/images/logo/spain.png";
 
 export function NavBar({ location }) {
   const context = useContext(Context);
@@ -29,24 +33,27 @@ export function NavBar({ location }) {
     setVisible(!visible);
   };
 
-  const handleChangeLanguage = (e)=>{
-    context.changeLanguage(e)
-  }
+  const handleChangeLanguage = (e) => {
+    context.changeLanguage(e);
+  };
+  console.log(context.locale);
   return (
     <>
-      <UpperTranslate duration="2s" delay="0.5s" >
+      <UpperTranslate duration="2s" delay="0.5s">
         <Container>
           <NavbarContainer
             location={pathname.includes("about")}
             isAdmin={isAdmin}
           >
             <BrandInfo location={location} />
-            <StyledIcon
-              name="bars"
-              size="large"
-              onClick={toogleSubMenu}
-              visible={false}
-            />
+            <StyledBarContainer>
+              <StyledIcon
+                name="bars"
+                size="large"
+                onClick={toogleSubMenu}
+                visible={false}
+              />
+            </StyledBarContainer>
             <StyledCartMenu>
               {isAdmin ? (
                 <StyledAdminMenu>
@@ -58,18 +65,27 @@ export function NavBar({ location }) {
                   <MediaInfo />
                 </>
               )}
+              <StyledTranslateContainer>
+                <img
+                  src={`/images/logo/${
+                    context.locale === lenguageTypes.en_es
+                      ? "britain.png"
+                      : "spain.png"
+                  }`}
+                  onClick={handleChangeLanguage}
+                />
+              </StyledTranslateContainer>
             </StyledCartMenu>
-            <FontAwesomeIcon
-              icon={faLanguage}
-              size="2x"
-              className="cart"
-              style={{ fontSize: "20px", color: "var(--mineShaft)" }}
-              onClick={handleChangeLanguage}
-            />
           </NavbarContainer>
         </Container>
       </UpperTranslate>
-      <SubMenu visible={visible} path={path} isAdmin={isAdmin} />
+      <SubMenu
+        visible={visible}
+        path={path}
+        isAdmin={isAdmin}
+        handleChangeLanguage={handleChangeLanguage}
+        locale={context.locale}
+      />
     </>
   );
 }

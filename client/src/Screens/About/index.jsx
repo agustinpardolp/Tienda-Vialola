@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 
-import { fetchAbout } from "../../redux/about/actions/about-actions";
 import { FadeIn } from "../../components/ImageSlider/animations";
 
-import { StyledAboutContainer, StyledMainContainer, StyledInfoContainer} from "./styled-components";
+import {
+  StyledAboutContainer,
+  StyledMainContainer,
+  StyledInfoContainer,
+} from "./styled-components";
 
 import { BACKGROUND_IMAGES } from "./constants";
+import { FormattedMessage } from "react-intl";
 
-function About({ fetchAbout, aboutInfo }) {
-  useEffect(() => {
-    fetchAbout();
-  }, [fetchAbout]);
-
+function About() {
   return (
     <FadeIn duration="1s">
       <StyledMainContainer>
         <StyledInfoContainer>
-          <p>{aboutInfo.info}</p>
+          <p>
+            <FormattedMessage id="about.info" values={{ html: <br /> }} />
+          </p>
         </StyledInfoContainer>
         <StyledAboutContainer
           img={BACKGROUND_IMAGES.ABOUT}
@@ -27,13 +28,4 @@ function About({ fetchAbout, aboutInfo }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  const {
-    about: { data: aboutInfo },
-  } = state;
-  return {
-    aboutInfo,
-  };
-};
-
-export default connect(mapStateToProps, { fetchAbout })(About);
+export default About;

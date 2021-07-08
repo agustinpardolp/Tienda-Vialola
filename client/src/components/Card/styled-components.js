@@ -31,9 +31,6 @@ const StyledContainer = styled.span`
   overflow: hidden;
   height: ${(props) => (props.height ? props.height : "100%")};
   width: ${(props) => (props.width ? props.width : "100%")};
-  @media ${DEVICES_MAX_WIDTH.tablet} {
-    height: 50vh;
-  }
 `;
 
 const StyledLink = styled(Link)`

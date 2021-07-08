@@ -13,6 +13,7 @@ import Admin from "../screens/AdminViews";
 
 import PublicRoute from "./publicRoute";
 import PrivateRoute from "./privateRoute";
+import { PATHS } from "./constants";
 
 const Series = React.lazy(() => import("../screens/Series"));
 
@@ -21,19 +22,18 @@ const Routes = () => {
     <>
       <Switch>
         <Suspense fallback={<Spinner active></Spinner>}>
-          <PublicRoute path="/gallery/:category/:serie" component={Artwork} />
-          <PublicRoute exact path="/home" component={Home} />
-          <PublicRoute exact path="/login" component={Login} />
-          <PublicRoute exact path="/contact" component={Contact} />
-          <PublicRoute exact path="/about" component={About} />
-          <PublicRoute exact path="/gallery" component={Gallery} />
-          <PublicRoute path="/shop/" component={Shop} />
-          <PublicRoute path="/admin/login" component={Login} />
-          <PublicRoute path="/gallery/:category" component={Series} />
-          <Redirect from="/*" to="/home" />
+          <PublicRoute exact path={PATHS.gallery} component={Gallery} />
+          <PublicRoute exact path={PATHS.home} component={Home} />
+          <PublicRoute exact path={PATHS.contact} component={Contact} />
+          <PublicRoute exact path={PATHS.about} component={About} />
+          <PublicRoute path={PATHS.shop} component={Shop} />
+          <PublicRoute path={PATHS.login} component={Login} />
+          <PublicRoute exact path={PATHS.category} component={Series} />
+          <PublicRoute path={PATHS.serie} component={Artwork} />
+          <Redirect from="/*" to={PATHS.home} />
         </Suspense>
       </Switch>
-      <PrivateRoute exact path="/admin/:option" component={Admin} />
+      <PrivateRoute exact path={PATHS.adminOptions} component={Admin} />
     </>
   );
 };

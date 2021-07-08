@@ -1,4 +1,11 @@
 {
+  "about.info": "Soy un artista visual e ilustradora argentina dedicado al diseño y creación de piezas de arte únicas. Primero obtuve un título de diseñador de comunicación visual. Posteriormente me convertí en artista plástico en la Universidad Nacional de La Plata. En mis primeros años como profesional trabajé en diseño gráfico, abrí el camino a la producción artística y luego a la ilustración editorial. Domino las herramientas dentro de este campo y me encanta aplicarlas en busca de resultados innovadores, he tenido la oportunidad de trabajar codo a codo con grandes artistas, lo que me permitió crecer profesionalmente cada vez. Motivado por la naturaleza, la poesía, la música, la palabra y la creatividad, me apasionan los colores, las líneas y las formas y anhelo lo sobrenatural o lo desconocido. Siempre combino todo esto y lo aplico a nuevos proyectos. Siempre he querido compartir mi magia. Sé que encontré cómo hacerlo.",
+
+  "artwork.infoTitle": "Titulo:",
+  "artowork.printsAvailable": "COPIAS DISPONIBLES",
+  "artwork.originalOnSale": "ORIGINALES A LA VENTA",
+  "artwork.here": "AQUI",
+
   "navbar.home": "Inicio",
   "navbar.about": "Sobre mi",
   "navbar.gallery": "Galeria",
@@ -23,9 +30,10 @@
 
   "form.requiredFields": "Existen errores o faltantes",
 
-  "home.askMe":  "Si deseas realizar una consulta sobre una obra en particular o un encargo especial",
-  "home.contactMe":  "podes contactarme",
-  
+  "home.invitation": "A veces nuestra alma nos lleva a buscar lo extraordinario. Ese impulso divino podría haberte traído aquí...",
+  "home.askMe": "Si deseas realizar una consulta sobre una obra en particular o un encargo especial",
+  "home.contactMe": "podes contactarme",
+
   "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Por favor, no reproducir mi trabajo sin previo consentimiento / Todos los derechos reservados",
   "footer.developed": "developed by Agustín Pardo",
 
@@ -86,6 +94,4 @@
   "userEdition.emailRequired": "Campo email es requerido",
   "userEdition.addressRequired": "Campo direcciòn es requerido",
   "userEdition.dniRequired": "Campo dni es requerido"
-
- 
 }

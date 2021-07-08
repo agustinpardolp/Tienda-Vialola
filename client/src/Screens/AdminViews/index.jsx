@@ -7,7 +7,7 @@ import Sidebar from "../../components/AdminComponents/Sidebar";
 import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import ToastNotification from "../../components/ToastNotification";
 
-import EditAbout from "./About";
+import EditNews from "./News";
 import EditSeries from "./Series";
 import EditArtwork from "./Artwork";
 import {
@@ -32,7 +32,7 @@ function Admin({ match }) {
               component={EditSlider}
             />
             <Route exact path={`${match.path}edit-series`} component={EditSeries} />
-            <Route exact path={`${match.path}edit-about`} component={EditAbout} />
+            <Route exact path={`${match.path}edit-news`} component={EditNews} />
           </Switch>
         </Grid.Column>
       </Grid.Row>

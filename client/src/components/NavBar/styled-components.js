@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
 const NavbarContainer = styled.nav`
   background: ${(props) => props.location && "#ffffff7a"};
   display: grid;
-  grid-template-columns: 5fr 10fr 1fr;
+  grid-template-columns: 5fr 10fr;
   grid-template-rows: 1fr;
   height: 15vh;
   padding-bottom: 1%;
@@ -26,7 +26,6 @@ const NavbarContainer = styled.nav`
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: flex;
     align-items: center;
-    padding: 20px;
   }
 `;
 const StyledBrandContainer = styled.div`
@@ -119,6 +118,7 @@ const StyledBrand = styled.div`
 `;
 const Container = styled.div`
   margin-bottom: 20px;
+  width: 100%;
 `;
 const StyledIcon = styled(Icon)`
   margin-right: 2rem !important;
@@ -140,6 +140,27 @@ const StyledIcon = styled(Icon)`
   }
 `;
 
+const StyledBarContainer = styled.div`
+  display: grid;
+  grid-row-gap: 15px;
+  @media ${DEVICES_MIN_WIDTH.laptop} {
+    display: none;
+  }
+`;
+
+const StyledTranslateContainer = styled.div`
+  img {
+    width: 20px;
+  }
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    display: flex;
+    justify-content: flex-start;
+    img {
+      margin-left: 3px;
+    }
+  }
+`;
+
 export {
   NavbarContainer,
   StyledBrand,
@@ -152,4 +173,6 @@ export {
   StyledBrandContainer,
   StyledAdminMenu,
   Container,
+  StyledBarContainer,
+  StyledTranslateContainer,
 };

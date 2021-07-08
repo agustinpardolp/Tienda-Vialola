@@ -1,9 +1,7 @@
 /* CSS RESET */
 
 :root {
-  /* --fontVar: "Sulphur-Point"; */
-  /* --fontVar: "Fira Sans", sans-serif; */
-  --fontVar: "system-ui";
+  --fontVar: "NanumGothic-Regular";
   --white: #ffffff;
   --wildSand: #faebd7;
   --wildSand: #f4f4f4;

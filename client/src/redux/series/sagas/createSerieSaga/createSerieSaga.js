@@ -3,7 +3,6 @@ import { createSerie } from "../../../../services/series/";
 import * as actions from "../../actions/serie-actions";
 
 export default function* createSerieSaga(serieData) {
-  debugger;
   try {
     const { data } = yield call(createSerie, serieData); //getDetails, de la api
     yield put(actions.createSerieSuccess(data)); //si esta la data ok, envio a reducer con "data"

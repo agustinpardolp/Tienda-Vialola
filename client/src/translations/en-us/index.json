@@ -1,4 +1,11 @@
 {
+  "about.info": "I am an Argentinian visual artist and illustrator devoted to unique art piece design and creation. {html} I firstly got a visual communication designer degree. After that I became a plastic artist at Universidad Nacional de La Plata college. In my early years as a professional I worked on graphic design, I paved the way to artistic production and editorial illustration later. I master tools within this scope and I delight on applying them in search of innovative results.I have had the chance to work with great artists side by side, which allowed me to professionally grow up every time. Being motivated by nature, poetry, music, words as well as creativity, I feel passionate about colors, lines and forms and long for the supernatural or the unknown. I always combine this all and apply it on new projects. I have always wanted to share my magic. I know I found how to do it.",
+
+  "artwork.infoTitle": "Title:",
+  "artowork.printsAvailable": "PRINTS AVAILABLE",
+  "artwork.originalOnSale": "ORIGINAL ON SALE",
+  "artwork.here": "HERE",
+
   "navbar.home": "Home",
   "navbar.about": "About",
   "navbar.gallery": "Gallery",
@@ -23,9 +30,10 @@
 
   "form.requiredFields": "There is an error or missing field",
 
-  "home.askMe":  "If you have any questions or need further information about my work,  ",
+  "home.invitation": "Sometimes our soul takes us to look for the extraordinary. Such divine impulse might have brought you here...",
+  "home.askMe": "If you have any questions or need further information about my work,  ",
   "home.contactMe": "please feel free to contact me.",
-  
+
   "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Please don't reproduce my work elsewhere without prior consent / All rigth reserved",
   "footer.developed": "developed by Agustín Pardo",
 
@@ -48,7 +56,6 @@
   "users.licence": "Licenced by {licence}",
   "users.category": "Category:",
 
-
   "userFilter.title": "Filter by",
   "userFilter.select": "Select...",
 
@@ -58,12 +65,11 @@
   "userModalDelete.title": "Delete user",
   "userModalDelete.subtitle": "Are you sure you want to permanently remove this user?",
 
-
-  "barChartSystemUsage.weekAgo":"Week ago", 
-  "barChartSystemUsage.yesterday":"Yesterday", 
-  "barChartSystemUsage.today":"Today", 
-  "barChartSystemUsage.hourAgo":"Last hour", 
-  "barChartSystemUsage.now":"Now",
+  "barChartSystemUsage.weekAgo": "Week ago",
+  "barChartSystemUsage.yesterday": "Yesterday",
+  "barChartSystemUsage.today": "Today",
+  "barChartSystemUsage.hourAgo": "Last hour",
+  "barChartSystemUsage.now": "Now",
   "barChartCpuUsage.title": "CPU usage",
   "barChartMemoryUsage.title": "Memory & disk usage",
   "barChartMemoryUsage.label": "Memory usage",
@@ -83,14 +89,10 @@
   "userEdition.dniError": "Only numeric characters are allowed",
   "userEdition.dniErrorlength": "Max length 8 characters allowed",
   "userEdition.dniErrorMinlength": "Must be at least 7 characters",
- 
+
   "userEdition.nameRequired": "Name is required",
   "userEdition.surnameRequired": "Surname is required",
   "userEdition.emailRequired": "Email is required",
   "userEdition.addressRequired": "Address is required",
-  "userEdition.dniRequired": "Dni is required"  
-
-
-
+  "userEdition.dniRequired": "Dni is required"
 }
-
