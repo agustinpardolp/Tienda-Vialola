@@ -21,18 +21,19 @@ const Routes = () => {
   return (
     <>
       <Switch>
-        <Suspense fallback={<Spinner active></Spinner>}>
+        <Suspense fallback={<Spinner active />}>
+          <PublicRoute exact path={PATHS.login} component={Login} />
+          <PrivateRoute exact path={PATHS.adminOptions} component={Admin} />
           <PublicRoute exact path={PATHS.gallery} component={Gallery} />
           <PublicRoute exact path={PATHS.home} component={Home} />
           <PublicRoute exact path={PATHS.contact} component={Contact} />
           <PublicRoute exact path={PATHS.about} component={About} />
           <PublicRoute path={PATHS.shop} component={Shop} />
-          <PublicRoute path={PATHS.login} component={Login} />
           <PublicRoute exact path={PATHS.category} component={Series} />
           <PublicRoute path={PATHS.serie} component={Artwork} />
+          <Redirect from="/*" to="/home" />
         </Suspense>
       </Switch>
-      <PrivateRoute exact path={PATHS.adminOptions} component={Admin} />
     </>
   );
 };

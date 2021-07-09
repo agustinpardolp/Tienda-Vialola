@@ -68,7 +68,6 @@ router.get("/:id", function (req, res) {
 });
 
 router.get("/", function (req, res) {
-
   let handlerSearch = () => {
     let searchParameters = {
       model: "",
@@ -84,8 +83,7 @@ router.get("/", function (req, res) {
           (searchParameters.parameter = req.query.category);
         break;
       default:
-        
-        searchParameters=null;
+        searchParameters = null;
     }
     return searchParameters;
   };
@@ -144,7 +142,7 @@ router.put("/", MulterFn.single("img"), function (req, res) {
       name: req.body.name,
       description: req.body.description,
       price: req.body.file,
-      img: req.file?req.file.filename:req.body.img,
+      img: req.file ? req.file.filename : req.body.img,
       priceReproduction: req.body.priceReproduction,
       allowReproduction: req.body.allowReproduction,
       allowOriginal: req.body.allowOriginal,
@@ -157,52 +155,78 @@ router.put("/", MulterFn.single("img"), function (req, res) {
       },
     }
   ).then((resp) => {
-    console.log("responsè", resp)
+    console.log("responsè", resp);
     res.sendStatus(201);
   });
 });
 
 router.post("/", MulterFn.single("img"), function (req, res) {
-  Artwork.create(
-    {
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.file,
-      img: req.file.filename,
-      priceReproduction: req.body.priceReproduction,
-      allowReproduction: req.body.allowReproduction,
-      allowOriginal: req.body.allowOriginal,
-      categoryId: req.body.categoryId,
-      serieId: req.body.serieId,
-    }
-  ).then((resp) => {
-    res.sendStatus(201);
-  }).catch(err=>{
-    console.log(err)
-    res.sendStatus(404)
-  });
+  Artwork.create({
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.file,
+    img: req.file.filename,
+    priceReproduction: req.body.priceReproduction,
+    allowReproduction: req.body.allowReproduction,
+    allowOriginal: req.body.allowOriginal,
+    categoryId: req.body.categoryId,
+    serieId: req.body.serieId,
+  })
+    .then(() => {
+      Serie.findByPk(req.body.serieId).then((serie) => {
+        if (!serie.hasArtworkRelated) {
+          Serie.update(
+            {
+              hasArtworkRelated: true,
+            },
+            {
+              where: {
+                id: req.body.serieId,
+              },
+            }
+          );
+        }
+      });
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(404);
+    });
 });
 router.delete("/:id", function (req, res) {
   Artwork.destroy({
     where: {
-      id: req.params.id
-    }
-  }).then((resp) => {
-    res.sendStatus(201);
-  }).catch(err => res.send(err));
+      id: req.params.id,
+    },
+  })
+    .then((resp) => {
+      Artwork.findAll({
+        where: {
+          serieId: req.body.serieId,
+        },
+      }).then((artworkList) => {
+        if (!artworkList.length) {
+          Serie.findByPk(req.body.serieId).then((serie) => {
+            Serie.update(
+              {
+                hasArtworkRelated: false,
+              },
+              {
+                where: {
+                  id: req.body.serieId,
+                },
+              }
+            );
+          });
+        }
+      });
+      res.sendStatus(201);
+    })
+    .catch((err) => res.send(err));
 });
-router.delete("/:id", function (req, res) {
-  Artwork.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then((resp) => {
-    res.sendStatus(201);
-  }).catch(err => res.send(err));
-});
-
-router.post("/client/consult", function(req, res) {
-  transporter.sendMail(createEmailOptions(req.body), function(error, info) {
+router.post("/client/consult", function (req, res) {
+  transporter.sendMail(createEmailOptions(req.body), function (error, info) {
     if (error) {
       //ATAJA POSIBLES ERRORES
       console.log("ERROR!!!!!!", error);

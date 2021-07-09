@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React from "react";
 
 import Carousele from "../../components/Carousel";
-import CrossfadeImage from "react-crossfade-image";
 import HomeProducts from "./components/HomeProducts";
 import HomeText from "./components/HomeText";
 import HomeContact from "./components/HomeContact";
@@ -14,9 +12,8 @@ import { initialImage, shopProducts, IMAGES } from "./constants";
 import { useSlider } from "../../hooks";
 
 function Home() {
-  const { imageData, visible } = useSlider(IMAGES);
+  const { imageData } = useSlider(IMAGES);
 
-  const url = `/images/img-background/${imageData}.jpg`;
   return (
     <StyledMainHomeProducts>
       <Carousele img={imageData}>

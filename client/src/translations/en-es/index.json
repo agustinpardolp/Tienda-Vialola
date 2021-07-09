@@ -1,5 +1,5 @@
 {
-  "about.info": "Hola! {html} {html}  Soy un artista visual e ilustradora argentina dedicado al diseño y creación de piezas de arte únicas. {html} {html} Primero obtuve un título de diseñador de comunicación visual. Posteriormente me convertí en artista plástico en la Universidad Nacional de La Plata. {html} En mis primeros años como profesional trabajé en diseño gráfico, abrí el camino a la producción artística y luego a la ilustración editorial. Domino las herramientas dentro de este campo y me encanta aplicarlas en busca de resultados innovadores. {html} He tenido la oportunidad de trabajar codo a codo con grandes artistas, lo que me permitió crecer profesionalmente. {html} {html} Me motiva la naturaleza, la poesía, la música, y la creatividad; me apasionan los colores, las líneas y las formas y anhelo lo sobrenatural o lo desconocido. {html} {html} Siempre he querido compartir mi magia. Sé que encontré cómo hacerlo.",
+  "about.info": "Hola! {html} {html}  Soy un artista visual e ilustradora argentina dedicada al diseño y creación de piezas de arte únicas. {html} {html} Primero obtuve un título en Diseñado en comunicación visual. Posteriormente me convertí en artista plástico en la Universidad Nacional de La Plata. {html} En mis primeros años como profesional trabajé en diseño gráfico, abrí el camino a la producción artística y luego a la ilustración editorial. Domino las herramientas dentro de este campo y me encanta aplicarlas en busca de resultados innovadores. {html} He tenido la oportunidad de trabajar codo a codo con grandes artistas, lo que me permitió crecer profesionalmente. {html} {html} Me motiva la naturaleza, la poesía, la música, y la creatividad; me apasionan los colores, las líneas y las formas y anhelo lo sobrenatural o lo desconocido. {html} {html} Siempre he querido compartir mi magia. Sé que encontré cómo hacerlo.",
 
   "artwork.infoTitle": "Titulo:",
   "artowork.printsAvailable": "COPIAS DISPONIBLES",
@@ -31,9 +31,9 @@
 
   "form.requiredFields": "Existen errores o faltantes",
 
-  "home.invitation": "A veces nuestra alma nos lleva a buscar lo extraordinario. Ese impulso divino podría haberte traído aquí...",
-  "home.askMe": "Si deseas realizar una consulta sobre una obra en particular o un encargo especial",
-  "home.contactMe": "podes contactarme",
+  "home.invitation": "A veces nuestra alma nos lleva a buscar lo extraordinario. Tal vez ese impulso divino te haya traído hasta aquí...",
+  "home.askMe": "Si deseas realizar una consulta sobre una obra en particular o un encargo especial contactame",
+  "home.contactMe": "aquÍ",
 
   "footer.copyrigth": "Copyrigth 2021 | Dolores Pardo | Por favor, no reproducir mi trabajo sin previo consentimiento / Todos los derechos reservados",
   "footer.developed": "developed by Agustín Pardo",

@@ -1,16 +1,16 @@
 import { DEVICES_MAX_WIDTH } from "../../constants";
 import styled from "styled-components";
+import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 
 const StyledAboutContainer = styled.div`
-  background-size: cover;
-  height: 100vh;
+  background-size: contain;
   width: 100%;
   background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat center;`};
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpeg") no-repeat left;`};
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -38,10 +38,11 @@ const StyledAboutContainer = styled.div`
 
 const StyledMainContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 20px 0 50px;
+
   @media ${DEVICES_MAX_WIDTH.laptop} {
     grid-template-columns: 1fr;
-    
   }
 `;
 
@@ -58,7 +59,6 @@ const StyledInfoContainer = styled.div`
     letter-spacing: 1px;
   }
   @media ${DEVICES_MAX_WIDTH.laptopL} {
-
     p {
       padding: 50px;
     }
@@ -79,4 +79,8 @@ const StyledInfoContainer = styled.div`
   }
 `;
 
-export { StyledAboutContainer, StyledMainContainer, StyledInfoContainer };
+export {
+  StyledAboutContainer,
+  StyledMainContainer,
+  StyledInfoContainer
+};

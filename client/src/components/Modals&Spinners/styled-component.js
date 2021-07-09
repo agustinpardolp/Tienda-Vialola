@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Modal, Form, Icon, Button} from "semantic-ui-react";
 
 const StyledFormModal = styled(Modal)`
-  height: ${(props)=> props.isSmall? "20vh !important": "70vh !important"};
+  height: ${(props)=> props.isSmall? "20vh !important": "85vh !important"};
   position: relative !important;
 `;
 const StyledFormInput = styled(Form.Input)`

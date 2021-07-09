@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import styled from "styled-components";
 import { DEVICES_MAX_WIDTH } from "../../constants";
 import ModalImage from "react-modal-image";
@@ -11,7 +11,6 @@ const StyledImg = styled(ModalImage)`
   object-fit: contain;
   align-self: center;
   position: relative;
-  /* pointer-events: none; */
   @media ${DEVICES_MAX_WIDTH.laptop} {
     width: 100%;
     height: 100%;
@@ -48,13 +47,6 @@ const StyledImageContainer = styled.div`
   }
 `;
 
-const StyledZoomIcon = styled(FontAwesomeIcon)`
-  position: absolute;
-  right: 40%;
-  top: 25%;
-  font-size: 2rem;
-  color: var(--mineShaft);
-`;
 const StyledSeriesGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -130,7 +122,6 @@ const StyledLink = styled.span`
 
 export {
   StyledImageContainer,
-  StyledZoomIcon,
   StyledArtworkContainer,
   StyledInfo,
   StyledImg,

@@ -4,7 +4,7 @@ import { Grid, Dropdown } from "semantic-ui-react";
 
 import SubTittle from "../../../components/AdminComponents/SubTittle";
 import Button from "../../../components/Button";
-import { NAVBAR } from "../../../constants";
+import { NAVBAR } from "../../NavBar/constants";
 
 import { StyledEditButtonContainer } from "./styled-components";
 

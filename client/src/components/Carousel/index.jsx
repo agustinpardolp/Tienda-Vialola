@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Slide, Fade } from "react-slideshow-image";
 import TransitionWrapper from "../../components/transition";
 import { images } from "../../screens/Home/constants";
 

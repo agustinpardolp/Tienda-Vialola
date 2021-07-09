@@ -7,8 +7,6 @@ const clientConsult = (
   },
   action
 ) => {
-  const { payload: { data } = {} } = action;
-
   switch (action.type) {
     case types.CREATE_CLIENT_CONSULT:
       return { ...state, status: REQUEST_STATUS.LOADING };

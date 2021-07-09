@@ -26,5 +26,9 @@ router.put("/about", () => {
     })
   );
 });
+router.get("/accounts/logout/", function (req, res, next) {
+  req.logout();
+  res.sendStatus(201);
+});
 
 module.exports = router;

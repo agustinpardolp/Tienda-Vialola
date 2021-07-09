@@ -15,6 +15,7 @@ import {
   editSerie,
 } from "../../../redux/series/actions/serie-actions";
 import { transformResponse } from "../../../utils";
+import Series from "../../Series";
 import { MODAL_TYPE } from "../Artwork/constants";
 import { headerColumns } from "./constants";
 
@@ -44,7 +45,6 @@ const EditSeries = ({
       setFilter("");
     }
   };
-
   const handleDelete = (data) => {
     dispatch({
       type: "show",
@@ -85,6 +85,7 @@ const EditSeries = ({
       },
     });
   };
+  console.log(series);
   return (
     <>
       <Filter

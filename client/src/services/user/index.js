@@ -19,7 +19,7 @@ export const logoutUser = async () => {
   localStorage.removeItem("token_data");
   localStorage.removeItem("profile_data");
   localStorage.removeItem("profileSettings");
-  let response = await axios.post(API_LOGOUT);
+  let response = await axios.get(API_LOGOUT);
   return response;
 };
 

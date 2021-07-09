@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
-import { loginUser } from "../../../services/user";
-import * as actions from "../actions/user-actions";
+import { loginUser } from "../../../../services/user";
+import * as actions from "../../actions/user-actions";
 
 export default function* LoginUserSaga({ userData, history, pathname }) {
   try {

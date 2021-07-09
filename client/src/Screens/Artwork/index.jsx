@@ -1,14 +1,11 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
-import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
-import ModalImage from "react-modal-image";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchArtworksBySerie } from "../../redux/artworks/actions/artworks-actions";
 import Card from "../../components/Card";
 
 import {
   StyledImageContainer,
-  StyledZoomIcon,
   StyledArtworkContainer,
   StyledImg,
   StyledSeriesGrid,
@@ -28,8 +25,6 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
     category: "",
     stock: 0,
   });
-  console.log(history);
-  const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
     fetchArtworksBySerie(params.serie, params.categoryName);
@@ -39,7 +34,6 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
   }, [fetchArtworksBySerie, params.serie, params.category]);
 
   const handleChangeImage = useCallback((selectedArtwork) => {
-    console.log(selectedArtwork);
     setSelectedImage(selectedArtwork.img);
     setImgInfo({
       ...imgInfo,
@@ -53,14 +47,10 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
     });
   }, []);
 
-  const handleZoom = useCallback(() => {
-    setZoom(!zoom);
-  }, [zoom]);
-
   return (
     <>
       {!artworksBySerie.length ? (
-        <Spinner></Spinner>
+        <Spinner />
       ) : (
         <>
           <StyledArtworkContainer>
@@ -91,12 +81,6 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
               </StyledSeriesGrid>
             </StyledImageSelectorContainer>
             <StyledImageContainer>
-              {/* <StyledImg
-                src={`/images/img-artwork/${artworksBySerie[0].category.name}/${
-                  selectedImage || artworksBySerie[0].img
-                }`}
-              />
-              {zoom && ( */}
               <StyledImg
                 small={`/images/img-artwork/${
                   artworksBySerie[0].category.name

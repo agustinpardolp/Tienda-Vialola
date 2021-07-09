@@ -13,7 +13,9 @@ import {
   StyledIcon,
   StyledImageLabel,
   StyledButtonContainer,
+  StyledFormModal,
 } from "./Styled-component";
+import ErrorMessage from "../../ErrorMessage";
 
 const FormModal = ({
   values,
@@ -65,8 +67,9 @@ const FormModal = ({
   return (
     <>
       <Modal.Header>{isNew ? "Nueva obra" : "Edicion de Obra"}</Modal.Header>
-      <Modal.Content>
+      <StyledFormModal>
         <Form onSubmit={handleSubmit}>
+          {errors.img ? <ErrorMessage errorMessage="foto requerida" /> : null}
           <StyledImageLabel htmlFor={isNew ? "newImage" : "img"}>
             <StyledIcon name="pencil square" />
             {isNew ? (
@@ -93,17 +96,13 @@ const FormModal = ({
               />
             )}
           </StyledImageLabel>
+
           <StyledFormInput
             type="file"
             onChange={handleChangeFile}
             name="img"
             id={isNew ? "newImage" : "img"}
           />
-          {errors.img ? (
-            <Message negative size="mini">
-              <Message.Header>Imagen es requerida</Message.Header>
-            </Message>
-          ) : null}
           <Form.Group widths="equal">
             <Form.Input
               fluid
@@ -200,6 +199,13 @@ const FormModal = ({
             value={values.allowReproduction}
             onChange={handleChange}
           />
+          <Form.Checkbox
+            name="externalLink"
+            id="externalLink"
+            label="Enlace externo de tienda"
+            value={values.externalLink}
+            onChange={handleChange}
+          />
           <Form.Group inline>
             <Form.Button
               basic
@@ -218,7 +224,7 @@ const FormModal = ({
             </Form.Button>
           </Form.Group>
         </Form>
-      </Modal.Content>
+      </StyledFormModal>
     </>
   );
 };

@@ -14,9 +14,9 @@ module.exports = {
   plugins: ["react", "import"],
   rules: {
     "react/prop-types": "off",
-    "no-console": "warn",
+    "no-console": "error",
     "no-eval": "error",
-    "simple-import-sort/imports": "off",
+    "simple-import-sort/imports": "error",
     "import/order": ["error", { "newlines-between": "always" }],
   },
 };

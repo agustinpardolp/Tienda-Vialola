@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { withRouter } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
 import SubMenu from "./components/SubMenu";
 import { UpperTranslate } from "../ImageSlider/animations";
 import { Context } from "../LenguageWrapper";
@@ -15,10 +15,14 @@ import {
   Container,
   StyledBarContainer,
   StyledTranslateContainer,
+  StyledAdminButton,
 } from "./styled-components";
 import { lenguageTypes } from "../LenguageWrapper/constants";
+import { PATHS } from "../../routes/constants";
+import { logoutUser } from "../../redux/login/actions/user-actions";
+import { Icon } from "semantic-ui-react";
 
-export function NavBar({ location }) {
+export function NavBar({ location, history, logoutUser }) {
   const context = useContext(Context);
   const [visible, setVisible] = React.useState(false);
   const { pathname } = location;
@@ -35,6 +39,9 @@ export function NavBar({ location }) {
   const handleChangeLanguage = (e) => {
     context.changeLanguage(e);
   };
+  const handleLogout = (history, pathname) => {
+    logoutUser(history, pathname);
+  };
   return (
     <>
       <UpperTranslate duration="2s" delay="0.5s">
@@ -49,34 +56,43 @@ export function NavBar({ location }) {
                 name="bars"
                 size="large"
                 onClick={toogleSubMenu}
-                visible={false}
               />
             </StyledBarContainer>
             <StyledCartMenu>
               {isAdmin ? (
                 <StyledAdminMenu>
                   <h2>Panel Administrador</h2>
+                  <Icon
+                    name="log out"
+                    onClick={() => handleLogout(history, PATHS.home)}
+                    size="large"
+                  />
                 </StyledAdminMenu>
               ) : (
                 <>
                   <MenuOptions location={location} path={path} />
                   <MediaInfo />
+                  <StyledTranslateContainer>
+                    <img
+                      src={`/images/logo/${
+                        context.locale === lenguageTypes.en_es
+                          ? "britain.png"
+                          : "spain.png"
+                      }`}
+                      onClick={handleChangeLanguage}
+                    />
+                  </StyledTranslateContainer>
                 </>
               )}
-              <StyledTranslateContainer>
-                <img
-                  src={`/images/logo/${
-                    context.locale === lenguageTypes.en_es
-                      ? "britain.png"
-                      : "spain.png"
-                  }`}
-                  onClick={handleChangeLanguage}
-                />
-              </StyledTranslateContainer>
             </StyledCartMenu>
           </NavbarContainer>
         </Container>
       </UpperTranslate>
+      {!isAdmin && (
+        <StyledAdminButton>
+          <Link to={PATHS.login}>admin</Link>
+        </StyledAdminButton>
+      )}
       <SubMenu
         visible={visible}
         path={path}
@@ -87,5 +103,11 @@ export function NavBar({ location }) {
     </>
   );
 }
+const mapDispatchToProps = {
+  logoutUser,
+};
 
-export default React.memo(withRouter(NavBar));
+export default connect(
+  null,
+  mapDispatchToProps
+)(React.memo(withRouter(NavBar)));

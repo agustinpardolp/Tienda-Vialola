@@ -1,40 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { StyleMedia } from "../../styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { navbarMediaList } from "../../constants";
+
+
 
 const MediaInfo = () => {
+  const handleClick = (path) => {
+    window.open(path, "_blank");
+  };
   return (
     <StyleMedia>
-      <Link to={"/"}>
+      {navbarMediaList.map((media) => (
         <FontAwesomeIcon
-          icon={faFacebook}
+          key={media.name}
+          icon={media.icon}
+          onClick={() => handleClick(media.path)}
           size="1x"
           className="cart"
           style={{ fontSize: "20px", color: "var(--mineShaft)" }}
         />
-      </Link>
-      <Link to={"/"}>
-        <FontAwesomeIcon
-          icon={faTwitter}
-          size="1x"
-          className="cart"
-          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
-        />
-      </Link>
-      <Link to={"/"}>
-        <FontAwesomeIcon
-          icon={faInstagram}
-          size="1x"
-          className="cart"
-          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
-        />
-      </Link>
+      ))}
     </StyleMedia>
   );
 };

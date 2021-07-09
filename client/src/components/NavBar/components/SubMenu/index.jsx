@@ -1,9 +1,11 @@
 import React from "react";
-import { FormattedMessage, useIntl } from "react-intl";
-import { NAVBAR } from "../../../../constants";
+import { FormattedMessage } from "react-intl";
+import { PATHS } from "../../../../routes/constants";
+
 import { lenguageTypes } from "../../../LenguageWrapper/constants";
 
 import TransitionWrapper from "../../../transition";
+import { NAVBAR } from "../../constants";
 import { StyledLink, StyledSubMenu, StyledTranslateContainer } from "./styled-components";
 
 const SubMenu = ({ visible, path, isAdmin, handleChangeLanguage, locale }) => {
@@ -14,7 +16,7 @@ const SubMenu = ({ visible, path, isAdmin, handleChangeLanguage, locale }) => {
           <StyledSubMenu visible={visible}>
             <ul>
               <li>
-                <StyledLink to="/admin/dashboard">
+                <StyledLink to={PATHS.adminEditArtwork}>
                   Panel Administrador
                 </StyledLink>
               </li>

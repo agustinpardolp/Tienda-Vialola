@@ -1,10 +1,8 @@
 import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { NAVBAR } from "../../constants";
 
 import { StyledMenuOptions, StyledLink } from "../../styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-import { NAVBAR } from "../../../../constants";
 
 const MenuOptions = ({ location, path }) => {
   const intl = useIntl();
@@ -26,14 +24,7 @@ const MenuOptions = ({ location, path }) => {
           </li>
         );
       })}
-      {/* <li onClick={context.changeLanguage}>
-        <FontAwesomeIcon
-          icon={faLanguage}
-          size="2x"
-          className="cart"
-          style={{ fontSize: "20px", color: "var(--mineShaft)" }}
-        />
-      </li> */}
+
     </StyledMenuOptions>
   );
 };

@@ -4,6 +4,7 @@ import * as yup from "yup";
 
 import { REGEX } from "../../constants";
 import { loginUser } from "../../redux/login/actions/user-actions";
+import { PATHS } from "../../routes/constants";
 
 import LoginForm from "./LoginForm";
 
@@ -11,7 +12,6 @@ const validationSchema = yup.object().shape({
   email: yup
     .string()
     .trim()
-    // .matches(REGEX.EMAIL_REGEX_SCHEMA, "Datos faltantes o incorrectos")
     .max(30)
     .required(" "),
   password: yup
@@ -36,7 +36,7 @@ const Login = withFormik({
     value,
     { props: {loginUser, history } }
   ) => {
-    let pathname = "/admin/edit-artwork";
+    let pathname = PATHS.adminEditArtwork;
     loginUser(value, history, pathname);
   },
 })(LoginForm);

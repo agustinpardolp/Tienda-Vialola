@@ -21,6 +21,11 @@ const user = (
       };
     case types.RECEIVE_LOGGED_USER_FAILURE:
       return { ...state, status: REQUEST_STATUS.FAILED };
+    case types.SEND_USER_LOGOUT:
+      return {
+        data: {},
+        status: REQUEST_STATUS.LOADED,
+      };
 
     default:
       return state;
@@ -28,4 +33,3 @@ const user = (
 };
 
 export default user;
-

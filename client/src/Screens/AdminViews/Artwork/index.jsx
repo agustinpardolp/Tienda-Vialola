@@ -11,7 +11,7 @@ import {
   fetchArtworks,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 } from "../../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../../redux/series/actions/serie-actions";
 import { transformResponse } from "../../../utils";
@@ -27,7 +27,7 @@ const EditArtwork = ({
   artworkCategories,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 }) => {
   const [filter, setFilter] = useState("");
   let { dispatch } = useContext(ModalContext);
@@ -38,7 +38,6 @@ const EditArtwork = ({
     fetchArtworkCategories("");
   }, [fetchArtworkCategories, fetchArtworks, fetchSeries, filter]);
 
-  
   const handleSeries = (data) => {
     let queryParams = "";
     if (data.placeholder === FILTER_LABELS.series && data.value) {
@@ -48,7 +47,6 @@ const EditArtwork = ({
       setFilter("");
     }
   };
-  
   const handleDelete = (data) => {
     dispatch({
       type: "show",
@@ -57,9 +55,9 @@ const EditArtwork = ({
         open: true,
         handleConfirm: deleteArtwork,
         posResponse: fetchArtworks,
-        data: data.id,
-        title:"¿Esta seguro que desea borrar la fila?",
-        message: "La informacion se borrara de forma permantente"
+        data: { artworkId: data.id, serieId: data.serieId },
+        title: "¿Esta seguro que desea borrar la fila?",
+        message: "La informacion se borrara de forma permantente",
       },
     });
   };
@@ -73,7 +71,7 @@ const EditArtwork = ({
         handleConfirm: editArtwork,
         posResponse: fetchArtworks,
         data: data,
-        categories: transformResponse(artworkCategories)
+        categories: transformResponse(artworkCategories),
       },
     });
   };
@@ -87,7 +85,7 @@ const EditArtwork = ({
         handleConfirm: createArtwork,
         posResponse: fetchArtworks,
         categories: transformResponse(artworkCategories),
-        isNew: true
+        isNew: true,
       },
     });
   };
@@ -133,5 +131,5 @@ export default connect(mapStateToProps, {
   fetchArtworkCategories,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 })(EditArtwork);

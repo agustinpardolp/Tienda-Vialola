@@ -14,8 +14,14 @@ export const editArtwork = (data) => {
   return axios.put(API_ARTWORKS, artworkData).then((res) => res);
 };
 export const deleteArtwork = (artworkData) => {
-  let { artworkId } = artworkData;
-  return axios.delete(`${API_ARTWORKS}${artworkId}`).then((res) => res);
+  let { artworkId, serieId } = artworkData;
+  return axios
+    .delete(`${API_ARTWORKS}${artworkId}`, {
+      data: {
+        serieId,
+      },
+    })
+    .then((res) => res);
 };
 
 export const createArtwork = (data) => {

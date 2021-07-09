@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from "react";
 import { Table, Header, Image, Icon } from "semantic-ui-react";
 
@@ -23,24 +22,21 @@ const TableRow = ({
         img = `${process.env.PUBLIC_URL}/images/img-artwork/${row.category.name}/${row.img}`;
         subFieldValue = row.serie ? row.serie.name : row.category.name;
         break;
-        case DATATYPE.TITLE:
-          fieldValue = row[format.dataField];
-          img = `${process.env.PUBLIC_URL}/images/img-carousel/${row.img}`;
-          subFieldValue = row.title;
-          break;
+      case DATATYPE.TITLE:
+        fieldValue = row[format.dataField];
+        img = `${process.env.PUBLIC_URL}/images/img-carousel/${row.img}`;
+        subFieldValue = row.title;
+        break;
       case DATATYPE.ALLOW_ORIGINAL:
         fieldValue = row[format.dataField] ? "Si" : "No";
         break;
 
       case DATATYPE.ALLOW_REPRODUCTION:
         fieldValue = row[format.dataField] ? "Si" : "No";
-
         break;
-
       case DATATYPE.DELETE:
         fieldValue = row[format.dataField];
         deletable = true;
-
         break;
       case DATATYPE.EDIT:
         fieldValue = row[format.dataField];
@@ -59,11 +55,7 @@ const TableRow = ({
           <Table.Cell key={index}>
             {" "}
             <Header as="h4" image>
-              <Image
-                src={img}
-                rounded
-                size="mini"
-              />
+              <Image src={img} rounded size="mini" />
               <Header.Content>
                 {fieldValue}
                 <Header.Subheader>{subFieldValue}</Header.Subheader>

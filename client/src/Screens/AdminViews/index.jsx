@@ -13,7 +13,6 @@ import EditArtwork from "./Artwork";
 import {
   StyledAdminContainer,
 } from "./Styled-components";
-import EditSlider from "./HomeOptions";
 
 function Admin({ match }) {
   return (
@@ -26,11 +25,6 @@ function Admin({ match }) {
         <Grid.Column width={14}>
           <Switch>
             <Route path={`${match.path}edit-artwork`} component={EditArtwork} />
-            <Route
-              exact
-              path={`${match.path}edit-home-options`}
-              component={EditSlider}
-            />
             <Route exact path={`${match.path}edit-series`} component={EditSeries} />
             <Route exact path={`${match.path}edit-news`} component={EditNews} />
           </Switch>

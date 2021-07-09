@@ -9,7 +9,11 @@ const Serie = db.define("serie", {
     img:{
       type:sequelize.STRING,
       allowNull: false
-    }
+    },
+    hasArtworkRelated: {
+      type: sequelize.BOOLEAN,
+      allowNull: true,
+    },
   });
   
   module.exports = Serie;

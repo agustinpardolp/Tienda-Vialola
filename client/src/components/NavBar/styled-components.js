@@ -75,12 +75,11 @@ const StyledMenuOptions = styled.ul`
 `;
 
 const StyleMedia = styled.div`
-  display: flex;
-  width: 25%;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  a {
+  width: 25%;
+  svg {
     margin-right: 5%;
   }
 `;
@@ -109,6 +108,10 @@ const StyledAdminMenu = styled.div`
   align-items: center;
   h2 {
     color: dimgrey;
+    margin: 0 10px 0 0;
+  }
+  i {
+    cursor: pointer;
   }
 `;
 
@@ -152,6 +155,8 @@ const StyledBarContainer = styled.div`
 `;
 
 const StyledTranslateContainer = styled.div`
+  display: flex;
+  align-items: center;
   img {
     width: 20px;
   }
@@ -160,6 +165,20 @@ const StyledTranslateContainer = styled.div`
     justify-content: flex-start;
     img {
       margin-left: 3px;
+    }
+  }
+`;
+
+const StyledAdminButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 10px 5px 0;
+  a {
+    color: transparent;
+    cursor: pointer;
+    &:hover {
+      color: transparent;
     }
   }
 `;
@@ -178,4 +197,5 @@ export {
   Container,
   StyledBarContainer,
   StyledTranslateContainer,
+  StyledAdminButton,
 };

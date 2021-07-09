@@ -1,7 +1,7 @@
 import { Modal, Form, Icon, Button} from "semantic-ui-react";
 import styled from "styled-components";
 
-const StyledFormModal = styled(Modal)`
+const StyledFormModal = styled(Modal.Content)`
   height: 70vh !important;
   position: relative !important;
 `;

@@ -1,3 +1,3 @@
 export const BACKGROUND_IMAGES = {
-    ABOUT: "about"
+    ABOUT: "ABOUT4"
   };

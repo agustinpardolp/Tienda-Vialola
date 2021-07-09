@@ -9,26 +9,24 @@ import { REQUEST_STATUS } from "../../constants";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
 import { StyledMain } from "./styledComponents";
 
-export function Gallery(props) {
+export function Gallery({ fetchArtworkCategories, artworkCategories, status }) {
   useEffect(() => {
-    props.fetchArtworkCategories("");
-  }, []);
+    fetchArtworkCategories("");
+  }, [fetchArtworkCategories]);
 
   return (
     <>
       <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
       <StyledMain>
-        {props.status !== REQUEST_STATUS.LOADED ? (
+        {status !== REQUEST_STATUS.LOADED ? (
           <Spinner active></Spinner>
         ) : (
           <CardGrid
             row={"1"}
-            elementsLength={
-              props.artworkCategories && props.artworkCategories.length
-            }
+            elementsLength={artworkCategories && artworkCategories.length}
           >
-            {props.artworkCategories &&
-              props.artworkCategories.map((category) => {
+            {artworkCategories &&
+              artworkCategories.map((category) => {
                 return (
                   <Card
                     key={category.id}

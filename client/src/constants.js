@@ -1,4 +1,3 @@
-import { PATHS } from "./routes/constants";
 
 export const API_DOMAIN = "/vialola-api";
 
@@ -52,6 +51,8 @@ export const types = {
   RECEIVE_LOGGED_USER: "RECEIVE_LOGGED_USER",
   RECEIVE_LOGGED_USER_FAILURE: "RECEIVE_LOGGED_USER_FAILURE",
   RECEIVE_LOGGED_USER_SUCCESS: "RECEIVE_LOGGED_USER_SUCCESS",
+  SEND_USER_LOGOUT: "SEND_USER_LOGOUT",
+  SEND_USER_LOGOUT_SUCCESS: "SEND_USER_LOGOUT_SUCCESS",
   //NEWS
   FETCH_NEWS: "FETCH_NEWS",
   FETCH_NEWS_SUCCESS: "FETCH_NEWS_SUCCESS",
@@ -104,32 +105,6 @@ export const QUERY_PARAMS = {
 export const REGEX = {
   ALPHANUMERIC: /^[a-zA-Z0-9]+$/,
   EMAIL_REGEX_SCHEMA: /^(?=.{1,254}$)((?=.{1,64}@)[ñÑa-zA-Z0-9-`~!@#$%^&*?/()_|+\-=;:'"´¨,.<>\{\}\[\]\\\/]+\.[A-Za-z]{2,4},?)$/,
-};
-
-export const NAVBAR = {
-  OPTIONS: [
-    { name: "navbar.home", id: 1, path: PATHS.home },
-    { name: "navbar.about", id: 2, path: PATHS.about},
-    { name: "navbar.gallery", id: 3, path: PATHS.gallery },
-    { name: "navbar.shop", id: 4, path: PATHS.shop },
-    { name: "navbar.contact", id: 5, path: PATHS.contact },
-    { name: "navbar.news", id: 6, path: PATHS.news },
-  ],
-  SHOPOPTIONS: [
-    { NAME: "prints  ", id: 2, path: "prints" },
-    { NAME: "small art  ", id: 3, path: "small-art" },
-    { NAME: "objects  ", id: 4, path: "objects" },
-    { NAME: "miscellaneous", id: 5, path: "miscellaneous" },
-  ],
-  ARTIST: {
-    NAME: "Dolores Pardo",
-  },
-  ADMIN: [
-    { NAME: "Artwork", id: 1, path: PATHS.adminEditArtwork },
-    { NAME: "Series", id: 2, path: PATHS.adminEditSeries },
-    { NAME: "Home", id: 3, path: PATHS.adminEditHomeOptions },
-    { NAME: "News", id: 4, path: PATHS.adminEditNews },
-  ],
 };
 
 export const IMAGES = [

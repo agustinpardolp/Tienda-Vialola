@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { connect } from "react-redux";
 
 import { REQUEST_STATUS } from "../../constants";
@@ -8,6 +8,7 @@ import CardGrid from "../../components/CardGrid";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
 import { StyledMain } from "./styledComponents";
+import { handleSeries } from "./constants";
 
 const Series = ({ match, fetchSeries, status, series }) => {
   const {
@@ -15,40 +16,42 @@ const Series = ({ match, fetchSeries, status, series }) => {
   } = match;
 
   useEffect(() => {
-    let query = `?category=${category}`
+    let query = `?category=${category}`;
     fetchSeries(query);
   }, [category]);
+
+  const onHandleSeries = useMemo(() => handleSeries(series), [series]);
 
   return (
     <>
       {status !== REQUEST_STATUS.LOADED ? (
-        <Spinner></Spinner>
+        <Spinner />
       ) : (
         <>
-        <Dividers
-        titleElements={[
-          {
-            name: `${series.length && series[0].category.name} / series`,
-            id: 1,
-          },
+          <Dividers
+            titleElements={[
+              {
+                name: `${series.length && series[0].category.name} / series`,
+                id: 1,
+              },
             ]}
-            />
-            <StyledMain>
-          <CardGrid row={3}>
-            {series.length &&
-              series.map((serie) => {
-                return (
-                  <Card
-                    element={serie}
-                    key={serie.id}
-                    category={serie.category.name}
-                    path={`/gallery/${serie.category.name}/${serie.name}`}
-                    height="45vh"
-                  />
-                );
-              })}
-          </CardGrid>
-        </StyledMain>
+          />
+          <StyledMain>
+            <CardGrid row={3}>
+              {series.length &&
+                onHandleSeries.map((serie) => {
+                  return (
+                    <Card
+                      element={serie}
+                      key={serie.id}
+                      category={serie.category.name}
+                      path={`/gallery/${serie.category.name}/${serie.name}`}
+                      height="45vh"
+                    />
+                  );
+                })}
+            </CardGrid>
+          </StyledMain>
         </>
       )}
     </>

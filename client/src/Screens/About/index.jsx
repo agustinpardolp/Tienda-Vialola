@@ -17,12 +17,11 @@ function About() {
       <StyledMainContainer>
         <StyledInfoContainer>
           <p>
-            <FormattedMessage id="about.info" values={{ html: <br/> }} />
+            <FormattedMessage id="about.info" values={{ html: <br /> }} />
           </p>
         </StyledInfoContainer>
-        <StyledAboutContainer
-          img={BACKGROUND_IMAGES.ABOUT}
-        ></StyledAboutContainer>
+
+        <StyledAboutContainer img={BACKGROUND_IMAGES.ABOUT} />
       </StyledMainContainer>
     </FadeIn>
   );

@@ -57,10 +57,11 @@ export const editArtworkFailure = () => ({
   type: types.EDIT_ARTWORK_FAILURE,
 });
 
-export const deleteArtwork = (artworkId) => {
+export const deleteArtwork = ({ artworkId, serieId }) => {
   return {
     type: types.DELETE_ARTWORK,
     artworkId,
+    serieId,
   };
 };
 
@@ -99,7 +100,6 @@ export const createArtworkFailure = () => ({
 });
 
 export const createClientConsult = (dataConsult) => {
-
   return {
     type: types.CREATE_CLIENT_CONSULT,
     dataConsult,
