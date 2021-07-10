@@ -26,7 +26,6 @@ export default function ContactForm({
   handleSubmit,
   setFieldValue,
 }) {
-  console.log(errors);
   const intl = useIntl();
   const context = useContext(Context);
 

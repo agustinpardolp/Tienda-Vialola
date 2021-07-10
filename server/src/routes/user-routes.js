@@ -21,7 +21,6 @@ router.put("/about", () => {
     About.update({
       info: req.body.info,
     }).then((resp) => {
-      console.log("ress", resp);
       res.sendStatus(201);
     })
   );

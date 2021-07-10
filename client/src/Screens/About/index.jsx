@@ -3,7 +3,7 @@ import React from "react";
 import { FadeIn } from "../../components/ImageSlider/animations";
 
 import {
-  StyledAboutContainer,
+  StyledImageContainer,
   StyledMainContainer,
   StyledInfoContainer,
 } from "./styled-components";
@@ -21,7 +21,7 @@ function About() {
           </p>
         </StyledInfoContainer>
 
-        <StyledAboutContainer img={BACKGROUND_IMAGES.ABOUT} />
+        <StyledImageContainer img={BACKGROUND_IMAGES.ABOUT} />
       </StyledMainContainer>
     </FadeIn>
   );

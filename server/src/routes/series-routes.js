@@ -70,7 +70,7 @@ router.put("/", MulterFn.single("img"), function (req, res) {
     {
       name: req.body.name,
       img: req.file ? req.file.filename : req.body.img,
-      categoryId: req.body.categoryId
+      categoryId: req.body.categoryId,
     },
     {
       where: {
@@ -78,7 +78,6 @@ router.put("/", MulterFn.single("img"), function (req, res) {
       },
     }
   ).then((resp) => {
-    console.log("ress", res);
     res.sendStatus(201);
   });
 });
@@ -87,13 +86,12 @@ router.post("/", MulterFn.single("img"), function (req, res) {
   Serie.create({
     name: req.body.name,
     img: req.file.filename,
-    categoryId: req.body.categoryId
+    categoryId: req.body.categoryId,
   })
     .then((resp) => {
       res.sendStatus(201);
     })
     .catch((err) => {
-      console.log(err);
       res.sendStatus(404);
     });
 });

@@ -12,12 +12,14 @@ const ArtworkBreadcrum = ({ items, history, position }) => {
     <StyledBreadcrumb position={position}>
       {items.map((item) => (
         <>
-          <StyledBreadcrumbSection
-            key={item.name}
-            onClick={() => handleClick(item.path)}
-          >
-            <FormattedMessage id={item.name} />
-          </StyledBreadcrumbSection>
+          {item.status ? (
+            <StyledBreadcrumbSection
+              key={item.name}
+              onClick={() => handleClick(item.path)}
+            >
+              <FormattedMessage id={item.name} />
+            </StyledBreadcrumbSection>
+          ) : null}
         </>
       ))}
     </StyledBreadcrumb>

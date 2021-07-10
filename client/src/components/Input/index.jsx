@@ -23,7 +23,6 @@ const Input = ({
   width,
 }) => {
   const intl = useIntl();
-  console.log(errors);
   return (
     <>
       <StyledInput

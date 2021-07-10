@@ -11,7 +11,6 @@ export const transformResponse = (data) => {
   let dropdownList =
     data &&
     data.map((serie, index) => {
-      console.log(serie)
       let option = {
         id: serie.id,
         key: index,

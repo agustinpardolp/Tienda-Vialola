@@ -69,7 +69,7 @@ const StyledImageSelectorContainer = styled.div`
 
 const StyledBreadcrumb = styled.div`
   text-align: initial;
-
+  margin-bottom: 10px;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     text-align: ${(props) => (props.position ? props.position : "initial")};
   }
@@ -116,7 +116,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLink = styled.span`
-  margin-left: 10px;
+  margin-left: 2px;
   cursor: pointer;
 `;
 

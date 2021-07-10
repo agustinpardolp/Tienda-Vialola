@@ -85,7 +85,6 @@ const EditSeries = ({
       },
     });
   };
-  console.log(series);
   return (
     <>
       <Filter

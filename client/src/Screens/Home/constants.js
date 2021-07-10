@@ -34,7 +34,6 @@ export const shopProducts = [
     category: { name: "paints" },
   },
 ];
-export const initialImage = "slide11";
 
 export const images = [
   { NAME: "slide8" },

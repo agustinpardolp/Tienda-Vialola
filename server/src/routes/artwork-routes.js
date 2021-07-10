@@ -148,14 +148,14 @@ router.put("/", MulterFn.single("img"), function (req, res) {
       allowOriginal: req.body.allowOriginal,
       categoryId: req.body.categoryId,
       serieId: req.body.serieId,
+      externalLink: req.body.externalLink
     },
     {
       where: {
         id: req.body.id,
       },
     }
-  ).then((resp) => {
-    console.log("responsè", resp);
+  ).then(() => {
     res.sendStatus(201);
   });
 });
@@ -171,6 +171,7 @@ router.post("/", MulterFn.single("img"), function (req, res) {
     allowOriginal: req.body.allowOriginal,
     categoryId: req.body.categoryId,
     serieId: req.body.serieId,
+    externalLink: req.body.externalLink
   })
     .then(() => {
       Serie.findByPk(req.body.serieId).then((serie) => {
@@ -189,8 +190,7 @@ router.post("/", MulterFn.single("img"), function (req, res) {
       });
       res.sendStatus(201);
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
       res.sendStatus(404);
     });
 });

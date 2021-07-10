@@ -1,37 +1,19 @@
 import { DEVICES_MAX_WIDTH } from "../../constants";
 import styled from "styled-components";
-import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 
-const StyledAboutContainer = styled.div`
-  background-size: contain;
-  width: 100%;
+const StyledImageContainer = styled.div`
+  align-items: center;
   background: ${(props) =>
     `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpeg") no-repeat left;`};
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
   background-size: contain;
-  display: flex;
+  display: inline-block;
   justify-content: flex-start;
-  align-items: center;
-  div {
-    display: flex;
-  }
-  p {
-    display: inline-block;
-    font-size: 1.05rem;
-    margin-left: 10%;
-    text-align: initial;
-    line-height: 29px;
-    width: 20%;
-  }
-
+  width: 100%;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(2) {
+      background-position: center;
+      height: 50vh;
       order: 1;
-    }
-    p {
-      display: contents;
     }
   }
 `;
@@ -39,7 +21,7 @@ const StyledAboutContainer = styled.div`
 const StyledMainContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0 20px 0 50px;
+  padding: 20px 30px;
 
   @media ${DEVICES_MAX_WIDTH.laptop} {
     grid-template-columns: 1fr;
@@ -52,11 +34,11 @@ const StyledInfoContainer = styled.div`
   justify-content: center;
 
   p {
-    padding: 120px;
     font-size: 1rem;
-    text-align: start;
     font-weight: lighter;
     letter-spacing: 1px;
+    padding: 120px;
+    text-align: start;
   }
   @media ${DEVICES_MAX_WIDTH.laptopL} {
     p {
@@ -66,21 +48,17 @@ const StyledInfoContainer = styled.div`
 
   @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(1) {
-      order: 2;
       margin: 5%;
+      order: 2;
     }
     p {
-      padding: 5px;
       font-size: 1rem;
-      text-align: start;
       font-weight: lighter;
       letter-spacing: 1px;
+      padding: 5px;
+      text-align: start;
     }
   }
 `;
 
-export {
-  StyledAboutContainer,
-  StyledMainContainer,
-  StyledInfoContainer
-};
+export { StyledImageContainer, StyledMainContainer, StyledInfoContainer };

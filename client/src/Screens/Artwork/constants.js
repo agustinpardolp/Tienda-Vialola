@@ -1,10 +1,8 @@
-import { SearchCategory } from "semantic-ui-react";
-
-export const handleBreadcrum = (category, categoryPath, serie, seriePath) => {
+export const handleBreadcrum = (categoryPath, serie, seriePath) => {
   let breadcrumItems = [
-    { name: category, path: categoryPath },
-    { name: "SERIES", path: "" },
-    { name: serie, path: seriePath },
+    { name: "GALLERY", path: categoryPath, status: true },
+    { name: "SERIES", path: seriePath, status: true },
+    { name: serie, path: "", status: true },
   ];
 
   return breadcrumItems;

@@ -14,6 +14,7 @@ import {
 import ArtworkInfo from "./components/ArtworkInfo";
 import ArtworkBreadcrum from "./components/ArtworkBreadcumb";
 import { handleBreadcrum } from "./constants";
+import { PATHS } from "../../routes/constants";
 
 function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
   let { params } = match;
@@ -44,6 +45,8 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
       stock: selectedArtwork.stock,
       price: selectedArtwork.price,
       priceReproduction: selectedArtwork.priceReproduction,
+      allowOriginal: selectedArtwork.allowOriginal,
+      allowReproduction: selectedArtwork.allowReproduction,
     });
   }, []);
 
@@ -57,10 +60,9 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
             <StyledImageSelectorContainer>
               <ArtworkBreadcrum
                 items={handleBreadcrum(
-                  params.category,
-                  `/gallery`,
+                  PATHS.gallery,
                   params.serie,
-                  `/gallery/${params.category}`
+                  `/gallery/${params.category}/`
                 )}
                 history={history}
               />
@@ -91,7 +93,7 @@ function Artwork({ artworksBySerie, match, fetchArtworksBySerie, history }) {
                 hideDownload
               />
               <ArtworkInfo
-                imgInfo={imgInfo}
+                imgInfo={imgInfo.name ? imgInfo : artworksBySerie[0]}
                 artworksBySerie={artworksBySerie}
                 history={history}
               />

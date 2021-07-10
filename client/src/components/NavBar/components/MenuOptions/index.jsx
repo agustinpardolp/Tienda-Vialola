@@ -13,18 +13,13 @@ const MenuOptions = ({ location, path }) => {
           <li key={option.id}>
             <StyledLink
               to={option.path}
-              format={
-                intl.formatMessage({ id: option.name }) === path
-                  ? "true"
-                  : undefined
-              }
+              format={option.path.split("/")[1] === path ? "true" : undefined}
             >
               <FormattedMessage id={option.name} />
             </StyledLink>
           </li>
         );
       })}
-
     </StyledMenuOptions>
   );
 };

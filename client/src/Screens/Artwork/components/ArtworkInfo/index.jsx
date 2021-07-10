@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FormattedMessage } from "react-intl";
 import { PATHS } from "../../../../routes/constants";
 
@@ -10,40 +10,61 @@ import {
 } from "../../styled-components";
 import ArtworkBreadcrum from "../ArtworkBreadcumb";
 
-const ArtworkInfo = ({ imgInfo, artworksBySerie, history }) => {
+const ArtworkInfo = ({ imgInfo, history }) => {
+  console.log(imgInfo)
   const handleClick = () => {
     history.push({
       pathname: PATHS.contact,
       state: {
         ...imgInfo,
-        name: artworksBySerie[0].name,
-        description: artworksBySerie[0].description,
-        price: artworksBySerie[0].price,
-        priceReproduction: artworksBySerie[0].priceReproduction,
+        name: imgInfo.name,
+        description: imgInfo.description,
+        price: imgInfo.price,
+        priceReproduction: imgInfo.priceReproduction,
+        allowReproduction: imgInfo.allowReproduction,
+        allowOriginal: imgInfo.allowOriginal
       },
     });
   };
+
+  const handlePrintsOStatus = useMemo(() => {
+    if (!imgInfo.allowOriginal && !imgInfo.allowReproduction) return [];
+    let options = [
+      {
+        name: "artwork.printsAvailable",
+        path: "",
+        status: imgInfo.allowReproduction,
+      },
+      {
+        name: "artwork.originalOnSale",
+        path: "",
+        status: imgInfo.allowOriginal,
+      },
+    ];
+
+    return options;
+  }, [imgInfo]);
+
   return (
     <StyledInfo>
       <StyledList>
         <li>
           <FormattedMessage id="artwork.infoTitle" />
-          {`${imgInfo.name || artworksBySerie[0].name}`}
+          {` ${imgInfo.name}`}
         </li>
-        <li>{`${imgInfo.description || artworksBySerie[0].description}`}</li>
+        <li>{`${imgInfo.description}`}</li>
       </StyledList>
       <StyledContainer>
         <ArtworkBreadcrum
-          items={[
-            { name: "artowork.printsAvailable", path: "" },
-            { name: "artwork.originalOnSale", path: "" },
-          ]}
+          items={handlePrintsOStatus}
           history={history}
           position="center"
         />
-        <StyledLink onClick={handleClick}>
-          <FormattedMessage id="artwork.here" />
-        </StyledLink>
+        {handlePrintsOStatus.length > 0 && (
+          <StyledLink onClick={handleClick}>
+            <FormattedMessage id="artwork.here" />
+          </StyledLink>
+        )}
       </StyledContainer>
     </StyledInfo>
   );

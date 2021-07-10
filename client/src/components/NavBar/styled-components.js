@@ -4,11 +4,11 @@ import { DEVICES_MIN_WIDTH, DEVICES_MAX_WIDTH } from "../../constants";
 import { Icon } from "semantic-ui-react";
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
   color: ${(props) =>
-    props.format ? "var(--mineShaft)" : "var(--mineShaft) !important"};
-  font-size: ${(props) => (props.format ? "22px" : "17px")};
-
+    props.format ? "var(--codGray)" : "var(--mineShaft) !important"};
+  font-size: ${(props) => (props.format ? "19px" : "17px")};
+  text-decoration: none;
+  
   link:hover {
     color: grey;
     transition: all 0.4s ease 0s;
@@ -49,17 +49,17 @@ const StyledCartMenu = styled.div`
 const StyledMenuOptions = styled.ul`
   align-items: center;
   color: var(--mineShaft);
-  padding-top: 6px;
-  text-decoration: solid;
-  list-style: none;
   display: flex;
   justify-content: space-evenly;
   font-size: 20px;
+  list-style: none;
   margin: 0;
+  padding-top: 6px;
+  text-decoration: solid;
 
   li {
-    margin-left: 40px;
     color: var(--mineShaft);
+    margin-left: 40px;
     transition: all 0.4s ease 0s;
   }
 
@@ -92,20 +92,20 @@ const StyledBrandLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   :hover {
+    color: "var(--doveGray)";
     letter-spacing: 1px;
     transition: all 0.9s ease 0s;
-    color: "var(--doveGray)";
   }
   img {
-    width: 90%;
     filter: invert(0.3);
+    width: 90%;
   }
   text-decoration: none;
 `;
 const StyledAdminMenu = styled.div`
+  align-items: center;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   h2 {
     color: dimgrey;
     margin: 0 10px 0 0;
@@ -116,8 +116,8 @@ const StyledAdminMenu = styled.div`
 `;
 
 const StyledBrand = styled.div`
-  width: 100%;
   display: flex;
+  width: 100%;
 `;
 const Container = styled.div`
   margin-bottom: 20px;
@@ -155,8 +155,8 @@ const StyledBarContainer = styled.div`
 `;
 
 const StyledTranslateContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   img {
     width: 20px;
   }

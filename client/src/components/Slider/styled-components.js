@@ -1,47 +1,33 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { DEVICES_MIN_WIDTH, DEVICES_MAX_WIDTH } from "../../constants";
-import { Icon } from "semantic-ui-react";
 
-const ElementSlider = styled.div`
+const StyledSliderContainer = styled.div`
   display: grid;
-  grid-template-columns: ${(props) =>
-    `repeat(${props.col.length}, ${(12 * 8) / props.col.length}%)`};
-  grid-gap: ${(props) => `${(10 * 7) / props.col.length}px`};
-  height: 150px;
-  justify-content: center;
-  width: ${(props) => props.col && (props.col.length * 90) / 8};
+  height: 80vh;
+  .carousel-inner img {
+    width: 100%;
+    max-height: 60vh;
+    height: 60vh;
+  }
+
+  .carousel-inner {
+    height: 70vh;
+  }
 `;
 
-const StyledDiv = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) =>
-    `${10}% ${(80 * props.col.length) / 8}% ${10}%`};
-  justify-content: center;
-  margin-top: 2%;
-  margin-right: 4%;
-  margin-left: 4%;
-  width: 80%;
-`;
-
-const StyledSlideContainer = styled.div`
-  display: flex;
-  justify-content: center;
+const StyledHomeContainer = styled.img`
+  background-size: cover;
+  position: absolute;
+  background: ${(props) =>
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat center;`};
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 80vh;
+  text-align: center;
+  transition: ${(props) => `${props.pageTransition}`};
+  transition-delay: 100ms;
   width: 100%;
 `;
 
-const StyledButtonContainer = styled.div`
-  align-self: center;
-`;
 
-const StyledCarContainer = styled.div`
-  width: 150px;
-`;
-
-export {
-  ElementSlider,
-  StyledDiv,
-  StyledSlideContainer,
-  StyledButtonContainer,
-  StyledCarContainer
-};
+export { StyledSliderContainer, StyledHomeContainer };

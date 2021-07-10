@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import { StyledButton } from "./styled-components";
+
 const Button = ({ label, onClick, variant, type }) => {
   const handleVariant = (variant) => {
     let settings = {
@@ -10,7 +11,6 @@ const Button = ({ label, onClick, variant, type }) => {
       backgroundColor: "none",
       disabled: false,
     };
-    console.log(variant)
     switch (variant) {
       case "confirm":
         settings = {

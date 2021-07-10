@@ -50,7 +50,17 @@ const Contact = withFormik({
       subject: subject,
       message: message || "",
       artworkData: history.location.state?.name
-        ? `${history.location.state.name}- Serie: ${history.location.state.serie} - ${history.location.state.description} - ${history.location.state.price} / ${history.location.state.priceReproduction}`
+        ? `${history.location.state.name}- Serie: ${
+            history.location.state.serie
+          } - ${history.location.state.description} - ${
+            history.location.state.allowOriginal
+              ? `USD ${history.location.state.price}`
+              : ""
+          } / ${
+            history.location.state.allowReproduction
+              ? `USD ${history.location.state.priceReproduction}`
+              : ""
+          }`
         : artworkData,
     };
   },

@@ -1,27 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import Carousele from "../../components/Carousel";
+import Slider from "../../components/Slider";
 import HomeProducts from "./components/HomeProducts";
 import HomeText from "./components/HomeText";
 import HomeContact from "./components/HomeContact";
-import {
-  StyledMainHomeProducts,
-  StyledHomeContainer,
-} from "./styled-components";
-import { initialImage, shopProducts, IMAGES } from "./constants";
-import { useSlider } from "../../hooks";
+import CarouselSlider from "../../components/CarouseleSlider";
+import { StyledMainHomeProducts } from "./styled-components";
+import { shopProducts, IMAGES } from "./constants";
+import { MEDIA_SIZES } from "../../constants";
+
 
 function Home() {
-  const { imageData } = useSlider(IMAGES);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile((window.innerWidth || 0) <= parseInt(MEDIA_SIZES.tablet));
+  }, [window.innerWidth]);
 
   return (
     <StyledMainHomeProducts>
-      <Carousele img={imageData}>
-        <StyledHomeContainer
-          img={imageData ? imageData : initialImage}
-          pageTransition="all 1.8s"
-        ></StyledHomeContainer>
-      </Carousele>
+      {isMobile ? <CarouselSlider sliders={IMAGES} /> : <Slider />}
       <HomeText />
       <HomeProducts shopProducts={shopProducts} />
       <HomeContact />
