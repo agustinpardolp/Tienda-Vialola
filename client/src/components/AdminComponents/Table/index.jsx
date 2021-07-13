@@ -30,7 +30,7 @@ const CustomTable = ({
     );
   };
   return (
-    <Table sortable celled>
+    <Table sortable celled stackable>
       {renderHeader(headerColumns)}
 
       <Table.Body>
@@ -52,9 +52,7 @@ const CustomTable = ({
       <Table.Footer fullWidth>
         <Table.Row>
           <Table.HeaderCell />
-          <Table.HeaderCell
-            colSpan={headerColumns.length + 1}
-          ></Table.HeaderCell>
+          <Table.HeaderCell colSpan={headerColumns.length + 1} />
         </Table.Row>
       </Table.Footer>
     </Table>

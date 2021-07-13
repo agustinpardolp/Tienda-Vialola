@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Modal, Form, Icon, Button} from "semantic-ui-react";
 
 const StyledFormModal = styled(Modal)`
-  height: ${(props)=> props.isSmall? "20vh !important": "85vh !important"};
+  height:auto !important;
+  overflow-y: scroll;
   position: relative !important;
 `;
 const StyledFormInput = styled(Form.Input)`
@@ -18,7 +19,7 @@ const StyledImageLabel = styled.label`
   margin-bottom: 1.5rem;
   position: relative;
   width: 10rem;
-  height: 12rem;
+  height: 12rem;  
   img {
     width: 100%;
     padding-bottom: 2rem;
@@ -33,4 +34,13 @@ const StyledButtonContainer = styled(Button.Group)`
   align-self: flex-end;
   height: 50%;
 `;
-export { StyledFormModal, StyledFormInput, StyledIcon, StyledImageLabel, StyledButtonContainer };
+
+const SpinneContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+`;
+
+export { StyledFormModal, StyledFormInput, StyledIcon, StyledImageLabel, StyledButtonContainer, SpinneContainer };

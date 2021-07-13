@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { connect } from "react-redux";
-import { Grid } from "semantic-ui-react";
 
 import Filter from "../../../components/AdminComponents/Filter";
 import Table from "../../../components/AdminComponents/Table";
@@ -83,7 +82,7 @@ const EditArtwork = ({
       modalProps: {
         open: true,
         handleConfirm: createArtwork,
-        posResponse: fetchArtworks,
+        posResponse: "",
         categories: transformResponse(artworkCategories),
         isNew: true,
       },
@@ -99,14 +98,13 @@ const EditArtwork = ({
         ]}
         handleNewOption={handleCreate}
       />
-      <Grid.Row>
-        <Table
-          headerColumns={headerColumns}
-          dataRows={artworks}
-          handleSelectedRow={handleEdit}
-          handleDeleteRow={handleDelete}
-        />
-      </Grid.Row>
+
+      <Table
+        headerColumns={headerColumns}
+        dataRows={artworks}
+        handleSelectedRow={handleEdit}
+        handleDeleteRow={handleDelete}
+      />
     </>
   );
 };

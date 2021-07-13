@@ -24,6 +24,7 @@ const Sidebar = () => {
         })}
       </ul>
     </StyledSidebar>
+    
   );
 };
 

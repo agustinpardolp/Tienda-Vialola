@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledImageContainer = styled.div`
   align-items: center;
   background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpeg") no-repeat left;`};
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat left;`};
   background-size: contain;
   display: inline-block;
   justify-content: flex-start;

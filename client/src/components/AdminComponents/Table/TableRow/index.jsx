@@ -74,11 +74,11 @@ const TableRow = ({
       {formats &&
         formats.map((format, index) => cellDataHandler(format, dataRow, index))}
 
-      <Table.Cell collapsing>
+      <Table.Cell >
         <Icon name="edit" onClick={() => handleselectRow(dataRow)} />
       </Table.Cell>
 
-      <Table.Cell collapsing>
+      <Table.Cell >
         <Icon name="trash" onClick={() => handleDeleteRow(dataRow)} />
       </Table.Cell>
     </Table.Row>

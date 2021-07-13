@@ -1,7 +1,7 @@
 import React from "react";
 import { IMAGES } from "../../constants";
 import { useSlider } from "../../hooks/useSlider";
-import TransitionWrapper from "../transition";
+import TransitionWrapper from "../Transition";
 import { initialImage } from "./constants";
 
 import {

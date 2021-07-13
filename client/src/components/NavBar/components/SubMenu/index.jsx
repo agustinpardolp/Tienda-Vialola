@@ -1,14 +1,27 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { Icon } from "semantic-ui-react";
 import { PATHS } from "../../../../routes/constants";
 
 import { lenguageTypes } from "../../../LenguageWrapper/constants";
 
-import TransitionWrapper from "../../../transition";
+import TransitionWrapper from "../../../Transition";
 import { NAVBAR } from "../../constants";
-import { StyledLink, StyledSubMenu, StyledTranslateContainer } from "./styled-components";
+import {
+  StyledLink,
+  StyledSubMenu,
+  StyledTranslateContainer,
+} from "./styled-components";
 
-const SubMenu = ({ visible, path, isAdmin, handleChangeLanguage, locale }) => {
+const SubMenu = ({
+  visible,
+  path,
+  isAdmin,
+  handleChangeLanguage,
+  locale,
+  handleLogout,
+  history,
+}) => {
   return (
     <TransitionWrapper>
       {visible ? (
@@ -17,8 +30,13 @@ const SubMenu = ({ visible, path, isAdmin, handleChangeLanguage, locale }) => {
             <ul>
               <li>
                 <StyledLink to={PATHS.adminEditArtwork}>
-                  Panel Administrador
+                <FormattedMessage id="navbar.admin"/>
                 </StyledLink>
+                <Icon
+                  name="log out"
+                  onClick={() => handleLogout(history, PATHS.home)}
+                  size="large"
+                />
               </li>
             </ul>
           </StyledSubMenu>
@@ -40,17 +58,16 @@ const SubMenu = ({ visible, path, isAdmin, handleChangeLanguage, locale }) => {
                 );
               })}
               <li>
-              <StyledTranslateContainer>
-                <img
-                  src={`/images/logo/${
-                    locale === lenguageTypes.en_es
-                      ? "britain.png"
-                      : "spain.png"
-                  }`}
-                  onClick={handleChangeLanguage}
-                />
-              </StyledTranslateContainer>
-
+                <StyledTranslateContainer>
+                  <img
+                    src={`/images/logo/${
+                      locale === lenguageTypes.en_es
+                        ? "britain.png"
+                        : "spain.png"
+                    }`}
+                    onClick={handleChangeLanguage}
+                  />
+                </StyledTranslateContainer>
               </li>
             </ul>
           </StyledSubMenu>

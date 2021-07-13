@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
 import Dividers from "../../components/Divider";
-import Spinner from "../../components/Modals&Spinners/spinner";
-import { REQUEST_STATUS } from "../../constants";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
+import { FadeIn } from "../../utils/baseStyleAnimations";
 import { StyledMain } from "./styledComponents";
 
 export function Gallery({ fetchArtworkCategories, artworkCategories, status }) {
@@ -15,12 +14,9 @@ export function Gallery({ fetchArtworkCategories, artworkCategories, status }) {
   }, [fetchArtworkCategories]);
 
   return (
-    <>
+    <FadeIn duration="1s">
       <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
       <StyledMain>
-        {status !== REQUEST_STATUS.LOADED ? (
-          <Spinner active></Spinner>
-        ) : (
           <CardGrid
             row={"1"}
             elementsLength={artworkCategories && artworkCategories.length}
@@ -38,9 +34,8 @@ export function Gallery({ fetchArtworkCategories, artworkCategories, status }) {
                 );
               })}
           </CardGrid>
-        )}
       </StyledMain>
-    </>
+    </FadeIn>
   );
 }
 

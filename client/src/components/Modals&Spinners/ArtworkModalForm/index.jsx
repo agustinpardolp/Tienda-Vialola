@@ -46,7 +46,7 @@ const ArtworkModalForm = withFormik({
       serieId: data ? data.serieId : null,
       category: data ? data.category?.name : "",
       img: data? data.img: "",
-      externalLink: data? data.externalLink : ""
+      externalLink: data? data.externalLink : false
     };
   },
   handleSubmit: (values, { props }) => {

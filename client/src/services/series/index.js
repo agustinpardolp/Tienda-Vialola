@@ -4,6 +4,7 @@ import { API_SERIES } from "../../constants";
 
 export const getSeries = (queryParam) => {
   const { query } = queryParam;
+  console.log("QUERY", query)
   return axios.get(`${API_SERIES}${query}`).then((res) => res);
 };
 

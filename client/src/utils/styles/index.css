@@ -714,6 +714,7 @@ span {
 /* ------------- Filter---------------- */
 .filter_row-title-container {
   background: #227c9d;
+  
 }
 
 .input .ui.input > input {
@@ -733,4 +734,9 @@ span {
   background-color: var(--wildSand) !important;
   border: none !important;
   height: 30vh;
+}
+
+.ui.grid>.column:not(.row) {
+  padding-top: 0;
+
 }

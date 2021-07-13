@@ -12,6 +12,7 @@
   "navbar.shop": "Tienda",
   "navbar.contact": "Contacto",
   "navbar.news": "Novedades",
+  "navbar.admin": "Menu Administrador",
 
   "contact.title": "Por consultas sobre trabajos de ilustración, exposiciones, comprar originales o reproducciones, te invito a ponerte en contacto completando el siguiente formulario. Responderé a la brevedad. Gracias!",
   "contact.inputName": "Nombre*",
@@ -94,5 +95,9 @@
   "userEdition.surnameRequired": "Campo apellido es requerido",
   "userEdition.emailRequired": "Campo email es requerido",
   "userEdition.addressRequired": "Campo direcciòn es requerido",
-  "userEdition.dniRequired": "Campo dni es requerido"
+  "userEdition.dniRequired": "Campo dni es requerido",
+
+  "shop.title": "MUY PRONTO!",
+  "shop.paragraph": "La tienda se encuentra en construccion, mientras tanto podés contactarme {link}",
+  "shop.here": "aquí"
 }

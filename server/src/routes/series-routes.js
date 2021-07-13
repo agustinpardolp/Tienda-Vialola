@@ -11,7 +11,57 @@ router.get("/", function (req, res) {
       where: {
         name: req.query.category,
       },
-    }).then((category) => {
+    })
+      .then((category) => {
+        Serie.findAll({
+          where: {
+            categoryId: category.id,
+          },
+          include: [
+            {
+              model: Category,
+              as: "category",
+              attributes: ["name"],
+            },
+          ],
+        })
+          .then((seriesList) => {
+            return res.send(seriesList);
+          })
+          .catch((err) => {
+            res.sendStatus(404);
+          });
+      })
+      .catch((err) => {
+        res.status(404).send("No se contro la categoía");
+      });
+  } else {
+    Serie.findAll({
+      include: [
+        {
+          model: Category,
+          as: "category",
+          attributes: ["name"],
+        },
+      ],
+    })
+      .then((seriesList) => {
+        return res.send(seriesList);
+      })
+      .catch((err) => {
+        res.sendStatus(404);
+      });
+  }
+});
+
+router.get("/:category/", function (req, res) {
+  Category.findOne({
+    where: {
+      name: req.params.category,
+    },
+  })
+    .then((category) => {
+      category;
       Serie.findAll({
         where: {
           categoryId: category.id,
@@ -23,46 +73,17 @@ router.get("/", function (req, res) {
             attributes: ["name"],
           },
         ],
-      }).then((seriesList) => {
-        return res.send(seriesList);
-      });
+      })
+        .then((seriesList) => {
+          return res.send(seriesList);
+        })
+        .catch((err) => {
+          res.status(404).send("No se encontro la serie");
+        });
+    })
+    .catch((err) => {
+      res.status(404).send("No se encontro la categoría");
     });
-  } else {
-    Serie.findAll({
-      include: [
-        {
-          model: Category,
-          as: "category",
-          attributes: ["name"],
-        },
-      ],
-    }).then((seriesList) => {
-      return res.send(seriesList);
-    });
-  }
-});
-
-router.get("/:category/", function (req, res) {
-  Category.findOne({
-    where: {
-      name: req.params.category,
-    },
-  }).then((category) => {
-    Serie.findAll({
-      where: {
-        categoryId: category.id,
-      },
-      include: [
-        {
-          model: Category,
-          as: "category",
-          attributes: ["name"],
-        },
-      ],
-    }).then((seriesList) => {
-      return res.send(seriesList);
-    });
-  });
 });
 
 router.put("/", MulterFn.single("img"), function (req, res) {
@@ -77,9 +98,13 @@ router.put("/", MulterFn.single("img"), function (req, res) {
         id: req.body.id,
       },
     }
-  ).then((resp) => {
-    res.sendStatus(201);
-  });
+  )
+    .then((resp) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      res.status(404).send("Ocurrio un error al actualizar la serie");
+    });
 });
 
 router.post("/", MulterFn.single("img"), function (req, res) {
@@ -92,7 +117,7 @@ router.post("/", MulterFn.single("img"), function (req, res) {
       res.sendStatus(201);
     })
     .catch((err) => {
-      res.sendStatus(404);
+      res.status(404).send("Ocurrio un error al crear la serie");
     });
 });
 
@@ -115,7 +140,9 @@ router.delete("/:id", function (req, res) {
         .then((resp) => {
           res.sendStatus(201);
         })
-        .catch((err) => res.send(err));
+        .catch((err) => {
+          res.status(404).send("Ocurrio un error al eliminar la serie");
+        });
     }
   });
 });

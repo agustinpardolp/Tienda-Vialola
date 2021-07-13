@@ -1,6 +1,4 @@
 import {
-  faFacebook,
-  faTwitter,
   faInstagram,
   faLinkedin,
   faBehanceSquare,
@@ -24,16 +22,6 @@ export const mediaList = [
     icon: faInstagram,
   },
   {
-    name: "Facebook",
-    path: "https://www.facebook.com/dolores.pardo",
-    icon: faFacebook,
-  },
-  {
-    name: "Twiter",
-    path: "https://twitter.com/loladibujanta",
-    icon: faTwitter,
-  },
-  {
     name: "LinkedIn",
     path:
       "https://www.linkedin.com/in/dolores-pardo-0a43271b5/?originalSubdomain=ar",
@@ -45,4 +33,3 @@ export const mediaList = [
     icon: faBehanceSquare,
   },
 ];
-

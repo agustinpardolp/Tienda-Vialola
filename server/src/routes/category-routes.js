@@ -10,20 +10,24 @@ router.get("/", function (req, res) {
       where: {
         name: req.query.serie,
       },
-    }).then((serie) => {
-      Category.findAll({
-        where: {
-          id: serie.categoryId,
-        },
-        include: [
-          {
-            model: Serie,
-            as: "series",
-            attributes: ["name"],
+    })
+      .then((serie) => {
+        Category.findAll({
+          where: {
+            id: serie.categoryId,
           },
-        ],
-      }).then((categoryList) => res.send(categoryList));
-    });
+          include: [
+            {
+              model: Serie,
+              as: "series",
+              attributes: ["name"],
+            },
+          ],
+        }).then((categoryList) => res.send(categoryList));
+      })
+      .catch((err) => {
+        res.sendStatus(404);
+      });
   } else {
     Category.findAll({
       include: [
@@ -33,7 +37,11 @@ router.get("/", function (req, res) {
           attributes: ["name"],
         },
       ],
-    }).then((categoryList) => res.send(categoryList));
+    })
+      .then((categoryList) => res.send(categoryList))
+      .catch((err) => {
+        res.sendStatus(404);
+      });
   }
 });
 

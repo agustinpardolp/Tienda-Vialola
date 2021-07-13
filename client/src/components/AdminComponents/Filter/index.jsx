@@ -31,34 +31,37 @@ const Filter = ({ pathname, handleNewOption, dropdowns, noFilter }) => {
   };
 
   return (
+    // <Grid.Row className="filter_row-title-container">
     <Grid.Row className="filter_row-title-container">
-      <SubTittle>
-        <h2>{tittle?.NAME}</h2>
-      </SubTittle>
-      {noFilter ? null : (
-        <StyledEditButtonContainer>
-          <Button
-            variant="confirm"
-            label="Agregar"
-            onClick={handleNewOption}
-          ></Button>
-          {dropdowns &&
-            dropdowns.map((dropdown) => {
-              return (
-                <Dropdown
-                  key={dropdown.name}
-                  disabled={dropdown.disabled}
-                  placeholder={dropdown.name}
-                  search
-                  selection
-                  onChange={(e, value) => handleChange(value, dropdown)}
-                  options={handleOptions(dropdown.data)}
-                  clearable
-                />
-              );
-            })}
-        </StyledEditButtonContainer>
-      )}
+      <Grid.Column width={14}>
+        <SubTittle>
+          <h2>{tittle?.NAME}</h2>
+        </SubTittle>
+        {noFilter ? null : (
+          <StyledEditButtonContainer>
+            <Button
+              variant="confirm"
+              label="Agregar"
+              onClick={handleNewOption}
+            ></Button>
+            {dropdowns &&
+              dropdowns.map((dropdown) => {
+                return (
+                  <Dropdown
+                    key={dropdown.name}
+                    disabled={dropdown.disabled}
+                    placeholder={dropdown.name}
+                    search
+                    selection
+                    onChange={(e, value) => handleChange(value, dropdown)}
+                    options={handleOptions(dropdown.data)}
+                    clearable
+                  />
+                );
+              })}
+          </StyledEditButtonContainer>
+        )}
+      </Grid.Column>
     </Grid.Row>
   );
 };

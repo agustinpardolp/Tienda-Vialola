@@ -52,6 +52,7 @@ const StyledSeriesGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 6px;
+  margin-top: 20px;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;

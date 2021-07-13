@@ -1,23 +1,16 @@
 import styled from "styled-components";
 import { Grid } from "semantic-ui-react";
 
+import { DEVICES_MAX_WIDTH } from "../../constants";
+
 const StyledAdminContainer = styled(Grid)`
-  .sidebarContainer {
-    background: #17c3b2;
+ background: var(--primaryConfirm);
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    margin-top: 15px!important;
   }
   .tittleContainer {
     background: var(--primary);
   }
 `;
 
-const StyledEditButtonContainer = styled.div`
-  height: 4rem;
-  width: 100%;
-  align-items: center;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 1rem;
-  margin-bottom:1rem;
-`;
-
-export { StyledAdminContainer, StyledEditButtonContainer };
+export { StyledAdminContainer };

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import SubMenu from "./components/SubMenu";
@@ -61,7 +62,7 @@ export function NavBar({ location, history, logoutUser }) {
             <StyledCartMenu>
               {isAdmin ? (
                 <StyledAdminMenu>
-                  <h2>Panel Administrador</h2>
+                  <h2><FormattedMessage id="navbar.admin"/></h2>
                   <Icon
                     name="log out"
                     onClick={() => handleLogout(history, PATHS.home)}
@@ -88,17 +89,14 @@ export function NavBar({ location, history, logoutUser }) {
           </NavbarContainer>
         </Container>
       </UpperTranslate>
-      {!isAdmin && (
-        <StyledAdminButton>
-          <Link to={PATHS.login}>admin</Link>
-        </StyledAdminButton>
-      )}
       <SubMenu
         visible={visible}
         path={path}
         isAdmin={isAdmin}
         handleChangeLanguage={handleChangeLanguage}
         locale={context.locale}
+        handleLogout={handleLogout}
+        history={history}
       />
     </>
   );

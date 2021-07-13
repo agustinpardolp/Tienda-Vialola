@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DEVICES_MAX_WIDTH } from "../../constants";
 
-export const StyledCardCategory = styled.div`
+const StyledCardCategory = styled.div`
   height: 100%;
   width: 100%;
   margin: 0.5%;
@@ -21,7 +21,7 @@ export const StyledCardCategory = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+const StyledLink = styled(Link)`
   text-decoration: none !important;
   color: var(--wildSand) !important;
   display: block;
@@ -38,7 +38,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledCategoryTittle = styled.div`
+const StyledCategoryTittle = styled.div`
   text-decoration: none !important;
   transition: all 0.5s;
   position: absolute;
@@ -48,7 +48,7 @@ export const StyledCategoryTittle = styled.div`
   }
 `;
 
-export const CategoriesContainer = styled.div`
+const CategoriesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 1%;
@@ -56,9 +56,17 @@ export const CategoriesContainer = styled.div`
   height: 65vh;
 `;
 
-export const StyledMain = styled.div`
+const StyledMain = styled.div`
   height: 70vh;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     height: 100%;
   }
 `;
+
+export {
+  StyledCardCategory,
+  StyledLink,
+  StyledCategoryTittle,
+  CategoriesContainer,
+  StyledMain
+};

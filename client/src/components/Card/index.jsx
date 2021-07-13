@@ -1,7 +1,7 @@
 import React from "react";
 
 import { OverlayAnimation } from "../../utils/baseStyleAnimations";
-import TransitionWrapper from "../../components/transition";
+import TransitionWrapper from "../Transition";
 
 import {
   StyledCategoryTittle,

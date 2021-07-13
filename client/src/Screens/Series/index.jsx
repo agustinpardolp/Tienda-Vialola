@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo } from "react";
 import { connect } from "react-redux";
 
-import { REQUEST_STATUS } from "../../constants";
 import Dividers from "../../components/Divider";
 import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
 import Spinner from "../../components/Modals&Spinners/spinner";
 import { fetchSeries } from "../../redux/series/actions/serie-actions";
-import { StyledMain } from "./styledComponents";
+import { StyledMain } from "./styled-components";
 import { handleSeries } from "./constants";
+import { FadeIn } from "../../utils/baseStyleAnimations";
 
 const Series = ({ match, fetchSeries, status, series }) => {
   const {
@@ -21,24 +21,30 @@ const Series = ({ match, fetchSeries, status, series }) => {
   }, [category]);
 
   const onHandleSeries = useMemo(() => handleSeries(series), [series]);
-
+  const onRenderDivider = useMemo(() => {
+    return (
+      series.length > 0 && (
+        <Dividers
+          titleElements={[
+            {
+              name: `${series[0]?.category.name} / series`,
+              id: 1,
+            },
+          ]}
+        />
+      )
+    );
+  }, [series]);
   return (
     <>
-      {status !== REQUEST_STATUS.LOADED ? (
+      {!series.length ? (
         <Spinner />
       ) : (
-        <>
-          <Dividers
-            titleElements={[
-              {
-                name: `${series.length && series[0].category.name} / series`,
-                id: 1,
-              },
-            ]}
-          />
+        <FadeIn duration="1s">
+          {onRenderDivider}
           <StyledMain>
             <CardGrid row={3}>
-              {series.length &&
+              {series.length > 0 &&
                 onHandleSeries.map((serie) => {
                   return (
                     <Card
@@ -52,7 +58,7 @@ const Series = ({ match, fetchSeries, status, series }) => {
                 })}
             </CardGrid>
           </StyledMain>
-        </>
+        </FadeIn>
       )}
     </>
   );
