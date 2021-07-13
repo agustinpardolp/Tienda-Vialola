@@ -26,13 +26,13 @@ const validationSchema = yup.object().shape({
   categoryId: yup.number().required("Debe seleccionar una categoria"),
   serieId: yup.number().required("Debe seleccionar una serie"),
   category: yup.string(),
+  externalLink: yup.boolean()
 });
 
 const ArtworkModalForm = withFormik({
   validateOnChange: true,
   enableReinitialize: false,
   validationSchema,
-  // validateOnBlur: true,
   mapPropsToValues: ({ data }) => {
     return {
       id: data ? data.id : "",
@@ -45,7 +45,8 @@ const ArtworkModalForm = withFormik({
       categoryId: data ? data.categoryId : null,
       serieId: data ? data.serieId : null,
       category: data ? data.category?.name : "",
-      img: data? data.img: ""
+      img: data? data.img: "",
+      externalLink: data? data.externalLink : false
     };
   },
   handleSubmit: (values, { props }) => {

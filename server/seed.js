@@ -2,21 +2,7 @@ const User = require("../server/db/models/index").User;
 const Category = require("../server/db/models/index").Category;
 const Artwork = require("../server/db/models/index").Artwork;
 const Serie = require("../server/db/models/index").Serie;
-const Slider = require("../server/db/models/index").Slider;
 const News = require("../server/db/models/index").News;
-const About = require("../server/db/models/index").About;
-// const Product = require("../server/db/models/index").Product;
-// const Section = require("../server/db/models/index").Section;
-
-About.create({
-  info: `A veces me parece que todos estamos poseidos por un impulso que nos
-  lleva a buscar lo imposible. La realidad que tenemos ante nosotros, el
-  mundo tridimensional que nos redea es demasiado común, demasiado
-  deslucido, demaciado ordinario para nosotros. Anhelamos lo anormal o
-  sobrenatural, lo que no existe, un milagro: ¡Como si la realidad de
-  cada dia no fuese lo bastante enigmatica!`,
-});
-
 User.create({
   name: "Dolores",
   surname: "Pardo",
@@ -55,41 +41,49 @@ Serie.create({
   name: "Indomitos",
   img: "pintura-indomitos3.jpg",
   categoryId: "1",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "Naturaleza Salvaje",
   img: "pintura-naturaleza1.jpg",
   categoryId: "1",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "La Boca",
   img: "pinturas-boca-1.jpg",
   categoryId: "1",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "Elementos",
   img: "pintura-elementos3.jpg",
   categoryId: "1",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "De Fiesta",
   img: "pintura-festejo1.jpg",
   categoryId: "1",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "Cajas",
   img: "cajaPrincesa.jpg",
   categoryId: "5",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "Muñecos",
   img: "pecesCartapesta.jpg",
   categoryId: "5",
+  hasArtworkRelated: true
 });
 Serie.create({
   name: "Varios",
   img: "lapiz7.jpg",
   categoryId: "5",
+  hasArtworkRelated: true
 });
 
 //SECTION FOR PRODUCTS
@@ -372,7 +366,8 @@ Artwork.create({
   allowOriginal: true,
   img: "pintura-elementos1.jpg",
   categoryId: "1",
-  serieId: "4  ",
+  serieId: "4",  
+  externalLink: false
 });
 
 Artwork.create({
@@ -385,6 +380,7 @@ Artwork.create({
   img: "pintura-elementos2.jpg",
   categoryId: "1",
   serieId: "4",
+  externalLink: false
 });
 
 Artwork.create({
@@ -397,6 +393,7 @@ Artwork.create({
   img: "pintura-elementos3.jpg",
   categoryId: "1",
   serieId: "4",
+  externalLink: false
 });
 Artwork.create({
   name: "4 tipos audaces",
@@ -408,6 +405,7 @@ Artwork.create({
   img: "pintura-festejo2.jpg",
   categoryId: "1",
   serieId: "5",
+  externalLink: false
 });
 Artwork.create({
   name: "El grupete",
@@ -419,6 +417,7 @@ Artwork.create({
   img: "pintura-festejo1.jpg",
   categoryId: "1",
   serieId: "5",
+  externalLink: false
 });
 Artwork.create({
   name: "Diablo y pajaro",
@@ -430,6 +429,7 @@ Artwork.create({
   img: "pintura-indomitos3.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 
 Artwork.create({
@@ -442,6 +442,7 @@ Artwork.create({
   img: "pintura-indomitos3b&n.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "La charla",
@@ -453,6 +454,7 @@ Artwork.create({
   img: "pintura-indomitos7.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "La charla - Blanco y Negro",
@@ -464,6 +466,7 @@ Artwork.create({
   img: "pintura-indomitos7b&n.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "Pincha-globos",
@@ -475,6 +478,7 @@ Artwork.create({
   img: "pintura-indomitos8.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "Mil brazos",
@@ -486,6 +490,7 @@ Artwork.create({
   img: "pintura-indomitos10.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: true
 });
 Artwork.create({
   name: "Mil brazos - Blanco y Negro",
@@ -497,6 +502,7 @@ Artwork.create({
   img: "pintura-indomitos10b&n.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: true
 });
 Artwork.create({
   name: "Soy una perra",
@@ -508,6 +514,7 @@ Artwork.create({
   img: "pintura-indomitos6.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "Soy una perra - Blanco y Negro",
@@ -519,6 +526,7 @@ Artwork.create({
   img: "pintura-indomitos6b&n.jpg",
   categoryId: "1",
   serieId: "1",
+  externalLink: false
 });
 Artwork.create({
   name: "Mujer en Oleo I",
@@ -530,6 +538,7 @@ Artwork.create({
   img: "pintura-naturaleza1.jpg",
   categoryId: "1",
   serieId: "2",
+  externalLink: false
 });
 
 Artwork.create({
@@ -542,6 +551,7 @@ Artwork.create({
   img: "pintura-naturaleza3.jpg",
   categoryId: "1",
   serieId: "2",
+  externalLink: false
 });
 
 Artwork.create({
@@ -554,6 +564,7 @@ Artwork.create({
   img: "pintura-naturaleza4.jpg",
   categoryId: "1",
   serieId: "2",
+  externalLink: false
 });
 Artwork.create({
   name: "El protector",
@@ -565,6 +576,7 @@ Artwork.create({
   img: "pintura-naturaleza5.jpg",
   categoryId: "1",
   serieId: "2",
+  externalLink: false
 });
 Artwork.create({
   name: "Quinquela Querido",
@@ -576,6 +588,7 @@ Artwork.create({
   img: "pinturas-boca-1.jpg",
   categoryId: "1",
   serieId: "3",
+  externalLink: false
 });
 Artwork.create({
   name: "La familia",
@@ -587,6 +600,7 @@ Artwork.create({
   img: "pinturas-boca-2.jpg",
   categoryId: "1",
   serieId: "3",
+  externalLink: false
 });
 
 Artwork.create({
@@ -599,6 +613,7 @@ Artwork.create({
   img: "pinturas-boca-3.jpg",
   categoryId: "1",
   serieId: "3",
+  externalLink: false
 });
 Artwork.create({
   name: "Escena de La Boca",
@@ -610,6 +625,7 @@ Artwork.create({
   img: "pinturas-boca-4.jpg",
   categoryId: "1",
   serieId: "3",
+  externalLink: false
 });
 
 //----------TINTA------------
@@ -623,6 +639,7 @@ Artwork.create({
   img: "tinta9.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Lapicera",
@@ -634,6 +651,7 @@ Artwork.create({
   img: "tinta10.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Mundo en birome",
@@ -645,6 +663,7 @@ Artwork.create({
   img: "birome0.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Bring it back",
@@ -656,6 +675,7 @@ Artwork.create({
   img: "tinta8.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Rivalidad",
@@ -667,6 +687,7 @@ Artwork.create({
   img: "tintaMujeres.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -679,6 +700,7 @@ Artwork.create({
   img: "tinta1.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -691,6 +713,7 @@ Artwork.create({
   img: "CORTAZARazul.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -703,6 +726,7 @@ Artwork.create({
   img: "mujerLapicera.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Mujer Betta",
@@ -714,6 +738,7 @@ Artwork.create({
   img: "mujerLapicera2.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Mujer Gamma",
@@ -725,6 +750,7 @@ Artwork.create({
   img: "mujerLapicera3.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -737,6 +763,7 @@ Artwork.create({
   img: "mujerTinta.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -749,6 +776,7 @@ Artwork.create({
   img: "diablos.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -761,6 +789,7 @@ Artwork.create({
   img: "tintaHomMuj.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -773,6 +802,7 @@ Artwork.create({
   img: "tinta3.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -785,6 +815,7 @@ Artwork.create({
   img: "tinta2.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -797,6 +828,7 @@ Artwork.create({
   img: "tinta4.jpg",
   categoryId: "2",
   serieId: "8",
+  externalLink: false
 });
 
 //----------DIGITAL----------
@@ -811,6 +843,7 @@ Artwork.create({
   img: "digital18.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Vamos",
@@ -822,6 +855,7 @@ Artwork.create({
   img: "digital1.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Ahora si!",
@@ -833,6 +867,7 @@ Artwork.create({
   img: "digital2.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Sentate, veni.",
@@ -844,6 +879,7 @@ Artwork.create({
   img: "digital3.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "A la cucha!",
@@ -855,6 +891,7 @@ Artwork.create({
   img: "digital4.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -867,6 +904,7 @@ Artwork.create({
   img: "digital5.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "A rodar",
@@ -878,6 +916,7 @@ Artwork.create({
   img: "digital8.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Lobo de mundo",
@@ -889,6 +928,7 @@ Artwork.create({
   img: "digital7.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -901,6 +941,7 @@ Artwork.create({
   img: "digital8.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -913,6 +954,7 @@ Artwork.create({
   img: "digital9.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Navidad",
@@ -924,6 +966,7 @@ Artwork.create({
   img: "digital10.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Flotemos",
@@ -935,6 +978,7 @@ Artwork.create({
   img: "digital11.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "El desastre",
@@ -946,6 +990,7 @@ Artwork.create({
   img: "digital12.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Buenos muchachos",
@@ -957,6 +1002,7 @@ Artwork.create({
   img: "digital13.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "A cuatro manos",
@@ -968,6 +1014,7 @@ Artwork.create({
   img: "digital14.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "La Banda",
@@ -979,6 +1026,7 @@ Artwork.create({
   img: "digital15.jpg",
   categoryId: "3",
   serieId: "8",
+  externalLink: false
 });
 
 //---------LAPIZ---------------
@@ -993,6 +1041,7 @@ Artwork.create({
   img: "lapiz2.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "A todo color",
@@ -1004,6 +1053,7 @@ Artwork.create({
   img: "lapiz3.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Pajaro y noche",
@@ -1015,6 +1065,7 @@ Artwork.create({
   img: "lapiz4.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Habla de frente",
@@ -1026,6 +1077,7 @@ Artwork.create({
   img: "lapiz5.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Burda Copia",
@@ -1037,6 +1089,7 @@ Artwork.create({
   img: "lapiz6.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Buenos Demonios",
@@ -1048,6 +1101,7 @@ Artwork.create({
   img: "lapiz7.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Hay equipo",
@@ -1059,6 +1113,7 @@ Artwork.create({
   img: "lapiz8.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1071,6 +1126,7 @@ Artwork.create({
   img: "lapiz9.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Otra epoca",
@@ -1082,6 +1138,7 @@ Artwork.create({
   img: "lapiz10.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1094,6 +1151,7 @@ Artwork.create({
   img: "lapiz11.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1106,6 +1164,7 @@ Artwork.create({
   img: "lapiz13.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "En el bosque",
@@ -1117,6 +1176,7 @@ Artwork.create({
   img: "lapiz14.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1129,6 +1189,7 @@ Artwork.create({
   img: "lapiz15.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "A color",
@@ -1140,6 +1201,7 @@ Artwork.create({
   img: "lapiz16.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Perra",
@@ -1151,6 +1213,7 @@ Artwork.create({
   img: "lapiz17.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1163,6 +1226,7 @@ Artwork.create({
   img: "lapiz21.jpg",
   categoryId: "4",
   serieId: "8",
+  externalLink: false
 });
 
 //---------OBJETOS--------------
@@ -1176,6 +1240,7 @@ Artwork.create({
   img: "pecesMadera.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 Artwork.create({
   name: "Caja La Linda",
@@ -1187,6 +1252,7 @@ Artwork.create({
   img: "CAJA1.jpg",
   categoryId: "5",
   serieId: "6",
+  externalLink: false
 });
 Artwork.create({
   name: "Caja La Linda",
@@ -1198,6 +1264,7 @@ Artwork.create({
   img: "CAJA2.jpg",
   categoryId: "5",
   serieId: "6",
+  externalLink: false
 });
 Artwork.create({
   name: "Caja La Linda",
@@ -1209,6 +1276,7 @@ Artwork.create({
   img: "CAJA3.jpg",
   categoryId: "5",
   serieId: "6",
+  externalLink: false
 });
 Artwork.create({
   name: "Bandeja pal'mate",
@@ -1220,6 +1288,7 @@ Artwork.create({
   img: "bandeja.jpg",
   categoryId: "5",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Cajas Princesa",
@@ -1231,6 +1300,7 @@ Artwork.create({
   img: "cajaPrincesa.jpg",
   categoryId: "5",
   serieId: "6",
+  externalLink: false
 });
 Artwork.create({
   name: "Pajaros Madera",
@@ -1242,6 +1312,7 @@ Artwork.create({
   img: "pajaroCartapesta.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1254,6 +1325,7 @@ Artwork.create({
   img: "objeto9.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 Artwork.create({
   name: "Peces Madera",
@@ -1265,6 +1337,7 @@ Artwork.create({
   img: "pecesCartapesta.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1277,6 +1350,7 @@ Artwork.create({
   img: "lostres.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1289,6 +1363,7 @@ Artwork.create({
   img: "objeto1.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 Artwork.create({
   name: "Vamos",
@@ -1300,6 +1375,7 @@ Artwork.create({
   img: "objeto2.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1312,6 +1388,7 @@ Artwork.create({
   img: "objeto3.jpg",
   categoryId: "5",
   serieId: "8",
+  externalLink: false
 });
 Artwork.create({
   name: "Mujer que baila en madera",
@@ -1323,6 +1400,7 @@ Artwork.create({
   img: "objeto4.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 Artwork.create({
   name: "Hombre que baila en madera",
@@ -1334,6 +1412,7 @@ Artwork.create({
   img: "objeto5.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
 Artwork.create({
@@ -1346,27 +1425,9 @@ Artwork.create({
   img: "objeto6.jpg",
   categoryId: "5",
   serieId: "7",
+  externalLink: false
 });
 
-Slider.create({
-  title: "Macetas super coloridas",
-  description: "Encontrá toda la variedad que buscas para darle color jardin",
-  img: "11.jpg",
-  pathname: "/gallery/paints/",
-});
-Slider.create({
-  title: "¿Lo tenes a este loquillo?",
-  description:
-    "Este y muchos mas te esperan; Hechos en madera y pintados a mano.",
-  img: "9.jpg",
-  pathname: "/gallery/paints/",
-});
-Slider.create({
-  title: "La banda",
-  description: "Colgantes, llaveros",
-  img: "1.jpg",
-  pathname: "/gallery/objets/",
-});
 
 News.create({
   title: "Nueva muestra en el Malvinas",

@@ -35,6 +35,11 @@ const Artwork = db.define("artwork", {
     allowNull: false,
     defaultValue: true,
   },
+  externalLink: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
+  },
 });
 
 module.exports = Artwork;

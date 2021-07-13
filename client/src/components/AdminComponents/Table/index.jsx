@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
+import { DATATYPE } from "./constants";
 
 import TableRow from "./TableRow";
 
@@ -9,16 +10,6 @@ const CustomTable = ({
   handleSelectedRow,
   handleDeleteRow,
 }) => {
-  const DATATYPE = {
-    NAME: "name",
-    TITLE: "title",
-    EDIT: "edit",
-    DELETE: "delete",
-    ALLOW_ORIGINAL: "allowOriginal",
-    ALLOW_REPRODUCTION: "allowReproduction",
-    CATEGORY: "category",
-  };
-
   let formats = [];
   const renderHeader = (headerColumns) => {
     return (
@@ -39,7 +30,7 @@ const CustomTable = ({
     );
   };
   return (
-    <Table sortable celled>
+    <Table sortable celled stackable>
       {renderHeader(headerColumns)}
 
       <Table.Body>
@@ -61,9 +52,7 @@ const CustomTable = ({
       <Table.Footer fullWidth>
         <Table.Row>
           <Table.HeaderCell />
-          <Table.HeaderCell
-            colSpan={headerColumns.length + 1}
-          ></Table.HeaderCell>
+          <Table.HeaderCell colSpan={headerColumns.length + 1} />
         </Table.Row>
       </Table.Footer>
     </Table>

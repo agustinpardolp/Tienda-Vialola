@@ -1,8 +1,7 @@
 import React from "react";
 
-
 import { OverlayAnimation } from "../../utils/baseStyleAnimations";
-import TransitionWrapper from "../../components/transition";
+import TransitionWrapper from "../Transition";
 
 import {
   StyledCategoryTittle,
@@ -10,20 +9,21 @@ import {
   StyledContainer,
   StyledPhotoDiv,
 } from "./styled-components";
+import { PATHS } from "../../routes/constants";
 
 export default function StyledCard({
   element,
   handleChangeImage,
   fontSize,
   category,
-  path,
+  path = PATHS.home,
   noTitle,
   filePath,
   img,
   callBack,
   height,
   width,
-  backgroundSize
+  backgroundSize,
 }) {
   return (
     <StyledContainer height={height} width={width}>

@@ -39,17 +39,31 @@ const Contact = withFormik({
     artworkData,
     subject,
     message,
-  }) => ({
-    clientName: clientName || "",
-    email: email || "",
-    country: country || "",
-    city: city || "",
-    subject: subject,
-    message: message || "",
-    artworkData: data?.name
-      ? `${data.name}- Serie: ${data.serie.name} - ${data.description} - ${data.price} / ${data.priceReproduction}`
-      : artworkData,
-  }),
+    state,
+    history,
+  }) => {
+    return {
+      clientName: clientName || "",
+      email: email || "",
+      country: country || "",
+      city: city || "",
+      subject: subject,
+      message: message || "",
+      artworkData: history.location.state?.name
+        ? `${history.location.state.name}- Serie: ${
+            history.location.state.serie
+          } - ${history.location.state.description} - ${
+            history.location.state.allowOriginal
+              ? `USD ${history.location.state.price}`
+              : ""
+          } / ${
+            history.location.state.allowReproduction
+              ? `USD ${history.location.state.priceReproduction}`
+              : ""
+          }`
+        : artworkData,
+    };
+  },
   handleSubmit: (values, { props, setErrors }) => {
     props.createClientConsult(values);
   },

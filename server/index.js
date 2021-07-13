@@ -22,6 +22,10 @@ app.use(session({ secret: "vialola", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/vialola-api", routes);
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Internal server error');
+});
 
 //levanto y sincronizo la base, luego si todo ok, levanto servidor
 db.sync({ force: false}).then(() => {

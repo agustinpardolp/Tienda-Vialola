@@ -1,62 +1,25 @@
-import React, { useState } from "react";
-import Card from "../../components/Card";
+import React from "react";
+import { IMAGES } from "../../constants";
+import { useSlider } from "../../hooks/useSlider";
+import TransitionWrapper from "../Transition";
+import { initialImage } from "./constants";
+
 import {
-  ElementSlider,
-  StyledDiv,
-  StyledSlideContainer,
-  StyledButtonContainer,
+  StyledSliderContainer,
+  StyledHomeContainer,
 } from "./styled-components";
 
-function Slider({ elements, handleChangeImage, fontSize, noTitle }) {
-  const [elementIndex, setElementIndex] = useState(0);
-
-  let firstSevenElements =
-    elements.length > 7
-      ? elements.slice(elementIndex, elementIndex + 8)
-      : elements;
-
-  const nextElement = () => {
-    const lastElementIndex = elements.length - 8;
-    const resetElementIndex = elementIndex === lastElementIndex;
-    const index = resetElementIndex ? 0 : elementIndex + 1;
-    setElementIndex(index);
-  };
-
-  const prevElement = () => {
-    const lastElementIndex = elements.length - 8;
-    const resetElementIndex = elementIndex === 0;
-    const index = resetElementIndex ? lastElementIndex : elementIndex - 1;
-    setElementIndex(index);
-  };
-
+const Slider = () => {
+  const { imageData } = useSlider(IMAGES);
   return (
-    <>
-      <StyledSlideContainer>
-        <StyledDiv col={firstSevenElements}>
-          <StyledButtonContainer>
-            <span onClick={prevElement}>Back</span>
-          </StyledButtonContainer>
-          <ElementSlider col={firstSevenElements}>
-            {firstSevenElements.length &&
-              firstSevenElements.map((element) => {
-                return (
-                  <Card
-                    element={element}
-                    handleChangeImage={handleChangeImage}
-                    category={element.category.name}
-                    fontSize={fontSize}
-                    noTitle={noTitle}
-                  ></Card>
-                );
-              })}
-          </ElementSlider>
-          <StyledButtonContainer>
-            <span onClick={nextElement}>Next</span>
-          </StyledButtonContainer>
-        </StyledDiv>
-      </StyledSlideContainer>
-    </>
+    <TransitionWrapper>
+      <StyledSliderContainer>
+        <StyledHomeContainer
+          img={imageData ? imageData : initialImage}
+          pageTransition="all 1.8s"
+        />
+      </StyledSliderContainer>
+    </TransitionWrapper>
   );
-}
-
+};
 export default Slider;

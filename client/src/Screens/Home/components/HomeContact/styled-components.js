@@ -9,7 +9,7 @@ const StyledHomeContact = styled.p`
   letter-spacing: 3px;
   @media ${DEVICES_MAX_WIDTH.tablet} {
     margin: 3% 10% 3% 10%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 

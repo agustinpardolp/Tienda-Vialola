@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { NAVBAR } from "../../../constants";
+import { NAVBAR } from "../../NavBar/constants";
+
 import { StyledSidebar, StyledLink } from "./styled-component";
 const Sidebar = () => {
   const history = useHistory();
@@ -23,6 +24,7 @@ const Sidebar = () => {
         })}
       </ul>
     </StyledSidebar>
+    
   );
 };
 

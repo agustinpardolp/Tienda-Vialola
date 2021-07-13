@@ -21,10 +21,13 @@ router.put("/about", () => {
     About.update({
       info: req.body.info,
     }).then((resp) => {
-      console.log("ress", resp);
       res.sendStatus(201);
     })
   );
+});
+router.get("/accounts/logout/", function (req, res, next) {
+  req.logout();
+  res.sendStatus(201);
 });
 
 module.exports = router;

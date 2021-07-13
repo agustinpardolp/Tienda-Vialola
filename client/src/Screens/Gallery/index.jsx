@@ -4,31 +4,25 @@ import { connect } from "react-redux";
 import Card from "../../components/Card";
 import CardGrid from "../../components/CardGrid";
 import Dividers from "../../components/Divider";
-import Spinner from "../../components/Modals&Spinners/spinner";
-import { REQUEST_STATUS } from "../../constants";
 import { fetchArtworkCategories } from "../../redux/artworkCategories/actions/artwork-categories-actions";
+import { FadeIn } from "../../utils/baseStyleAnimations";
 import { StyledMain } from "./styledComponents";
 
-export function Gallery(props) {
+export function Gallery({ fetchArtworkCategories, artworkCategories, status }) {
   useEffect(() => {
-    props.fetchArtworkCategories("");
-  }, []);
+    fetchArtworkCategories("");
+  }, [fetchArtworkCategories]);
 
   return (
-    <>
+    <FadeIn duration="1s">
       <Dividers titleElements={[{ name: "Artwork", id: 1 }]} />
       <StyledMain>
-        {props.status !== REQUEST_STATUS.LOADED ? (
-          <Spinner active></Spinner>
-        ) : (
           <CardGrid
             row={"1"}
-            elementsLength={
-              props.artworkCategories && props.artworkCategories.length
-            }
+            elementsLength={artworkCategories && artworkCategories.length}
           >
-            {props.artworkCategories &&
-              props.artworkCategories.map((category) => {
+            {artworkCategories &&
+              artworkCategories.map((category) => {
                 return (
                   <Card
                     key={category.id}
@@ -40,9 +34,8 @@ export function Gallery(props) {
                 );
               })}
           </CardGrid>
-        )}
       </StyledMain>
-    </>
+    </FadeIn>
   );
 }
 

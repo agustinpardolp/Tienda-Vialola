@@ -1,3 +1,4 @@
+
 export const API_DOMAIN = "/vialola-api";
 
 export const API_LOGIN = `${API_DOMAIN}/users/accounts/login/`;
@@ -7,8 +8,8 @@ export const API_ARTWORKS = `${API_DOMAIN}/artworks/`;
 export const API_SERIES = `${API_DOMAIN}/series/`;
 export const API_PRODUCTS = `${API_DOMAIN}/products/`;
 export const API_PROFILE = `${API_DOMAIN}/profile/`;
-export const API_SLIDER = `${API_DOMAIN}/slider/`;
-export const API_ABOUT = `${API_DOMAIN}/users/about/`;
+export const API_HOME_OPTIONS = `${API_DOMAIN}/home-options/`;
+export const API_NEWS = `${API_DOMAIN}/news`;
 //ARTWORKS CONSTANTS
 
 export const types = {
@@ -50,12 +51,15 @@ export const types = {
   RECEIVE_LOGGED_USER: "RECEIVE_LOGGED_USER",
   RECEIVE_LOGGED_USER_FAILURE: "RECEIVE_LOGGED_USER_FAILURE",
   RECEIVE_LOGGED_USER_SUCCESS: "RECEIVE_LOGGED_USER_SUCCESS",
-  FETCH_ABOUT: "FETCH_ABOUT",
-  FETCH_ABOUT_SUCCESS: "FETCH_ABOUT_SUCCESS",
-  FETCH_ABOUT_FAILURE: "FETCH_ABOUT_FAILURE",
-  EDIT_ABOUT: "EDIT_ABOUT",
-  EDIT_ABOUT_SUCCESS: "EDIT_ABOUT_SUCCESS",
-  EDIT_ABOUT_FAILURE: "EDIT_ABOUT_FAILURE",
+  SEND_USER_LOGOUT: "SEND_USER_LOGOUT",
+  SEND_USER_LOGOUT_SUCCESS: "SEND_USER_LOGOUT_SUCCESS",
+  //NEWS
+  FETCH_NEWS: "FETCH_NEWS",
+  FETCH_NEWS_SUCCESS: "FETCH_NEWS_SUCCESS",
+  FETCH_NEWS_FAILURE: "FETCH_NEWS_FAILURE",
+  EDIT_NEWS: "EDIT_NEWS",
+  EDIT_NEWS_SUCCESS: "EDIT_NEWS_SUCCESS",
+  EDIT_NEWS_FAILURE: "EDIT_NEWS_FAILURE",
   //SIDEBAR
   RECEIVE_MENU_OPTION: "RECEIVE_MENU_OPTION",
   //CART
@@ -81,15 +85,15 @@ export const types = {
   FETCH_PRODUCT_BY_ID_FAILURE: "FETCH_PRODUCT_BY_ID_FAILURE",
 
   //SLIDER
-  EDIT_SLIDER: "EDIT_SLIDER",
-  EDIT_SLIDER_SUCCESS: "EDIT_SLIDER_SUCCESS",
-  EDIT_SLIDER_FAILURE: "EDIT_SLIDER_FAILURE",
-  FETCH_SLIDER: "FETCH_SLIDER",
-  FETCH_SLIDER_SUCCESS: "FETCH_SLIDER_SUCCESS",
-  FETCH_SLIDER_FAILURE: "FETCH_SLIDER_FAILURE",
-  DELETE_SLIDER: "DELETE_SLIDER",
-  DELETE_SLIDER_SUCCESS: "DELETE_SLIDER_SUCCESS",
-  DELETE_SLIDER_FAILURE: "DELETE_SLIDER_FAILURE",
+  EDIT_HOME_OPTIONS: "EDIT_HOME_OPTIONS",
+  EDIT_HOME_OPTIONS_SUCCESS: "EDIT_HOME_OPTIONS_SUCCESS",
+  EDIT_HOME_OPTIONS_FAILURE: "EDIT_HOME_OPTIONS_FAILURE",
+  FETCH_HOME_OPTIONS: "FETCH_HOME_OPTIONS",
+  FETCH_HOME_OPTIONS_SUCCESS: "FETCH_HOME_OPTIONS_SUCCESS",
+  FETCH_HOME_OPTIONS_FAILURE: "FETCH_HOME_OPTIONS_FAILURE",
+  DELETE_HOME_OPTIONS: "DELETE_HOME_OPTIONS",
+  DELETE_HOME_OPTIONS_SUCCESS: "DELETE_HOME_OPTIONS_SUCCESS",
+  DELETE_HOME_OPTIONS_FAILURE: "DELETE_HOME_OPTIONS_FAILURE",
 };
 
 export const QUERY_PARAMS = {
@@ -101,32 +105,6 @@ export const QUERY_PARAMS = {
 export const REGEX = {
   ALPHANUMERIC: /^[a-zA-Z0-9]+$/,
   EMAIL_REGEX_SCHEMA: /^(?=.{1,254}$)((?=.{1,64}@)[ñÑa-zA-Z0-9-`~!@#$%^&*?/()_|+\-=;:'"´¨,.<>\{\}\[\]\\\/]+\.[A-Za-z]{2,4},?)$/,
-};
-
-export const NAVBAR = {
-  OPTIONS: [
-    { name: "navbar.home", id: 1, path: "/home" },
-    { name: "navbar.about", id: 2, path: "/about" },
-    { name: "navbar.gallery", id: 3, path: "/gallery" },
-    { name: "navbar.shop", id: 4, path: "/shop" },
-    { name: "navbar.contact", id: 5, path: "/contact" },
-    // { name: "News", id: 6, path: "/news" },
-  ],
-  SHOPOPTIONS: [
-    { NAME: "prints  ", id: 2, path: "prints" },
-    { NAME: "small art  ", id: 3, path: "small-art" },
-    { NAME: "objects  ", id: 4, path: "objects" },
-    { NAME: "miscellaneous", id: 5, path: "miscellaneous" },
-  ],
-  ARTIST: {
-    NAME: "Dolores Pardo",
-  },
-  ADMIN: [
-    { NAME: "Artwork", id: 1, path: "/admin/edit-artwork" },
-    { NAME: "Series", id: 2, path: "/admin/edit-series" },
-    { NAME: "Slider", id: 3, path: "/admin/edit-slider" },
-    { NAME: "About", id: 4, path: "/admin/edit-about" },
-  ],
 };
 
 export const IMAGES = [
@@ -219,20 +197,4 @@ export const REQUEST_STATUS = {
   LOADING: "LOADING",
   LOADED: "LOADED",
   FAILED: "FAILED",
-};
-export const SCREENS_LABELS = {
-  artwork: {
-    labels: {
-      title: "Title",
-      category: "Category:",
-      serie: "Serie:",
-      description: "Description:",
-      printsAvailable: "Prints available, please send a coment",
-    },
-  },
-  welcome: {
-    labels: {
-      enter: "Enter",
-    },
-  },
 };

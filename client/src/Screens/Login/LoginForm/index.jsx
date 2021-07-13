@@ -25,23 +25,23 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
       <form onSubmit={handleLoginSubmit}>
         <div className="login-container">
           <h2>
-            <span>Admin</span>
+            <span>Admin Login</span>
           </h2>
           <Input
-            name={"email"}
-            label={"login.user"}
+            name="email"
+            placeholder="login.user"
             handleChange={handleChange}
             iconType={faUser}
-            type={"text"}
+            type="text"
             values={values.email}
             errors={errors.email}
           />
           <Input
-            name={"password"}
-            label={"login.password"}
+            name="password"
+            placeholder="login.password"
             handleChange={handleChange}
             iconType={faLock}
-            type={"password"}
+            type="password"
             values={values.password}
             errors={errors.password}
           />
@@ -51,10 +51,9 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
             variant={!errorsFormHandler() ? "confirm" : "disabled"}
           />
           <div className="login_checkbox-container">
-            <p>
-            </p>
+            <p></p>
             <input
-              name={"rememberUser"}
+              name="rememberUser"
               type="checkbox"
               value={values.rememberUser}
               onChange={handleChange}

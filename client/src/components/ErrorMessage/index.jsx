@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 
 import { StyledError } from "./styled-components";
 
-const ErrorMessage = ({ errorMessage= " " }) => {
+const ErrorMessage = ({ errorMessage= "campos requerido" }) => {
   
   return (
     <StyledError>

@@ -4,14 +4,10 @@ import { Route, Redirect } from "react-router-dom";
 
 const PublicRoute = ({ token, component: Component, ...rest }) => {
   const checkAuth = () => {
-    // let tokenData = JSON.parse(localStorage.getItem("token_data"));
-    // console.log(tokenData, token);
-    // if (tokenData || token) {
-    //   debugger
-      return false;
-    // }
-    // else return true;
-
+    let tokenData = JSON.parse(localStorage.getItem("token_data"));
+    if (tokenData) {
+      return true;
+    } else return false;
   };
 
   return (
@@ -19,7 +15,7 @@ const PublicRoute = ({ token, component: Component, ...rest }) => {
       {...rest}
       render={(props) =>
         checkAuth(props) ? (
-          <Redirect from="/*" to="/auth/home" />
+          <Redirect from="/*" to="/admin/edit-artwork" />
         ) : (
           <Component {...props} />
         )
@@ -27,6 +23,5 @@ const PublicRoute = ({ token, component: Component, ...rest }) => {
     />
   );
 };
-
 
 export default PublicRoute;

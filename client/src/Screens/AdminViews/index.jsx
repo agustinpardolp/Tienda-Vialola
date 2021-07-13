@@ -7,35 +7,30 @@ import Sidebar from "../../components/AdminComponents/Sidebar";
 import { fetchArtworks } from "../../redux/artworks/actions/artworks-actions";
 import ToastNotification from "../../components/ToastNotification";
 
-import EditAbout from "./About";
 import EditSeries from "./Series";
 import EditArtwork from "./Artwork";
-import {
-  StyledAdminContainer,
-} from "./Styled-components";
-import EditSlider from "./Slider";
+import { StyledAdminContainer } from "./Styled-components";
 
 function Admin({ match }) {
   return (
-    <StyledAdminContainer columns={2}>
-      <ToastNotification/>
-      <Grid.Row>
-        <Grid.Column width={2} className="sidebarContainer">
-          <Sidebar />
-        </Grid.Column>
-        <Grid.Column width={14}>
-          <Switch>
-            <Route path={`${match.path}edit-artwork`} component={EditArtwork} />
-            <Route
-              exact
-              path={`${match.path}edit-slider`}
-              component={EditSlider}
-            />
-            <Route exact path={`${match.path}edit-series`} component={EditSeries} />
-            <Route exact path={`${match.path}edit-about`} component={EditAbout} />
-          </Switch>
-        </Grid.Column>
-      </Grid.Row>
+    <StyledAdminContainer stackable>
+      <ToastNotification />
+          <Grid.Column width={2} className="sidebarContainer">
+            <Sidebar />
+          </Grid.Column>
+          <Grid.Column width={14}>
+            <Switch>
+              <Route
+                path={`${match.path}edit-artwork`}
+                component={EditArtwork}
+              />
+              <Route
+                exact
+                path={`${match.path}edit-series`}
+                component={EditSeries}
+              />
+            </Switch>
+          </Grid.Column>
     </StyledAdminContainer>
   );
 }

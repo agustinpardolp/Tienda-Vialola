@@ -10,7 +10,7 @@ const StyledMainContainer = styled.div`
 `;
 
 const StyledForm = styled.div`
-  margin: 10% 10% 0 15%;
+  margin: 8% 8% 0 12%;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(1) {
       order: 2;
@@ -20,18 +20,18 @@ const StyledForm = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  background-size: cover;
+  align-items: center;
   background: ${(props) =>
-    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat center`};
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  height: 100vh;
-  text-align: center;
+    `url("${process.env.PUBLIC_URL}/images/img-background/${props.img}.jpg") no-repeat left;`};
+  background-size: contain;
+  display: inline-block;
+  justify-content: flex-start;
   width: 100%;
-  z-index: -1;
   @media ${DEVICES_MAX_WIDTH.laptop} {
     &:nth-of-type(2) {
+      background-position: center;
+      margin-top: 35px;
+      height: 50vh;
       order: 1;
     }
   }

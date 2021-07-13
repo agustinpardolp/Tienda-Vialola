@@ -1,52 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
 
-import Carousele from "../../components/Carousel";
-import { fetchSlider } from "../../redux/slider/actions";
-import ImageSlider from "../../components/ImageSlider";
+import Slider from "../../components/Slider";
 import HomeProducts from "./components/HomeProducts";
 import HomeText from "./components/HomeText";
 import HomeContact from "./components/HomeContact";
-import {
-  StyledMainHomeProducts,
-  StyledHomeContainer,
-} from "./styled-components";
-import { initialImage, images, shopProducts } from "./constants";
+import CarouselSlider from "../../components/CarouseleSlider";
+import { StyledMainHomeProducts } from "./styled-components";
+import { shopProducts, IMAGES } from "./constants";
+import { MEDIA_SIZES } from "../../constants";
 
-function Home({ fetchSlider }) {
+
+function Home() {
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    fetchSlider();
-  }, []);
+    setIsMobile((window.innerWidth || 0) <= parseInt(MEDIA_SIZES.tablet));
+  }, [window.innerWidth]);
 
-  const [imageData, setImageData] = useState({
-    homeImage: initialImage,
-    heigth: 0,
-    initialEffect: "all 1.8s",
-  });
-  useEffect(() => {
-    setImageData({
-      homeImage: "slide12",
-      heigth: 0,
-      initialEffect: "all 1.8s",
-    });
-  }, []);
-
-  const getImageSlider = (image) => {
-    setImageData({
-      ...imageData,
-      homeImage: image,
-    });
-  };
   return (
     <StyledMainHomeProducts>
-      <Carousele>
-        <StyledHomeContainer
-          img={imageData.homeImage}
-          pageTransition={imageData.initialEffect}
-        >
-          <ImageSlider getImageSlider={getImageSlider} IMAGES={images} />
-        </StyledHomeContainer>
-      </Carousele>
+      {isMobile ? <CarouselSlider sliders={IMAGES} /> : <Slider />}
       <HomeText />
       <HomeProducts shopProducts={shopProducts} />
       <HomeContact />
@@ -54,17 +26,4 @@ function Home({ fetchSlider }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  const {
-    slider: { data: sliders, status },
-  } = state;
-
-  return {
-    status,
-    sliders,
-  };
-};
-
-export default connect(mapStateToProps, {
-  fetchSlider,
-})(Home);
+export default Home;

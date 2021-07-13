@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useContext } from "react";
+import React, { useCallback, useMemo, useContext, useEffect } from "react";
 
 import { FormattedMessage, useIntl } from "react-intl";
 import {
@@ -26,9 +26,11 @@ export default function ContactForm({
   handleSubmit,
   setFieldValue,
 }) {
-  console.log(errors);
   const intl = useIntl();
   const context = useContext(Context);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleFormSubmit = useCallback(
     (e, lenguage) => {
@@ -39,9 +41,11 @@ export default function ContactForm({
     },
     [errors, handleSubmit]
   );
+
   const handlerSelectOptions = useMemo(() => {
     return optionsHandler(intl);
   }, [intl]);
+
   const handleSubjectChange = (e, data) => {
     let value = data.options.find((option) => option.value === data.value);
     setFieldValue(data.name, value.text);

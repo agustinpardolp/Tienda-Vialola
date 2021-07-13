@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { connect } from "react-redux";
-import { Grid } from "semantic-ui-react";
 
 import Filter from "../../../components/AdminComponents/Filter";
 import Table from "../../../components/AdminComponents/Table";
@@ -11,10 +10,11 @@ import {
   fetchArtworks,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 } from "../../../redux/artworks/actions/artworks-actions";
 import { fetchSeries } from "../../../redux/series/actions/serie-actions";
 import { transformResponse } from "../../../utils";
+import { headerColumns, MODAL_TYPE } from "./constants";
 
 const EditArtwork = ({
   location: { pathname },
@@ -26,7 +26,7 @@ const EditArtwork = ({
   artworkCategories,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 }) => {
   const [filter, setFilter] = useState("");
   let { dispatch } = useContext(ModalContext);
@@ -37,34 +37,6 @@ const EditArtwork = ({
     fetchArtworkCategories("");
   }, [fetchArtworkCategories, fetchArtworks, fetchSeries, filter]);
 
-  const headerColumns = [
-    {
-      id: "1",
-      name: "Nombre",
-      dataField: "name",
-    },
-    {
-      id: "2",
-      name: "Descripcion",
-      dataField: "description",
-    },
-    {
-      id: "3",
-      name: "Precio",
-      dataField: "price",
-    },
-    {
-      id: "4",
-      name: "Precio reproduccion",
-      dataField: "priceReproduction",
-    },
-    {
-      id: "5",
-      name: "Original en venta",
-      dataField: "allowOriginal",
-    },
-    { id: 6, name: "Reproduccion en venta", dataField: "allowReproduction" },
-  ];
   const handleSeries = (data) => {
     let queryParams = "";
     if (data.placeholder === FILTER_LABELS.series && data.value) {
@@ -77,14 +49,14 @@ const EditArtwork = ({
   const handleDelete = (data) => {
     dispatch({
       type: "show",
-      modalType: "DELETE",
+      modalType: MODAL_TYPE.DELETE,
       modalProps: {
         open: true,
         handleConfirm: deleteArtwork,
         posResponse: fetchArtworks,
-        data: data.id,
-        title:"¿Esta seguro que desea borrar la fila?",
-        message: "La informacion se borrara de forma permantente"
+        data: { artworkId: data.id, serieId: data.serieId },
+        title: "¿Esta seguro que desea borrar la fila?",
+        message: "La informacion se borrara de forma permantente",
       },
     });
   };
@@ -92,13 +64,13 @@ const EditArtwork = ({
   const handleEdit = (data) => {
     dispatch({
       type: "show",
-      modalType: "FORM_ARTWORK",
+      modalType: MODAL_TYPE.FORM_ARTWORK,
       modalProps: {
         open: true,
         handleConfirm: editArtwork,
         posResponse: fetchArtworks,
         data: data,
-        categories: transformResponse(artworkCategories)
+        categories: transformResponse(artworkCategories),
       },
     });
   };
@@ -106,13 +78,13 @@ const EditArtwork = ({
   const handleCreate = () => {
     dispatch({
       type: "show",
-      modalType: "FORM_ARTWORK",
+      modalType: MODAL_TYPE.FORM_ARTWORK,
       modalProps: {
         open: true,
         handleConfirm: createArtwork,
-        posResponse: fetchArtworks,
+        posResponse: "",
         categories: transformResponse(artworkCategories),
-        isNew: true
+        isNew: true,
       },
     });
   };
@@ -126,14 +98,13 @@ const EditArtwork = ({
         ]}
         handleNewOption={handleCreate}
       />
-      <Grid.Row>
-        <Table
-          headerColumns={headerColumns}
-          dataRows={artworks}
-          handleSelectedRow={handleEdit}
-          handleDeleteRow={handleDelete}
-        />
-      </Grid.Row>
+
+      <Table
+        headerColumns={headerColumns}
+        dataRows={artworks}
+        handleSelectedRow={handleEdit}
+        handleDeleteRow={handleDelete}
+      />
     </>
   );
 };
@@ -158,5 +129,5 @@ export default connect(mapStateToProps, {
   fetchArtworkCategories,
   deleteArtwork,
   editArtwork,
-  createArtwork
+  createArtwork,
 })(EditArtwork);
